@@ -1,0 +1,72 @@
+﻿@{
+	ViewBag.Title = "Info";
+}
+
+<h2>@ViewBag.YouSelected2</h2>
+@{
+	string h;
+	h = ViewBag.Hardware;
+	string[] wordh = h.Split(',');
+
+	string s;
+	s = ViewBag.Software;
+	string[] words = s.Split(',');
+
+	string a;
+	a= ViewBag.Applications;
+	string[] worda = a.Split(',');
+
+	string n;
+	n = ViewBag.Network;
+	string[] wordn = n.Split(',');
+
+	string st;
+	st = ViewBag.Storage;
+	string[] wordst = st.Split(',');
+
+}
+
+<table border="1" bgcolor="#99ccff" style="width: 100%;">
+	<tr>
+		<td>
+			<img alt="" height="180" width="130" src="/Content/themes/base/images/kattekrab_Mainframe.png" /></td>
+		@foreach (string word in wordh)
+	{
+		<td>@word</td>
+  }
+	</tr>
+	<tr>
+		<td>
+			<img alt="" height="180" width="130" src="/Content/themes/base/images/software-418231__180.jpg" /></td>
+		@foreach (string word in words)
+	{
+		<td>@word</td>
+  }
+	</tr>
+	<tr>
+		<td>
+			<img alt="" height="180" width="130" src="/Content/themes/base/images/kattekrab_Mainframe.png" /></td>
+		@foreach (string word in worda)
+	{
+		<td>@word</td>
+  }
+	</tr>
+	<tr>
+		<td>
+			<img alt="" height="180" width="130" src="/Content/themes/base/images/kattekrab_Mainframe.png" /></td>
+		@foreach (string word in wordn)
+	{
+		<td>@word</td>
+  }
+	</tr>
+	<tr>
+		<td>
+			<img alt="" height="180" width="130" src="/Content/themes/base/images/kattekrab_Mainframe.png" /></td>
+		@foreach (string word in wordst)
+	{
+		<td>@word</td>
+  }
+	</tr>
+</table>
+
+		

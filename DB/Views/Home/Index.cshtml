@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <p>
+                This site aims at informing different types of companies with respect to their Information Technology needs 
+                depending ontheir idustry, the number ofemployees, the number of customers and the number of transactiosn per month
+            </p>
+        </div>
+    </section>
+}
+@using (Html.BeginForm("Index", "Home", FormMethod.Post, 
+    new { id = "CompanyEmployeeFormID", 
+          data_employeeListAction = @Url.Action("EmployeeList"),  })) {
+    <fieldset>
+        <label for="Industry">Industry</label>
+        <legend>Company/Employee</legend>
+        @Html.DropDownList("Companies", ViewBag.Company as SelectList,
+            "Select a Company", new { id = "CompaniesID" })
+        <div id="EmployeesDivID" >
+            <label for="Employees">Employees</label>
+            <select id="EmployeesID"  name="Employees"></select>
+        </div>
+        <div id="CustomersDivID">
+       <label for="Customers">Customers</label>
+            @Html.DropDownList("Customers", ViewBag.Customer as SelectList,
+            "Select number of Customers", new { id = "CustomersID" })
+        </div>
+        <div id="TransactionsDivID">
+        <label for="Transactions">Transactions per month</label>
+        @Html.DropDownList("Transactions", ViewBag.TransactionPM as SelectList,
+            "Select number of Transactions per Month", new { id = "TransactionPMsID" })
+        </div>
+         <p>
+            <input type="submit" value="Submit" id="SubmitID" />
+        </p>
+    </fieldset>
+}
+
+<script src="@Url.Content("~/Scripts/companyEmployee.js")"></script>
+<script src="@Url.Content("~/Scripts/Customer.js")"></script>
+<script src="@Url.Content("~/Scripts/Transaction.js")"></script>
