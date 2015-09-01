@@ -11,6 +11,8 @@ namespace DB.Controllers
         // GET: Themes
         public ActionResult Index(string name)
         {
+            System.Web.HttpContext.Current.Session["theme_name"] = name;
+
             return Redirect(ControllerContext.HttpContext.Request.UrlReferrer.ToString());
         }
     }

@@ -10,9 +10,19 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 
-    <link href="@Url.Content("~/Content/bootswatch/sandstone/bootstrap.min.css")" rel="stylesheet" type="text/css" />
+    @if (Session["theme_name"] == null)
+    {
+        <link href="@Url.Content("~/Content/bootswatch/sandstone/bootstrap.min.css")" rel="stylesheet" type="text/css" />
+    }
+    else
+    {
+        string themeName = (String)Session["theme_name"];
+
+        <link href="@Url.Content("~/Content/bootswatch/" + themeName + "/bootstrap.min.css")" rel="stylesheet" type="text/css" />
+    }
 
 </head>
+
 <body>
     <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
