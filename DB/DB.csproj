@@ -209,6 +209,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ThemesController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -227,6 +228,22 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootswatch\cerulean\bootstrap.min.css" />
+    <Content Include="Content\bootswatch\cosmo\bootstrap.min.css" />
+    <Content Include="Content\bootswatch\cyborg\bootstrap.min.css" />
+    <Content Include="Content\bootswatch\darkly\bootstrap.min.css" />
+    <Content Include="Content\bootswatch\flatly\bootstrap.min.css" />
+    <Content Include="Content\bootswatch\journal\bootstrap.min.css" />
+    <Content Include="Content\bootswatch\lumen\bootstrap.min.css" />
+    <Content Include="Content\bootswatch\paper\bootstrap.min.css" />
+    <Content Include="Content\bootswatch\readable\bootstrap.min.css" />
+    <Content Include="Content\bootswatch\sandstone\bootstrap.min.css" />
+    <Content Include="Content\bootswatch\simplex\bootstrap.min.css" />
+    <Content Include="Content\bootswatch\slate\bootstrap.min.css" />
+    <Content Include="Content\bootswatch\spacelab\bootstrap.min.css" />
+    <Content Include="Content\bootswatch\superhero\bootstrap.min.css" />
+    <Content Include="Content\bootswatch\united\bootstrap.min.css" />
+    <Content Include="Content\bootswatch\yeti\bootstrap.min.css" />
     <Content Include="Content\img\applications.png" />
     <Content Include="Content\img\kattekrab-mainframe.png" />
     <Content Include="Content\img\network.png" />
@@ -343,6 +360,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\bootswatch\default\" />
+    <Folder Include="Views\Themes\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

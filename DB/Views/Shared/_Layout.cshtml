@@ -1,32 +1,65 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
     <title>@ViewBag.Title &middot ITPedia</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <meta name="viewport" content="width=device-width" />
-    @Styles.Render("~/Content/css")
+
+
+    <link href="@Url.Content("~/Content/bootswatch/sandstone/bootstrap.min.css")" rel="stylesheet" type="text/css" />
+
 </head>
 <body>
-    <header>
-        <div class="content-wrapper">
-            <div class="float-left">
-                <p class="site-title">@Html.ActionLink("IT Pedia", "Index", "Home")</p>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                @Html.ActionLink("ITPedia", "Index", new { controller = "Home" }, new { @class = "navbar-brand" })
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
             </div>
-            <div class="float-right">
-                @*<section id="login">
-                        @Html.Partial("_LoginPartial")
-                    </section>*@
-                <nav>
-                    <ul id="menu">
-                        <li>@Html.ActionLink("Configuration", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Acknowledgment", "Acknowledgment", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    </ul>
-                </nav>
+            <div class="navbar-collapse collapse" id="navbar-main">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Configuration", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Acknowledgment", "Acknowledgment", "Home")</li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Themes <span class="caret"></span></a>
+                        <ul class="dropdown-menu" aria-labelledby="themes">
+                            <li>@Html.ActionLink("Default", "Index", "Themes", new { name = "default" }, null)</li>
+                            <li class="divider"></li>
+                            <li>@Html.ActionLink("Cerulean", "Index", "Themes", new { name = "cerulean" }, null)</li>
+                            <li>@Html.ActionLink("Cosmo", "Index", "Themes", new { name = "cosmo" }, null)</li>
+                            <li>@Html.ActionLink("Cyborg", "Index", "Themes", new { name = "cyborg" }, null)</li>
+                            <li>@Html.ActionLink("Darkly", "Index", "Themes", new { name = "darkly" }, null)</li>
+                            <li>@Html.ActionLink("Flatly", "Index", "Themes", new { name = "flatly" }, null)</li>
+                            <li>@Html.ActionLink("Journaly", "Index", "Themes", new { name = "journal" }, null)</li>
+                            <li>@Html.ActionLink("Lumen", "Index", "Themes", new { name = "lumen" }, null)</li>
+                            <li>@Html.ActionLink("Paper", "Index", "Themes", new { name = "paper" }, null)</li>
+                            <li>@Html.ActionLink("Readable", "Index", "Themes", new { name = "readable" }, null)</li>
+                            <li>@Html.ActionLink("Sandstone", "Index", "Themes", new { name = "sandstone" }, null)</li>
+                            <li>@Html.ActionLink("Simplex", "Index", "Themes", new { name = "simplex" }, null)</li>
+                            <li>@Html.ActionLink("Slate", "Index", "Themes", new { name = "slate" }, null)</li>
+                            <li>@Html.ActionLink("Spacelab", "Index", "Themes", new { name = "spacelab" }, null)</li>
+                            <li>@Html.ActionLink("Superhero", "Index", "Themes", new { name = "superhero" }, null)</li>
+                            <li>@Html.ActionLink("United", "Index", "Themes", new { name = "united" }, null)</li>
+                            <li>@Html.ActionLink("Yeti", "Index", "Themes", new { name = "yeti" }, null)</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+
             </div>
         </div>
-    </header>
+    </div>
     <div id="body">
 
         @RenderSection("featured", required: false)
