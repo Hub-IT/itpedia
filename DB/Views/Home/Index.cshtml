@@ -1,10 +1,10 @@
 ﻿@{
-    ViewBag.Title = "ITPedia";
+    ViewBag.Title = "Home";
 }
 
 @section featured {
     <div class="jumbotron">
-        <h1>@ViewBag.Title</h1>
+        <h1>ITPedia</h1>
         <h2>@ViewBag.Message</h2>
         <p>
             This site aims at informing different types of companies with respect to their Information Technology needs
@@ -14,41 +14,54 @@
     </div>
 }
 
-@using (Html.BeginForm("Index", "Home", FormMethod.Post,
-                                        new
-                                        {
-                                            id = "CompanyEmployeeFormID",
-                                            data_employeeListAction = @Url.Action("EmployeeList"),
-                                            data_customerListAction = @Url.Action("CustomerList"),
-                                            data_transactionListAction = @Url.Action("TransactionList"),
-                                        }))
+@using (Html.BeginForm("Index", "Home", FormMethod.Post, new
+{
+    @id = "CompanyEmployeeFormID",
+    data_employeeListAction = @Url.Action("EmployeeList"),
+    data_customerListAction = @Url.Action("CustomerList"),
+    data_transactionListAction = @Url.Action("TransactionList"),
+    @class = "form-horizontal"
+}))
 {
     <fieldset>
-        <label>Industry</label>
         <legend>Company/Employee</legend>
 
-        @Html.DropDownList("Companies", ViewBag.Company as SelectList,
-            "Select a Company", new { id = "CompaniesID" })
-
-        <div id="EmployeesDivID" style="display: none">
-            <label for="EmployeesID">Employees</label>
-            <select id="EmployeesID" name="Employees"></select>
+        <div class="form-group">
+            <label class="col-lg-2 control-label">Industry</label>
+            <div class="col-lg-10">
+                @Html.DropDownList("Companies", ViewBag.Company as SelectList,
+            "Select a Company", new { @id = "CompaniesID", @class = "form-control" })
+            </div>
         </div>
 
-        <div id="CustomersDivID" style="display: none">
-            <label for="CustomersID">Customers</label>
-            @Html.DropDownList("Customers", ViewBag.Customer as SelectList,
-            "Select number of Customers", new { id = "CustomersID" })
+        <div class="form-group" id="EmployeesDivID" style="display: none">
+            <label class="col-lg-2 control-label">Employees</label>
+            <div class="col-lg-10">
+                <select id="EmployeesID" name="Employees" class="form-control"></select>
+            </div>
         </div>
 
-        <div id="TransactionsDivID" style="display: none">
-            <label for="TransactionPMsID">Transactions per month</label>
-            @Html.DropDownList("Transactions", ViewBag.TransactionPM as SelectList,
-            "Select number of Transactions per Month", new { id = "TransactionPMsID" })
+        <div class="form-group" id="CustomersDivID" style="display: none">
+            <label class="col-lg-2 control-label">Customers</label>
+            <div class="col-lg-10">
+                @Html.DropDownList("Customers", ViewBag.Customer as SelectList,
+            "Select number of Customers", new { @id = "CustomersID", @class = "form-control" })
+            </div>
         </div>
-        <p>
-            <input type="submit" value="Submit" id="SubmitID" style="display: none" />
-        </p>
+
+        <div class="form-group" id="TransactionsDivID" style="display: none">
+            <label class="col-lg-2 control-label">Transactions per month</label>
+            <div class="col-lg-10">
+                @Html.DropDownList("Transactions", ViewBag.TransactionPM as SelectList,
+            "Select number of Transactions per Month", new { id = "TransactionPMsID", @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+                <button type="submit" class="btn btn-primary" id="SubmitID" style="display: none">Submit</button>
+            </div>
+        </div>
     </fieldset>
 }
 

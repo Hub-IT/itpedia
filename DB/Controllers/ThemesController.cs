@@ -5,9 +5,9 @@ namespace DB.Controllers
     public class ThemesController : Controller
     {
         // GET: Themes
-        public ActionResult Index(string name)
+        public ActionResult Index(string id = "sandstone")
         {
-            System.Web.HttpContext.Current.Session["theme_name"] = name;
+            System.Web.HttpContext.Current.Session["theme_name"] = id;
 
             if (ControllerContext.HttpContext.Request.UrlReferrer != null)
                 return Redirect(ControllerContext.HttpContext.Request.UrlReferrer.ToString());

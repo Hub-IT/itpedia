@@ -11,10 +11,12 @@
     string[] storage = ViewBag.Storage.Split(',');
 }
 
-<table border="1" bgcolor="#99ccff" style="width: 100%;">
+<h1>Results</h1>
+
+<table class="table table-hover ">
     <tr>
         <td>
-            <img alt="Kattekrab mainframe" height="180" width="180" src="/Content/img/kattekrab-mainframe.png" />
+            <img alt="Kattekrab mainframe" height="150" width="150" src="/Content/img/kattekrab-mainframe.png" />
         </td>
         @foreach (string word in hardwares)
         {
@@ -23,7 +25,7 @@
     </tr>
     <tr>
         <td>
-            <img alt="Software" height="180" width="180" src="/Content/img/software.png" />
+            <img alt="Software" height="150" width="150" src="/Content/img/software.png" />
         </td>
         @foreach (string word in software)
         {
@@ -32,7 +34,7 @@
     </tr>
     <tr>
         <td>
-            <img alt="Applications" height="180" width="180" src="/Content/img/applications.png" />
+            <img alt="Applications" height="150" width="150" src="/Content/img/applications.png" />
         </td>
         @foreach (string word in applications)
         {
@@ -41,7 +43,7 @@
     </tr>
     <tr>
         <td>
-            <img alt="Network" height="180" width="180" src="/Content/img/network.png" />
+            <img alt="Network" height="150" width="150" src="/Content/img/network.png" />
         </td>
         @foreach (string word in networks)
         {
@@ -50,7 +52,7 @@
     </tr>
     <tr>
         <td>
-            <img alt="Storage" height="180" width="180" src="/Content/img/storage.png" />
+            <img alt="Storage" height="150" width="150" src="/Content/img/storage.png" />
         </td>
         @foreach (string word in storage)
         {
