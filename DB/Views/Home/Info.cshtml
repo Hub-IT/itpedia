@@ -11,7 +11,7 @@
     string[] storage = ViewBag.Storage.Split(',');
 }
 
-<h1>Results</h1>
+<h1>Results - Original View Layout</h1>
 
 <div class="table-responsive">
     <table class="table table-hover">
@@ -61,4 +61,92 @@
             }
         </tr>
     </table>
+</div>
+
+<h2>Alternative View Layout</h2>
+
+<div class="row">
+    <div class="col-lg-4">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Hardware</h3>
+            </div>
+
+            <ul class="list-group">
+                @foreach (string word in hardwares)
+            {
+            <li class="list-group-item">
+                @word
+            </li>
+            }
+            </ul>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Hardware</h3>
+            </div>
+
+            <ul class="list-group">
+                @foreach (string word in software)
+            {
+            <li class="list-group-item">
+                @word
+            </li>
+            }
+            </ul>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Applications</h3>
+            </div>
+
+            <ul class="list-group">
+                @foreach (string word in applications)
+            {
+            <li class="list-group-item">
+                @word
+            </li>
+            }
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-4">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Networks</h3>
+            </div>
+
+            <ul class="list-group">
+                @foreach (string word in networks)
+            {
+                    <li class="list-group-item">
+                        @word
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Storage</h3>
+            </div>
+
+            <ul class="list-group">
+                @foreach (string word in storage)
+            {
+                    <li class="list-group-item">
+                        @word
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
 </div>
