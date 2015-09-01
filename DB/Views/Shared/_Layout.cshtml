@@ -1,55 +1,54 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>@ViewBag.Title - ITPedia</title>
-        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        <script src="@Url.Content("~/Scripts/jquery-1.5.1.js")" type="text/javascript"></script>
-         <script src="@Url.Content("~/Scripts/myReady.js")" type="text/javascript"></script>
-        <meta name="viewport" content="width=device-width" />
-        @Styles.Render("~/Content/css")
-        @Scripts.Render("~/bundles/modernizr")
-    </head>
-    <body>
-        <header>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
-                </div>
-                <div class="float-right">
-                    @*<section id="login">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title &middot ITPedia</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <header>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p class="site-title">@Html.ActionLink("IT Pedia", "Index", "Home")</p>
+            </div>
+            <div class="float-right">
+                @*<section id="login">
                         @Html.Partial("_LoginPartial")
                     </section>*@
-                    <nav>
-                        <ul id="menu">
-                            <li>@Html.ActionLink("Configuration", "Index", "Home")</li>
-                            <li>@Html.ActionLink("Acknowledgment", "Acknowledgment", "Home")</li>
-                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </header>
-        <div id="body">
-            @RenderSection("featured", required: false)
-            <div class="content-wrapper main-content clear-fix">
-                @RenderBody()
+                <nav>
+                    <ul id="menu">
+                        <li>@Html.ActionLink("Configuration", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Acknowledgment", "Acknowledgment", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                </nav>
             </div>
         </div>
-        <footer>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - IT Pedia </p>
-                </div>
+    </header>
+    <div id="body">
+        @RenderSection("featured", required: false)
+        <div class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </div>
+    </div>
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p>&copy; @DateTime.Now.Year - IT Pedia </p>
             </div>
-        </footer>
+        </div>
+    </footer>
 
-      @*  @Scripts.Render("~/bundles/jquery")
-        @RenderSection("scripts", required: true)*@
-         <noscript>
+    @Scripts.Render("~/bundles/jquery")
+    <script src="@Url.Content("~/Scripts/myReady.js")" type="text/javascript"></script>
+
+    <noscript>
         <div>
             <h2>This site requires JavaScript</h2>
         </div>
     </noscript>
-    </body>
+</body>
 </html>
