@@ -133,7 +133,7 @@ namespace DB.Controllers
 
 
 
-          //  ViewBag.YouSelected2 = "You selected " + company.SingleOrDefault() + " And " + employee.SingleOrDefault() + " The number of customers " + customer.SingleOrDefault() + " the number of Transactions per month " + transaction.SingleOrDefault() + " with Solution: " + sol.ToString();
+            //  ViewBag.YouSelected2 = "You selected " + company.SingleOrDefault() + " And " + employee.SingleOrDefault() + " The number of customers " + customer.SingleOrDefault() + " the number of Transactions per month " + transaction.SingleOrDefault() + " with Solution: " + sol.ToString();
             // ViewBag.YouSelected =  "You Selected " + sol;
 
 
@@ -145,9 +145,6 @@ namespace DB.Controllers
 
 
             return View("Info");
-
-
-
         }
 
 
@@ -165,9 +162,10 @@ namespace DB.Controllers
 
         public ActionResult EmployeeList(string ID)
         {
-            string Code = ID;
+            string code = ID;
+
             var employees = from s in DB.Models.Employee.GetEmployees()
-                            where s.CT_Code == Code
+                            where s.CT_Code == code
                             select s;
 
             if (HttpContext.Request.IsAjaxRequest())

@@ -1,12 +1,13 @@
-﻿$(function () {
+﻿/**
+ * Listens for changes on select list with employees. When an employee is selected, it instruct the browser to retrieve asynchrously the possible number of customers.
+ */
+$(function () {
 
-    $('#TransactionsDivID').hide();
-
-    $('#CustomersID').change(function () {
+    $('#EmployeesID').change(function () {
 
         var url = $('#CompanyEmployeeFormID').data('customerlistaction');
 
-        $.getJSON(url + '/' + $('#CustomersID').val(), function (data) {
+        $.getJSON(url + '/' + $('#EmployeesID').val(), function (data) {
 
             var items = '<option>Select Customers</option>';
 
@@ -16,11 +17,6 @@
 
             $('#CustomersID').html(items);
             $('#CustomersDivID').show();
-
         });
-    });
-
-    $('#CustomersID').change(function () {
-        $('#TransactionsDivID').show();
     });
 });

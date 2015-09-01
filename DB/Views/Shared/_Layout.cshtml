@@ -6,7 +6,6 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
     <header>
@@ -29,9 +28,13 @@
         </div>
     </header>
     <div id="body">
+
         @RenderSection("featured", required: false)
+
         <div class="content-wrapper main-content clear-fix">
+
             @RenderBody()
+
         </div>
     </div>
     <footer>
@@ -42,13 +45,23 @@
         </div>
     </footer>
 
-    @Scripts.Render("~/bundles/jquery")
-    <script src="@Url.Content("~/Scripts/myReady.js")" type="text/javascript"></script>
-
     <noscript>
         <div>
             <h2>This site requires JavaScript</h2>
         </div>
     </noscript>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <script>
+        $(function () {
+            $('#main').show();
+        });
+    </script>
+
+    @RenderSection("scripts", required: false)
+
 </body>
 </html>
