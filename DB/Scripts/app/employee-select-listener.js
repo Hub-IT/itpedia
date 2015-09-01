@@ -1,5 +1,11 @@
 ﻿/**
- * Listens for changes on select list with employees. When an employee is selected, it instruct the browser to retrieve asynchrously the possible number of customers.
+ * @author Unkown
+ * @author Rizart Dokollari <r.dokollari@gmail.com>
+ * @since 9/1/2015
+ * 
+ * Listen for a change on select list with employees. When this change happens, asynchrounsly retrieve the possible number of customers. 
+ * When done retreiving those numbers, save them to a select list, and show them to user.
+ * 
  */
 $(function () {
 
