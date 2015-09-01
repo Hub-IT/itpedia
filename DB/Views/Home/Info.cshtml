@@ -13,50 +13,52 @@
 
 <h1>Results</h1>
 
-<table class="table table-hover table-responsive">
-    <tr>
-        <td>
-            <img alt="Kattekrab mainframe" height="150" width="150" src="/Content/img/kattekrab-mainframe.png" />
-        </td>
-        @foreach (string word in hardwares)
-        {
-            <td>@word</td>
-        }
-    </tr>
-    <tr>
-        <td>
-            <img alt="Software" height="150" width="150" src="/Content/img/software.png" />
-        </td>
-        @foreach (string word in software)
-        {
-            <td>@word</td>
-        }
-    </tr>
-    <tr>
-        <td>
-            <img alt="Applications" height="150" width="150" src="/Content/img/applications.png" />
-        </td>
-        @foreach (string word in applications)
-        {
-            <td>@word</td>
-        }
-    </tr>
-    <tr>
-        <td>
-            <img alt="Network" height="150" width="150" src="/Content/img/network.png" />
-        </td>
-        @foreach (string word in networks)
-        {
-            <td>@word</td>
-        }
-    </tr>
-    <tr>
-        <td>
-            <img alt="Storage" height="150" width="150" src="/Content/img/storage.png" />
-        </td>
-        @foreach (string word in storage)
-        {
-            <td>@word</td>
-        }
-    </tr>
-</table>
+<div class="table-responsive">
+    <table class="table table-hover">
+        <tr>
+            <td>
+                <img alt="Kattekrab mainframe" height="150" width="150" src="/Content/img/kattekrab-mainframe.png" />
+            </td>
+            @foreach (string word in hardwares)
+            {
+                <td>@word</td>
+            }
+        </tr>
+        <tr>
+            <td>
+                <img alt="Software" height="150" width="150" src="/Content/img/software.png" />
+            </td>
+            @foreach (string word in software)
+            {
+                <td>@word</td>
+            }
+        </tr>
+        <tr>
+            <td>
+                <img alt="Applications" height="150" width="150" src="/Content/img/applications.png" />
+            </td>
+            @foreach (string word in applications)
+            {
+                <td>@word</td>
+            }
+        </tr>
+        <tr>
+            <td>
+                <img alt="Network" height="150" width="150" src="/Content/img/network.png" />
+            </td>
+            @foreach (string word in networks)
+            {
+                <td>@word</td>
+            }
+        </tr>
+        <tr>
+            <td>
+                <img alt="Storage" height="150" width="150" src="/Content/img/storage.png" />
+            </td>
+            @foreach (string word in storage)
+            {
+                <td>@word</td>
+            }
+        </tr>
+    </table>
+</div>
