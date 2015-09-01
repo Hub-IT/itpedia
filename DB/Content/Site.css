@@ -23,3 +23,34 @@ body {
 #main-content {
     padding-top: 100px;
 }
+
+
+/* Invert the text color based on the background */
+.invert-bar { 
+    position: relative; 
+    width: 300px; 
+    height: 30px; 
+    background-color: #444;
+    border-radius: 10%;
+ }
+.invert-bar p { 
+    padding: 7px;
+    margin: 0px;
+    font-size: 13px; 
+    white-space: nowrap; 
+}
+.invert-bar > p {
+    color: red;
+}
+.invert-bar > div { 
+    position: absolute; 
+    top: 0px; 
+    left: 0px; 
+    height: 30px; 
+    width: 28px; 
+    overflow: hidden;
+    background-color: red;
+}
+.invert-bar > div > p { 
+    color: white;
+}
