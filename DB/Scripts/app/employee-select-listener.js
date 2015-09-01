@@ -5,6 +5,8 @@ $(function () {
 
     $('#EmployeesID').change(function () {
 
+        $('#TransactionsDivID').hide();
+
         var url = $('#CompanyEmployeeFormID').data('customerlistaction');
 
         $.getJSON(url + '/' + $('#EmployeesID').val(), function (data) {

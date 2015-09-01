@@ -227,6 +227,11 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\img\applications.png" />
+    <Content Include="Content\img\kattekrab-mainframe.png" />
+    <Content Include="Content\img\network.png" />
+    <Content Include="Content\img\software.png" />
+    <Content Include="Content\img\storage.png" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />

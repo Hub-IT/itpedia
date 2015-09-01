@@ -1,3 +1,6 @@
-﻿$('#TransactionPMsID').change(function () {
-    $('#SubmitID').show();
+﻿$(function () {
+
+    $('#TransactionPMsID').change(function () {
+        $('#SubmitID').show();
+    });
 });
