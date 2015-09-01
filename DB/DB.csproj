@@ -246,6 +246,7 @@
     <Content Include="Content\bootswatch\yeti\bootstrap.min.css" />
     <Content Include="Content\img\applications.png" />
     <Content Include="Content\img\kattekrab-mainframe.png" />
+    <Content Include="Content\img\logo.png" />
     <Content Include="Content\img\network.png" />
     <Content Include="Content\img\software.png" />
     <Content Include="Content\img\storage.png" />
