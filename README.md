@@ -7,7 +7,8 @@ A Web Application. Updated to ASP.NET MVC5.
   - [Commit often](https://sethrobertson.github.io/GitBestPractices/).
   - Write your commit message in the [imperative](https://robots.thoughtbot.com/5-useful-tips-for-a-better-commit-message): "Fix bug" and not "Fixed bug" or "Fixes bug."
 ## Installation
-> I assume you have opened this project using Visual Studio Community IDE.
+> I assume you have opened this project using Visual Studio Community IDE.  
+
 1. Allow NuGet to restore packages.
  - Open NuGet (Tools -> NuGet Package Manager -> Package Manager Console)
  - Press 'Restore' button. If you are not able to find this button [execute](https://docs.nuget.org/consume/reinstalling-packages) the below command on the package manager console: `Update-Package –reinstall`
@@ -16,6 +17,7 @@ A Web Application. Updated to ASP.NET MVC5.
 
 
 ## Contributors
-> Please add your author name on this list for your contributions, as well as on the code as needed. [Open Source/Free contribution Culture](http://www.webweavertech.com/costin/archives/000320.html)
+> Please add your author name on this list for your contributions, as well as on the code as needed. [Open Source/Free contribution Culture](http://www.webweavertech.com/costin/archives/000320.html)  
+
 - Uknown
 - Rizart Dokollari <r.dokollari@gmail.com>
