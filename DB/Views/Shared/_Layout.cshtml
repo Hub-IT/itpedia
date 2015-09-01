@@ -10,89 +10,92 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 
-    @if (Session["theme_name"] == null)
-    {
-        <link href="@Url.Content("~/Content/bootswatch/sandstone/bootstrap.min.css")" rel="stylesheet" type="text/css" />
+    @{
+        string themeName = Session["theme_name"] == null ? "sandstone" : (String)Session["theme_name"];
     }
-    else
-    {
-        string themeName = (String)Session["theme_name"];
 
-        <link href="@Url.Content("~/Content/bootswatch/" + themeName + "/bootstrap.min.css")" rel="stylesheet" type="text/css" />
-    }
+    <link href="@Url.Content("~/Content/bootswatch/" + themeName + "/bootstrap.min.css")" rel="stylesheet" type="text/css" />
+
+    @Styles.Render("~/Content/css")
 
 </head>
 
 <body>
-    <div class="navbar navbar-default navbar-fixed-top">
+    <div id="wrap">
+        
+        <div class="navbar navbar-default navbar-fixed-top" id="top-navbar">
+            <div class="container">
+                <div class="navbar-header">
+                    @Html.ActionLink("ITPedia", "Index", new { controller = "Home" }, new { @class = "navbar-brand" })
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse" id="navbar-main">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Configuration", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Acknowledgment", "Acknowledgment", "Home")</li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Themes <span class="caret"></span></a>
+                            <ul class="dropdown-menu" aria-labelledby="themes">
+                                <li>@Html.ActionLink("Default", "Index", "Themes", new { name = "default" }, null)</li>
+                                <li class="divider"></li>
+                                <li>@Html.ActionLink("Cerulean", "Index", "Themes", new { name = "cerulean" }, null)</li>
+                                <li>@Html.ActionLink("Cosmo", "Index", "Themes", new { name = "cosmo" }, null)</li>
+                                <li>@Html.ActionLink("Cyborg", "Index", "Themes", new { name = "cyborg" }, null)</li>
+                                <li>@Html.ActionLink("Darkly", "Index", "Themes", new { name = "darkly" }, null)</li>
+                                <li>@Html.ActionLink("Flatly", "Index", "Themes", new { name = "flatly" }, null)</li>
+                                <li>@Html.ActionLink("Journaly", "Index", "Themes", new { name = "journal" }, null)</li>
+                                <li>@Html.ActionLink("Lumen", "Index", "Themes", new { name = "lumen" }, null)</li>
+                                <li>@Html.ActionLink("Paper", "Index", "Themes", new { name = "paper" }, null)</li>
+                                <li>@Html.ActionLink("Readable", "Index", "Themes", new { name = "readable" }, null)</li>
+                                <li>@Html.ActionLink("Sandstone", "Index", "Themes", new { name = "sandstone" }, null)</li>
+                                <li>@Html.ActionLink("Simplex", "Index", "Themes", new { name = "simplex" }, null)</li>
+                                <li>@Html.ActionLink("Slate", "Index", "Themes", new { name = "slate" }, null)</li>
+                                <li>@Html.ActionLink("Spacelab", "Index", "Themes", new { name = "spacelab" }, null)</li>
+                                <li>@Html.ActionLink("Superhero", "Index", "Themes", new { name = "superhero" }, null)</li>
+                                <li>@Html.ActionLink("United", "Index", "Themes", new { name = "united" }, null)</li>
+                                <li>@Html.ActionLink("Yeti", "Index", "Themes", new { name = "yeti" }, null)</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container" id="main-content">
+            @RenderSection("featured", required: false)
+            <div class="content-wrapper main-content clear-fix">
+                @RenderBody()
+
+            </div>
+        </div>
+
+        <div id="push"></div>
+    </div>
+
+
+    @*class="navbar navbar-default"*@
+    <div id="footer" class="navbar navbar-default">
         <div class="container">
-            <div class="navbar-header">
-                @Html.ActionLink("ITPedia", "Index", new { controller = "Home" }, new { @class = "navbar-brand" })
-                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="navbar-collapse collapse" id="navbar-main">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Configuration", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Acknowledgment", "Acknowledgment", "Home")</li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Themes <span class="caret"></span></a>
-                        <ul class="dropdown-menu" aria-labelledby="themes">
-                            <li>@Html.ActionLink("Default", "Index", "Themes", new { name = "default" }, null)</li>
-                            <li class="divider"></li>
-                            <li>@Html.ActionLink("Cerulean", "Index", "Themes", new { name = "cerulean" }, null)</li>
-                            <li>@Html.ActionLink("Cosmo", "Index", "Themes", new { name = "cosmo" }, null)</li>
-                            <li>@Html.ActionLink("Cyborg", "Index", "Themes", new { name = "cyborg" }, null)</li>
-                            <li>@Html.ActionLink("Darkly", "Index", "Themes", new { name = "darkly" }, null)</li>
-                            <li>@Html.ActionLink("Flatly", "Index", "Themes", new { name = "flatly" }, null)</li>
-                            <li>@Html.ActionLink("Journaly", "Index", "Themes", new { name = "journal" }, null)</li>
-                            <li>@Html.ActionLink("Lumen", "Index", "Themes", new { name = "lumen" }, null)</li>
-                            <li>@Html.ActionLink("Paper", "Index", "Themes", new { name = "paper" }, null)</li>
-                            <li>@Html.ActionLink("Readable", "Index", "Themes", new { name = "readable" }, null)</li>
-                            <li>@Html.ActionLink("Sandstone", "Index", "Themes", new { name = "sandstone" }, null)</li>
-                            <li>@Html.ActionLink("Simplex", "Index", "Themes", new { name = "simplex" }, null)</li>
-                            <li>@Html.ActionLink("Slate", "Index", "Themes", new { name = "slate" }, null)</li>
-                            <li>@Html.ActionLink("Spacelab", "Index", "Themes", new { name = "spacelab" }, null)</li>
-                            <li>@Html.ActionLink("Superhero", "Index", "Themes", new { name = "superhero" }, null)</li>
-                            <li>@Html.ActionLink("United", "Index", "Themes", new { name = "united" }, null)</li>
-                            <li>@Html.ActionLink("Yeti", "Index", "Themes", new { name = "yeti" }, null)</li>
-                        </ul>
-                    </li>
-                </ul>
-
-                <ul class="nav navbar-nav navbar-right">
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-
-            </div>
-        </div>
-    </div>
-    <div id="body">
-
-        @RenderSection("featured", required: false)
-
-        <div class="content-wrapper main-content clear-fix">
-
-            @RenderBody()
+            <p class="navbar-brand">&copy; @DateTime.Now.Year - ITPedia </p>
 
         </div>
     </div>
-    <footer>
-        <div class="content-wrapper">
-            <div class="float-left">
-                <p>&copy; @DateTime.Now.Year - IT Pedia </p>
-            </div>
-        </div>
-    </footer>
 
     <noscript>
         <div>
             <h2>This site requires JavaScript</h2>
         </div>
     </noscript>
+
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

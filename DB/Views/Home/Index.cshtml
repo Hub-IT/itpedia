@@ -1,30 +1,27 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "ITPedia";
 }
 
 @section featured {
-    <section class="featured">
-        <div class="content-wrapper">
-            <hgroup class="title">
-                <h1>@ViewBag.Title.</h1>
-                <h2>@ViewBag.Message</h2>
-            </hgroup>
-            <p>
-                This site aims at informing different types of companies with respect to their Information Technology needs
-                depending ontheir idustry, the number ofemployees, the number of customers and the number of transactiosn per month
-            </p>
-        </div>
-    </section>
+    <div class="jumbotron">
+        <h1>@ViewBag.Title</h1>
+        <h2>@ViewBag.Message</h2>
+        <p>
+            This site aims at informing different types of companies with respect to their Information Technology needs
+            depending ontheir idustry, the number ofemployees, the number of customers and the number of transactiosn per month
+        </p>
+        <p><a class="btn btn-primary btn-lg">Configuration</a></p>
+    </div>
 }
 
 @using (Html.BeginForm("Index", "Home", FormMethod.Post,
-                new
-                {
-                    id = "CompanyEmployeeFormID",
-                    data_employeeListAction = @Url.Action("EmployeeList"),
-                    data_customerListAction = @Url.Action("CustomerList"),
-                    data_transactionListAction = @Url.Action("TransactionList"),
-                }))
+                                        new
+                                        {
+                                            id = "CompanyEmployeeFormID",
+                                            data_employeeListAction = @Url.Action("EmployeeList"),
+                                            data_customerListAction = @Url.Action("CustomerList"),
+                                            data_transactionListAction = @Url.Action("TransactionList"),
+                                        }))
 {
     <fieldset>
         <label>Industry</label>
@@ -33,7 +30,7 @@
         @Html.DropDownList("Companies", ViewBag.Company as SelectList,
             "Select a Company", new { id = "CompaniesID" })
 
-        <div id="EmployeesDivID"  style="display: none">
+        <div id="EmployeesDivID" style="display: none">
             <label for="EmployeesID">Employees</label>
             <select id="EmployeesID" name="Employees"></select>
         </div>
@@ -50,7 +47,7 @@
             "Select number of Transactions per Month", new { id = "TransactionPMsID" })
         </div>
         <p>
-            <input type="submit" value="Submit" id="SubmitID" style="display: none"/>
+            <input type="submit" value="Submit" id="SubmitID" style="display: none" />
         </p>
     </fieldset>
 }

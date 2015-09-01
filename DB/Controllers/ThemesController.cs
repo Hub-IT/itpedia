@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace DB.Controllers
 {
@@ -13,7 +9,10 @@ namespace DB.Controllers
         {
             System.Web.HttpContext.Current.Session["theme_name"] = name;
 
-            return Redirect(ControllerContext.HttpContext.Request.UrlReferrer.ToString());
+            if (ControllerContext.HttpContext.Request.UrlReferrer != null)
+                return Redirect(ControllerContext.HttpContext.Request.UrlReferrer.ToString());
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }

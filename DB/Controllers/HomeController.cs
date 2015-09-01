@@ -13,7 +13,7 @@ namespace DB.Controllers
             ViewBag.Company = GetCompanySelectList();
             ViewBag.Customer = GetCustomerSelectList();
             ViewBag.TransactionPM = GetTransactionPMSelectList();
-            // ++viewbag customers, trans
+
             return View();
         }
 
