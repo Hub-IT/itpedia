@@ -22,3 +22,4 @@ A Web Application. Updated to ASP.NET MVC5.
 
 - Uknown
 - Rizart Dokollari <r.dokollari@gmail.com>
+- Antony Kalogeropoulos <anthony.kalogeropoulos@gmail.com>
