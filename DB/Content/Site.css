@@ -30,8 +30,8 @@ body {
     position: relative; 
     width: 300px; 
     height: 30px; 
-    background-color: #444;
-    border-radius: 10%;
+    /*background-color: #444;
+    border-radius: 10%;*/
  }
 .invert-bar p { 
     padding: 7px;
