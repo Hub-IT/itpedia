@@ -25,24 +25,27 @@ body {
 }
 
 
+
+/* Contact Page */
+.myTitle {
+    border-bottom-style: ridge;
+}
+
 /* Invert the text color based on the background */
-.invert-bar { 
+.contact-label { 
     position: relative; 
-    width: 300px; 
     height: 30px; 
-    /*background-color: #444;
-    border-radius: 10%;*/
  }
-.invert-bar p { 
+.contact-label p { 
     padding: 7px;
     margin: 0px;
     font-size: 13px; 
     white-space: nowrap; 
 }
-.invert-bar > p {
-    color: red;
+.contact-label > p {
+    color: #317e8a;
 }
-.invert-bar > div { 
+.contact-label > div { 
     position: absolute; 
     top: 0px; 
     left: 0px; 
@@ -51,6 +54,9 @@ body {
     overflow: hidden;
     background-color: red;
 }
-.invert-bar > div > p { 
+.contact-label > div > p { 
     color: white;
 }
+
+
+/* END Contact Page */

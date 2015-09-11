@@ -2,52 +2,59 @@
     ViewBag.Title = "Contact";
 }
 
-<hgroup class="title">
-    <h1>@ViewBag.Title.</h1>
-    <h2>@ViewBag.Message</h2>
-</hgroup>
+
+<div class="text-center">
+
+    <hgroup class="title">
+        <h1 class="myTitle">@ViewBag.Title</h1>
+        <h2>@ViewBag.Message</h2>
+    </hgroup>
 
 
-<section class="contact">
-    <header>
-        <h3>Phone</h3>
-    </header>
-    <div class="invert-bar">
-        <p class="label">Main:</p>
-        <span>425.555.0100</span>
-    </div>
-    <div class="invert-bar">
-        <p class="label">After Hours:</p>
-        <span>425.555.0199</span>
-    </div>
-</section>
+    <section class="contact">
+        <header>
+            <h3>Phone</h3>
+        </header>
+        <div class="contact-label">
+            <p class="label">Main:</p>
+            <span>425.555.0100</span>
+        </div>
+        <div class="contact-label">
+            <p class="label">After Hours:</p>
+            <span>425.555.0199</span>
+        </div>
+    </section>
 
-<section class="contact">
-    <header>
-        <h3>Email</h3>
-    </header>
-    <div class="invert-bar">
-        <p class=" label">Support:</p>
-        <span><a href="mailto:Support@example.com">Support@example.com</a></span>
-    </div>
-    <div class="invert-bar">
-        <p class=" label ">
-        Marketing:</p>
-        <span><a href="mailto:Marketing@example.com">Marketing@example.com</a></span>
-    </div>
-    <div class="invert-bar">
-        <p class=" label">
-        General:</p>
-        <span><a href="mailto:General@example.com">General@example.com</a></span>
-    </div>
-</section>
+    <section class="contact">
+        <header>
+            <h3>Email</h3>
+        </header>
+        <div class="contact-label">
+            <p class=" label">Support:</p>
+            <span><a href="mailto:Support@example.com">Support@example.com</a></span>
+        </div>
+        <div class="contact-label">
+            <p class=" label ">
+                Marketing:
+            </p>
+            <span><a href="mailto:Marketing@example.com">Marketing@example.com</a></span>
+        </div>
+        <div class="contact-label">
+            <p class=" label">
+                General:
+            </p>
+            <span><a href="mailto:General@example.com">General@example.com</a></span>
+        </div>
+    </section>
 
-<section class="contact">
-    <header>
-        <h3>Address</h3>
-    </header>
-    <p>
-        One Microsoft Way<br />
-        Redmond, WA 98052-6399
-    </p>
-</section>
+    <section class="contact">
+        <header>
+            <h3>Address</h3>
+        </header>
+        <p>
+            One Microsoft Way<br />
+            Redmond, WA 98052-6399
+        </p>
+    </section>
+
+</div>
