@@ -12,7 +12,7 @@
 
 
     @{
-        string themeName = Session["theme_name"] == null ? "sandstone" : (String)Session["theme_name"];
+        string themeName = Session["theme_name"] == null ? "cerulean" : (String)Session["theme_name"];
     }
 
     <link href="@Url.Content("~/Content/bootswatch/" + themeName + "/bootstrap.min.css")" rel="stylesheet" type="text/css" />
@@ -43,29 +43,6 @@
                         </li>
                         <li class='@Html.IsActive("Home", "Acknowledgment")'>
                             @Html.ActionLink("Acknowledgment", "Acknowledgment", "Home")
-                        </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Themes <span class="caret"></span></a>
-                            <ul class="dropdown-menu" aria-labelledby="themes">
-                                <li>@Html.ActionLink("Default", "Index", "Themes", new { id = "default" }, null)</li>
-                                <li class="divider"></li>
-                                <li>@Html.ActionLink("Cerulean", "Index", "Themes", new { id = "cerulean" }, null)</li>
-                                <li>@Html.ActionLink("Cosmo", "Index", "Themes", new { id = "cosmo" }, null)</li>
-                                <li>@Html.ActionLink("Cyborg", "Index", "Themes", new { id = "cyborg" }, null)</li>
-                                <li>@Html.ActionLink("Darkly", "Index", "Themes", new { id = "darkly" }, null)</li>
-                                <li>@Html.ActionLink("Flatly", "Index", "Themes", new { id = "flatly" }, null)</li>
-                                <li>@Html.ActionLink("Journaly", "Index", "Themes", new { id = "journal" }, null)</li>
-                                <li>@Html.ActionLink("Lumen", "Index", "Themes", new { id = "lumen" }, null)</li>
-                                <li>@Html.ActionLink("Paper", "Index", "Themes", new { id = "paper" }, null)</li>
-                                <li>@Html.ActionLink("Readable", "Index", "Themes", new { id = "readable" }, null)</li>
-                                <li>@Html.ActionLink("Sandstone", "Index", "Themes", new { id = "sandstone" }, null)</li>
-                                <li>@Html.ActionLink("Simplex", "Index", "Themes", new { id = "simplex" }, null)</li>
-                                <li>@Html.ActionLink("Slate", "Index", "Themes", new { id = "slate" }, null)</li>
-                                <li>@Html.ActionLink("Spacelab", "Index", "Themes", new { id = "spacelab" }, null)</li>
-                                <li>@Html.ActionLink("Superhero", "Index", "Themes", new { id = "superhero" }, null)</li>
-                                <li>@Html.ActionLink("United", "Index", "Themes", new { id = "united" }, null)</li>
-                                <li>@Html.ActionLink("Yeti", "Index", "Themes", new { id = "yeti" }, null)</li>
-                            </ul>
                         </li>
                     </ul>
 
