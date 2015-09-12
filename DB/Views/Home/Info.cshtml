@@ -11,65 +11,13 @@
     string[] storage = ViewBag.Storage.Split(',');
 }
 
-<h1>Results - Original View Layout</h1>
-
-<div class="table-responsive">
-    <table class="table table-hover">
-        <tr>
-            <td>
-                <img alt="Kattekrab mainframe" height="150" width="150" src="/Content/img/kattekrab-mainframe.png" />
-            </td>
-            @foreach (string word in hardwares)
-            {
-                <td>@word</td>
-            }
-        </tr>
-        <tr>
-            <td>
-                <img alt="Software" height="150" width="150" src="/Content/img/software.png" />
-            </td>
-            @foreach (string word in software)
-            {
-                <td>@word</td>
-            }
-        </tr>
-        <tr>
-            <td>
-                <img alt="Applications" height="150" width="150" src="/Content/img/applications.png" />
-            </td>
-            @foreach (string word in applications)
-            {
-                <td>@word</td>
-            }
-        </tr>
-        <tr>
-            <td>
-                <img alt="Network" height="150" width="150" src="/Content/img/network.png" />
-            </td>
-            @foreach (string word in networks)
-            {
-                <td>@word</td>
-            }
-        </tr>
-        <tr>
-            <td>
-                <img alt="Storage" height="150" width="150" src="/Content/img/storage.png" />
-            </td>
-            @foreach (string word in storage)
-            {
-                <td>@word</td>
-            }
-        </tr>
-    </table>
-</div>
-
 <h2>Alternative View Layout</h2>
 
 <div class="row">
     <div class="col-lg-4">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title">Hardware</h3>
+                <h3 class="panel-title"><img alt="Storage" height="20" width="20" src="/Content/img/kattekrab-mainframe.png" /> Hardware</h3>
             </div>
 
             <ul class="list-group">
@@ -85,7 +33,7 @@
     <div class="col-lg-4">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title">Software</h3>
+                <h3 class="panel-title"><img alt="Storage" height="20" width="20" src="/Content/img/software.png" /> Software</h3>
             </div>
 
             <ul class="list-group">
@@ -101,7 +49,7 @@
     <div class="col-lg-4">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title">Applications</h3>
+                <h3 class="panel-title"><img alt="Storage" height="20" width="20" src="/Content/img/applications.png" /> Applications</h3>
             </div>
 
             <ul class="list-group">
@@ -120,7 +68,7 @@
     <div class="col-lg-4">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title">Networks</h3>
+                <h3 class="panel-title"><img alt="Storage" height="20" width="20" src="/Content/img/network.png" /> Networks</h3>
             </div>
 
             <ul class="list-group">
@@ -136,7 +84,7 @@
     <div class="col-lg-4">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title">Storage</h3>
+                <h3 class="panel-title"><img alt="Storage" height="20" width="20" src="/Content/img/storage.png" /> Storage</h3>
             </div>
 
             <ul class="list-group">
