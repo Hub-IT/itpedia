@@ -25,6 +25,15 @@ body {
     padding-top: 100px;
 }
 
+#jumbotron-logo {
+    background-color: #317e8a;
+    border-radius: 30%;
+    max-width:250px;
+    max-height:250px;
+    text-align: center;
+    margin-top: -30px;
+}
+
 
 
 /* Contact Page */
