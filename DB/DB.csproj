@@ -246,9 +246,12 @@
     <Content Include="Content\bootswatch\united\bootstrap.min.css" />
     <Content Include="Content\bootswatch\yeti\bootstrap.min.css" />
     <Content Include="Content\img\applications.png" />
+    <Content Include="Content\img\DEREE Logo fixed.png" />
+    <Content Include="Content\img\ITSoc_Logo.jpg" />
     <Content Include="Content\img\kattekrab-mainframe.png" />
     <Content Include="Content\img\logo.png" />
     <Content Include="Content\img\logo2.png" />
+    <Content Include="Content\img\MIS_logo_edited_4.gif" />
     <Content Include="Content\img\network.png" />
     <Content Include="Content\img\software.png" />
     <Content Include="Content\img\storage.png" />

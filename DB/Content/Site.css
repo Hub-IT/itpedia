@@ -26,7 +26,7 @@ body {
 }
 
 #jumbotron-logo {
-    background-color: #317e8a;
+    background-color: #1995dc;
     border-radius: 30%;
     max-width:250px;
     max-height:250px;
@@ -40,6 +40,12 @@ body {
 .myTitle {
     border-bottom-style: ridge;
 }
+
+/* Footer */
+.footer-images img{
+        margin-right: 10px;
+        border:0;
+        }
 
 /* Invert the text color based on the background */
 .contact-label { 
