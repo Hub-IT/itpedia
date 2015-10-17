@@ -7,6 +7,8 @@ body {
 #footer {
     margin-bottom: 0;
     padding-bottom: 0;
+    background-image: none;
+    background: #1995dc;
 }
 
 #wrap {
@@ -45,7 +47,7 @@ body {
 .footer-images img{
         margin-right: 10px;
         border:0;
-        }
+}
 
 /* Invert the text color based on the background */
 .contact-label { 
@@ -89,5 +91,5 @@ body {
     display: block;
     text-align: center;
     padding-bottom: 10px;
-    background: linear-gradient(#54b4eb, #2fa4e7 60%, #1d9ce5);
+    background: #1995dc;
 }
