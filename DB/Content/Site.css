@@ -46,6 +46,7 @@ body {
 /* Footer */
 #footer {
     height: auto;
+    margin-top: 50px;
 }
 
 .footer-images img {
@@ -95,7 +96,5 @@ body {
     display: block;
     text-align: center;
     margin-left: 15px;
-    padding-bottom: 10px;
-    padding-top: 10px;
     background: #1995dc;
 }
