@@ -19,7 +19,7 @@ body {
     font-size: 1.3em;
 }
 
-#push, #footer {
+#push {
     height: 130px;
 }
 
@@ -44,7 +44,11 @@ body {
 }
 
 /* Footer */
-.footer-images img{
+#footer {
+    height: auto;
+}
+
+.footer-images img {
         margin-right: 10px;
         border:0;
 }
@@ -90,6 +94,8 @@ body {
     position: relative;
     display: block;
     text-align: center;
+    margin-left: 15px;
     padding-bottom: 10px;
+    padding-top: 10px;
     background: #1995dc;
 }
