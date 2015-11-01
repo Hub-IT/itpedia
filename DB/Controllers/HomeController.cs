@@ -32,6 +32,11 @@ namespace DB.Controllers
             return View();
         }
 
+        public ActionResult Dictionary()
+        {
+            return View();
+        }
+
         public ActionResult Contact()
         {
             return View();

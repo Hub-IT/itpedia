@@ -118,7 +118,7 @@ namespace DB.Models
                             S_HW = "Main Site: 8 Servers, 100-200 Desktops & Laptops, 8 Network Printers, 4 Scanner, UPS & Disaster Site: 4Servers, UPS",
                             S_SW = "Main Site: Windows Server (x8), E-Mail Server, NMS, Desktop Operating Systems, Backup Utility & Disaster Site: Windows Server (x4), E-Mail Servers",
                             S_APP = "Office Applications, ERP, CRM, Payroll, HR System, Custom Software Application(s)",
-                            S_NET = "Main Site: Central & Workgroup Switches, 2 Firewalls, 2 Routers & Disaster Site: Central Sqitch, Firewall, Router",
+                            S_NET = "Main Site: Central & Workgroup Switches, 2 Firewalls, 2 Routers & Disaster Site: Central Switch, Firewall, Router",
                             S_STO = "Main Site: SAN Storage System, Tape Library & Disaster Site: SAN Storage System"
                         }                
              }.AsQueryable();
