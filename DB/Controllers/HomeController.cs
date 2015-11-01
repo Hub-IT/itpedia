@@ -137,6 +137,23 @@ namespace DB.Controllers
             return View("~/Views/Home/Terms/Router.cshtml");
         }
 
+        public ActionResult SAN()
+        {
+            return View("~/Views/Home/Terms/SAN.cshtml");
+        }
+
+        public ActionResult Internal()
+        {
+            return View("~/Views/Home/Terms/Internal.cshtml");
+        }
+        public ActionResult StorageSystem()
+        {
+            return View("~/Views/Home/Terms/StorageSystem.cshtml");
+        }
+        public ActionResult TapeLibrary()
+        {
+            return View("~/Views/Home/Terms/TapeLibrary.cshtml");
+        }
         public SelectList GetCustomerSelectList()
         {
 
