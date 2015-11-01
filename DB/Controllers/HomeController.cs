@@ -42,6 +42,101 @@ namespace DB.Controllers
             return View();
         }
 
+        public ActionResult Desktop()
+        {
+            return View("~/Views/Home/Terms/Desktop.cshtml");
+        }
+
+        public ActionResult Server()
+        {
+            return View("~/Views/Home/Terms/Server.cshtml");
+        }
+        public ActionResult Printer()
+        {
+            return View("~/Views/Home/Terms/Printer.cshtml");
+        }
+        public ActionResult NetworkPrinter()
+        {
+            return View("~/Views/Home/Terms/NetworkPrinter.cshtml");
+        }
+        public ActionResult Scanner()
+        {
+            return View("~/Views/Home/Terms/Scanner.cshtml");
+        }
+        public ActionResult UPS()
+        {
+            return View("~/Views/Home/Terms/UPS.cshtml");
+        }
+        public ActionResult DesktopOperatingSystem()
+        {
+            return View("~/Views/Home/Terms/DesktopOperatingSystem.cshtml");
+        }
+        public ActionResult SmallBusinessServer()
+        {
+            return View("~/Views/Home/Terms/SmallBusinessServer.cshtml");
+        }
+        public ActionResult WindowsServer()
+        {
+            return View("~/Views/Home/Terms/WindowsServer.cshtml");
+        }
+        public ActionResult EmailServer()
+        {
+            return View("~/Views/Home/Terms/EmailServer.cshtml");
+        }
+        public ActionResult BackupUtility()
+        {
+            return View("~/Views/Home/Terms/BackupUtility.cshtml");
+        }
+        public ActionResult NMS()
+        {
+            return View("~/Views/Home/Terms/NMS.cshtml");
+        }
+        public ActionResult OfficeApplications()
+        {
+            return View("~/Views/Home/Terms/OfficeApplications.cshtml");
+        }
+        public ActionResult ERP()
+        {
+            return View("~/Views/Home/Terms/ERP.cshtml");
+        }
+        public ActionResult CRM()
+        {
+            return View("~/Views/Home/Terms/CRM.cshtml");
+        }
+        public ActionResult Payroll()
+        {
+            return View("~/Views/Home/Terms/Payroll.cshtml");
+        }
+        public ActionResult HRSystem()
+        {
+            return View("~/Views/Home/Terms/HRSystem.cshtml");
+        }
+        public ActionResult CustomSoftwareApplications()
+        {
+            return View("~/Views/Home/Terms/CustomSoftwareApplications.cshtml");
+        }
+        public ActionResult GeneralSwitches()
+        {
+            return View("~/Views/Home/Terms/GeneralSwitches.cshtml");
+        }
+        public ActionResult SohoSwitches()
+        {
+            return View("~/Views/Home/Terms/SohoSwitches.cshtml");
+        }
+        public ActionResult CentralWorkgroupSwitches()
+        {
+            return View("~/Views/Home/Terms/CentralWorkgroupSwitches.cshtml");
+        }
+        public ActionResult Firewall()
+        {
+            return View("~/Views/Home/Terms/Firewall.cshtml");
+        }
+
+        public ActionResult Router()
+        {
+            return View("~/Views/Home/Terms/Router.cshtml");
+        }
+
         public SelectList GetCustomerSelectList()
         {
 

@@ -4,142 +4,145 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Select an item to view explanatory information</h2>
+<div id="Dic">
 
-<div class="row">
-    <div class="col-lg-4">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title"><img alt="Storage" height="20" width="20" src="/Content/img/kattekrab-mainframe.png" /> Hardware</h3>
+    <h2 class="Dictionary">Select an item to view explanatory information</h2>
+
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><img alt="Storage" height="20" width="20" src="/Content/img/kattekrab-mainframe.png" /> Hardware</h3>
+                </div>
+
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        @Html.ActionLink("Server", "Server", "Home")
+                    </li>
+                    <li class="list-group-item">
+                        @Html.ActionLink("Desktop & Laptop", "Desktop", "Home")
+                    </li>
+                    <li class="list-group-item">
+                        @Html.ActionLink("Printer", "Printer", "Home")
+                    </li>
+                    <li class="list-group-item">
+                        @Html.ActionLink("Network Printer", "NetworkPrinter", "Home")
+                    </li>
+                    <li class="list-group-item">
+                        @Html.ActionLink("Scanner", "Scanner", "Home")
+                    </li>
+                    <li class="list-group-item">
+                        @Html.ActionLink("UPS", "UPS", "Home")
+                    </li>
+                </ul>
             </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><img alt="Storage" height="20" width="20" src="/Content/img/software.png" /> Software</h3>
+                </div>
 
-            <ul class="list-group">
-                <li class="list-group-item">
-                    Server
-                </li>
-                <li class="list-group-item">
-                    Desktop &amp; Laptop
-                </li>
-                <li class="list-group-item">
-                    Printer
-                </li>
-                <li class="list-group-item">
-                    Network Printer
-                </li>
-                <li class="list-group-item">
-                    Scanner
-                </li>
-                <li class="list-group-item">
-                    UPS
-                </li>
-            </ul>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        @Html.ActionLink("Desktop Operating System", "DesktopOperatingSystem", "Home")
+                    </li>
+                    <li class="list-group-item">
+                        @Html.ActionLink("Small Business Server", "SmallBusinessServer", "Home")
+                    </li>
+                    <li class="list-group-item">
+                        @Html.ActionLink("Windows Server", "WindowsServer", "Home")
+                    </li>
+                    <li class="list-group-item">
+                        @Html.ActionLink("E-Mail Server", "EmailServer", "Home")
+                    </li>
+                    <li class="list-group-item">
+                        @Html.ActionLink("Backup Utility", "BackupUtility", "Home")
+                    </li>
+                    <li class="list-group-item">
+                        @Html.ActionLink("NMS", "NMS", "Home")
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><img alt="Storage" height="20" width="20" src="/Content/img/applications.png" /> Applications</h3>
+                </div>
+
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        @Html.ActionLink("Office Applications", "OfficeApplications", "Home")
+                    </li>
+                    <li class="list-group-item">
+                        @Html.ActionLink("ERP", "ERP", "Home")
+                    </li>
+                    <li class="list-group-item">
+                        @Html.ActionLink("CRM", "CRM", "Home")
+                    </li>
+                    <li class="list-group-item">
+                        @Html.ActionLink("Payroll", "Payroll", "Home")
+                    </li>
+                    <li class="list-group-item">
+                        @Html.ActionLink("HR System", "HRSystem", "Home")
+                    </li>
+                    <li class="list-group-item">
+                        @Html.ActionLink("Custom Software Application", "CustomSoftwareApplications", "Home")
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
-    <div class="col-lg-4">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title"><img alt="Storage" height="20" width="20" src="/Content/img/software.png" /> Software</h3>
-            </div>
 
-            <ul class="list-group">
-                <li class="list-group-item">
-                    Desktop Operating System
-                </li>
-                <li class="list-group-item">
-                    Small Business Server
-                </li>
-                <li class="list-group-item">
-                    Windows Server
-                </li>
-                <li class="list-group-item">
-                    E-Mail Server
-                </li>
-                <li class="list-group-item">
-                    Backup Utility
-                </li>
-                <li class="list-group-item">
-                    NMS
-                </li>
-            </ul>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><img alt="Storage" height="20" width="20" src="/Content/img/network.png" /> Networks</h3>
+                </div>
+
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        @Html.ActionLink("General Switches", "GeneralSwitches", "Home")
+                    </li>
+                    <li class="list-group-item">
+                        @Html.ActionLink("SOHO Switches", "SohoSwitches", "Home")
+                    </li>
+                    <li class="list-group-item">
+                        @Html.ActionLink("Central & Workgroup Switches", "CentralWorkgroupSwitches", "Home")
+                    </li>
+                    <li class="list-group-item">
+                        @Html.ActionLink("Firewall", "Firewall", "Home")
+                    </li>
+                    <li class="list-group-item">
+                        @Html.ActionLink("Router", "Router", "Home")
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><img alt="Storage" height="20" width="20" src="/Content/img/storage.png" /> Storage</h3>
+                </div>
+
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        @Html.ActionLink("Internal", "Internal", "Home")
+                    </li>
+                    <li class="list-group-item">
+                        @Html.ActionLink("Storage System", "StorageSystem", "Home")
+                    </li>
+                    <li class="list-group-item">
+                        @Html.ActionLink("SAN Storage System", "SAN", "Home")
+                    </li>
+                    <li class="list-group-item">
+                        @Html.ActionLink("Tape Library", "TapeLibrary", "Home")
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
-    <div class="col-lg-4">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title"><img alt="Storage" height="20" width="20" src="/Content/img/applications.png" /> Applications</h3>
-            </div>
 
-            <ul class="list-group">
-                <li class="list-group-item">
-                    Office Applications
-                </li>
-                <li class="list-group-item">
-                    ERP
-                </li>
-                <li class="list-group-item">
-                    CRM
-                </li>
-                <li class="list-group-item">
-                    Payroll
-                </li>
-                <li class="list-group-item">
-                    HR System
-                </li>
-                <li class="list-group-item">
-                    Custom Software Application
-                </li>
-            </ul>
-        </div>
-    </div>
 </div>
-
-<div class="row">
-    <div class="col-lg-4">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title"><img alt="Storage" height="20" width="20" src="/Content/img/network.png" /> Networks</h3>
-            </div>
-
-            <ul class="list-group">
-                <li class="list-group-item">
-                    General Switches
-                </li>
-                <li class="list-group-item">
-                    SOHO Switches
-                </li>
-                <li class="list-group-item">
-                    Central & Workgroup Switches
-                </li>
-                <li class="list-group-item">
-                    Firewall
-                </li>
-                <li class="list-group-item">
-                    Router
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="col-lg-4">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title"><img alt="Storage" height="20" width="20" src="/Content/img/storage.png" /> Storage</h3>
-            </div>
-
-            <ul class="list-group">
-                <li class="list-group-item">
-                    Internal
-                </li>
-                <li class="list-group-item">
-                    Storage System
-                </li>
-                <li class="list-group-item">
-                    SAN Storage System
-                </li>
-                <li class="list-group-item">
-                    Tape Library
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-

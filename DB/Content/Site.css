@@ -36,6 +36,31 @@ body {
     margin-top: -30px;
 }
 
+/* Dictionary Page */
+.Dictionary {
+    border-bottom-style: ridge;
+    text-align: center;
+    margin-bottom: 40px;  
+    padding-bottom:10px;
+      
+}
+
+#Dic a {
+    color: black;
+}
+
+#Dic a:link {
+    color: black;
+}
+
+#Dic a:visited {
+    color: black;
+}
+
+#Dic a:hover {
+    color: #317eac;
+    text-decoration: none;
+}
 
 
 /* Contact Page */
