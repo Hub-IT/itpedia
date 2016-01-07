@@ -124,6 +124,8 @@
       <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Spatial, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Spatial.5.6.4\lib\net40\System.Spatial.dll</HintPath>
       <Private>True</Private>
@@ -208,6 +210,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DictionaryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ThemesController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
@@ -218,6 +221,7 @@
     <Compile Include="Models\CompanyType.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\Term.cs" />
     <Compile Include="Models\Proposal.cs" />
     <Compile Include="Models\Solution.cs" />
     <Compile Include="Models\TransactionPM.cs" />
@@ -363,7 +367,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Home\Info.cshtml" />
-    <Content Include="Views\Home\Dictionary.cshtml" />
     <Content Include="Views\Home\Terms\Server.cshtml" />
     <Content Include="Views\Home\Terms\Desktop.cshtml" />
     <Content Include="Views\Home\Terms\Printer.cshtml" />
@@ -391,6 +394,8 @@
     <Content Include="Views\Home\Terms\StorageSystem.cshtml" />
     <Content Include="Views\Home\Terms\SAN.cshtml" />
     <Content Include="Views\Home\Terms\TapeLibrary.cshtml" />
+    <Content Include="Views\Dictionary\Index.cshtml" />
+    <Content Include="Views\Dictionary\Term.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

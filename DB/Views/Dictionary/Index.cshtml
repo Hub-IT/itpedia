@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Dictionary";
+    ViewBag.Title = ViewBag.YouSelected2;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -17,22 +17,22 @@
 
                 <ul class="list-group">
                     <li class="list-group-item">
-                        @Html.ActionLink("Server", "Server", "Home")
+                        @Html.ActionLink("Server", "Term", "Dictionary", new {id = "Server"}, null)
                     </li>
                     <li class="list-group-item">
-                        @Html.ActionLink("Desktop & Laptop", "Desktop", "Home")
+                        @Html.ActionLink("Desktop & Laptop", "Term", "Dictionary", new {id = "Desktop & Laptop"}, null)
                     </li>
                     <li class="list-group-item">
-                        @Html.ActionLink("Printer", "Printer", "Home")
+                        @Html.ActionLink("Printer", "Term", "Dictionary", new {id = "Printer"}, null)
                     </li>
                     <li class="list-group-item">
-                        @Html.ActionLink("Network Printer", "NetworkPrinter", "Home")
+                        @Html.ActionLink("Network Printer", "Term", "Dictionary", new {id = "Network Printer"}, null)
                     </li>
                     <li class="list-group-item">
-                        @Html.ActionLink("Scanner", "Scanner", "Home")
+                        @Html.ActionLink("Scanner", "Term", "Dictionary", new {id = "Scanner"}, null)
                     </li>
                     <li class="list-group-item">
-                        @Html.ActionLink("UPS", "UPS", "Home")
+                        @Html.ActionLink("UPS", "Term", "Dictionary", new {id = "UPS"}, null)
                     </li>
                 </ul>
             </div>
@@ -45,19 +45,20 @@
 
                 <ul class="list-group">
                     <li class="list-group-item">
-                        @Html.ActionLink("Desktop Operating System", "DesktopOperatingSystem", "Home")
+                        @Html.ActionLink("Desktop Operating System", "Term", "Dictionary", new {id = "Desktop Operating System"}, null)
                     </li>
                     <li class="list-group-item">
-                        @Html.ActionLink("Small Business Server", "SmallBusinessServer", "Home")
+                        @Html.ActionLink("Small Business Server", "Term", "Dictionary", new {id = "Small Business Server"}, null)
                     </li>
                     <li class="list-group-item">
-                        @Html.ActionLink("Windows Server", "WindowsServer", "Home")
+                        @Html.ActionLink("Windows Server", "Term", "Dictionary", new {id = "Windows Server"}, null)
                     </li>
                     <li class="list-group-item">
-                        @Html.ActionLink("E-Mail Server", "EmailServer", "Home")
+                        @Html.ActionLink("E-Mail Server", "Term", "Dictionary", new {id = "E-Mail Server"}, null)
                     </li>
                     <li class="list-group-item">
                         @Html.ActionLink("Backup Utility", "BackupUtility", "Home")
+                        @Html.ActionLink("Backup Utility", "Term", "Dictionary", new {id = "E-Mail Server"}, null)
                     </li>
                     <li class="list-group-item">
                         @Html.ActionLink("NMS", "NMS", "Home")
