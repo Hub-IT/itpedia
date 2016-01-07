@@ -12,7 +12,7 @@ namespace DB.Controllers
         {
             ViewBag.Company = GetCompanySelectList();
             ViewBag.Customer = GetCustomerSelectList();
-            ViewBag.TransactionPM = GetTransactionPMSelectList();
+            ViewBag.TransactionPM = GetTransactionPmSelectList();
 
             return View();
         }
@@ -28,11 +28,6 @@ namespace DB.Controllers
         }
 
         public ActionResult Acknowledgment()
-        {
-            return View();
-        }
-
-        public ActionResult Dictionary()
         {
             return View();
         }
@@ -164,13 +159,13 @@ namespace DB.Controllers
 
         }
 
-        public SelectList GetTransactionPMSelectList()
+        public SelectList GetTransactionPmSelectList()
         {
+            var transactions = DB.Models.TransactionPm.GetTransactionsPm();
 
-            var transactions = DB.Models.TransactionPM.GetTransactionsPM();
             return new SelectList(transactions.ToArray(),
-                                "T_Code",
-                                "T_Name");
+                                "Code",
+                                "Name");
 
         }
         // ++slectlist customers, trans
@@ -179,7 +174,7 @@ namespace DB.Controllers
         //{
         //    ViewBag.Company = GetCompanySelectList();
         //    ViewBag.Customer = GetCustomerSelectList();
-        //    ViewBag.TransactionPM = GetTransactionPMSelectList();
+        //    ViewBag.TransactionPm = GetTransactionPmSelectList();
         //    // ++viewbag customers, trans
         //    return View();
         //}
@@ -212,9 +207,9 @@ namespace DB.Controllers
                            where s.C_Code == Customers
                            select s.C_Name;
 
-            var transaction = from s in DB.Models.TransactionPM.GetTransactionsPM()
-                              where s.T_Code == Transactions
-                              select s.T_Name;
+            var transaction = from s in DB.Models.TransactionPm.GetTransactionsPm()
+                              where s.Code == Transactions
+                              select s.Name;
 
             var sol = (from s in DB.Models.Solution.GetSolutions()
                        where (s.EM_Code == EM_Code && s.CT_Code == Companies && s.C_Code == Customers && s.T_Code == Transactions)
@@ -307,10 +302,10 @@ namespace DB.Controllers
 
         public ActionResult TransactionList()
         {
-            var transactions = DB.Models.TransactionPM.GetTransactionsPM();
+            var transactions = DB.Models.TransactionPm.GetTransactionsPm();
 
             if (HttpContext.Request.IsAjaxRequest())
-                return Json(GetTransactionPMSelectList(), JsonRequestBehavior.AllowGet);
+                return Json(GetTransactionPmSelectList(), JsonRequestBehavior.AllowGet);
 
             return RedirectToAction("Index");
         }

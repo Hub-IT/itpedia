@@ -1,29 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace DB.Models
 {
-    public class TransactionPM
+    public class TransactionPm
     {
-        public string T_Code { get; set; }
-        public string T_Name { get; set; }
+        public string Code { get; set; }
+        public string Name { get; set; }
 
-        public static IQueryable<TransactionPM> GetTransactionsPM()
+        public static IQueryable<TransactionPm> GetTransactionsPm()
         {
-
-            return new List<TransactionPM> {
-                new TransactionPM {
-                            T_Code = "100",
-                            T_Name = "up to 100"
-                        },
-                new TransactionPM {
-                            T_Code = "100more",
-                            T_Name = "more than 100"
-                        }                
-             }.AsQueryable();
+            return new List<TransactionPm>
+            {
+                new TransactionPm
+                {
+                    Code = "100",
+                    Name = "up to 100"
+                },
+                new TransactionPm
+                {
+                    Code = "100more",
+                    Name = "more than 100"
+                }
+            }.AsQueryable();
         }
-
     }
 }

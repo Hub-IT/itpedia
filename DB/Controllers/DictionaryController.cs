@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using DB.Models;
 
 namespace DB.Controllers
 {
@@ -13,7 +14,16 @@ namespace DB.Controllers
         // GET: Dictionary/Term/{id}
         public ActionResult Term(string id)
         {
-            return Content(id);
+            Term term;
+
+            if (id == null || (term = DB.Models.Term.GetByName(id)) == null)
+            {
+                return RedirectToAction("Index", "Dictionary");
+            }
+
+            ViewBag.Term = term;
+
+            return View();
         }
     }
 }
