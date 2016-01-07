@@ -17,12 +17,14 @@
     <div class="col-lg-4">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title"><img alt="Storage" height="20" width="20" src="/Content/img/kattekrab-mainframe.png" /> Hardware</h3>
+                <h3 class="panel-title">
+                    <img alt="Storage" height="20" width="20" src="/Content/img/kattekrab-mainframe.png"/> Hardware
+                </h3>
             </div>
 
             <ul class="list-group">
-                @foreach (string word in hardwares)
-            {
+                @foreach (var word in hardwares)
+                {
                     <li class="list-group-item">
                         @word
                     </li>
@@ -33,12 +35,14 @@
     <div class="col-lg-4">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title"><img alt="Storage" height="20" width="20" src="/Content/img/software.png" /> Software</h3>
+                <h3 class="panel-title">
+                    <img alt="Storage" height="20" width="20" src="/Content/img/software.png"/> Software
+                </h3>
             </div>
 
             <ul class="list-group">
-                @foreach (string word in software)
-            {
+                @foreach (var word in software)
+                {
                     <li class="list-group-item">
                         @word
                     </li>
@@ -49,11 +53,13 @@
     <div class="col-lg-4">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title"><img alt="Storage" height="20" width="20" src="/Content/img/applications.png" /> Applications</h3>
+                <h3 class="panel-title">
+                    <img alt="Storage" height="20" width="20" src="/Content/img/applications.png"/> Applications
+                </h3>
             </div>
 
             <ul class="list-group">
-                @foreach (string word in applications)
+                @foreach (var word in applications)
                 {
                     <li class="list-group-item">
                         @word
@@ -68,12 +74,14 @@
     <div class="col-lg-4">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title"><img alt="Storage" height="20" width="20" src="/Content/img/network.png" /> Networks</h3>
+                <h3 class="panel-title">
+                    <img alt="Storage" height="20" width="20" src="/Content/img/network.png"/> Networks
+                </h3>
             </div>
 
             <ul class="list-group">
-                @foreach (string word in networks)
-            {
+                @foreach (var word in networks)
+                {
                     <li class="list-group-item">
                         @word
                     </li>
@@ -84,12 +92,14 @@
     <div class="col-lg-4">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title"><img alt="Storage" height="20" width="20" src="/Content/img/storage.png" /> Storage</h3>
+                <h3 class="panel-title">
+                    <img alt="Storage" height="20" width="20" src="/Content/img/storage.png"/> Storage
+                </h3>
             </div>
 
             <ul class="list-group">
-                @foreach (string word in storage)
-            {
+                @foreach (var word in storage)
+                {
                     <li class="list-group-item">
                         @word
                     </li>

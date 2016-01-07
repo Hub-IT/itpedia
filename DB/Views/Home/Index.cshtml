@@ -5,7 +5,9 @@
 @section featured {
     <div class="jumbotron">
         <div class="container">
-            <h1><img src="~/Content/img/logo2.png" id="jumbotron-logo"/></h1>
+            <h1>
+                <img src="~/Content/img/logo2.png" id="jumbotron-logo"/>
+            </h1>
             <h2>@ViewBag.Message</h2>
             <p>
                 This site aims at informing different types of companies with respect to their Information Technology needs
@@ -31,7 +33,7 @@
             <label class="col-lg-2 control-label">Industry</label>
             <div class="col-lg-10">
                 @Html.DropDownList("Companies", ViewBag.Company as SelectList,
-            "Select a Company", new { @id = "CompaniesID", @class = "form-control" })
+                    "Select a Company", new {@id = "CompaniesID", @class = "form-control"})
             </div>
         </div>
 
@@ -46,21 +48,21 @@
             <label class="col-lg-2 control-label">Customers</label>
             <div class="col-lg-10">
                 @Html.DropDownList("Customers", ViewBag.Customer as SelectList,
-            "Select number of Customers", new { @id = "CustomersID", @class = "form-control" })
+                    "Select number of Customers", new {@id = "CustomersID", @class = "form-control"})
             </div>
         </div>
 
         <div class="form-group" id="TransactionsDivID" style="display: none">
             <label class="col-lg-2 control-label">Transactions per month</label>
             <div class="col-lg-10">
-                @Html.DropDownList("Transactions", ViewBag.TransactionPM as SelectList,
-            "Select number of Transactions per Month", new { id = "TransactionPmsID", @class = "form-control" })
+                @Html.DropDownList("Transactions", ViewBag.TransactionPm as SelectList,
+                    "Select number of Transactions per Month", new {id = "TransactionPmsID", @class = "form-control"})
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-lg-10 col-lg-offset-2">
-                <button type="submit" class="btn btn-primary" id="SubmitID" style="display: none">Submit</button>
+                <button type="submit" class="btn btn-primary" id="SubmitId" style="display: none">Submit</button>
             </div>
         </div>
     </fieldset>
