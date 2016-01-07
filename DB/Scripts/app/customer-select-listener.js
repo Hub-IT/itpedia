@@ -15,7 +15,7 @@ $(function () {
 
         $.getJSON(url + '/' + $('#CustomersID').val(), function (data) {
 
-            var items = '<option>Select Transactions</option>';
+            var items = '<option>Select TransactionCode</option>';
 
             $.each(data, function (i, transaction) {
                 items += "<option value='" + transaction.Value + "'>" + transaction.Text + "</option>";

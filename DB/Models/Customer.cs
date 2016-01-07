@@ -7,20 +7,20 @@ namespace DB.Models
 {
     public class Customer
     {
-        public string C_Code { get; set; }
-        public string C_Name { get; set; }
+        public string Code { get; set; }
+        public string Name { get; set; }
 
         public static IQueryable<Customer> GetCustomers()
         {
 
             return new List<Customer> {
                 new Customer {
-                            C_Code = "500",
-                            C_Name = "up to 500"
+                            Code = "500",
+                            Name = "up to 500"
                         },
                 new Customer {
-                            C_Code = "500more",
-                            C_Name = "more than 500"
+                            Code = "500more",
+                            Name = "more than 500"
                         }                
              }.AsQueryable();
         }
