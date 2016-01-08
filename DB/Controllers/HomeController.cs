@@ -19,8 +19,8 @@ namespace DB.Controllers
         {
             var companies = CompanyType.GetCompanyTypes();
             return new SelectList(companies.ToArray(),
-                "CT_Code",
-                "CT_Name");
+                "Code",
+                "Name");
         }
 
         public ActionResult Acknowledgment()
@@ -172,8 +172,8 @@ namespace DB.Controllers
         {
             var customers = Customer.GetCustomers();
             return new SelectList(customers.ToArray(),
-                "C_Code",
-                "C_Name");
+                "Code",
+                "Name");
         }
 
         public SelectList GetTransactionPmSelectList()
@@ -198,67 +198,68 @@ namespace DB.Controllers
 
 
         [HttpPost]
-        public ActionResult Index(string Companies, string Employees, string Customers, string Transactions)
+        public ActionResult Index(string CompanyCode, string Employees, string Customers, string TransactionCode)
         {
             ViewBag.Company = GetCompanySelectList();
 
-            var EM_Code = -1;
+            var employeeCode = -1;
 
 
-            if (!int.TryParse(Employees, out EM_Code))
+            if (!int.TryParse(Employees, out employeeCode))
             {
                 ViewBag.YouSelected = "You must select a Company Type and Number of Employees";
                 return View();
             }
 
-            var employee = from s in Employee.GetEmployees()
-                where s.EM_Code == EM_Code
-                select s.EM_Name;
+            var employee = from employees in Employee.GetEmployees()
+                where employees.Code == employeeCode
+                select employees.Name;
 
-            var company = from s in CompanyType.GetCompanyTypes()
-                where s.CT_Code == Companies
-                select s.CT_Name;
+            var company = from companies in CompanyType.GetCompanyTypes()
+                where companies.Code == CompanyCode
+                select companies.Name;
 
-            var customer = from s in Customer.GetCustomers()
-                where s.C_Code == Customers
-                select s.C_Name;
+            var customer = from customers in Customer.GetCustomers()
+                where customers.Code == Customers
+                select customers.Name;
 
-            var transaction = from s in TransactionPm.GetTransactionsPm()
-                where s.Code == Transactions
-                select s.Name;
+            var transaction = from transactions in TransactionPm.GetTransactionsPm()
+                where transactions.Code == TransactionCode
+                select transactions.Name;
 
-            var sol = (from s in Solution.GetSolutions()
+            var solutionCode = (from solutions in Solution.GetSolutions()
                 where
-                    (s.EM_Code == EM_Code && s.CT_Code == Companies && s.C_Code == Customers && s.T_Code == Transactions)
-                select s.S_Code).FirstOrDefault();
+                    (solutions.EmployeeCode == employeeCode && solutions.CompanyCode == CompanyCode &&
+                     solutions.C_Code == Customers && solutions.TransactionCode == TransactionCode)
+                select solutions.SolutionCode).FirstOrDefault();
 
 
-            var test = (from p in Proposal.GetProposals()
-                where sol == p.S_Code
-                select p.P_Code).FirstOrDefault();
+            var test = (from proposals in Proposal.Get()
+                where solutionCode == proposals.SolutionCode
+                select proposals.ProposalCode).FirstOrDefault();
 
-            var hardware = (from p in Proposal.GetProposals()
-                where sol == p.S_Code
-                select p.S_HW).FirstOrDefault();
+            var hardware = (from hardwares in Proposal.Get()
+                where solutionCode == hardwares.SolutionCode
+                select hardwares.SolutionHardware).FirstOrDefault();
 
-            var software = (from p in Proposal.GetProposals()
-                where sol == p.S_Code
-                select p.S_SW).FirstOrDefault();
+            var software = (from proposals in Proposal.Get()
+                where solutionCode == proposals.SolutionCode
+                select proposals.SolutionSoftware).FirstOrDefault();
 
-            var application = (from p in Proposal.GetProposals()
-                where sol == p.S_Code
-                select p.S_APP).FirstOrDefault();
+            var application = (from proposals in Proposal.Get()
+                where solutionCode == proposals.SolutionCode
+                select proposals.SolutionApp).FirstOrDefault();
 
-            var net = (from p in Proposal.GetProposals()
-                where sol == p.S_Code
-                select p.S_NET).FirstOrDefault();
+            var net = (from proposals in Proposal.Get()
+                where solutionCode == proposals.SolutionCode
+                select proposals.SolutionNet).FirstOrDefault();
 
-            var storage = (from p in Proposal.GetProposals()
-                where sol == p.S_Code
-                select p.S_STO).FirstOrDefault();
+            var storage = (from proposals in Proposal.Get()
+                where solutionCode == proposals.SolutionCode
+                select proposals.SolutionStorage).FirstOrDefault();
 
 
-            //  ViewBag.YouSelected2 = "You selected " + company.SingleOrDefault() + " And " + employee.SingleOrDefault() + " The number of customers " + customer.SingleOrDefault() + " the number of Transactions per month " + transaction.SingleOrDefault() + " with Solution: " + sol.ToString();
+            //  ViewBag.YouSelected2 = "You selected " + company.SingleOrDefault() + " And " + employee.SingleOrDefault() + " The number of customers " + customer.SingleOrDefault() + " the number of TransactionCode per month " + transaction.SingleOrDefault() + " with Solution: " + sol.ToString();
             // ViewBag.YouSelected =  "You Selected " + sol;
 
 
@@ -295,8 +296,8 @@ namespace DB.Controllers
             if (HttpContext.Request.IsAjaxRequest())
                 return Json(new SelectList(
                     employees.ToArray(),
-                    "EM_Code",
-                    "EM_Name")
+                    "Code",
+                    "Name")
                     , JsonRequestBehavior.AllowGet);
 
             return RedirectToAction("Index");

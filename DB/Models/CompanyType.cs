@@ -7,76 +7,76 @@ namespace DB.Models
 {
     public class CompanyType
     {
-        public string CT_Code { get; set; }
-        public string CT_Name { get; set; }
+        public string Code { get; set; }
+        public string Name { get; set; }
 
         public static IQueryable<CompanyType> GetCompanyTypes()
         {
             return new List<CompanyType>
             {
                 new CompanyType {
-                    CT_Code = "HB",
-                    CT_Name = "Home Business"
+                    Code = "HB",
+                    Name = "Home Business"
                 },
                 new CompanyType {
-                    CT_Code = "EB",
-                    CT_Name = "Export Business"
+                    Code = "EB",
+                    Name = "Export Business"
                 },
                 new CompanyType {
-                    CT_Code = "TE",
-                    CT_Name = "Telecom"
+                    Code = "TE",
+                    Name = "Telecom"
                 },
                  new CompanyType {
-                    CT_Code = "BA",
-                    CT_Name = "Banking"
+                    Code = "BA",
+                    Name = "Banking"
                 },
                 new CompanyType {
-                    CT_Code = "RE",
-                    CT_Name = "Retail"
+                    Code = "RE",
+                    Name = "Retail"
                 },
                 new CompanyType {
-                    CT_Code = "AU",
-                    CT_Name = "Automobile"                
+                    Code = "AU",
+                    Name = "Automobile"                
                 },
                 new CompanyType {
-                    CT_Code = "AD",
-                    CT_Name = "Advertising"                
+                    Code = "AD",
+                    Name = "Advertising"                
                 },
                 new CompanyType {
-                    CT_Code = "IN",
-                    CT_Name = "Insurance"                
+                    Code = "IN",
+                    Name = "Insurance"                
                 },
                 new CompanyType {
-                    CT_Code = "OI",
-                    CT_Name = "Oil"                
+                    Code = "OI",
+                    Name = "Oil"                
                 },
                 new CompanyType {
-                    CT_Code = "PH",
-                    CT_Name = "Pharmaceutical"                
+                    Code = "PH",
+                    Name = "Pharmaceutical"                
                 },
                 new CompanyType {
-                    CT_Code = "WA",
-                    CT_Name = "Water Supply"                
+                    Code = "WA",
+                    Name = "Water Supply"                
                 },
                 new CompanyType {
-                    CT_Code = "PO",
-                    CT_Name = "Police"                
+                    Code = "PO",
+                    Name = "Police"                
                 },
                 new CompanyType {
-                    CT_Code = "TV",
-                    CT_Name = "TV Broadcasting"                
+                    Code = "TV",
+                    Name = "TV Broadcasting"                
                 },
                 new CompanyType {
-                    CT_Code = "ST",
-                    CT_Name = "Stock Exchange"                
+                    Code = "ST",
+                    Name = "Stock Exchange"                
                 },
                 new CompanyType {
-                    CT_Code = "EN",
-                    CT_Name = "Energy"                
+                    Code = "EN",
+                    Name = "Energy"                
                 },
                 new CompanyType {
-                    CT_Code = "TR",
-                    CT_Name = "Transportation"                
+                    Code = "TR",
+                    Name = "Transportation"                
                 }
 
                 // ,new Country{    // verify check for ' works
