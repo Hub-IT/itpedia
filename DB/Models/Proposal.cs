@@ -7,13 +7,18 @@ namespace DB.Models
     {
         public int ProposalCode { get; set; }
         public int SolutionCode { get; set; }
-        public string SolutionHardware { get; set; }
-        public string SolutionSoftware { get; set; }
-        public string SolutionApp { get; set; }
-        public string SolutionNet { get; set; }
-        public string SolutionStorage { get; set; }
+        public Dictionary<Term, string> HardwareSolutions { get; set; }
+        public Dictionary<Term, string> SoftwareSolutions { get; set; }
+        public Dictionary<Term, string> AppSolutions { get; set; }
+        public Dictionary<Term, string> NetSolutions { get; set; }
+        public Dictionary<Term, string> StorageSolutions { get; set; }
 
-        public static IQueryable<Proposal> GetProposals()
+        public static IQueryable<Proposal> Get()
+        {
+            return Proposals().AsQueryable();
+        }
+
+        private static List<Proposal> Proposals()
         {
             return new List<Proposal>
             {
@@ -21,106 +26,372 @@ namespace DB.Models
                 {
                     ProposalCode = 1,
                     SolutionCode = 1,
-                    SolutionHardware = "1-3 Desktop, 1 Printer, UPS",
-                    SolutionSoftware = "Desktop Operating System",
-                    SolutionApp = "Office Applications",
-                    SolutionNet = "SOHO Switch, ADSL Router",
-                    SolutionStorage = "(Internal)"
+                    HardwareSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Desktop"), "1-3"},
+                        {Term.GetByName("Printer"), "1"},
+                        {Term.GetByName("UPS"), ""}
+                    },
+                    SoftwareSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Desktop Operating System"), ""}
+                    },
+                    AppSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Office Applications"), ""}
+                    },
+                    NetSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("SOHO Switch"), ""},
+                        {Term.GetByName("ADSL Router"), ""}
+                    },
+                    StorageSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("(Internal)"), ""}
+                    }
                 },
                 new Proposal
                 {
                     ProposalCode = 2,
                     SolutionCode = 2,
-                    SolutionHardware = "1 Server, 4-10 Desktop, 1 Printer, UPS",
-                    SolutionSoftware = "Small Business Server, Desktop Operating Systems, Backup Utility",
-                    SolutionApp = "Office Applications",
-                    SolutionNet = "SOHO Switch, ADSL Router",
-                    SolutionStorage = "(Internal)"
+                    HardwareSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Server"), "1"},
+                        {Term.GetByName("Desktop"), "4-10"},
+                        {Term.GetByName("Printer"), "1"},
+                        {Term.GetByName("UPS"), ""}
+                    },
+                    SoftwareSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Small Business Server"), ""},
+                        {Term.GetByName("Desktop Operating System"), ""},
+                        {Term.GetByName("Backup Utility"), ""}
+                    },
+                    AppSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Office Applications"), ""}
+                    },
+                    NetSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("SOHO Switch"), ""},
+                        {Term.GetByName("ADSL Router"), ""}
+                    },
+                    StorageSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("(Internal)"), ""}
+                    }
                 },
                 new Proposal
                 {
                     ProposalCode = 3,
                     SolutionCode = 3,
-                    SolutionHardware = "2 Servers, 11-25 Desktops & Laptops, 2 Network Printers, 1 Scanner, UPS",
-                    SolutionSoftware = "Small Business Server (x2), E-Mail Server, Desktop Operating Systems, Backup Utility",
-                    SolutionApp = "Office Applications, ERP, CRM",
-                    SolutionNet = "Switches, ADSL Router",
-                    SolutionStorage = "(Internal)"
+                    HardwareSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Server"), "2"},
+                        {Term.GetByName("Desktop & Laptops"), "11-25"},
+                        {Term.GetByName("Network Printers"), "2"},
+                        {Term.GetByName("Scanner"), "1"},
+                        {Term.GetByName("UPS"), ""}
+                    },
+                    SoftwareSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Small Business Server"), "2"},
+                        {Term.GetByName("E-Mail Server"), ""},
+                        {Term.GetByName("Desktop Operating System"), ""},
+                        {Term.GetByName("Backup Utility"), ""}
+                    },
+                    AppSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Office Applications"), ""},
+                        {Term.GetByName("ERP"), ""},
+                        {Term.GetByName("CRM"), ""}
+                    },
+                    NetSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Switches"), ""},
+                        {Term.GetByName("ADSL Router"), ""}
+                    },
+                    StorageSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("(Internal)"), ""}
+                    }
                 },
                 new Proposal
                 {
                     ProposalCode = 4,
                     SolutionCode = 4,
-                    SolutionHardware = "2 Servers, 25-50 Desktops & Laptops, 2 Network Printers, 1 Scanner, UPS",
-                    SolutionSoftware = "Windows Server (x2), E-Mail Server, Desktop Operating Systems, Backup Utility",
-                    SolutionApp = "Office Applications, ERP, CRM",
-                    SolutionNet = "Switches, ADSL Router",
-                    SolutionStorage = "Storage System"
+                    HardwareSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Server"), "2"},
+                        {Term.GetByName("Desktop & Laptops"), "22-50"},
+                        {Term.GetByName("Network Printers"), "2"},
+                        {Term.GetByName("Scanner"), "1"},
+                        {Term.GetByName("UPS"), ""}
+                    },
+                    SoftwareSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Windows Server"), "2"},
+                        {Term.GetByName("E-Mail Server"), ""},
+                        {Term.GetByName("Desktop Operating System"), ""},
+                        {Term.GetByName("Backup Utility"), ""}
+                    },
+                    AppSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Office Applications"), ""},
+                        {Term.GetByName("ERP"), ""},
+                        {Term.GetByName("CRM"), ""}
+                    },
+                    NetSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Switches"), ""},
+                        {Term.GetByName("ADSL Router"), ""}
+                    },
+                    StorageSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Storage System"), ""}
+                    }
                 },
                 new Proposal
                 {
                     ProposalCode = 5,
                     SolutionCode = 5,
-                    SolutionHardware = "3 Servers, 25-50 Desktops & Laptops, 2 Network Printers, 1 Scanner, UPS",
-                    SolutionSoftware = "Windows Server (x3), E-Mail Server, Desktop Operating Systems, Backup Utility",
-                    SolutionApp = "Office Applications, ERP, CRM, Custom Software Application(s)",
-                    SolutionNet = "Switches, Firewall, Router",
-                    SolutionStorage = "Storage System"
+                    HardwareSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Server"), "3"},
+                        {Term.GetByName("Desktop & Laptops"), "25-50"},
+                        {Term.GetByName("Network Printers"), "2"},
+                        {Term.GetByName("Scanner"), "1"},
+                        {Term.GetByName("UPS"), ""}
+                    },
+                    SoftwareSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Windows Server"), "3"},
+                        {Term.GetByName("E-Mail Server"), ""},
+                        {Term.GetByName("Desktop Operating System"), ""},
+                        {Term.GetByName("Backup Utility"), ""}
+                    },
+                    AppSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Office Applications"), ""},
+                        {Term.GetByName("ERP"), ""},
+                        {Term.GetByName("CRM"), ""},
+                        {Term.GetByName("Custom Software Application"), ""}
+                    },
+                    NetSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Switches"), ""},
+                        {Term.GetByName("Firewall"), ""},
+                        {Term.GetByName("Router"), ""}
+                    },
+                    StorageSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Storage System"), ""}
+                    }
                 },
                 new Proposal
                 {
                     ProposalCode = 6,
                     SolutionCode = 6,
-                    SolutionHardware = "3 Servers, 50-100 Desktops & Laptops, 4 Network Printers, 2 Scanner, UPS",
-                    SolutionSoftware = "Windows Server (x3), E-Mail Server, Desktop Operating Systems, Backup Utility",
-                    SolutionApp = "Office Applications, ERP, CRM, Payroll, HR System, Custom Software Application(s)",
-                    SolutionNet = "Switches, Firewall, Router",
-                    SolutionStorage = "Storage System"
+                    HardwareSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Server"), "3"},
+                        {Term.GetByName("Desktop & Laptops"), "50-100"},
+                        {Term.GetByName("Network Printers"), "4"},
+                        {Term.GetByName("Scanner"), "2"},
+                        {Term.GetByName("UPS"), ""}
+                    },
+                    SoftwareSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Windows Server"), "3"},
+                        {Term.GetByName("E-Mail Server"), ""},
+                        {Term.GetByName("Desktop Operating System"), ""},
+                        {Term.GetByName("Backup Utility"), ""}
+                    },
+                    AppSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Office Applications"), ""},
+                        {Term.GetByName("ERP"), ""},
+                        {Term.GetByName("CRM"), ""},
+                        {Term.GetByName("Payroll"), ""},
+                        {Term.GetByName("HR System"), ""},
+                        {Term.GetByName("Custom Software Application"), ""}
+                    },
+                    NetSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Switches"), ""},
+                        {Term.GetByName("Firewall"), ""},
+                        {Term.GetByName("Router"), ""}
+                    },
+                    StorageSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Storage System"), ""}
+                    }
                 },
                 new Proposal
                 {
                     ProposalCode = 7,
                     SolutionCode = 7,
-                    SolutionHardware = "4 Servers, 50-100 Desktops & Laptops, 4 Network Printers, 2 Scanner, UPS",
-                    SolutionSoftware = "Windows Server (x4), E-Mail Server, Desktop Operating Systems, Backup Utility",
-                    SolutionApp = "Office Applications, ERP, CRM, Payroll, HR System, Custom Software Application(s)",
-                    SolutionNet = "Switches, Firewall, Router",
-                    SolutionStorage = "Storage System, Tape Library"
+                    HardwareSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Server"), "4"},
+                        {Term.GetByName("Desktop & Laptops"), "50-100"},
+                        {Term.GetByName("Network Printers"), "4"},
+                        {Term.GetByName("Scanner"), "2"},
+                        {Term.GetByName("UPS"), ""}
+                    },
+                    SoftwareSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Windows Server"), "4"},
+                        {Term.GetByName("E-Mail Server"), ""},
+                        {Term.GetByName("Desktop Operating System"), ""},
+                        {Term.GetByName("Backup Utility"), ""}
+                    },
+                    AppSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Office Applications"), ""},
+                        {Term.GetByName("ERP"), ""},
+                        {Term.GetByName("CRM"), ""},
+                        {Term.GetByName("Payroll"), ""},
+                        {Term.GetByName("HR System"), ""},
+                        {Term.GetByName("Custom Software Application"), ""}
+                    },
+                    NetSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Switches"), ""},
+                        {Term.GetByName("Firewall"), ""},
+                        {Term.GetByName("Router"), ""}
+                    },
+                    StorageSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Storage System"), ""},
+                        {Term.GetByName("Tape Library"), ""},
+                    }
                 },
                 new Proposal
                 {
                     ProposalCode = 8,
                     SolutionCode = 8,
-                    SolutionHardware = "8 Servers, 100-200 Desktops & Laptops, 8 Network Printers, 4 Scanner, UPS",
-                    SolutionSoftware = "Windows Server (x8), E-Mail Server, NMS, Desktop Operating Systems, Backup Utility",
-                    SolutionApp = "Office Applications, ERP, CRM, Payroll, HR System, Custom Software Application(s)",
-                    SolutionNet = "Central & Workgroup Switches, Firewall, Router",
-                    SolutionStorage = "Storage System, Tape Library"
+                    HardwareSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Server"), "8"},
+                        {Term.GetByName("Desktop & Laptops"), "100-200"},
+                        {Term.GetByName("Network Printers"), "8"},
+                        {Term.GetByName("Scanner"), "4"},
+                        {Term.GetByName("UPS"), ""}
+                    },
+                    SoftwareSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Windows Server"), "8"},
+                        {Term.GetByName("E-Mail Server"), ""},
+                        {Term.GetByName("NMS"), ""},
+                        {Term.GetByName("Desktop Operating System"), ""},
+                        {Term.GetByName("Backup Utility"), ""}
+                    },
+                    AppSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Office Applications"), ""},
+                        {Term.GetByName("ERP"), ""},
+                        {Term.GetByName("CRM"), ""},
+                        {Term.GetByName("Payroll"), ""},
+                        {Term.GetByName("HR System"), ""},
+                        {Term.GetByName("Custom Software Application"), ""}
+                    },
+                    NetSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Central & Workgroup Switches"), ""},
+                        {Term.GetByName("Firewall"), ""},
+                        {Term.GetByName("Router"), ""}
+                    },
+                    StorageSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Storage System"), ""},
+                        {Term.GetByName("Tape Library"), ""},
+                    }
                 },
                 new Proposal
                 {
                     ProposalCode = 9,
                     SolutionCode = 9,
-                    SolutionHardware = "8 Servers, 100-200 Desktops & Laptops, 8 Network Printers, 4 Scanner, UPS",
-                    SolutionSoftware = "Windows Server (x8), E-Mail Server, NMS, Desktop Operating Systems, Backup Utility",
-                    SolutionApp = "Office Applications, ERP, CRM, Payroll, HR System, Custom Software Application(s)",
-                    SolutionNet = "Central & Workgroup Switches, 2 Firewalls, 2 Routers",
-                    SolutionStorage = "SAN Storage System, Tape Library"
+                    HardwareSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Server"), "8"},
+                        {Term.GetByName("Desktop & Laptops"), "100-200"},
+                        {Term.GetByName("Network Printers"), "8"},
+                        {Term.GetByName("Scanner"), "4"},
+                        {Term.GetByName("UPS"), ""}
+                    },
+                    SoftwareSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Windows Server"), "8"},
+                        {Term.GetByName("E-Mail Server"), ""},
+                        {Term.GetByName("NMS"), ""},
+                        {Term.GetByName("Desktop Operating System"), ""},
+                        {Term.GetByName("Backup Utility"), ""}
+                    },
+                    AppSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Office Applications"), ""},
+                        {Term.GetByName("ERP"), ""},
+                        {Term.GetByName("CRM"), ""},
+                        {Term.GetByName("Payroll"), ""},
+                        {Term.GetByName("HR System"), ""},
+                        {Term.GetByName("Custom Software Application"), ""}
+                    },
+                    NetSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Central & Workgroup Switches"), ""},
+                        {Term.GetByName("Firewall"), "2"},
+                        {Term.GetByName("Router"), "2"}
+                    },
+                    StorageSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("SAN Storage System"), ""},
+                        {Term.GetByName("Tape Library"), ""},
+                    }
                 },
                 new Proposal
                 {
                     ProposalCode = 10,
                     SolutionCode = 10,
-                    SolutionHardware =
-                        "Main Site: 8 Servers, 100-200 Desktops & Laptops, 8 Network Printers, 4 Scanner, UPS & Disaster Site: 4Servers, UPS",
-                    SolutionSoftware =
-                        "Main Site: Windows Server (x8), E-Mail Server, NMS, Desktop Operating Systems, Backup Utility & Disaster Site: Windows Server (x4), E-Mail Servers",
-                    SolutionApp = "Office Applications, ERP, CRM, Payroll, HR System, Custom Software Application(s)",
-                    SolutionNet =
-                        "Main Site: Central & Workgroup Switches, 2 Firewalls, 2 Routers & Disaster Site: Central Switch, Firewall, Router",
-                    SolutionStorage = "Main Site: SAN Storage System, Tape Library & Disaster Site: SAN Storage System"
+                    HardwareSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Server"), "Main Site: 8, UPS & Disaster Site: 4"},
+                        {Term.GetByName("Desktop & Laptops"), "100-200"},
+                        {Term.GetByName("Network Printers"), "8"},
+                        {Term.GetByName("Scanner"), "4"},
+                        {Term.GetByName("UPS"), ""}
+                    },
+                    SoftwareSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Windows Server"), "Main Site: 8, Disaster Site: 4"},
+                        {Term.GetByName("E-Mail Server"), ""},
+                        {Term.GetByName("NMS"), ""},
+                        {Term.GetByName("Desktop Operating System"), ""},
+                        {Term.GetByName("Backup Utility"), "Disaster Site: "}
+                    },
+                    AppSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Office Applications"), ""},
+                        {Term.GetByName("ERP"), ""},
+                        {Term.GetByName("CRM"), ""},
+                        {Term.GetByName("Payroll"), ""},
+                        {Term.GetByName("HR System"), ""},
+                        {Term.GetByName("Custom Software Application"), ""}
+                    },
+                    NetSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Central & Workgroup Switches"), "Main Site"},
+                        {Term.GetByName("Firewall"), "2"},
+                        {Term.GetByName("Central Switch"), ""},
+                        {Term.GetByName("Router"), "2"}
+                    },
+                    StorageSolutions = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("SAN Storage System"), "Main Site, Disaster Site"},
+                        {Term.GetByName("Tape Library"), ""},
+                    }
                 }
-            }.AsQueryable();
+            };
         }
     }
 }

@@ -240,23 +240,23 @@ namespace DB.Controllers
 
             var hardware = (from hardwares in Proposal.Get()
                 where solutionCode == hardwares.SolutionCode
-                select hardwares.SolutionHardware).FirstOrDefault();
+                select hardwares.HardwareSolutions).FirstOrDefault();
 
             var software = (from proposals in Proposal.Get()
                 where solutionCode == proposals.SolutionCode
-                select proposals.SolutionSoftware).FirstOrDefault();
+                select proposals.SoftwareSolutions).FirstOrDefault();
 
             var application = (from proposals in Proposal.Get()
                 where solutionCode == proposals.SolutionCode
-                select proposals.SolutionApp).FirstOrDefault();
+                select proposals.AppSolutions).FirstOrDefault();
 
             var net = (from proposals in Proposal.Get()
                 where solutionCode == proposals.SolutionCode
-                select proposals.SolutionNet).FirstOrDefault();
+                select proposals.NetSolutions).FirstOrDefault();
 
             var storage = (from proposals in Proposal.Get()
                 where solutionCode == proposals.SolutionCode
-                select proposals.SolutionStorage).FirstOrDefault();
+                select proposals.StorageSolutions).FirstOrDefault();
 
 
             //  ViewBag.YouSelected2 = "You selected " + company.SingleOrDefault() + " And " + employee.SingleOrDefault() + " The number of customers " + customer.SingleOrDefault() + " the number of TransactionCode per month " + transaction.SingleOrDefault() + " with Solution: " + sol.ToString();
