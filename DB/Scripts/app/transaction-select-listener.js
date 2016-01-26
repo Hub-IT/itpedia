@@ -1,5 +1,5 @@
 ﻿$(function() {
-    $("#TransactionPmsID").change(function() {
-        $("#SubmitId").show();
+    $("#Transactions").change(function() {
+        $("#Submit").show();
     });
 });

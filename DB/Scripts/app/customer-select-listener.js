@@ -9,20 +9,20 @@
  */
 $(function () {
 
-    $('#CustomersID').change(function () {
+    $("#Customers").change(function () {
 
-        var url = $('#CompanyEmployeeFormID').data('transactionlistaction');
+        var url = $("#CompanyEmployeeFormId").data("transactionlistaction");
 
-        $.getJSON(url + '/' + $('#CustomersID').val(), function (data) {
+        $.getJSON(url + "/" + $(this).val(), function (data) {
 
-            var items = '<option>Select TransactionCode</option>';
+            var items = "<option>Select Transaction Per Month</option>";
 
             $.each(data, function (i, transaction) {
                 items += "<option value='" + transaction.Value + "'>" + transaction.Text + "</option>";
             });
 
-            $('#TransactionPMsID').html(items);
-            $('#TransactionsDivID').show();
+            $("#Transactions").html(items);
+            $("#TransactionsDiv").show();
         });
     });
 

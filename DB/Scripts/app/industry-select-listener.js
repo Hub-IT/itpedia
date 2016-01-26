@@ -9,25 +9,25 @@
  */
 $(function () {
 
-    $('#CompaniesID').change(function () {
+    $("#IndustryId").change(function () {
 
-        $('#EmployeesDivID').show();
-        $('#CustomersDivID').hide();
-        $('#TransactionsDivID').hide();
-        $('#SubmitID').hide();
+        $("#EmployeesDiv").show();
+        $("#CustomersDiv").hide();
+        $("#TransactionsDiv").hide();
+        $("#Submit").hide();
 
-        var url = $('#CompanyEmployeeFormID').data('employeelistaction');
+        var url = $("#CompanyEmployeeFormId").data("employeelistaction");
 
-        $.getJSON(url + '/' + $('#CompaniesID').val(), function (data) {
+        $.getJSON(url + "/" + $("#IndustryId").val(), function (data) {
 
-            var items = '<option>Select Employees</option>';
+            var items = "<option>Select Employees</option>";
 
             $.each(data, function (i, employee) {
                 items += "<option value='" + employee.Value + "'>" + employee.Text + "</option>";
             });
 
-            $('#EmployeesID').html(items);
-            $('#EmployeesDivID').show();
+            $("#Employees").html(items);
+            $("#EmployeesDiv").show();
         });
     });
 });

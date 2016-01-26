@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Home";
+    ViewBag.Title = "Configuration";
 }
 
 @section featured {
@@ -19,7 +19,7 @@
 
 @using (Html.BeginForm("Index", "Home", FormMethod.Post, new
 {
-    @id = "CompanyEmployeeFormID",
+    @id = "CompanyEmployeeFormId",
     data_employeeListAction = @Url.Action("EmployeeList"),
     data_customerListAction = @Url.Action("CustomerList"),
     data_transactionListAction = @Url.Action("TransactionList"),
@@ -32,44 +32,44 @@
         <div class="form-group">
             <label class="col-lg-2 control-label">Industry</label>
             <div class="col-lg-10">
-                @Html.DropDownList("CompanyCode", ViewBag.Company as SelectList,
-                    "Select a Company", new {@id = "CompanyCodeID", @class = "form-control"})
+                @Html.DropDownList("IndustryId", ViewBag.Company as SelectList,
+                    "Select an industry", new {@id = "IndustryId", @class = "form-control"})
             </div>
         </div>
 
-        <div class="form-group" id="EmployeesDivID" style="display: none">
+        <div class="form-group" id="EmployeesDiv" style="display: none">
             <label class="col-lg-2 control-label">Employees</label>
             <div class="col-lg-10">
-                <select id="EmployeesID" name="Employees" class="form-control"></select>
+                <select id="Employees" name="Employees" class="form-control"></select>
             </div>
         </div>
 
-        <div class="form-group" id="CustomersDivID" style="display: none">
+        <div class="form-group" id="CustomersDiv" style="display: none">
             <label class="col-lg-2 control-label">Customers</label>
             <div class="col-lg-10">
                 @Html.DropDownList("Customers", ViewBag.Customer as SelectList,
-                    "Select number of Customers", new {@id = "CustomersID", @class = "form-control"})
+                    "Select number of Customers", new {@id = "Customers", @class = "form-control"})
             </div>
         </div>
 
-        <div class="form-group" id="TransactionsDivID" style="display: none">
-            <label class="col-lg-2 control-label">TransactionCode per month</label>
+        <div class="form-group" id="TransactionsDiv" style="display: none">
+            <label class="col-lg-2 control-label">Transactions per month</label>
             <div class="col-lg-10">
-                @Html.DropDownList("TransactionCode", ViewBag.TransactionPm as SelectList,
-                    "Select number of TransactionCode per Month", new {id = "TransactionPmsID", @class = "form-control"})
+                @Html.DropDownList("Transactions", ViewBag.TransactionPm as SelectList,
+                    "Select number of Transactions per Month", new {@id = "Transactions", @class = "form-control"})
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-lg-10 col-lg-offset-2">
-                <button type="submit" class="btn btn-primary" id="SubmitId" style="display: none">Submit</button>
+                <button type="submit" class="btn btn-primary" id="Submit" style="display: none">Submit</button>
             </div>
         </div>
     </fieldset>
 }
 
 @section scripts {
-    <script src="@Url.Content("~/Scripts/app/company-select-listener.js")"></script>
+    <script src="@Url.Content("~/Scripts/app/industry-select-listener.js")"></script>
     <script src="@Url.Content("~/Scripts/app/employee-select-listener.js")"></script>
     <script src="@Url.Content("~/Scripts/app/customer-select-listener.js")"></script>
     <script src="@Url.Content("~/Scripts/app/transaction-select-listener.js")"></script>

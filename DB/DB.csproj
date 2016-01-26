@@ -296,7 +296,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\app\transaction-select-listener.js" />
-    <Content Include="Scripts\app\company-select-listener.js" />
+    <Content Include="Scripts\app\industry-select-listener.js" />
     <Content Include="Scripts\app\employee-select-listener.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

@@ -7,24 +7,25 @@
  * When done retreiving those numbers, save them to a select list, and show them to user.
  * 
  */
-$(function () {
+$(function() {
 
-    $('#EmployeesID').change(function () {
+    $("#Employees").change(function() {
 
-        $('#TransactionsDivID').hide();
+        $("#TransactionsDiv").hide();
+        $("#CustomersDiv").hide();
 
-        var url = $('#CompanyEmployeeFormID').data('customerlistaction');
+        var url = $("#CompanyEmployeeFormId").data("customerlistaction");
 
-        $.getJSON(url + '/' + $('#EmployeesID').val(), function (data) {
+        $.getJSON(url + "/" + $("#Employees").val(), function(data) {
 
-            var items = '<option>Select Customers</option>';
+            var items = "<option>Select Customers</option>";
 
-            $.each(data, function (i, customer) {
+            $.each(data, function(i, customer) {
                 items += "<option value='" + customer.Value + "'>" + customer.Text + "</option>";
             });
 
-            $('#CustomersID').html(items);
-            $('#CustomersDivID').show();
+            $("#Customers").html(items);
+            $("#CustomersDiv").show();
         });
     });
 });
