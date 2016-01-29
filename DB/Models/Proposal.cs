@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace DB.Models
@@ -13,10 +14,12 @@ namespace DB.Models
         public Dictionary<Term, string> NetSolutions { get; set; }
         public Dictionary<Term, string> StorageSolutions { get; set; }
 
+
         public static IQueryable<Proposal> Get()
         {
             return Proposals().AsQueryable();
         }
+
 
         private static IEnumerable<Proposal> Proposals()
         {
@@ -392,6 +395,11 @@ namespace DB.Models
 //                    }
 //                }
             };
+        }
+
+        public static Proposal GetBySolutionCode(int solutionCode)
+        {
+            return  Proposals().FirstOrDefault(proposal => solutionCode == proposal.SolutionCode);
         }
     }
 }

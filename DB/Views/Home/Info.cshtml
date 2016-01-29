@@ -3,13 +3,6 @@
 }
 
 <h2>@ViewBag.YouSelected2</h2>
-@{
-    string[] hardwares = ViewBag.Hardware;
-    string[] software = ViewBag.Software;
-    string[] applications = ViewBag.Applications;
-    string[] networks = ViewBag.Network;
-    string[] storage = ViewBag.Storage;
-}
 
 <h2>@ViewBag.Title</h2>
 
@@ -23,88 +16,88 @@
             </div>
 
             <ul class="list-group">
-                @foreach (var word in hardwares)
+                @foreach (var term in ViewBag.Proposal.HardwareSolutions)
                 {
                     <li class="list-group-item">
-                        @word
+                        @term.Name
                     </li>
                 }
             </ul>
         </div>
     </div>
-    <div class="col-lg-4">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">
-                    <img alt="Storage" height="20" width="20" src="/Content/img/software.png"/> Software
-                </h3>
-            </div>
-
-            <ul class="list-group">
-                @foreach (var word in software)
-                {
-                    <li class="list-group-item">
-                        @word
-                    </li>
-                }
-            </ul>
-        </div>
-    </div>
-    <div class="col-lg-4">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">
-                    <img alt="Storage" height="20" width="20" src="/Content/img/applications.png"/> Applications
-                </h3>
-            </div>
-
-            <ul class="list-group">
-                @foreach (var word in applications)
-                {
-                    <li class="list-group-item">
-                        @word
-                    </li>
-                }
-            </ul>
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-lg-4">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">
-                    <img alt="Storage" height="20" width="20" src="/Content/img/network.png"/> Networks
-                </h3>
-            </div>
-
-            <ul class="list-group">
-                @foreach (var word in networks)
-                {
-                    <li class="list-group-item">
-                        @word
-                    </li>
-                }
-            </ul>
-        </div>
-    </div>
-    <div class="col-lg-4">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">
-                    <img alt="Storage" height="20" width="20" src="/Content/img/storage.png"/> Storage
-                </h3>
-            </div>
-
-            <ul class="list-group">
-                @foreach (var word in storage)
-                {
-                    <li class="list-group-item">
-                        @word
-                    </li>
-                }
-            </ul>
-        </div>
-    </div>
+@*    <div class="col-lg-4">*@
+@*        <div class="panel panel-primary">*@
+@*            <div class="panel-heading">*@
+@*                <h3 class="panel-title">*@
+@*                    <img alt="Storage" height="20" width="20" src="/Content/img/software.png"/> Software*@
+@*                </h3>*@
+@*            </div>*@
+@**@
+@*            <ul class="list-group">*@
+@*                @foreach (var word in software)*@
+@*                {*@
+@*                    <li class="list-group-item">*@
+@*                        @word*@
+@*                    </li>*@
+@*                }*@
+@*            </ul>*@
+@*        </div>*@
+@*    </div>*@
+@*    <div class="col-lg-4">*@
+@*        <div class="panel panel-primary">*@
+@*            <div class="panel-heading">*@
+@*                <h3 class="panel-title">*@
+@*                    <img alt="Storage" height="20" width="20" src="/Content/img/applications.png"/> Applications*@
+@*                </h3>*@
+@*            </div>*@
+@**@
+@*            <ul class="list-group">*@
+@*                @foreach (var word in applications)*@
+@*                {*@
+@*                    <li class="list-group-item">*@
+@*                        @word*@
+@*                    </li>*@
+@*                }*@
+@*            </ul>*@
+@*        </div>*@
+@*    </div>*@
+@*</div>*@
+@**@
+@*<div class="row">*@
+@*    <div class="col-lg-4">*@
+@*        <div class="panel panel-primary">*@
+@*            <div class="panel-heading">*@
+@*                <h3 class="panel-title">*@
+@*                    <img alt="Storage" height="20" width="20" src="/Content/img/network.png"/> Networks*@
+@*                </h3>*@
+@*            </div>*@
+@**@
+@*            <ul class="list-group">*@
+@*                @foreach (var word in networks)*@
+@*                {*@
+@*                    <li class="list-group-item">*@
+@*                        @word*@
+@*                    </li>*@
+@*                }*@
+@*            </ul>*@
+@*        </div>*@
+@*    </div>*@
+@*    <div class="col-lg-4">*@
+@*        <div class="panel panel-primary">*@
+@*            <div class="panel-heading">*@
+@*                <h3 class="panel-title">*@
+@*                    <img alt="Storage" height="20" width="20" src="/Content/img/storage.png"/> Storage*@
+@*                </h3>*@
+@*            </div>*@
+@**@
+@*            <ul class="list-group">*@
+@*                @foreach (var word in storage)*@
+@*                {*@
+@*                    <li class="list-group-item">*@
+@*                        @word*@
+@*                    </li>*@
+@*                }*@
+@*            </ul>*@
+@*        </div>*@
+@*    </div>*@
 </div>

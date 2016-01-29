@@ -98,14 +98,6 @@ namespace DB.Controllers
                 select solutions.SolutionCode).FirstOrDefault();
 
 
-            var test = (from proposals in Proposal.Get()
-                where solutionCode == proposals.SolutionCode
-                select proposals.ProposalCode).FirstOrDefault();
-
-            var hardware = (from hardwares in Proposal.Get()
-                where solutionCode == hardwares.SolutionCode
-                select hardwares.HardwareSolutions).FirstOrDefault();
-
             var software = (from proposals in Proposal.Get()
                 where solutionCode == proposals.SolutionCode
                 select proposals.SoftwareSolutions).FirstOrDefault();
@@ -127,12 +119,7 @@ namespace DB.Controllers
             // ViewBag.YouSelected =  "You Selected " + sol;
 
 
-            ViewBag.Hardware = hardware;
-            ViewBag.Software = software;
-            ViewBag.Applications = application;
-            ViewBag.Network = net;
-            ViewBag.Storage = storage;
-
+            ViewBag.Proposal = Proposal.GetBySolutionCode(solutionCode);
 
             return View("Info");
         }
