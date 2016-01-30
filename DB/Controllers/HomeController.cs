@@ -119,7 +119,7 @@ namespace DB.Controllers
             // ViewBag.YouSelected =  "You Selected " + sol;
 
 
-            ViewBag.Proposal = Proposal.GetBySolutionCode(solutionCode);
+            ViewBag.HardwareSolutions = Proposal.GetBySolutionCode(solutionCode).HardwareSolutions;
 
             return View("Info");
         }

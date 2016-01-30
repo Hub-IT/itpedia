@@ -1,4 +1,5 @@
-﻿@{
+﻿@using DB.Models
+@{
     ViewBag.Title = "Info";
 }
 
@@ -16,88 +17,88 @@
             </div>
 
             <ul class="list-group">
-                @foreach (var term in ViewBag.Proposal.HardwareSolutions)
+                @foreach (KeyValuePair<Term, string> entry in ViewBag.HardwareSolutions)
                 {
                     <li class="list-group-item">
-                        @term.Name
+                        @entry.Key
                     </li>
                 }
             </ul>
         </div>
     </div>
-@*    <div class="col-lg-4">*@
-@*        <div class="panel panel-primary">*@
-@*            <div class="panel-heading">*@
-@*                <h3 class="panel-title">*@
-@*                    <img alt="Storage" height="20" width="20" src="/Content/img/software.png"/> Software*@
-@*                </h3>*@
-@*            </div>*@
-@**@
-@*            <ul class="list-group">*@
-@*                @foreach (var word in software)*@
-@*                {*@
-@*                    <li class="list-group-item">*@
-@*                        @word*@
-@*                    </li>*@
-@*                }*@
-@*            </ul>*@
-@*        </div>*@
-@*    </div>*@
-@*    <div class="col-lg-4">*@
-@*        <div class="panel panel-primary">*@
-@*            <div class="panel-heading">*@
-@*                <h3 class="panel-title">*@
-@*                    <img alt="Storage" height="20" width="20" src="/Content/img/applications.png"/> Applications*@
-@*                </h3>*@
-@*            </div>*@
-@**@
-@*            <ul class="list-group">*@
-@*                @foreach (var word in applications)*@
-@*                {*@
-@*                    <li class="list-group-item">*@
-@*                        @word*@
-@*                    </li>*@
-@*                }*@
-@*            </ul>*@
-@*        </div>*@
-@*    </div>*@
-@*</div>*@
-@**@
-@*<div class="row">*@
-@*    <div class="col-lg-4">*@
-@*        <div class="panel panel-primary">*@
-@*            <div class="panel-heading">*@
-@*                <h3 class="panel-title">*@
-@*                    <img alt="Storage" height="20" width="20" src="/Content/img/network.png"/> Networks*@
-@*                </h3>*@
-@*            </div>*@
-@**@
-@*            <ul class="list-group">*@
-@*                @foreach (var word in networks)*@
-@*                {*@
-@*                    <li class="list-group-item">*@
-@*                        @word*@
-@*                    </li>*@
-@*                }*@
-@*            </ul>*@
-@*        </div>*@
-@*    </div>*@
-@*    <div class="col-lg-4">*@
-@*        <div class="panel panel-primary">*@
-@*            <div class="panel-heading">*@
-@*                <h3 class="panel-title">*@
-@*                    <img alt="Storage" height="20" width="20" src="/Content/img/storage.png"/> Storage*@
-@*                </h3>*@
-@*            </div>*@
-@**@
-@*            <ul class="list-group">*@
-@*                @foreach (var word in storage)*@
-@*                {*@
-@*                    <li class="list-group-item">*@
-@*                        @word*@
-@*                    </li>*@
-@*                }*@
-@*            </ul>*@
-@*        </div>*@
-@*    </div>*@
+    @*    <div class="col-lg-4">*@
+    @*        <div class="panel panel-primary">*@
+    @*            <div class="panel-heading">*@
+    @*                <h3 class="panel-title">*@
+    @*                    <img alt="Storage" height="20" width="20" src="/Content/img/software.png"/> Software*@
+    @*                </h3>*@
+    @*            </div>*@
+    @**@
+    @*            <ul class="list-group">*@
+    @*                @foreach (var word in software)*@
+    @*                {*@
+    @*                    <li class="list-group-item">*@
+    @*                        @word*@
+    @*                    </li>*@
+    @*                }*@
+    @*            </ul>*@
+    @*        </div>*@
+    @*    </div>*@
+    @*    <div class="col-lg-4">*@
+    @*        <div class="panel panel-primary">*@
+    @*            <div class="panel-heading">*@
+    @*                <h3 class="panel-title">*@
+    @*                    <img alt="Storage" height="20" width="20" src="/Content/img/applications.png"/> Applications*@
+    @*                </h3>*@
+    @*            </div>*@
+    @**@
+    @*            <ul class="list-group">*@
+    @*                @foreach (var word in applications)*@
+    @*                {*@
+    @*                    <li class="list-group-item">*@
+    @*                        @word*@
+    @*                    </li>*@
+    @*                }*@
+    @*            </ul>*@
+    @*        </div>*@
+    @*    </div>*@
+    @*</div>*@
+    @**@
+    @*<div class="row">*@
+    @*    <div class="col-lg-4">*@
+    @*        <div class="panel panel-primary">*@
+    @*            <div class="panel-heading">*@
+    @*                <h3 class="panel-title">*@
+    @*                    <img alt="Storage" height="20" width="20" src="/Content/img/network.png"/> Networks*@
+    @*                </h3>*@
+    @*            </div>*@
+    @**@
+    @*            <ul class="list-group">*@
+    @*                @foreach (var word in networks)*@
+    @*                {*@
+    @*                    <li class="list-group-item">*@
+    @*                        @word*@
+    @*                    </li>*@
+    @*                }*@
+    @*            </ul>*@
+    @*        </div>*@
+    @*    </div>*@
+    @*    <div class="col-lg-4">*@
+    @*        <div class="panel panel-primary">*@
+    @*            <div class="panel-heading">*@
+    @*                <h3 class="panel-title">*@
+    @*                    <img alt="Storage" height="20" width="20" src="/Content/img/storage.png"/> Storage*@
+    @*                </h3>*@
+    @*            </div>*@
+    @**@
+    @*            <ul class="list-group">*@
+    @*                @foreach (var word in storage)*@
+    @*                {*@
+    @*                    <li class="list-group-item">*@
+    @*                        @word*@
+    @*                    </li>*@
+    @*                }*@
+    @*            </ul>*@
+    @*        </div>*@
+    @*    </div>*@
 </div>

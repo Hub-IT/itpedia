@@ -113,7 +113,7 @@ namespace DB.Models
                 new Term
                 {
                     Id = 6,
-                    Name = "Miscroserver",
+                    Name = "Microserver",
                     Content = new[]
                     {
                         "<p>Microservers are less expensive and have less processing power than traditional enterprise-class rack servers. They can easily be grouped into clusters and are well-suited for tasks that do not require require multiple CPUs. They are often used by small-to medium-sized businesses that operate with minimal IT staff but they can also be useful in data centers for small or temporary jobs.</p>"
@@ -290,7 +290,17 @@ namespace DB.Models
                         "<p>In packet-switched networks such as the Internet, a router is a device or, in some cases, software in a computer, that determines the next network point to which a packet should be forwarded toward its destination.</p>"
                     },
                     Source = "http://searchnetworking.techtarget.com/definition/router"
-                }
+                },
+                new Term
+                {
+                    Id = 23,
+                    Name = "Client-Server Network",
+                    Content = new[]
+                    {
+                        "<p>A client-server network is a communications model in which multiple client programs share the services of a common server program.</p>"
+                    },
+                    Source = "http://searchwindowsserver.techtarget.com/definition/client-server-network"
+                },
             };
         }
     }
