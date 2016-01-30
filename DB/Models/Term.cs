@@ -227,11 +227,70 @@ namespace DB.Models
                     Name = "Firewall",
                     Content = new[]
                     {
-                        "<p>A firewall is a network security system, either hardware- or software-based, that controls incoming and outgoing network traffic based on a set of rules.</p><p>Acting as a barrier between a trusted network and other untrusted networks -- such as the Internet -- or less-trusted networks -- such as a retail merchant's network outside of a cardholder data environment -- a firewall controls access to the resources of a network through a positive control model. This means that the only traffic allowed onto the network defined in the firewall policy is; all other traffic is denied.</p>",
+                        "<p>A firewall is a network security system, either hardware- or software-based, that controls incoming and outgoing network traffic based on a set of rules.</p><p>Acting as a barrier between a trusted network and other untrusted networks -- such as the Internet -- or less-trusted networks -- such as a retail merchant's network outside of a cardholder data environment -- a firewall controls access to the resources of a network through a positive control model. This means that the only traffic allowed onto the network defined in the firewall policy is; all other traffic is denied.</p>"
                     },
                     Source = "http://searchsecurity.techtarget.com/definition/firewall"
+                },
+                new Term
+                {
+                    Id = 17,
+                    Name = "Payroll Software",
+                    Content = new[]
+                    {
+                        "<p>Payroll software is technology that aims to streamline and automate the process of paying a company's employees. Payroll software can be purchased from a human resources technology vendor or included as a module within a larger enterprise resource planning (ERP) package.</p>"
+                    },
+                    Source = "http://searchfinancialapplications.techtarget.com/definition/payroll-software"
+                },
+                new Term
+                {
+                    Id = 18,
+                    Name = "HRIS",
+                    Content = new[]
+                    {
+                        "<p>A human resource information system (HRIS) is an information system or managed service that provides a single, centralized view of the data that a human resource management (HRM) or human capital management (HCM) group requires for completing human resource (HR) processes. Such processes include recruiting, applicant-tracking, payroll, time and attendance, performance appraisals, benefits administration, employee self-service and perhaps even accounting functions.</p>"
+                    },
+                    Source = "http://searchfinancialapplications.techtarget.com/definition/HRIS"
+                },
+                new Term
+                {
+                    Id = 19,
+                    Name = "Tape Library",
+                    Content = new[]
+                    {
+                        "<p>In data storage, a tape library is a collection of magnetic tape cartridges and tape drives. An automated tape library is a hardware device that contains multiple tape drives for reading and writing data, access ports for entering and removing tapes and a robotic device for mounting and dismounting the tape cartridges without human intervention.</p>"
+                    },
+                    Source = "http://searchstorage.techtarget.com/definition/tape-library"
+                },
+                new Term
+                {
+                    Id = 20,
+                    Name = "NMS",
+                    Content = new[]
+                    {
+                        "<p>A network management system (NMS) is a set of hardware and/or software tools that allow an IT professional to supervise the individual components of a network within a larger network management framework.</p>"
+                    },
+                    Source = "http://whatis.techtarget.com/definition/network-management-system"
+                },
+                new Term
+                {
+                    Id = 21,
+                    Name = "SAN file system",
+                    Content = new[]
+                    {
+                        "<p>A SAN file system (that is, a storage area network file system) is programming that enables the sharing of the same copies of files stored on common storage media among multiple servers that may have different operating systems. Without a SAN file system, although different servers may share common storage media (using virtualization approaches), they cannot share the same files. A SAN file system simplifies and streamlines SAN management, minimizes storage and retrieval time, optimizes the use of storage resources, allows network components to be scaled individually, and eliminates the need for storage redundancy.</p>"
+                    },
+                    Source = "http://searchstorage.techtarget.com/definition/SAN-file-system"
+                },
+                new Term
+                {
+                    Id = 22,
+                    Name = "Router",
+                    Content = new[]
+                    {
+                        "<p>In packet-switched networks such as the Internet, a router is a device or, in some cases, software in a computer, that determines the next network point to which a packet should be forwarded toward its destination.</p>"
+                    },
+                    Source = "http://searchnetworking.techtarget.com/definition/router"
                 }
- 
             };
         }
     }

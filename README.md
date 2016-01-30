@@ -1,5 +1,6 @@
 # ITPedia
 A Web Application. Updated to ASP.NET MVC5.
+> Please note this was an old application we at HubIT club accepted to contribute at. And the difficulties we faced was from the pure code design. Yet, it was a good 'real world' challenge.
 
 ## Recommended Developer Tools
 - We recommend to open this project using the free [Visual Studio Community](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx) IDE. This was the IDE with wich the MVC 4 was updated to MVC 5. Microsoft Visual studio is notorious for fucking it up. In this case with importing project to different IDE versions. E.g. I spend like a full fucking working day without results. Finally I updated the MVC 4 to MVC 5 in order to be able for the IDE to properly load the Web.config settings. If you are a Windows person responsible for those stuff shame on you. Love live JetBrains and [ReSharper](https://www.jetbrains.com/resharper/).
