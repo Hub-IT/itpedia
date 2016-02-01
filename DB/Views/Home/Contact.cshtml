@@ -2,59 +2,58 @@
     ViewBag.Title = "Contact";
 }
 
-
-<div class="text-center">
-
-    <hgroup class="title">
-        <h1 class="myTitle">@ViewBag.Title</h1>
-        <h2>@ViewBag.Message</h2>
-    </hgroup>
+<div class="container">
+    <div class="jumbotron">
+        <h1>@ViewBag.Title</h1>
+        <p>@ViewBag.Message</p>
+    </div>
 
 
-    <section class="contact">
-        <header>
-            <h3>Phone</h3>
-        </header>
-        <div class="contact-label">
-            <p class="label">Main:</p>
-            <span>425.555.0100</span>
-        </div>
-        <div class="contact-label">
-            <p class="label">After Hours:</p>
-            <span>425.555.0199</span>
-        </div>
-    </section>
-
-    <section class="contact">
-        <header>
-            <h3>Email</h3>
-        </header>
-        <div class="contact-label">
-            <p class=" label">Support:</p>
-            <span><a href="mailto:Support@example.com">Support@example.com</a></span>
-        </div>
-        <div class="contact-label">
-            <p class=" label ">
-                Marketing:
+    <div class="row">
+        <div class="col-lg-12">
+            <h3>
+                <i class="fa fa-terminal"></i> IT Students
+            </h3>
+            <p>
+                <ul>
+                    <li>
+                        Antony Kalogeropoulos, <a href="mailto:A.Kalogeropoulos@acg.edu">A.Kalogeropoulos@acg.edu</a>
+                    </li>
+                    <li>
+                        Rizart Dokollari, <a href="mailto:R.Dokollari@acg.edu">R.Dokollari@acg.edu</a>
+                    </li>
+                </ul>
             </p>
-            <span><a href="mailto:Marketing@example.com">Marketing@example.com</a></span>
         </div>
-        <div class="contact-label">
-            <p class=" label">
-                General:
+
+        <div class="col-lg-12">
+            <h3>
+                <i class="fa fa-university"></i> CIS professors
+            </h3>
+            <p>
+                <ul>
+                    <li>
+                        Kostas Leftheriotis, <a href="mailto:kolef@acg.edu">kolef@acg.edu</a>
+                    </li>
+                    <li>
+                        Manos Varouchas, <a href="mailto:evarouhas@acg.edu">evarouhas@acg.edu</a>
+                    </li>
+                </ul>
             </p>
-            <span><a href="mailto:General@example.com">General@example.com</a></span>
         </div>
-    </section>
 
-    <section class="contact">
-        <header>
-            <h3>Address</h3>
-        </header>
-        <p>
-            One Microsoft Way<br />
-            Redmond, WA 98052-6399
-        </p>
-    </section>
-
+        <div class="col-lg-12">
+            <h3>
+                <i class="fa fa-map-marker"></i> Address
+            </h3>
+            DEREE - The American College of Greece<br/>
+            School of Business<br/>
+            Department of Computer Information Systems<br/>
+            6 Gravias Street<br/>
+            Aghia Paraskevi, 15342<br/>
+            Athens, Greece<br/>
+            Tel: 0030 210 6009800, ext. 1141<br/>
+            <a href="http://www.acg.edu">www.acg.edu</a>
+        </div>
+    </div>
 </div>
