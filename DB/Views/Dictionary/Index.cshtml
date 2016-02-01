@@ -1,4 +1,5 @@
-﻿@{
+﻿@using DB.Models
+@{
     ViewBag.Title = ViewBag.YouSelected2;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -8,151 +9,15 @@
     <h2 class="Dictionary">Select an item to view explanatory information</h2>
 
     <div class="row">
-        <div class="col-lg-4">
             <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title">
-                        <img alt="Storage" height="20" width="20" src="/Content/img/kattekrab-mainframe.png"/> Hardware
-                    </h3>
-                </div>
-
                 <ul class="list-group">
+                @foreach (Term term in ViewBag.Terms)
+                {
                     <li class="list-group-item">
-                        @Html.ActionLink("Server", "Term", "Dictionary", new {id = "Server"}, null)
+                        @Html.ActionLink(term.Name, "Term", "Dictionary", new { id = term.Name }, null)
                     </li>
-                    <li class="list-group-item">
-                        @Html.ActionLink("Desktop & Laptop", "Term", "Dictionary", new {id = "Desktop & Laptop"}, null)
-                    </li>
-                    <li class="list-group-item">
-                        @Html.ActionLink("Printer", "Term", "Dictionary", new {id = "Printer"}, null)
-                    </li>
-                    <li class="list-group-item">
-                        @Html.ActionLink("Network Printer", "Term", "Dictionary", new {id = "Network Printer"}, null)
-                    </li>
-                    <li class="list-group-item">
-                        @Html.ActionLink("Scanner", "Term", "Dictionary", new {id = "Scanner"}, null)
-                    </li>
-                    <li class="list-group-item">
-                        @Html.ActionLink("UPS", "Term", "Dictionary", new {id = "UPS"}, null)
-                    </li>
+                }
                 </ul>
             </div>
         </div>
-        <div class="col-lg-4">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title">
-                        <img alt="Storage" height="20" width="20" src="/Content/img/software.png"/> Software
-                    </h3>
-                </div>
-
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        @Html.ActionLink("Desktop Operating System", "Term", "Dictionary", new {id = "Desktop Operating System"}, null)
-                    </li>
-                    <li class="list-group-item">
-                        @Html.ActionLink("Small Business Server", "Term", "Dictionary", new {id = "Small Business Server"}, null)
-                    </li>
-                    <li class="list-group-item">
-                        @Html.ActionLink("Windows Server", "Term", "Dictionary", new {id = "Windows Server"}, null)
-                    </li>
-                    <li class="list-group-item">
-                        @Html.ActionLink("E-Mail Server", "Term", "Dictionary", new {id = "E-Mail Server"}, null)
-                    </li>
-                    <li class="list-group-item">
-                        @Html.ActionLink("Backup Utility", "BackupUtility", "Configuration")
-                        @Html.ActionLink("Backup Utility", "Term", "Dictionary", new {id = "E-Mail Server"}, null)
-                    </li>
-                    <li class="list-group-item">
-                        @Html.ActionLink("NMS", "NMS", "Configuration")
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title">
-                        <img alt="Storage" height="20" width="20" src="/Content/img/applications.png"/> Applications
-                    </h3>
-                </div>
-
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        @Html.ActionLink("Office Applications", "OfficeApplications", "Configuration")
-                    </li>
-                    <li class="list-group-item">
-                        @Html.ActionLink("ERP", "ERP", "Configuration")
-                    </li>
-                    <li class="list-group-item">
-                        @Html.ActionLink("CRM", "CRM", "Configuration")
-                    </li>
-                    <li class="list-group-item">
-                        @Html.ActionLink("Payroll", "Payroll", "Configuration")
-                    </li>
-                    <li class="list-group-item">
-                        @Html.ActionLink("HR System", "HRSystem", "Configuration")
-                    </li>
-                    <li class="list-group-item">
-                        @Html.ActionLink("Custom Software Application", "CustomSoftwareApplications", "Configuration")
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-lg-4">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title">
-                        <img alt="Storage" height="20" width="20" src="/Content/img/network.png"/> Networks
-                    </h3>
-                </div>
-
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        @Html.ActionLink("General Switches", "GeneralSwitches", "Configuration")
-                    </li>
-                    <li class="list-group-item">
-                        @Html.ActionLink("SOHO Switches", "SohoSwitches", "Configuration")
-                    </li>
-                    <li class="list-group-item">
-                        @Html.ActionLink("Central & Workgroup Switches", "CentralWorkgroupSwitches", "Configuration")
-                    </li>
-                    <li class="list-group-item">
-                        @Html.ActionLink("Firewall", "Firewall", "Configuration")
-                    </li>
-                    <li class="list-group-item">
-                        @Html.ActionLink("Router", "Router", "Configuration")
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title">
-                        <img alt="Storage" height="20" width="20" src="/Content/img/storage.png"/> Storage
-                    </h3>
-                </div>
-
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        @Html.ActionLink("Internal", "Internal", "Configuration")
-                    </li>
-                    <li class="list-group-item">
-                        @Html.ActionLink("Storage System", "StorageSystem", "Configuration")
-                    </li>
-                    <li class="list-group-item">
-                        @Html.ActionLink("SAN Storage System", "SAN", "Configuration")
-                    </li>
-                    <li class="list-group-item">
-                        @Html.ActionLink("Tape Library", "TapeLibrary", "Configuration")
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
 </div>

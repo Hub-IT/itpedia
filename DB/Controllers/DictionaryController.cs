@@ -1,5 +1,5 @@
 ﻿using System.Web.Mvc;
-using TechConfigApp.Models;
+using DB.Models;
 
 namespace DB.Controllers
 {
@@ -8,6 +8,8 @@ namespace DB.Controllers
         // GET: Dictionary
         public ActionResult Index()
         {
+            ViewBag.Terms = Models.Term.Get();
+
             return View();
         }
 
@@ -16,7 +18,7 @@ namespace DB.Controllers
         {
             Term term;
 
-            if (id == null || (term = TechConfigApp.Models.Term.GetByName(id)) == null)
+            if (id == null || (term = Models.Term.GetByName(id)) == null)
             {
                 return RedirectToAction("Index", "Dictionary");
             }
