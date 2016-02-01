@@ -2,51 +2,82 @@
     ViewBag.Title = "About";
 }
 
-<div class="jumbotron">
-    <div class="container">
+<div class="container">
+    <div class="jumbotron">
         <h1>@ViewBag.Title</h1>
         <h2>@ViewBag.Message</h2>
         <p>
-            The purpose of ITPedia is educational. It informs the public about the Information & Communications Technologies’ (ICT)
-            infrastructure of their business enterprise.
-        </p>
-
-        <p>
-            Senior students participated in the analysis and the development of the web site under the supervision of Professors, E. Varouhas and K. Leftheriotis
-        </p>
-
-        <p>
-            The students used Visual Studio 2012 as a development environment and implemented MVC 4, with C#.
-        </p>
-
-        <p>
-            Special thanks are in order for the students M. Kethisouaran, and E. Lasithiotakis
-        </p>
-
-        <p>
-            Select @Html.ActionLink("Configuration", "Index", "Configuration") from the Menu to receive an IT configuration suggestion
+            The main objective of this website is to foster and develop a cooperative relationship between the academia and the Information & Communications Technology (ICT) industry in Greece.
         </p>
     </div>
+
+    <p>
+        A synergy between DEREE CIS department and BYTE Computer has been established to develop a website to inform and advise new entrepreneurs, public and private firms interested in establishing or upgrading the IS and infrastructure of their business. CIS students have performed the requirements specification process and also developed a prototype website in the framework of the software development courses in their major program of study with content provided by Byte Computer SA. Following this, senior IT students have implemented and updated it.
+    </p>
+
+    <p>
+        The CIS and IT students who worked for the analysis and development of the website under the supervision of Professors Manos Varouhas and Kostas Leftheriotis are:
+        <ul>
+            <li>
+                Mark Kethisouaran, CIS
+            </li>
+            <li>
+                Gregory Kyriazis, CIS/A&F
+            </li>
+            <li>
+                Julia Pustowoj, CIS
+            </li>
+            <li>
+                Antony Kalogeropoulos, IT
+            </li>
+            <li>
+                Rizart Dokollari, IT
+            </li>
+        </ul>
+    </p>
+
+    <p>
+        The academic department of Computer Information Systems (CIS) was established in the beginning of the 1980s at DEREE offering one of the first accredited information systems programs in Greece. Today, through academic collaborations, professional partnerships with top global corporations and an expanding network of professionals we aim at exposing students to latest trends and best practices in management information systems and therefore add value to their studies.
+    </p>
+    <p>
+        ΒΥΤΕ Computer SA is a leading Greek Information and Communications Technology (ICT) Integrator with a dynamic presence of over 30 years in the Greek ICT Market and focus on the private sector. At the same time BYTE is among the five leading ICT vendors that successfully carry out projects in the Greek public sector, which is absorbing the largest share of our national economy.
+    </p>
+    <h3>Resource persons</h3>
+    <p>
+        <ul>
+            <li>
+                Apostolos Kapetanios, BYTE Computer
+            </li>
+            <li>
+                Maria Vyzantiou, BYTE Computer
+            </li>
+            <li>
+                Prof. Maira Kotsovoulou, DEREE, IT
+            </li>
+            <li>
+                Prof. Vassia Stefanou, DEREE, CIS
+            </li>
+        </ul>
+    </p>
+    <h3>Tools and Technologies used:</h3>
+    <p>
+        <ul>
+            <li>
+                ASP.NET MVC 5 | Web Application Framework
+            </li>
+            <li>
+                Visual Studio Community | Integrated Development Environment
+            </li>
+            <li>
+                Bootstrap 3 | Front-End Framework
+            </li>
+            <li>
+                OpenSource at <a href="https://github.com/Hub-IT/itpedia">GitHub</a>
+            </li>
+            <li>
+                Git | Source Code Management System
+            </li>
+        </ul>
+    </p>
+
 </div>
-
-<blockquote>
-    <h4>Application upgraded. 9/1/2015</h4>
-    <ul>
-        <li>Update MVC4 to MVC5.</li>
-        <li>Use Visual Studio Community IDE</li>
-        <li>Use Bootstrap 3 front-end framework to render application view.</li>
-        <li>Provide users with with a wide list of <a href="https://bootswatch.com/">Bootswatch</a> themes to select from.</li>
-        <li>
-            Refactor project to follow convetions.
-            <ul>
-                <li>Code Refactoring</li>
-                <li>Refactor JQuery listener for select option on configuration page</li>
-            </ul>
-        </li>
-        <li>Use <a href="https://bitbucket.org/hub-it/itpedia">Bitbucket repository</a> to privately store source industryCode</li>
-        <li>Construct installation, and developer guidelines located at the Bitbucket reposityr</li>
-        <li>Provide alternative view layotu for results of a configuration page view</li>
-    </ul>
-    <small>Courtesy of <a href="https://github.com/Hub-IT">HubIT</a></small>
-</blockquote>
-

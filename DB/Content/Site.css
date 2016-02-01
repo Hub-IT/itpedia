@@ -4,60 +4,58 @@ body {
     /* The html and body elements cannot have any padding or margin. */
 }
 
+p {
+    color: #404040;
+    font-family: Lora, 'Times New Roman', serif;
+    font-size: 20px;
+}
+
+
+
 #footer {
-    margin-bottom: 0;
-    padding-bottom: 0;
-    background-image: none;
     background: #1995dc;
+    background-image: none;
     height: auto;
+    margin-bottom: 0;
     margin-top: 70px;
+    padding-bottom: 0;
 }
 
 #wrap {
-    min-height: 100%;
+    font-size: 1.3em;
     height: auto !important;
     height: 100%;
     margin: 0 auto -130px;
-    font-size: 1.3em;
+    min-height: 100%;
 }
 
-#push {
-    height: 130px;
-}
+#push { height: 130px; }
 
-#main-content {
-    padding-top: 100px;
-}
+#main-content { padding-top: 100px; }
 
 #jumbotron-logo {
     background-color: #1995dc;
     border-radius: 30%;
-    max-width:250px;
-    max-height:250px;
-    text-align: center;
     margin-top: -30px;
+    max-height: 250px;
+    max-width: 250px;
+    text-align: center;
 }
 
 /* dictionary Page */
+
 .dictionary {
     border-bottom-style: ridge;
+    margin-bottom: 40px;
+    padding-bottom: 10px;
     text-align: center;
-    margin-bottom: 40px;  
-    padding-bottom:10px;
-      
 }
 
-#Dic a {
-    color: black;
-}
+#Dic a { color: black; }
 
-#Dic a:link {
-    color: black;
-}
+#Dic a:link { color: black; }
 
-#Dic a:visited {
-    color: black;
-}
+#Dic a:visited { color: black; }
 
 #Dic a:hover {
     color: #317eac;
@@ -66,41 +64,41 @@ body {
 
 
 /* Contact Page */
-.myTitle {
-    border-bottom-style: ridge;
-}
+
+.myTitle { border-bottom-style: ridge; }
 
 .footer-images img {
-        margin-right: 10px;
-        border:0;
+    border: 0;
+    margin-right: 10px;
 }
 
 /* Invert the text color based on the background */
-.contact-label { 
-    position: relative; 
-    height: 30px; 
- }
-.contact-label p { 
-    padding: 7px;
+
+.contact-label {
+    height: 30px;
+    position: relative;
+}
+
+.contact-label p {
+    font-size: 13px;
     margin: 0px;
-    font-size: 13px; 
-    white-space: nowrap; 
+    padding: 7px;
+    white-space: nowrap;
 }
-.contact-label > p {
-    color: #317e8a;
-}
-.contact-label > div { 
-    position: absolute; 
-    top: 0px; 
-    left: 0px; 
-    height: 30px; 
-    width: 28px; 
-    overflow: hidden;
+
+.contact-label > p { color: #317e8a; }
+
+.contact-label > div {
     background-color: red;
+    height: 30px;
+    left: 0px;
+    overflow: hidden;
+    position: absolute;
+    top: 0px;
+    width: 28px;
 }
-.contact-label > div > p { 
-    color: white;
-}
+
+.contact-label > div > p { color: white; }
 
 
 /* END Contact Page */
@@ -108,14 +106,12 @@ body {
 
 /* Overwiting Bootstrap CSS */
 
-.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-    font-size: 1.3em;
-}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus { font-size: 1.3em; }
 
-.footer-images>li {
-    position: relative;
-    display: block;
-    text-align: center;
-    margin-left: 15px;
+.footer-images > li {
     background: #1995dc;
+    display: block;
+    margin-left: 15px;
+    position: relative;
+    text-align: center;
 }
