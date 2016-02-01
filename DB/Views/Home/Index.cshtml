@@ -7,8 +7,13 @@
         <div class="container">
             <h2>@ViewBag.Message</h2>
             <p>
-                This site aims at informing different types of companies with respect to their Information Technology needs
-                depending on their idustry, the number of employees, the number of customers, and the number of transactions per month.
+                This website is a joint initiative of students at DEREE Computer Information Systems academic department and BYTE Computer SA.
+            </p>
+            <p>
+                It serves as decision support tool for new entrepreneurs and business firms, aiming to produce the most suitable Information Technology configuration for different types of companies according to the industry, number of employees, number of customers, and number of transactions per month.
+            </p>
+            <p>
+                Please choose from the options below to view the recommended solution set.
             </p>
         </div>
     </div>
@@ -32,7 +37,7 @@
             </div>
         </div>
 
-        <div class="form-group" id="EmployeesDiv" >
+        <div class="form-group" id="EmployeesDiv">
             <label class="col-lg-2 control-label">Employees</label>
             <div class="col-lg-10">
                 <select id="employeeCode" name="employeeCode" class="form-control" disabled="disabled">
@@ -41,19 +46,19 @@
             </div>
         </div>
 
-        <div class="form-group" id="CustomersDiv" >
+        <div class="form-group" id="CustomersDiv">
             <label class="col-lg-2 control-label">Customers</label>
             <div class="col-lg-10">
                 @Html.DropDownList("customerCode", ViewBag.CustomerList as SelectList,
-                    "Select number of customers", new {@code = "customerCode", @class = "form-control", disabled="disabled"})
+                    "Select number of customers", new {@code = "customerCode", @class = "form-control", disabled = "disabled"})
             </div>
         </div>
 
-        <div class="form-group" id="TransactionsDiv" >
+        <div class="form-group" id="TransactionsDiv">
             <label class="col-lg-2 control-label">Transactions/month</label>
             <div class="col-lg-10">
                 @Html.DropDownList("transactionCode", ViewBag.TransactionPmList as SelectList,
-                    "Select number of Transactions per Month", new {@code = "transactionCode", @class = "form-control", disabled="disabled"})
+                    "Select number of Transactions per Month", new {@code = "transactionCode", @class = "form-control", disabled = "disabled"})
             </div>
         </div>
 
