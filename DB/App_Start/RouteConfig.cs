@@ -20,7 +20,7 @@ namespace DB
             routes.MapRoute("Default", "{controller}/{action}/{id}", new
             {
                 controller = "Home",
-                action = "Acknowledgment",
+                action = "Index",
                 id = UrlParameter.Optional
             });
         }

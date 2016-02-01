@@ -23,7 +23,7 @@
     <div class="navbar navbar-default navbar-fixed-top" id="top-navbar">
         <div class="container">
             <div class="navbar-header">
-                <a href='@Url.Action("NewRequest", "Configuration")'>
+                <a href='@Url.Action("Index", "Home")'>
                     <img src='@Url.Content("~/Content/img/logo2.png")' style="margin-top: -10px; max-width: 100px;"/>
                 </a>
                 <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
@@ -34,11 +34,11 @@
             </div>
             <div class="navbar-collapse collapse" id="navbar-main">
                 <ul class="nav navbar-nav">
-                    <li class='@Html.IsActive("Configuration", "NewRequest")'>
-                        @Html.ActionLink("Configuration", "NewRequest", "Configuration")
+                    <li class='@Html.IsActive("Home", "Index")'>
+                        @Html.ActionLink("Home", "Index", "Home")
                     </li>
-                    <li class='@Html.IsActive("Home", "Acknowledgment")'>
-                        @Html.ActionLink("Acknowledgment", "Acknowledgment", "Home")
+                    <li class='@Html.IsActive("Home", "About")'>
+                        @Html.ActionLink("About", "About", "Home")
                     </li>
                     <li class='@Html.IsActive("Dictionary", "Index")'>
                         @Html.ActionLink("Dictionary", "Index", "Dictionary")

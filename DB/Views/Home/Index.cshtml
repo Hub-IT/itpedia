@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Configuration";
+    ViewBag.Title = "Home";
 }
 
 @section featured {
@@ -17,7 +17,7 @@
     </div>
 }
 
-@using (Html.BeginForm("NewRequest", "Configuration", FormMethod.Post, new
+@using (Html.BeginForm("NewRequest", "Home", FormMethod.Post, new
 {
     @id = "CompanyEmployeeFormId",
     data_employeeListAction = @Url.Action("EmployeeList"),
