@@ -9,6 +9,8 @@ body {
     padding-bottom: 0;
     background-image: none;
     background: #1995dc;
+    height: auto;
+    margin-top: 70px;
 }
 
 #wrap {
@@ -66,12 +68,6 @@ body {
 /* Contact Page */
 .myTitle {
     border-bottom-style: ridge;
-}
-
-/* Footer */
-#footer {
-    height: auto;
-    margin-top: 50px;
 }
 
 .footer-images img {
