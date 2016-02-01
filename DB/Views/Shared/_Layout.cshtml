@@ -2,117 +2,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>@ViewBag.Title &middot ITPedia</title>
+    <title>@ViewBag.Title &middot; ITPedia</title>
 
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
 
-
-    @{
-        string themeName = Session["theme_name"] == null ? "cerulean" : (String)Session["theme_name"];
-    }
-
-    <link href="@Url.Content("~/Content/bootswatch/" + themeName + "/bootstrap.min.css")" rel="stylesheet" type="text/css" />
-    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/bootswatch/cerulean/bootstrap.min.css")" rel="stylesheet" type="text/css"/>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css"/>
 
     @Styles.Render("~/Content/css")
 
 </head>
 
 <body>
-    <div id="wrap">
+<div id="wrap">
 
-        <div class="navbar navbar-default navbar-fixed-top" id="top-navbar">
-            <div class="container">
-                <div class="navbar-header">
-                    <a href='@Url.Action("Index", "Home")'>
-                        <img src='@Url.Content("~/Content/img/logo2.png")'  style="max-width: 100px; margin-top: -10px;" />
-                    </a>
-                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-                <div class="navbar-collapse collapse" id="navbar-main">
-                    <ul class="nav navbar-nav">
-                        <li class='@Html.IsActive("Home", "Index")'>
-                            @Html.ActionLink("Configuration", "Index", "Home")
-                        </li>
-                        <li class='@Html.IsActive("Home", "Acknowledgment")'>
-                            @Html.ActionLink("Acknowledgment", "Acknowledgment", "Home")
-                        </li>
-                        <li class='@Html.IsActive("Dictionary", "Index")'>
-                            @Html.ActionLink("Dictionary", "Index", "Dictionary")
-                        </li>
-                    </ul>
-
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class='@Html.IsActive("Home", "Contact")'>
-                            @Html.ActionLink("Contact", "Contact", "Home")
-                        </li>
-                    </ul>
-
-                </div>
+    <div class="navbar navbar-default navbar-fixed-top" id="top-navbar">
+        <div class="container">
+            <div class="navbar-header">
+                <a href='@Url.Action("NewRequest", "Configuration")'>
+                    <img src='@Url.Content("~/Content/img/logo2.png")' style="margin-top: -10px; max-width: 100px;"/>
+                </a>
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
             </div>
-        </div>
+            <div class="navbar-collapse collapse" id="navbar-main">
+                <ul class="nav navbar-nav">
+                    <li class='@Html.IsActive("Configuration", "Request")'>
+                        @Html.ActionLink("Configuration", "NewRequest", "Configuration")
+                    </li>
+                    <li class='@Html.IsActive("Home", "Acknowledgment")'>
+                        @Html.ActionLink("Acknowledgment", "Acknowledgment", "Home")
+                    </li>
+                    <li class='@Html.IsActive("Dictionary", "Index")'>
+                        @Html.ActionLink("Dictionary", "Index", "Dictionary")
+                    </li>
+                </ul>
 
-        <div class="container" id="main-content">
-            @RenderSection("featured", required: false)
-            <div class="content-wrapper main-content clear-fix">
-                @RenderBody()
+                <ul class="nav navbar-nav navbar-right">
+                    <li class='@Html.IsActive("Home", "Contact")'>
+                        @Html.ActionLink("Contact", "Contact", "Home")
+                    </li>
+                </ul>
 
             </div>
         </div>
-
-        <div id="push"></div>
     </div>
 
+    <div class="container" id="main-content">
+        @RenderSection("featured", false)
+        <div class="content-wrapper main-content clear-fix">
+            @RenderBody()
 
-    @*class="navbar navbar-default"*@
-    <div id="footer" class="navbar navbar-default" style="">
-        <ul class="container nav navbar-nav footer-images">
-            
-            <li> 
-                <a href="http://www.acg.edu/programs/"><img style="max-height:60px" src="~/Content/img/DEREE Logo fixed.png" /></a>
-            </li>
-            
-            <li> 
-                <a href="http://www.acg.edu/academics/academic-programs/undergraduate/school-of-business/majors-bs/management-information-systems"><img style="max-width: 50px; max-height:600px" src="~/Content/img/MIS_logo_edited_4.gif" /></a>
-            </li>    
-
-            <li> 
-                <a href="http://www.acg.edu/academics/academic-programs/undergraduate/school-of-liberal-arts-sciences/majors-ba-or-bs/information-technology"><img style="max-width: 50px; max-height:60px; text-align:right; border-radius:50%" src="~/Content/img/ITSoc_Logo.jpg" /></a>
-            </li>
-
-            <li class="navbar-right navbar-brand" style="float:none">&copy; @DateTime.Now.Year - ITPedia </li>
-
-        </ul>
-    </div>
-
-
-   
-    <noscript>
-        <div>
-            <h2>This site requires JavaScript</h2>
         </div>
-    </noscript>
+    </div>
+
+    <div id="push"></div>
+</div>
 
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/modernizr")
+@*class="navbar navbar-default"*@
+<div id="footer" class="navbar navbar-default" style="">
+    <ul class="container nav navbar-nav footer-images">
 
-    <script>
-        $(function () {
-            $('#main').show();
-        });
-    </script>
+        <li>
+            <a href="http://www.acg.edu/programs/">
+                <img style="max-height: 60px" src="~/Content/img/DEREE Logo fixed.png"/>
+            </a>
+        </li>
 
-    @RenderSection("scripts", required: false)
+        <li>
+            <a href="http://www.acg.edu/academics/academic-programs/undergraduate/school-of-business/majors-bs/management-information-systems">
+                <img style="max-height: 600px; max-width: 50px;" src="~/Content/img/MIS_logo_edited_4.gif"/>
+            </a>
+        </li>
+
+        <li>
+            <a href="http://www.acg.edu/academics/academic-programs/undergraduate/school-of-liberal-arts-sciences/majors-ba-or-bs/information-technology">
+                <img style="border-radius: 50%; max-height: 60px; max-width: 50px; text-align: right;" src="~/Content/img/ITSoc_Logo.jpg"/>
+            </a>
+        </li>
+
+        <li class="navbar-right navbar-brand" style="float: none">&copy; @DateTime.Now.Year - ITPedia </li>
+
+    </ul>
+</div>
+
+
+<noscript>
+    <div>
+        <h2>This site requires JavaScript</h2>
+    </div>
+</noscript>
+
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/modernizr")
+
+<script>
+    $(function() {
+        $('#main').show();
+    });
+</script>
+
+@RenderSection("scripts", false)
 
 </body>
 </html>

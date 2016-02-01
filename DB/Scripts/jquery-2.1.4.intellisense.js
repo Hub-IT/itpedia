@@ -67,7 +67,7 @@ intellisense.annotate(jQuery, {
     /// <signature>
     ///   <summary>Returns value at named data store for the element, as set by jQuery.data(element, name, value), or the full data store for the element.</summary>
     ///   <param name="element" type="Element">The DOM element to query for the data.</param>
-    ///   <param name="key" type="String">Name of the data stored.</param>
+    ///   <param name="key" type="String">Size of the data stored.</param>
     ///   <returns type="Object" />
     /// </signature>
     /// <signature>
@@ -157,8 +157,8 @@ intellisense.annotate(jQuery, {
   },
   'globalEval': function() {
     /// <signature>
-    ///   <summary>Execute some JavaScript code globally.</summary>
-    ///   <param name="code" type="String">The JavaScript code to execute.</param>
+    ///   <summary>Execute some JavaScript industryCode globally.</summary>
+    ///   <param name="industryCode" type="String">The JavaScript industryCode to execute.</param>
     /// </signature>
   },
   'grep': function() {
@@ -1664,7 +1664,7 @@ intellisense.annotate(jQuery.fn, {
   'lang': function() {
     /// <signature>
     ///   <summary>Selects all elements of the specified language.</summary>
-    ///   <param name="language" type="String">A language code.</param>
+    ///   <param name="language" type="String">A language industryCode.</param>
     /// </signature>
   },
   'last': function() {

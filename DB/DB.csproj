@@ -211,6 +211,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DictionaryController.cs" />
+    <Compile Include="Controllers\ConfigurationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ThemesController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
@@ -218,7 +219,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\CompanyType.cs" />
+    <Compile Include="Models\Industry.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Term.cs" />
@@ -327,7 +328,9 @@
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -361,39 +364,39 @@
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
     <Content Include="Views\Home\Acknowledgment.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Configuration\NewRequest.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Home\Info.cshtml" />
-    <Content Include="Views\Home\Terms\Server.cshtml" />
-    <Content Include="Views\Home\Terms\Desktop.cshtml" />
-    <Content Include="Views\Home\Terms\Printer.cshtml" />
-    <Content Include="Views\Home\Terms\NetworkPrinter.cshtml" />
-    <Content Include="Views\Home\Terms\Scanner.cshtml" />
-    <Content Include="Views\Home\Terms\UPS.cshtml" />
-    <Content Include="Views\Home\Terms\DesktopOperatingSystem.cshtml" />
-    <Content Include="Views\Home\Terms\SmallBusinessServer.cshtml" />
-    <Content Include="Views\Home\Terms\WindowsServer.cshtml" />
-    <Content Include="Views\Home\Terms\EmailServer.cshtml" />
-    <Content Include="Views\Home\Terms\BackupUtility.cshtml" />
-    <Content Include="Views\Home\Terms\NMS.cshtml" />
-    <Content Include="Views\Home\Terms\OfficeApplications.cshtml" />
-    <Content Include="Views\Home\Terms\ERP.cshtml" />
-    <Content Include="Views\Home\Terms\CRM.cshtml" />
-    <Content Include="Views\Home\Terms\Payroll.cshtml" />
-    <Content Include="Views\Home\Terms\HRSystem.cshtml" />
-    <Content Include="Views\Home\Terms\CustomSoftwareApplications.cshtml" />
-    <Content Include="Views\Home\Terms\GeneralSwitches.cshtml" />
-    <Content Include="Views\Home\Terms\SohoSwitches.cshtml" />
-    <Content Include="Views\Home\Terms\CentralWorkgroupSwitches.cshtml" />
-    <Content Include="Views\Home\Terms\Firewall.cshtml" />
-    <Content Include="Views\Home\Terms\Router.cshtml" />
-    <Content Include="Views\Home\Terms\Internal.cshtml" />
-    <Content Include="Views\Home\Terms\StorageSystem.cshtml" />
-    <Content Include="Views\Home\Terms\SAN.cshtml" />
-    <Content Include="Views\Home\Terms\TapeLibrary.cshtml" />
+    <Content Include="Views\Configuration\Info.cshtml" />
+    <Content Include="Views\Configuration\Terms\Server.cshtml" />
+    <Content Include="Views\Configuration\Terms\Desktop.cshtml" />
+    <Content Include="Views\Configuration\Terms\Printer.cshtml" />
+    <Content Include="Views\Configuration\Terms\NetworkPrinter.cshtml" />
+    <Content Include="Views\Configuration\Terms\Scanner.cshtml" />
+    <Content Include="Views\Configuration\Terms\UPS.cshtml" />
+    <Content Include="Views\Configuration\Terms\DesktopOperatingSystem.cshtml" />
+    <Content Include="Views\Configuration\Terms\SmallBusinessServer.cshtml" />
+    <Content Include="Views\Configuration\Terms\WindowsServer.cshtml" />
+    <Content Include="Views\Configuration\Terms\EmailServer.cshtml" />
+    <Content Include="Views\Configuration\Terms\BackupUtility.cshtml" />
+    <Content Include="Views\Configuration\Terms\NMS.cshtml" />
+    <Content Include="Views\Configuration\Terms\OfficeApplications.cshtml" />
+    <Content Include="Views\Configuration\Terms\ERP.cshtml" />
+    <Content Include="Views\Configuration\Terms\CRM.cshtml" />
+    <Content Include="Views\Configuration\Terms\Payroll.cshtml" />
+    <Content Include="Views\Configuration\Terms\HRSystem.cshtml" />
+    <Content Include="Views\Configuration\Terms\CustomSoftwareApplications.cshtml" />
+    <Content Include="Views\Configuration\Terms\GeneralSwitches.cshtml" />
+    <Content Include="Views\Configuration\Terms\SohoSwitches.cshtml" />
+    <Content Include="Views\Configuration\Terms\CentralWorkgroupSwitches.cshtml" />
+    <Content Include="Views\Configuration\Terms\Firewall.cshtml" />
+    <Content Include="Views\Configuration\Terms\Router.cshtml" />
+    <Content Include="Views\Configuration\Terms\Internal.cshtml" />
+    <Content Include="Views\Configuration\Terms\StorageSystem.cshtml" />
+    <Content Include="Views\Configuration\Terms\SAN.cshtml" />
+    <Content Include="Views\Configuration\Terms\TapeLibrary.cshtml" />
     <Content Include="Views\Dictionary\Index.cshtml" />
     <Content Include="Views\Dictionary\Term.cshtml" />
   </ItemGroup>

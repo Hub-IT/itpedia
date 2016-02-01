@@ -12,7 +12,7 @@ namespace DB.Controllers
             if (ControllerContext.HttpContext.Request.UrlReferrer != null)
                 return Redirect(ControllerContext.HttpContext.Request.UrlReferrer.ToString());
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Configuration");
         }
     }
 }

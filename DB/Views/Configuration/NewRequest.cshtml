@@ -17,7 +17,7 @@
     </div>
 }
 
-@using (Html.BeginForm("Index", "Home", FormMethod.Post, new
+@using (Html.BeginForm("NewRequest", "Configuration", FormMethod.Post, new
 {
     @id = "CompanyEmployeeFormId",
     data_employeeListAction = @Url.Action("EmployeeList"),
@@ -27,36 +27,36 @@
 }))
 {
     <fieldset>
-        <legend>Company/Employee</legend>
+        <legend>Select Parameters</legend>
 
         <div class="form-group">
             <label class="col-lg-2 control-label">Industry</label>
             <div class="col-lg-10">
-                @Html.DropDownList("IndustryId", ViewBag.Company as SelectList,
-                    "Select an industry", new {@id = "IndustryId", @class = "form-control"})
+                @Html.DropDownList("industryCode", ViewBag.IndustrySelectList as SelectList,
+                    "Select an industry", new {@code = "industryCode", @class = "form-control"})
             </div>
         </div>
 
         <div class="form-group" id="EmployeesDiv" style="display: none">
             <label class="col-lg-2 control-label">Employees</label>
             <div class="col-lg-10">
-                <select id="Employees" name="Employees" class="form-control"></select>
+                <select id="employeeCode" name="employeeCode" class="form-control"></select>
             </div>
         </div>
 
         <div class="form-group" id="CustomersDiv" style="display: none">
-            <label class="col-lg-2 control-label">Customers</label>
+            <label class="col-lg-2 control-label">customers</label>
             <div class="col-lg-10">
-                @Html.DropDownList("Customers", ViewBag.Customer as SelectList,
-                    "Select number of Customers", new {@id = "Customers", @class = "form-control"})
+                @Html.DropDownList("customerCode", ViewBag.CustomerList as SelectList,
+                    "Select number of customers", new {@code = "customerCode", @class = "form-control"})
             </div>
         </div>
 
         <div class="form-group" id="TransactionsDiv" style="display: none">
             <label class="col-lg-2 control-label">Transactions per month</label>
             <div class="col-lg-10">
-                @Html.DropDownList("Transactions", ViewBag.TransactionPm as SelectList,
-                    "Select number of Transactions per Month", new {@id = "Transactions", @class = "form-control"})
+                @Html.DropDownList("transactionCode", ViewBag.TransactionPmList as SelectList,
+                    "Select number of Transactions per Month", new {@code = "transactionCode", @class = "form-control"})
             </div>
         </div>
 

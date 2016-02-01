@@ -9,7 +9,7 @@
  */
 $(function () {
 
-    $("#Customers").change(function () {
+    $("#customers").change(function () {
 
         var url = $("#CompanyEmployeeFormId").data("transactionlistaction");
 

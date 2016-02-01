@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Web.Mvc;
 
 namespace DB.Models
 {
     public class TransactionPm
     {
         public string Code { get; set; }
-        public string Name { get; set; }
+        public string Size { get; set; }
 
         public static IQueryable<TransactionPm> GetTransactionsPm()
         {
@@ -15,14 +16,21 @@ namespace DB.Models
                 new TransactionPm
                 {
                     Code = "100",
-                    Name = "up to 100"
+                    Size = "up to 100"
                 },
                 new TransactionPm
                 {
                     Code = "100more",
-                    Name = "more than 100"
+                    Size = "more than 100"
                 }
             }.AsQueryable();
+        }
+
+        public static SelectList GetTransactionPmSelectList()
+        {
+            var transactions = GetTransactionsPm();
+
+            return new SelectList(transactions.ToArray(), "Code", "Size");
         }
     }
 }

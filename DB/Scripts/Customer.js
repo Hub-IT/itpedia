@@ -8,7 +8,7 @@
 
         $.getJSON(url + '/' + $('#CustomersID').val(), function (data) {
 
-            var items = '<option>Select Customers</option>';
+            var items = '<option>Select customers</option>';
 
             $.each(data, function (i, customer) {
                 items += "<option value='" + customer.Value + "'>" + customer.Text + "</option>";

@@ -9,22 +9,22 @@
  */
 $(function() {
 
-    $("#Employees").change(function() {
+    $("#employees").change(function() {
 
         $("#TransactionsDiv").hide();
         $("#CustomersDiv").hide();
 
         var url = $("#CompanyEmployeeFormId").data("customerlistaction");
 
-        $.getJSON(url + "/" + $("#Employees").val(), function(data) {
+        $.getJSON(url + "/" + $("#employees").val(), function(data) {
 
-            var items = "<option>Select Customers</option>";
+            var items = "<option>Select customers</option>";
 
             $.each(data, function(i, customer) {
                 items += "<option value='" + customer.Value + "'>" + customer.Text + "</option>";
             });
 
-            $("#Customers").html(items);
+            $("#customers").html(items);
             $("#CustomersDiv").show();
         });
     });

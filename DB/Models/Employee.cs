@@ -1,169 +1,186 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace DB.Models
 {
     public class Employee
     {
-        public string CT_Code { get; set; }
+        public string IndustryCode { get; set; }
         public int Code { get; set; }
-        public string Name { get; set; }
+        public string Size { get; set; }
 
         public static IQueryable<Employee> GetEmployees()
         {
-
-            return new List<Employee> {
-
+            return new List<Employee>
+            {
                 //Home Business
-                new Employee {
-                            CT_Code = "HB",
-                            Code = 1,
-                            Name = "up to 10"
-                        },
+                new Employee
+                {
+                    IndustryCode = "HB",
+                    Code = 1,
+                    Size = "up to 10"
+                },
 
                 //Export Business
-                new Employee {
-                            CT_Code = "EB",
-                            Code = 2,
-                            Name = "11-50"
-                        },
+                new Employee
+                {
+                    IndustryCode = "EB",
+                    Code = 2,
+                    Size = "11-50"
+                },
 
                 //Telecommunications
-                new Employee {
-                            CT_Code = "TE",
-                            Code = 3,
-                            Name = "51-200"
-                        },
-                
+                new Employee
+                {
+                    IndustryCode = "TE",
+                    Code = 3,
+                    Size = "51-200"
+                },
+
                 //Banking        
-                new Employee {
-                            CT_Code = "BA",
-                            Code = 4,
-                            Name = "51-200"
-                        },
+                new Employee
+                {
+                    IndustryCode = "BA",
+                    Code = 4,
+                    Size = "51-200"
+                },
 
                 //Retail
-                new Employee {
-                            CT_Code = "RE",
-                            Code = 5,
-                            Name = "up to 10"
-                        },
-                new Employee {
-                            CT_Code = "RE",
-                            Code = 6,
-                            Name = "11-50"
-                        },
+                new Employee
+                {
+                    IndustryCode = "RE",
+                    Code = 5,
+                    Size = "up to 10"
+                },
+                new Employee
+                {
+                    IndustryCode = "RE",
+                    Code = 6,
+                    Size = "11-50"
+                },
 
 
                 //Automobile
-                new Employee {
-                            CT_Code = "AU",
-                            Code = 7,
-                            Name = "up to 10"
-                        },
-                new Employee {
-                            CT_Code = "AU",
-                            Code = 8,
-                            Name = "11-50"
-                        },
-                 new Employee {
-                            CT_Code = "AU",
-                            Code = 9,
-                            Name = "51-200"
-                        },
+                new Employee
+                {
+                    IndustryCode = "AU",
+                    Code = 7,
+                    Size = "up to 10"
+                },
+                new Employee
+                {
+                    IndustryCode = "AU",
+                    Code = 8,
+                    Size = "11-50"
+                },
+                new Employee
+                {
+                    IndustryCode = "AU",
+                    Code = 9,
+                    Size = "51-200"
+                },
 
                 //Advertising
-                new Employee {
-                            CT_Code = "AD",
-                            Code = 10,
-                            Name = "11-50"
-                        },
+                new Employee
+                {
+                    IndustryCode = "AD",
+                    Code = 10,
+                    Size = "11-50"
+                },
 
                 //Insurance
-                new Employee {
-                            CT_Code = "IN",
-                            Code = 11,
-                            Name = "51-200"
-                        },
+                new Employee
+                {
+                    IndustryCode = "IN",
+                    Code = 11,
+                    Size = "51-200"
+                },
 
                 //Oil
-                new Employee {
-                            CT_Code = "OI",
-                            Code = 12,
-                            Name = "51-200"
+                new Employee
+                {
+                    IndustryCode = "OI",
+                    Code = 12,
+                    Size = "51-200"
                 },
 
                 //Pharmaceutical
-                new Employee {
-                            CT_Code = "PH",
-                            Code = 13,
-                            Name = "11-50"
-                        },
-                new Employee {
-                     CT_Code = "PH",
-                     Code = 14,
-                     Name = "51-200"
-                        },
-
-                //Water Supply
-                new Employee {
-                     CT_Code ="WA",
-                     Code = 15,
-                     Name = "11-50"
+                new Employee
+                {
+                    IndustryCode = "PH",
+                    Code = 13,
+                    Size = "11-50"
+                },
+                new Employee
+                {
+                    IndustryCode = "PH",
+                    Code = 14,
+                    Size = "51-200"
                 },
 
-                new Employee {
-                    CT_Code = "WA",
+                //Water Supply
+                new Employee
+                {
+                    IndustryCode = "WA",
+                    Code = 15,
+                    Size = "11-50"
+                },
+                new Employee
+                {
+                    IndustryCode = "WA",
                     Code = 16,
-                    Name = "51-200"
+                    Size = "51-200"
                 },
 
 
                 //Police
-                new Employee {
-                    CT_Code = "PO",
+                new Employee
+                {
+                    IndustryCode = "PO",
                     Code = 17,
-                    Name = "Not necessary"
+                    Size = "Not necessary"
                 },
 
 
                 //TV Broadcasting
-                new Employee {
-                    CT_Code = "TV",
+                new Employee
+                {
+                    IndustryCode = "TV",
                     Code = 18,
-                    Name = "51-200"
+                    Size = "51-200"
                 },
 
 
                 //Stock Exchange
-                new Employee {
-                    CT_Code = "ST",
+                new Employee
+                {
+                    IndustryCode = "ST",
                     Code = 19,
-                    Name = "Not necessary"
+                    Size = "Not necessary"
                 },
 
 
                 //Energy
-                new Employee {
-                    CT_Code = "EN",
+                new Employee
+                {
+                    IndustryCode = "EN",
                     Code = 20,
-                    Name = "Not necessary"
+                    Size = "Not necessary"
                 },
 
                 //Transportation
-                new Employee {
-                    CT_Code = "TR",
+                new Employee
+                {
+                    IndustryCode = "TR",
                     Code = 21,
-                    Name = "Not necessary"
-                },
+                    Size = "Not necessary"
+                }
+            }.AsQueryable();
+        }
 
-
-
-
-
-             }.AsQueryable();
+        public static IQueryable<Employee> GetByIndustryCode(string industryCode)
+        {
+            return GetEmployees().Where(employee => industryCode == employee.IndustryCode);
         }
     }
 }
