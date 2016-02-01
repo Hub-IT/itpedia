@@ -6,8 +6,8 @@ using System.Web.Mvc;
 using System.Web.Security;
 using DotNetOpenAuth.AspNet;
 using Microsoft.Web.WebPages.OAuth;
-using TechConfigApp.Filters;
-using TechConfigApp.Models;
+using DB.Filters;
+using DB.Models;
 using WebMatrix.WebData;
 
 namespace DB.Controllers

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Web.WebPages.OAuth;
-using TechConfigApp.Models;
+using DB.Models;
 
-namespace TechConfigApp
+namespace DB
 {
     public static class AuthConfig
     {

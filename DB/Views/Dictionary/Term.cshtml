@@ -1,5 +1,4 @@
 ﻿@using DB.Models
-@using TechConfigApp.Models
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     Term term = ViewBag.Term;
@@ -7,7 +6,7 @@
 }
 
 
-@Html.ActionLink("← (Back)", "Index", "Dictionary") | <a href="@term.Source">Source</a>
+@Html.ActionLink("← (Back)", "Index", "dictionary") | <a href="@term.Source">Source</a>
 
 <h2>@term.Name</h2>
 

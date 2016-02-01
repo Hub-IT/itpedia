@@ -6,18 +6,21 @@
 
 <div id="Dic">
 
-    <h2 class="Dictionary">Select an item to view explanatory information</h2>
+    <h2 class="dictionary">Select an item to view explanatory information</h2>
+
+
+    <h3>@Html.ActionLink("RSS", "Rss", "Dictionary", null, new {})</h3>
 
     <div class="row">
-            <div class="panel panel-primary">
-                <ul class="list-group">
+        <div class="panel panel-primary">
+            <ul class="list-group">
                 @foreach (Term term in ViewBag.Terms)
                 {
                     <li class="list-group-item">
-                        @Html.ActionLink(term.Name, "Term", "Dictionary", new { id = term.Name }, null)
+                        @Html.ActionLink(term.Name, "Term", "Dictionary", new {id = term.Name}, null)
                     </li>
                 }
-                </ul>
-            </div>
+            </ul>
         </div>
+    </div>
 </div>

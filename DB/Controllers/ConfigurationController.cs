@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
-using TechConfigApp.Models;
+using DB.Models;
 
 namespace DB.Controllers
 {

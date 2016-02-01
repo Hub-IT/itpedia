@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 
-namespace TechConfigApp.Models
+namespace DB.Models
 {
     public class UsersContext : DbContext
     {

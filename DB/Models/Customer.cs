@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Web.Mvc;
 
-namespace TechConfigApp.Models
+namespace DB.Models
 {
     public class Customer
     {

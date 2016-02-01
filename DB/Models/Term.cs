@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel.Syndication;
 
 namespace DB.Models
 {
@@ -300,8 +301,27 @@ namespace DB.Models
                         "<p>A client-server network is a communications model in which multiple client programs share the services of a common server program.</p>"
                     },
                     Source = "http://searchwindowsserver.techtarget.com/definition/client-server-network"
-                },
+                }
             };
+        }
+
+        public static List<SyndicationItem> GetSyndicationList()
+        {
+            var terms = Get();
+
+            var syndicationItems = new List<SyndicationItem>();
+
+            foreach (var term in terms)
+            {
+                syndicationItems.Add(
+                    new SyndicationItem(
+                        term.Name,
+                        string.Join(" ", term.Content),
+                        new Uri(term.Source))
+                    );
+            }
+
+            return syndicationItems.ToList();
         }
     }
 }

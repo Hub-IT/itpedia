@@ -2,7 +2,7 @@
 using System.Linq;
 using DB.Models;
 
-namespace TechConfigApp.Models
+namespace DB.Models
 {
     public class Proposal
     {

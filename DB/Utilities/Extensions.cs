@@ -5,7 +5,7 @@
  * @author Rizart Dokollari <r.dokollari@gmail.com>
  * @since 9/1/2015
  */
-namespace TechConfigApp.Utilities
+namespace DB.Utilities
 {
     public static class Extensions
     {

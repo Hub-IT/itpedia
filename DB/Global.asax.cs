@@ -2,8 +2,9 @@
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using DB;
 
-namespace TechConfigApp
+namespace DB
 {
     public class MvcApplication : System.Web.HttpApplication
     {
