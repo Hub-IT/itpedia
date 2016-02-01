@@ -1,5 +1,5 @@
 ﻿$(function() {
     $("#transactionCode").change(function() {
-        $("#Submit").show();
+        $("#SubmitBtn").prop("disabled", false);
     });
 });

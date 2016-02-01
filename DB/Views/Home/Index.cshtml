@@ -34,32 +34,34 @@
             </div>
         </div>
 
-        <div class="form-group" id="EmployeesDiv" style="display: none">
+        <div class="form-group" id="EmployeesDiv" >
             <label class="col-lg-2 control-label">Employees</label>
             <div class="col-lg-10">
-                <select id="employeeCode" name="employeeCode" class="form-control"></select>
+                <select id="employeeCode" name="employeeCode" class="form-control" disabled="disabled">
+                    <option value="">Select number of employees.</option>
+                </select>
             </div>
         </div>
 
-        <div class="form-group" id="CustomersDiv" style="display: none">
+        <div class="form-group" id="CustomersDiv" >
             <label class="col-lg-2 control-label">Customers</label>
             <div class="col-lg-10">
                 @Html.DropDownList("customerCode", ViewBag.CustomerList as SelectList,
-                    "Select number of customers", new {@code = "customerCode", @class = "form-control"})
+                    "Select number of customers", new {@code = "customerCode", @class = "form-control", disabled="disabled"})
             </div>
         </div>
 
-        <div class="form-group" id="TransactionsDiv" style="display: none">
+        <div class="form-group" id="TransactionsDiv" >
             <label class="col-lg-2 control-label">Transactions/month</label>
             <div class="col-lg-10">
                 @Html.DropDownList("transactionCode", ViewBag.TransactionPmList as SelectList,
-                    "Select number of Transactions per Month", new {@code = "transactionCode", @class = "form-control"})
+                    "Select number of Transactions per Month", new {@code = "transactionCode", @class = "form-control", disabled="disabled"})
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-lg-10 col-lg-offset-2">
-                <button type="submit" class="btn btn-primary" id="Submit" style="display: none">Submit</button>
+                <button type="submit" id="SubmitBtn" class="btn btn-primary" disabled>Submit</button>
             </div>
         </div>
     </fieldset>

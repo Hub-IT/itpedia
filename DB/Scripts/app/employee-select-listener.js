@@ -11,8 +11,8 @@ $(function() {
 
     $("#employeeCode").change(function() {
 
-        $("#TransactionsDiv").hide();
-        $("#CustomersDiv").hide();
+        $("#transactionCode").prop("disabled", true);
+        $("#customerCode").prop("disabled", true);
 
         var url = $("#CompanyEmployeeFormId").data("customerlistaction") + "/employeeCode" + $(this).val();
 
@@ -25,7 +25,7 @@ $(function() {
             });
 
             $("#customerCode").html(items);
-            $("#CustomersDiv").show();
+            $("#customerCode").prop("disabled", false);
         });
     });
 });

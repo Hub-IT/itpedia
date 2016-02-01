@@ -11,10 +11,10 @@ $(function() {
 
     $("#industryCode").change(function() {
 
-        $("#EmployeesDiv").show();
-        $("#CustomersDiv").hide();
-        $("#TransactionsDiv").hide();
-        $("#Submit").hide();
+        $("#employeeCode").prop("disabled", false);
+        $("#customerCode").prop("disabled", true);
+        $("#transactionCode").prop("disabled", true);
+        $("#Submit").prop("disabled", true);
 
         var url = $("#CompanyEmployeeFormId").data("employeelistaction") + "/?industryCode=" + $("#industryCode").val();
 
@@ -28,7 +28,7 @@ $(function() {
             });
 
             $("#employeeCode").html(items);
-            $("#EmployeesDiv").show();
+            $("#EmployeesDiv").prop("disabled", false);
         });
     });
 });

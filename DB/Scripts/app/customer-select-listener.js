@@ -22,7 +22,7 @@ $(function() {
             });
 
             $("#transactionCode").html(items);
-            $("#TransactionsDiv").show();
+            $("#transactionCode").prop("disabled", false);
         });
     });
 
