@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DB.Models
+namespace TechConfigApp.Models
 {
     public class Term
     {

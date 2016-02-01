@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Web.Mvc;
 
-namespace DB.Models
+namespace TechConfigApp.Models
 {
     public class Industry
     {
@@ -105,7 +105,7 @@ namespace DB.Models
         {
             var industries = GetAll();
 
-            return new SelectList(industries.ToArray(), "Code", "Size");
+            return new SelectList(industries.ToArray(), "Code", "Name");
         }
     }
 }

@@ -369,7 +369,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Configuration\Info.cshtml" />
+    <Content Include="Views\Configuration\Results.cshtml" />
     <Content Include="Views\Configuration\Terms\Server.cshtml" />
     <Content Include="Views\Configuration\Terms\Desktop.cshtml" />
     <Content Include="Views\Configuration\Terms\Printer.cshtml" />

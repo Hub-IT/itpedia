@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace DB.Models
+namespace TechConfigApp.Models
 {
     public class Proposal
     {
-        public int ProposalCode { get; set; }
-        public int SolutionCode { get; set; }
+        public string ProposalCode { get; set; }
+        public string SolutionCode { get; set; }
         public Dictionary<Term, string> HardwareSolutions { get; set; }
         public Dictionary<Term, string> SoftwareSolutions { get; set; }
         public Dictionary<Term, string> AppSolutions { get; set; }
@@ -26,8 +26,8 @@ namespace DB.Models
             {
                 new Proposal
                 {
-                    ProposalCode = 1,
-                    SolutionCode = 1,
+                    ProposalCode = "1",
+                    SolutionCode = "1",
                     HardwareSolutions = new Dictionary<Term, string>
                     {
                         {Term.GetByName("Computer"), "1-3"},
@@ -54,8 +54,8 @@ namespace DB.Models
                 },
                 new Proposal
                 {
-                    ProposalCode = 2,
-                    SolutionCode = 2,
+                    ProposalCode = "2",
+                    SolutionCode = "2",
                     HardwareSolutions = new Dictionary<Term, string>
                     {
                         {Term.GetByName("Server"), "1"},
@@ -85,8 +85,8 @@ namespace DB.Models
                 },
                 new Proposal
                 {
-                    ProposalCode = 3,
-                    SolutionCode = 3,
+                    ProposalCode = "3",
+                    SolutionCode = "3",
                     HardwareSolutions = new Dictionary<Term, string>
                     {
                         {Term.GetByName("Server"), "2"},
@@ -120,8 +120,8 @@ namespace DB.Models
                 },
                 new Proposal
                 {
-                    ProposalCode = 4,
-                    SolutionCode = 4,
+                    ProposalCode = "4",
+                    SolutionCode = "4",
                     HardwareSolutions = new Dictionary<Term, string>
                     {
                         {Term.GetByName("Server"), "2"},
@@ -155,8 +155,8 @@ namespace DB.Models
                 },
                 new Proposal
                 {
-                    ProposalCode = 5,
-                    SolutionCode = 5,
+                    ProposalCode = "5",
+                    SolutionCode = "5",
                     HardwareSolutions = new Dictionary<Term, string>
                     {
                         {Term.GetByName("Server"), "3"},
@@ -192,8 +192,8 @@ namespace DB.Models
                 },
                 new Proposal
                 {
-                    ProposalCode = 6,
-                    SolutionCode = 6,
+                    ProposalCode = "6",
+                    SolutionCode = "6",
                     HardwareSolutions = new Dictionary<Term, string>
                     {
                         {Term.GetByName("Server"), "3"},
@@ -231,8 +231,8 @@ namespace DB.Models
                 },
                 new Proposal
                 {
-                    ProposalCode = 7,
-                    SolutionCode = 7,
+                    ProposalCode = "7",
+                    SolutionCode = "7",
                     HardwareSolutions = new Dictionary<Term, string>
                     {
                         {Term.GetByName("Server"), "4"},
@@ -270,8 +270,8 @@ namespace DB.Models
                 },
                 new Proposal
                 {
-                    ProposalCode = 8,
-                    SolutionCode = 8,
+                    ProposalCode = "8",
+                    SolutionCode = "8",
                     HardwareSolutions = new Dictionary<Term, string>
                     {
                         {Term.GetByName("Server"), "8"},
@@ -310,8 +310,8 @@ namespace DB.Models
                 },
                 new Proposal
                 {
-                    ProposalCode = 9,
-                    SolutionCode = 9,
+                    ProposalCode = "9",
+                    SolutionCode = "9",
                     HardwareSolutions = new Dictionary<Term, string>
                     {
                         {Term.GetByName("Server"), "8"},
@@ -350,8 +350,8 @@ namespace DB.Models
                 },
                 new Proposal
                 {
-                    ProposalCode = 10,
-                    SolutionCode = 10,
+                    ProposalCode = "10",
+                    SolutionCode = "10",
                     HardwareSolutions = new Dictionary<Term, string>
                     {
                         {Term.GetByName("Server"), "Main Site: 8, UPS & Disaster Site: 4"},
@@ -379,7 +379,7 @@ namespace DB.Models
                     NetSolutions = new Dictionary<Term, string>
                     {
                         {Term.GetByName("Switch"), "Main Site, 2"},
-                        {Term.GetByName("Firewall"), "2"},
+                        {Term.GetByName("Firewall"), "2"}
                     },
                     StorageSolutions = new Dictionary<Term, string>
                     {
@@ -390,7 +390,7 @@ namespace DB.Models
             };
         }
 
-        public static Proposal GetBySolutionCode(int solutionCode)
+        public static Proposal GetBySolutionCode(string solutionCode)
         {
             return Proposals().First(proposal => solutionCode == proposal.SolutionCode);
         }

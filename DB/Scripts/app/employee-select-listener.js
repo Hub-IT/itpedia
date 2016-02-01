@@ -9,14 +9,14 @@
  */
 $(function() {
 
-    $("#employees").change(function() {
+    $("#employeeCode").change(function() {
 
         $("#TransactionsDiv").hide();
         $("#CustomersDiv").hide();
 
-        var url = $("#CompanyEmployeeFormId").data("customerlistaction");
+        var url = $("#CompanyEmployeeFormId").data("customerlistaction") + "/employeeCode" + $(this).val();
 
-        $.getJSON(url + "/" + $("#employees").val(), function(data) {
+        $.getJSON(url, function(data) {
 
             var items = "<option>Select customers</option>";
 
@@ -24,7 +24,7 @@ $(function() {
                 items += "<option value='" + customer.Value + "'>" + customer.Text + "</option>";
             });
 
-            $("#customers").html(items);
+            $("#customerCode").html(items);
             $("#CustomersDiv").show();
         });
     });

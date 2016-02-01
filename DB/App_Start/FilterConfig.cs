@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace DB
+namespace TechConfigApp
 {
     public class FilterConfig
     {

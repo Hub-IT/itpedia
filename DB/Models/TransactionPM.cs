@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Web.Mvc;
 
-namespace DB.Models
+namespace TechConfigApp.Models
 {
     public class TransactionPm
     {

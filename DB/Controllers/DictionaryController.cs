@@ -1,5 +1,5 @@
 ﻿using System.Web.Mvc;
-using DB.Models;
+using TechConfigApp.Models;
 
 namespace DB.Controllers
 {
@@ -16,12 +16,14 @@ namespace DB.Controllers
         {
             Term term;
 
-            if (id == null || (term = DB.Models.Term.GetByName(id)) == null)
+            if (id == null || (term = TechConfigApp.Models.Term.GetByName(id)) == null)
             {
                 return RedirectToAction("Index", "Dictionary");
             }
 
             ViewBag.Term = term;
+
+            ViewBag.Title = term.Name;
 
             return View();
         }

@@ -1,5 +1,5 @@
 ﻿$(function() {
-    $("#Transactions").change(function() {
+    $("#transactionCode").change(function() {
         $("#Submit").show();
     });
 });

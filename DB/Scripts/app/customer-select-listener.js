@@ -7,21 +7,21 @@
  * When done retreiving those numbers, save them to a select list, and show them to user.
  * 
  */
-$(function () {
+$(function() {
 
-    $("#customers").change(function () {
+    $("#customerCode").change(function() {
 
-        var url = $("#CompanyEmployeeFormId").data("transactionlistaction");
+        var url = $("#CompanyEmployeeFormId").data("transactionlistaction") + "/" + $(this).val();
 
-        $.getJSON(url + "/" + $(this).val(), function (data) {
+        $.getJSON(url, function(data) {
 
             var items = "<option>Select Transaction Per Month</option>";
 
-            $.each(data, function (i, transaction) {
+            $.each(data, function(i, transaction) {
                 items += "<option value='" + transaction.Value + "'>" + transaction.Text + "</option>";
             });
 
-            $("#Transactions").html(items);
+            $("#transactionCode").html(items);
             $("#TransactionsDiv").show();
         });
     });

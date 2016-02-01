@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace DB
+namespace TechConfigApp
 {
     public class RouteConfig
     {
@@ -9,24 +9,20 @@ namespace DB
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
-                "Dictionary",
-                "Dictionary/{action}/{id}", new
-                {
-                    controller = "Dictionary",
-                    action = "Index",
-                    id = UrlParameter.Optional
-                });
+            routes.MapRoute("Dictionary", "Dictionary/{action}/{id}", new
+            {
+                controller = "Dictionary",
+                action = "Index",
+                id = UrlParameter.Optional
+            });
 
 
-            routes.MapRoute(
-                "Default",
-                "{controller}/{action}/{id}", new
-                {
-                    controller = "Home",
-                    action = "Acknowledgment",
-                    id = UrlParameter.Optional
-                });
+            routes.MapRoute("Default", "{controller}/{action}/{id}", new
+            {
+                controller = "Home",
+                action = "Acknowledgment",
+                id = UrlParameter.Optional
+            });
         }
     }
 }

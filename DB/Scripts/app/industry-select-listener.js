@@ -16,13 +16,12 @@ $(function() {
         $("#TransactionsDiv").hide();
         $("#Submit").hide();
 
-        var url = $("#CompanyEmployeeFormId").data("employeelistaction");
+        var url = $("#CompanyEmployeeFormId").data("employeelistaction") + "/?industryCode=" + $("#industryCode").val();
 
-        $.getJSON(url + "/" + $("#industryCode").val(), function(data) {
+        $.getJSON(url, function(data) {
 
             var items = "<option>Select employees</option>";
 
-            console.log(data);
 
             $.each(data, function(i, employee) {
                 items += "<option value='" + employee.Value + "'>" + employee.Text + "</option>";

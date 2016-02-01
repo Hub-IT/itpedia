@@ -1,11 +1,12 @@
-﻿@using DB.Models
+﻿@using TechConfigApp.Models
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     Term term = ViewBag.Term;
     ViewBag.Title = term.Name;
 }
 
-@Html.ActionLink("← (Back)", "Index", "Dictionary")
+
+@Html.ActionLink("← (Back)", "Index", "Dictionary") | <a href="@term.Source">Source</a>
 
 <h2>@term.Name</h2>
 
@@ -13,7 +14,7 @@
     @foreach (var paragraph in term.Content)
     {
         <li>
-            @paragraph
+            @Html.Raw(paragraph)
         </li>
     }
 </ol>

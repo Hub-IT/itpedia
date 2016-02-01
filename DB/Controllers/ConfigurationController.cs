@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
-using DB.Models;
+using TechConfigApp.Models;
 
 namespace DB.Controllers
 {
@@ -19,30 +19,26 @@ namespace DB.Controllers
 
 
         [HttpPost]
-        public ActionResult NewRequest(string companyCode, string employees, string customers, string transactionCode)
+        public ActionResult NewRequest(string industryCode, string employeeCode, string customerCode, string transactionCode)
         {
-            ViewBag.Company = Industry.GetIndustrySelectList();
 
-            var employeeCode = -1;
+//             TODO: replace below code with seperate functions (isValid) for each of the parameters defined in their respective models
+//            if (!int.TryParse(employees, out employeeCode))
+//            {
+//                ViewBag.YouSelected = "You must select a Company Type and Number of employees";
+//
+//                return View();
+//            }
+//
+            var solutionCode = Solution.GetSolutionCode(employeeCode, industryCode, transactionCode);
 
+            ViewBag.Solutions = Proposal.GetBySolutionCode(solutionCode);
 
-            // TODO: replace below code with seperate functions (isValid) for each of the parameters defined in their respective models
-            if (!int.TryParse(employees, out employeeCode))
-            {
-                ViewBag.YouSelected = "You must select a Company Type and Number of employees";
-
-                return View();
-            }
-
-            var solutionCode = Solution.GetSolutionCode(employeeCode, companyCode, transactionCode);
-
-            ViewBag.HardwareSolutions = Proposal.GetBySolutionCode(solutionCode).HardwareSolutions;
-
-            return View("Info");
+            return View("Results");
         }
 
 
-        public ActionResult IndustryTypeList()
+        public ActionResult IndustriesList()
         {
             if (HttpContext.Request.IsAjaxRequest())
                 return Json(Industry.GetIndustrySelectList(), JsonRequestBehavior.AllowGet);
@@ -59,7 +55,8 @@ namespace DB.Controllers
                 return Json(new SelectList(
                     employees.ToArray(), "Code", "Size"), JsonRequestBehavior.AllowGet);
 
-            return RedirectToAction("NewRequest");
+
+           return RedirectToAction("NewRequest");
         }
 
         public ActionResult CustomerList()
