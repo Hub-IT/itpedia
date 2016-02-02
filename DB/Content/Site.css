@@ -119,8 +119,26 @@ p {
 
 .contact-label > div > p { color: white; }
 
+/** END Contact Page **/
 
-/* END Contact Page */
+/* Edit Results Page */
+
+#results li a {
+    color:#404040;
+}
+
+#results li a:link {
+    color:#404040;
+}
+
+#results li a:visited {
+    color:#404040;
+}
+
+#results li a:hover {
+    color:#2fa4e7;
+    text-decoration: none;
+}
 
 
 /* Overwiting Bootstrap CSS */
