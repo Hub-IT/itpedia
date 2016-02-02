@@ -7,7 +7,7 @@
 
 <div id="Term">
 
-    @Html.ActionLink("← (Back)", "Index", "dictionary") | <a href="@term.Source">Source</a>
+    <a href="javascript:history.go(-1)" class="btn btn-default">Back</a> <a href="@term.Source" class="btn btn-default">Source</a>
 
     <h2>@term.Name</h2>
 
