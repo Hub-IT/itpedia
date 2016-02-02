@@ -5,16 +5,18 @@
     ViewBag.Title = term.Name;
 }
 
+<div id="Term">
 
-@Html.ActionLink("← (Back)", "Index", "dictionary") | <a href="@term.Source">Source</a>
+    @Html.ActionLink("← (Back)", "Index", "dictionary") | <a href="@term.Source">Source</a>
 
-<h2>@term.Name</h2>
+    <h2>@term.Name</h2>
 
-<ol>
-    @foreach (var paragraph in term.Content)
-    {
-        <li>
-            @Html.Raw(paragraph)
-        </li>
-    }
-</ol>
+    <ol>
+        @foreach (var paragraph in term.Content)
+        {
+            <li>
+                @Html.Raw(paragraph)
+            </li>
+        }
+    </ol>
+</div>
