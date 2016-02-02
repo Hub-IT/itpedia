@@ -12,15 +12,12 @@
     <h3>@Html.ActionLink("RSS", "Rss", "Dictionary", null, new {})</h3>
 
     <div class="row">
-        <div class="panel panel-primary">
-            <ul class="list-group">
-                @foreach (Term term in ViewBag.Terms)
-                {
-                    <li class="list-group-item">
-                        @Html.ActionLink(term.Name, "Term", "Dictionary", new {id = term.Name}, null)
-                    </li>
-                }
-            </ul>
-        </div>
+        @foreach (Term term in ViewBag.Terms)
+        {
+            <div style="padding:10px;" class="table-bordered col-md-6 col-sm-6 col-xs-12">
+                @Html.ActionLink(term.Name, "Term", "Dictionary", new { id = term.Name }, null)
+            </div>
+        }            
     </div>
+
 </div>
