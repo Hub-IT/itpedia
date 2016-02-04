@@ -16,7 +16,6 @@ namespace DB
                 id = UrlParameter.Optional
             });
 
-
             routes.MapRoute("Default", "{controller}/{action}/{id}", new
             {
                 controller = "Home",
