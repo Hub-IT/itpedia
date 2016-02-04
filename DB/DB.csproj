@@ -305,7 +305,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Images\DereeLogo_Signature.jpg" />
-    <Content Include="Images\rss.png" />
     <None Include="Resources\asdf.jpg" />
     <Content Include="Scripts\app\transaction-select-listener.js" />
     <Content Include="Scripts\app\industry-select-listener.js" />
