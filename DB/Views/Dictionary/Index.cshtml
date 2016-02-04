@@ -7,7 +7,7 @@
 <div class="container">
     <div id="Dic">
         <div class="row">
-            <h3 style="margin-right: 30px;" class="dictionary">Select an item to view explanatory information </h3>
+            <h3 class="text-center">Select an item to view explanatory information </h3>
             <div class="col-md-12 col-md-push-5">
                 <a href="@Url.Action("Rss")">
                     <i class="fa fa-rss-square"></i> RSS
@@ -17,18 +17,12 @@
 
         <br/>
 
-        <div class="row">
-            <div class="col-md-12">
-                @foreach (Term term in ViewBag.Terms)
-                {
-                    <div style="padding: 10px;" class="table-bordered col-md-6 col-sm-6 col-xs-12">
-                        @Html.ActionLink(term.Name, "Term", "Dictionary", new {id = term.Name}, null)
-                    </div>
-                }
-
-            </div>
+        <div class="list-group">
+            @foreach (Term term in ViewBag.Terms)
+            {
+                <a href="@Url.Action("Term", new {id = term.Name})" class="list-group-item col-sm-6 col-xs-12">@term.Name</a>
+            }
         </div>
-
 
     </div>
 </div>
