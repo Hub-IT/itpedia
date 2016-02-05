@@ -1,31 +1,33 @@
-﻿html,
-body {
-    height: 100%;
-    font-family: 'Lora', serif;
-    /* The html and body elements cannot have any padding or margin. */
-}
+﻿* { font-family: 'Lora', serif; }
 
-#logo {
-    margin-top: -8px;
-}
-
-#footer {
-    background: #1995dc;
-    background-image: none;
-    height: auto;
-    margin-bottom: 0;
-    margin-top: 70px;
-    padding-bottom: 0;
-}
-
-#wrap {
-    height: auto !important;
-    height: 100%;
-    margin: 0 auto -130px;
+html {
+    position: relative;
     min-height: 100%;
 }
 
-#push { height: 130px; }
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 120px;
+}
+
+#logo { margin-top: -8px; }
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 120px;
+    margin-bottom: 0;
+    padding: 20px 0 40px 0;
+    color: #ffffff;
+}
+
+.footer img {
+    border-radius: 10%;
+    max-height: 60px;
+}
+
 
 #main-content { padding-top: 80px; }
 
@@ -33,16 +35,16 @@ body {
     color: #666;
     font-weight: bold;
     font-size: 2.1em;
-    margin-left:-30px;
+    margin-left: -30px;
     padding-left: -10px;
-    line-height:1.5em;
+    line-height: 1.5em;
 }
 
 .jumbotron h2 + div p::first-letter {
     float: left;
     font-size: 50px;
-    font-weight:700;
-    font-style:italic;
+    font-weight: 700;
+    font-style: italic;
     color: lightblue;
     background-color: #666;
     margin: 5px -2px 0 0;
@@ -53,14 +55,14 @@ body {
 #asdf::first-letter {
     float: left;
     font-size: 50px;
-    font-weight:700;
-    font-style:italic;
+    font-weight: 700;
+    font-style: italic;
     color: lightblue;
     background-color: #666;
     margin: 5px 5px 0 0;
     border-radius: 0px;
     line-height: 1em;
-    padding-right:2px;
+    padding-right: 2px;
 }
 
 #smallLine {
@@ -70,14 +72,17 @@ body {
     color: #333;
 }
 
+@media (max-width: 768px) {
+    .copyright {
+        float: left !important;
+        padding: 20px 0 20px 10px;
+    }
 
-
-@media (max-width: 770px) {
-  #footer {
-     text-align: center;
-  }
+    body {
+        /* Margin bottom by footer height */
+        margin-bottom: 200px;
+    }
+    .footer {
+        height: 200px
+    }
 }
-
-
-
-
