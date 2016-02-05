@@ -1,6 +1,7 @@
 ﻿html,
 body {
     height: 100%;
+    font-family: 'Lora', serif;
     /* The html and body elements cannot have any padding or margin. */
 }
 
@@ -27,3 +28,15 @@ body {
 #push { height: 130px; }
 
 #main-content { padding-top: 80px; }
+
+
+
+@media (max-width: 770px) {
+  #footer {
+     text-align: center;
+  }
+}
+
+
+
+
