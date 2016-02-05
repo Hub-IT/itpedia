@@ -31,7 +31,7 @@ body {
 
 #main-content { padding-top: 80px; }
 
-#asdf::first-line {
+#itpedia-logo-text::first-line {
     color: #666;
     font-weight: bold;
     font-size: 2.1em;
@@ -52,7 +52,7 @@ body {
     line-height: 1em;
 }
 
-#asdf::first-letter {
+#itpedia-logo-text::first-letter {
     float: left;
     font-size: 50px;
     font-weight: 700;
@@ -65,7 +65,7 @@ body {
     padding-right: 2px;
 }
 
-#smallLine {
+#small-line {
     font-size: 0.7em;
     line-height: 1.2em;
     padding-bottom: 5px;
@@ -85,4 +85,11 @@ body {
     .footer {
         height: 200px
     }
+}
+
+#dic h3 {
+    box-shadow: 2px 2px 5px 2px;
+    padding: 5px;
+    max-width: 700px;
+    margin: 10px auto 30px;
 }
