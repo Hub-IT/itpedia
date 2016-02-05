@@ -31,28 +31,8 @@ body {
 
 #main-content { padding-top: 80px; }
 
-#itpedia-logo-text::first-line {
-    color: #666;
-    font-weight: bold;
-    font-size: 2.1em;
-    margin-left: -30px;
-    padding-left: -10px;
-    line-height: 1.5em;
-}
-
-.jumbotron h2 + div p::first-letter {
-    float: left;
-    font-size: 50px;
-    font-weight: 700;
-    font-style: italic;
-    color: lightblue;
-    background-color: #666;
-    margin: 5px -2px 0 0;
-    border-radius: 0px;
-    line-height: 1em;
-}
-
-#itpedia-logo-text::first-letter {
+/* Logo Texts */
+#itpedia-logo-text {
     float: left;
     font-size: 50px;
     font-weight: 700;
@@ -65,12 +45,41 @@ body {
     padding-right: 2px;
 }
 
+#pedia-logo-text {
+    color: #666;
+    font-weight: bold;
+    font-size: 2.1em;
+    margin-left: -30px;
+    padding-left: -10px;
+    line-height: 1.5em;
+}
+ 
+
 #small-line {
     font-size: 0.7em;
     line-height: 1.2em;
     padding-bottom: 5px;
     color: #333;
 }
+
+
+#dic h3 {
+    box-shadow: 2px 2px 5px 2px;
+    padding: 5px;
+    max-width: 700px;
+    margin: 10px auto 30px;
+}
+
+#itpedia-logo-text-div {
+    background: lightblue;
+    width: 200px;
+    margin: 0 auto;
+    border-radius: 0px;
+    padding-left: 5px;
+    margin-bottom: 30px;
+    margin-top: -20px;
+}
+/* End Logo Text*/
 
 @media (max-width: 768px) {
     .copyright {
@@ -82,14 +91,6 @@ body {
         /* Margin bottom by footer height */
         margin-bottom: 200px;
     }
-    .footer {
-        height: 200px
-    }
-}
 
-#dic h3 {
-    box-shadow: 2px 2px 5px 2px;
-    padding: 5px;
-    max-width: 700px;
-    margin: 10px auto 30px;
+    .footer { height: 200px }
 }

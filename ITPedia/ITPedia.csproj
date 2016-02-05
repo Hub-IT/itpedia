@@ -385,6 +385,8 @@
     <Content Include="Views\Home\Results.cshtml" />
     <Content Include="Views\Dictionary\Index.cshtml" />
     <Content Include="Views\Dictionary\Term.cshtml" />
+    <Content Include="Views\Shared\_ItPediaLogoText.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
