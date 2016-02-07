@@ -301,6 +301,66 @@ namespace DB.Models
                         "<p>A client-server network is a communications model in which multiple client programs share the services of a common server program.</p>"
                     },
                     Source = "http://searchwindowsserver.techtarget.com/definition/client-server-network"
+                },
+                new Term
+                {
+                    Id = 24,
+                    Name = "Clean Install",
+                    Content = new[]
+                    {
+                       "<p>A clean install is a software installation in which any previous version is eradicated. The alternative to a clean install is an upgrade, in which elements of a previous version remain.</p><p>The terms are often heard in reference to operating systems. A clean installation of an operating system formats the drive and erases all existing data -- the user has to back up all data beforehand. Applications will have to be reinstalled, as well. An upgrade, sometimes referred to as an 'in-place install,' retains user data and settings.</p>"
+                    },
+                    Source = "http://searchitchannel.techtarget.com/definition/clean-install"
+                },
+                new Term
+                {
+                    Id = 24,
+                    Name = "Parameterization",
+                    Content = new[]
+                    {
+                       ""
+                    },
+                    Source = ""
+                },
+                new Term
+                {
+                    Id = 25,
+                    Name = "User training",
+                    Content = new[]
+                    {
+                       ""
+                    },
+                    Source = ""
+                },
+                new Term
+                {
+                    Id = 25,
+                    Name = "Hostig Fees",
+                    Content = new[]
+                    {
+                       ""
+                    },
+                    Source = ""
+                },
+                new Term
+                {
+                    Id = 25,
+                    Name = "Software License",
+                    Content = new[]
+                    {
+                       "<p>A software license is a document that provides legally binding guidelines for the use and distribution of software.</p>"
+                    },
+                    Source = "http://searchcio.techtarget.com/definition/software-license"
+                },
+                new Term
+                {
+                    Id = 25,
+                    Name = "Maintenance",
+                    Content = new[]
+                    {
+                       "<p>Maintenance Management Information System (MMIS) is a mechanized claims processing and information retrieval system for Medicaid  that's required by the federal government. All states are required to operate an MMIS to support Medicaid business functions and maintain information in such areas as provider enrollment; client eligibility, including third party liability; benefit package maintenance; managed care enrollment; claims processing; and prior authorization. A fiscal agent who is a private contractor to the state, normally selected through a competitive procurement process, may operate the state's MMIS.</p>"
+                    },
+                    Source = "http://searchhealthit.techtarget.com/definition/Maintenance-Management-Information-System-MMIS"
                 }
             };
         }

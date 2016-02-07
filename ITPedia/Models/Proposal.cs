@@ -13,6 +13,8 @@ namespace DB.Models
         public Dictionary<Term, string> AppSolutions { get; set; }
         public Dictionary<Term, string> NetSolutions { get; set; }
         public Dictionary<Term, string> StorageSolutions { get; set; }
+        public Dictionary<Term, string> FixedCosts { get; set; }
+        public Dictionary<Term, string> RecurringCosts { get; set; }
 
 
         public static IQueryable<Proposal> Get()
@@ -51,6 +53,18 @@ namespace DB.Models
                     StorageSolutions = new Dictionary<Term, string>
                     {
                         {Term.GetByName("Internal Control"), ""}
+                    },
+                    FixedCosts = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Clean Install"), ""},
+                        {Term.GetByName("Parameterization"), ""},
+                        {Term.GetByName("User training"), ""}
+                    },
+                    RecurringCosts = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Hostig Fees"), ""},
+                        {Term.GetByName("Software License"), ""},
+                        {Term.GetByName("Maintenance"), ""}
                     }
                 },
                 new Proposal
@@ -82,6 +96,18 @@ namespace DB.Models
                     StorageSolutions = new Dictionary<Term, string>
                     {
                         {Term.GetByName("Internal Control"), ""}
+                    },
+                    FixedCosts = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Clean Install"), ""},
+                        {Term.GetByName("Parameterization"), ""},
+                        {Term.GetByName("User training"), ""}
+                    },
+                    RecurringCosts = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Hostig Fees"), ""},
+                        {Term.GetByName("Software License"), ""},
+                        {Term.GetByName("Maintenance"), ""}
                     }
                 },
                 new Proposal
@@ -117,6 +143,18 @@ namespace DB.Models
                     StorageSolutions = new Dictionary<Term, string>
                     {
                         {Term.GetByName("Internal Control"), ""}
+                    },
+                    FixedCosts = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Clean Install"), ""},
+                        {Term.GetByName("Parameterization"), ""},
+                        {Term.GetByName("User training"), ""}
+                    },
+                    RecurringCosts = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Hostig Fees"), ""},
+                        {Term.GetByName("Software License"), ""},
+                        {Term.GetByName("Maintenance"), ""}
                     }
                 },
                 new Proposal
@@ -152,6 +190,18 @@ namespace DB.Models
                     StorageSolutions = new Dictionary<Term, string>
                     {
                         {Term.GetByName("HPSS"), ""}
+                    },
+                    FixedCosts = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Clean Install"), ""},
+                        {Term.GetByName("Parameterization"), ""},
+                        {Term.GetByName("User training"), ""}
+                    },
+                    RecurringCosts = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Hostig Fees"), ""},
+                        {Term.GetByName("Software License"), ""},
+                        {Term.GetByName("Maintenance"), ""}
                     }
                 },
                 new Proposal
@@ -189,6 +239,18 @@ namespace DB.Models
                     StorageSolutions = new Dictionary<Term, string>
                     {
                         {Term.GetByName("HPSS"), ""}
+                    },
+                    FixedCosts = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Clean Install"), ""},
+                        {Term.GetByName("Parameterization"), ""},
+                        {Term.GetByName("User training"), ""}
+                    },
+                    RecurringCosts = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Hostig Fees"), ""},
+                        {Term.GetByName("Software License"), ""},
+                        {Term.GetByName("Maintenance"), ""}
                     }
                 },
                 new Proposal
@@ -228,6 +290,18 @@ namespace DB.Models
                     StorageSolutions = new Dictionary<Term, string>
                     {
                         {Term.GetByName("HPSS"), ""}
+                    },
+                    FixedCosts = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Clean Install"), ""},
+                        {Term.GetByName("Parameterization"), ""},
+                        {Term.GetByName("User training"), ""}
+                    },
+                    RecurringCosts = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Hostig Fees"), ""},
+                        {Term.GetByName("Software License"), ""},
+                        {Term.GetByName("Maintenance"), ""}
                     }
                 },
                 new Proposal
@@ -267,6 +341,18 @@ namespace DB.Models
                     {
                         {Term.GetByName("HPSS"), ""},
                         {Term.GetByName("Tape Library"), ""}
+                    },
+                    FixedCosts = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Clean Install"), ""},
+                        {Term.GetByName("Parameterization"), ""},
+                        {Term.GetByName("User training"), ""}
+                    },
+                    RecurringCosts = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Hostig Fees"), ""},
+                        {Term.GetByName("Software License"), ""},
+                        {Term.GetByName("Maintenance"), ""}
                     }
                 },
                 new Proposal
@@ -307,6 +393,18 @@ namespace DB.Models
                     {
                         {Term.GetByName("HPSS"), ""},
                         {Term.GetByName("Tape Library"), ""}
+                    },
+                    FixedCosts = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Clean Install"), ""},
+                        {Term.GetByName("Parameterization"), ""},
+                        {Term.GetByName("User training"), ""}
+                    },
+                    RecurringCosts = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Hostig Fees"), ""},
+                        {Term.GetByName("Software License"), ""},
+                        {Term.GetByName("Maintenance"), ""}
                     }
                 },
                 new Proposal
@@ -347,6 +445,18 @@ namespace DB.Models
                     {
                         {Term.GetByName("SAN File System"), ""},
                         {Term.GetByName("Tape Library"), ""}
+                    },
+                    FixedCosts = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Clean Install"), ""},
+                        {Term.GetByName("Parameterization"), ""},
+                        {Term.GetByName("User training"), ""}
+                    },
+                    RecurringCosts = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Hostig Fees"), ""},
+                        {Term.GetByName("Software License"), ""},
+                        {Term.GetByName("Maintenance"), ""}
                     }
                 },
                 new Proposal
@@ -386,6 +496,18 @@ namespace DB.Models
                     {
                         {Term.GetByName("SAN File System"), "Main Site, Disaster Site"},
                         {Term.GetByName("Tape Library"), ""}
+                    },
+                    FixedCosts = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Clean Install"), ""},
+                        {Term.GetByName("Parameterization"), ""},
+                        {Term.GetByName("User training"), ""}
+                    },
+                    RecurringCosts = new Dictionary<Term, string>
+                    {
+                        {Term.GetByName("Hostig Fees"), ""},
+                        {Term.GetByName("Software License"), ""},
+                        {Term.GetByName("Maintenance"), ""}
                     }
                 }
             };

@@ -27,7 +27,7 @@ namespace DB.Controllers
         }
 
         [HttpPost]
-        public ActionResult NewRequest(string industryCode, string employeeCode, string customerCode, string transactionCode)
+        public ActionResult Results(string industryCode, string employeeCode, string customerCode, string transactionCode)
         {
 
 //             TODO: replace below code with seperate functions (isValid) for each of the parameters defined in their respective models
@@ -51,7 +51,7 @@ namespace DB.Controllers
             if (HttpContext.Request.IsAjaxRequest())
                 return Json(Industry.GetIndustrySelectList(), JsonRequestBehavior.AllowGet);
 
-            return RedirectToAction("NewRequest");
+            return RedirectToAction("Results");
         }
 
 
@@ -64,7 +64,7 @@ namespace DB.Controllers
                     employees.ToArray(), "Code", "Size"), JsonRequestBehavior.AllowGet);
 
 
-           return RedirectToAction("NewRequest");
+           return RedirectToAction("Results");
         }
 
         public ActionResult CustomerList()
@@ -72,7 +72,7 @@ namespace DB.Controllers
             if (HttpContext.Request.IsAjaxRequest())
                 return Json(Customer.GetCustomerSelectList(), JsonRequestBehavior.AllowGet);
 
-            return RedirectToAction("NewRequest");
+            return RedirectToAction("Results");
         }
 
         public ActionResult TransactionList()
@@ -80,7 +80,7 @@ namespace DB.Controllers
             if (HttpContext.Request.IsAjaxRequest())
                 return Json(TransactionPm.GetTransactionPmSelectList(), JsonRequestBehavior.AllowGet);
 
-            return RedirectToAction("NewRequest");
+            return RedirectToAction("Results");
         }
     }
 }
