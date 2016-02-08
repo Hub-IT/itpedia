@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Web.Mvc;
 using ITPedia.Models;
+using ITPedia.Models.Views;
 
 namespace ITPedia.Controllers
 {
@@ -20,7 +21,6 @@ namespace ITPedia.Controllers
 
         public ActionResult About()
         {
-
             // TODO: move these data to the model layer
             ViewBag.ObjectiveIntro =
                 "The main objective of this website is to foster and develop a cooperative relationship between the academia and the Information & Communications Technology (ICT) industry in Greece.";
@@ -45,7 +45,7 @@ namespace ITPedia.Controllers
             ViewBag.DereeCisAndByteContent = new List<string>
             {
                 "The academic department of Computer Information Systems (CIS) was established in the beginning of the 1980s at DEREE offering one of the first accredited information systems programs in Greece. Today, through academic collaborations, professional partnerships with top global corporations and an expanding network of professionals we aim at exposing students to latest trends and best practices in management information systems and therefore add value to their studies.",
-                "ΒΥΤΕ Computer SA is a leading Greek Information and Communications Technology (ICT) Integrator with a dynamic presence of over 30 years in the Greek ICT Market and focus on the private sector. At the same time BYTE is among the five leading ICT vendors that successfully carry out projects in the Greek public sector, which is absorbing the largest share of our national economy.",
+                "ΒΥΤΕ Computer SA is a leading Greek Information and Communications Technology (ICT) Integrator with a dynamic presence of over 30 years in the Greek ICT Market and focus on the private sector. At the same time BYTE is among the five leading ICT vendors that successfully carry out projects in the Greek public sector, which is absorbing the largest share of our national economy."
             };
 
 
@@ -61,12 +61,15 @@ namespace ITPedia.Controllers
             ViewBag.ToolsAndTechnologiesUsedTitle = "Tools and Technologies used";
             ViewBag.ToolsAndTechnologiesUsedItems = new Dictionary<string, string>
             {
-                { "ASP.NET MVC 5 - Web Application Framework", "http://www.asp.net/mvc/mvc5"},
-                { "Visual Studio Community - Integrated Development Environment", "https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx"},
-                { "Bootstrap 3 - Front-End Framework", "http://getbootstrap.com/"},
-                { "OpenSource", "https://github.com/Hub-IT/itpedia"},
-                { "Git - Source Code Management System", "https://git-scm.com/"},
-                { "ReSharper - Visual Studio Extension for .NET Developers", "https://www.jetbrains.com/resharper/"},
+                {"ASP.NET MVC 5 - Web Application Framework", "http://www.asp.net/mvc/mvc5"},
+                {
+                    "Visual Studio Community - Integrated Development Environment",
+                    "https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx"
+                },
+                {"Bootstrap 3 - Front-End Framework", "http://getbootstrap.com/"},
+                {"OpenSource", "https://github.com/Hub-IT/itpedia"},
+                {"Git - Source Code Management System", "https://git-scm.com/"},
+                {"ReSharper - Visual Studio Extension for .NET Developers", "https://www.jetbrains.com/resharper/"}
             };
 
             return View();
@@ -91,9 +94,20 @@ namespace ITPedia.Controllers
 //
             var solutionCode = Solution.GetSolutionCode(employeeCode, industryCode, transactionCode);
 
-            ViewBag.Solutions = Proposal.GetBySolutionCode(solutionCode);
+            var solutions = Proposal.GetBySolutionCode(solutionCode);
 
-            return View("Results");
+            var model = new ResultsViewModel
+            {
+                HardwareSolutions = solutions.HardwareSolutions,
+                SoftwareSolutions = solutions.SoftwareSolutions,
+                AppSolutions = solutions.AppSolutions,
+                NetSolutions = solutions.NetSolutions,
+                StorageSolutions = solutions.StorageSolutions,
+                FixedCosts = solutions.FixedCosts,
+                RecurringCosts = solutions.RecurringCosts
+            };
+
+            return View(model);
         }
 
 

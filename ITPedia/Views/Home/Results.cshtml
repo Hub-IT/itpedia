@@ -1,4 +1,5 @@
-﻿@using ITPedia.Models
+﻿@model ITPedia.Models.Views.ResultsViewModel;
+
 @{
     ViewBag.Title = "Results";
 }
@@ -13,7 +14,7 @@
             <img alt="Storage" height="20" width="20" src="/Content/img/kattekrab-mainframe.png"/> Hardware
         </p>
 
-        @foreach (KeyValuePair<Term, string> entry in ViewBag.Solutions.HardwareSolutions)
+        @foreach (KeyValuePair<Term, string> entry in Model.)
         {
             @Html.ActionLink(entry.Value + " " + entry.Key.Name, "Term", "Dictionary", new {id = entry.Key.Name},
                 new {@class = "list-group-item"})
@@ -93,9 +94,10 @@
             RecurringCosts
         </p>
 
-        @foreach (KeyValuePair<Term, string> entry in ViewBag.Solutions.RecurringCosts)
+        @foreach (Solution solution in Model)
+@*        @foreach (KeyValuePair<Term, string> entry in ViewBag.Solutions.RecurringCosts)*@
         {
-            @Html.ActionLink(entry.Value + " " + entry.Key.Name, "Term", "Dictionary", new {id = entry.Key.Name},
+            @Html.ActionLink(solution.Value + " " + entry.Key.Name, "Term", "Dictionary", new {id = entry.Key.Name},
                 new {@class = "list-group-item"})
         }
     </div>
