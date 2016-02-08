@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITPedia", "ITPedia\ITPedia.csproj", "{5A93A5AC-5170-47E3-848E-318461329AC1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItPedia", "ItPedia\ItPedia.csproj", "{7840918E-CF7D-497B-97AA-299F3D33EF91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItPedia.Tests", "ItPedia.Tests\ItPedia.Tests.csproj", "{A9D4C7AD-B95A-480B-BF64-ACA0030BE6EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5A93A5AC-5170-47E3-848E-318461329AC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5A93A5AC-5170-47E3-848E-318461329AC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5A93A5AC-5170-47E3-848E-318461329AC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5A93A5AC-5170-47E3-848E-318461329AC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7840918E-CF7D-497B-97AA-299F3D33EF91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7840918E-CF7D-497B-97AA-299F3D33EF91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7840918E-CF7D-497B-97AA-299F3D33EF91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7840918E-CF7D-497B-97AA-299F3D33EF91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9D4C7AD-B95A-480B-BF64-ACA0030BE6EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9D4C7AD-B95A-480B-BF64-ACA0030BE6EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9D4C7AD-B95A-480B-BF64-ACA0030BE6EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9D4C7AD-B95A-480B-BF64-ACA0030BE6EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

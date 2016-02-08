@@ -1,80 +1,31 @@
 ﻿@{
-    ViewBag.Title = "Home";
+    ViewBag.Title = "Home Page";
 }
 
-@section featured {
-    <div class="jumbotron">
-        <h2>@ViewBag.Message</h2>
+<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
 
-        @{ Html.RenderPartial("_ItPediaLogoText"); }
-
+<div class="row">
+    <div class="col-md-4">
+        <h2>Getting started</h2>
         <p>
-            This website is a joint initiative of students at DEREE Computer Information Systems academic department and BYTE Computer SA.
+            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+            enables a clean separation of concerns and gives you full control over markup
+            for enjoyable, agile development.
         </p>
-        <p>
-            It serves as decision support tool for new entrepreneurs and business firms, aiming to produce the most suitable Information Technology configuration for different types of companies according to the industry, number of employees, number of customers, and number of transactions per month.
-        </p>
-        <p>
-            <b>Please choose from the options below to view the recommended solution set.</b>
-        </p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
     </div>
-}
-
-@using (Html.BeginForm("Results", "Home", FormMethod.Post, new
-{
-    @id = "CompanyEmployeeFormId",
-    data_employeeListAction = @Url.Action("EmployeeList"),
-    data_customerListAction = @Url.Action("CustomerList"),
-    data_transactionListAction = @Url.Action("TransactionList"),
-    @class = ""
-}))
-{
-    <div class="row">
-        <div class="form-group col-sm-6">
-            <label class="control-label" for="industryEmployeeId">
-                <i class="fa fa-industry"></i> Industry
-            </label>
-            @Html.DropDownList("industryEmployeeId", ViewBag.IndustrySelectList as SelectList,
-                "Select an industry", new {@id = "industryCustomerId", @class = "form-control"})
-        </div>
-        <div class="form-group col-sm-6" id="EmployeesDiv">
-            <label class="control-label" for="employeeCode">
-                <i class="fa fa-users"></i> Employees
-            </label>
-            <select id="employeeCode" name="employeeEmployeeId" class="form-control" disabled="disabled">
-                <option value="">Select number of employees.</option>
-            </select>
-        </div>
-
-
-        <div class="form-group col-sm-6" id="CustomersDiv">
-            <label class="control-label" for="customerEmployeeId">
-                <i class="fa fa-shopping-cart"></i> Customers
-            </label>
-            @Html.DropDownList("customerEmployeeId", ViewBag.CustomerList as SelectList,
-                "Select number of customers", new {@id = "customerCustomerId", @code = "customerEmployeeId", @class = "form-control", disabled = "disabled"})
-        </div>
-
-        <div class="form-group col-sm-6" id="TransactionsDiv">
-            <label class="control-label">
-                <i class="fa fa-truck"></i> Transactions/month
-            </label>
-            @Html.DropDownList("transactionEmployeeId", ViewBag.TransactionPmList as SelectList,
-                "Select number of Transactions per Month", new {@id = "transactionEmployeeId", @code = "transactionEmployeeId", @class = "form-control", disabled = "disabled"})
-        </div>
-
-        <div class="form-group">
-            <div class="text-center">
-                <button type="submit" id="SubmitBtn" class="btn btn-primary btn-default" disabled>Submit</button>
-            </div>
-        </div>
-
+    <div class="col-md-4">
+        <h2>Get more libraries</h2>
+        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
     </div>
-}
-
-@section scripts {
-    <script src="@Url.Content("~/Scripts/app/industry-select-listener.js")"></script>
-    <script src="@Url.Content("~/Scripts/app/employee-select-listener.js")"></script>
-    <script src="@Url.Content("~/Scripts/app/customer-select-listener.js")"></script>
-    <script src="@Url.Content("~/Scripts/app/transaction-select-listener.js")"></script>
-}
+    <div class="col-md-4">
+        <h2>Web Hosting</h2>
+        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    </div>
+</div>
