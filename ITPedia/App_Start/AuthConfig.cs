@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Web.WebPages.OAuth;
-using DB.Models;
-
-namespace DB
+﻿namespace ITPedia
 {
     public static class AuthConfig
     {

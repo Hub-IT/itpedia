@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace DB.Controllers
+namespace ITPedia.Controllers
 {
     public class ThemesController : Controller
     {

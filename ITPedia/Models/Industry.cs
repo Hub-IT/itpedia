@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Web.Mvc;
 
-namespace DB.Models
+namespace ITPedia.Models
 {
     public class Industry
     {

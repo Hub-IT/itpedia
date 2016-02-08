@@ -4,19 +4,19 @@ using System.Linq;
 using System.ServiceModel.Syndication;
 using System.Web.Mvc;
 using System.Xml;
-using DB.Models;
-using DB.Utilities;
+using ITPedia.Models;
+using ITPedia.Utilities;
 
-namespace DB.Controllers
+namespace ITPedia.Controllers
 {
     public class DictionaryController : Controller
     {
         // GET: dictionary
         public ActionResult Index()
         {
-            ViewBag.Terms = Models.Term.Get();
+            var terms = Models.Term.Get();
 
-            return View();
+            return View(terms);
         }
 
         // GET: dictionary/Term/{id}

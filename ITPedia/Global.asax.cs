@@ -2,9 +2,9 @@
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using DB;
+using ITPedia;
 
-namespace DB
+namespace ITPedia
 {
     public class MvcApplication : System.Web.HttpApplication
     {

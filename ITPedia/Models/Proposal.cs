@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using DB.Models;
+using ITPedia.Models;
 
-namespace DB.Models
+namespace ITPedia.Models
 {
     public class Proposal
     {

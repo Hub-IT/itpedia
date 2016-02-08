@@ -2,7 +2,7 @@
 using System.Web.Mvc;
 using System.Xml;
 
-namespace DB.Utilities
+namespace ITPedia.Utilities
 {
     public class RssResult : ActionResult
     {

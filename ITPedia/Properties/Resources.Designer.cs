@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DB.Properties {
+namespace ITPedia.Properties {
     using System;
     
     

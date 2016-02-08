@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace DB
+namespace ITPedia
 {
     public class FilterConfig
     {

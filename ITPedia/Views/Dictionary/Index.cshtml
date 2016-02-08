@@ -1,5 +1,4 @@
-﻿@using DB.Models
-@{
+﻿@{
     ViewBag.Title = "Dictionary";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -21,7 +20,7 @@
 
     <div class="row">
         <div class="list-group">
-            @foreach (Term term in ViewBag.Terms)
+            @foreach (var term in Model)
             {
                 <a href="@Url.Action("Term", new {id = term.Name})" class="list-group-item col-sm-6 col-xs-12">@term.Name</a>
             }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel.Syndication;
 
-namespace DB.Models
+namespace ITPedia.Models
 {
     public class Term
     {
