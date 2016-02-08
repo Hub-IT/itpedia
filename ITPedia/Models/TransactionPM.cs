@@ -6,8 +6,8 @@ namespace ITPedia.Models
 {
     public class TransactionPm
     {
-        public string Code { get; set; }
-        public string Size { get; set; }
+        public virtual string TransactionPmId { get; set; }
+        public virtual string Size { get; set; }
 
         public static IQueryable<TransactionPm> GetTransactionsPm()
         {
@@ -15,12 +15,12 @@ namespace ITPedia.Models
             {
                 new TransactionPm
                 {
-                    Code = "100",
+                    TransactionPmId = "100",
                     Size = "up to 100"
                 },
                 new TransactionPm
                 {
-                    Code = "100more",
+                    TransactionPmId = "100more",
                     Size = "more than 100"
                 }
             }.AsQueryable();
@@ -30,7 +30,7 @@ namespace ITPedia.Models
         {
             var transactions = GetTransactionsPm();
 
-            return new SelectList(transactions.ToArray(), "Code", "Size");
+            return new SelectList(transactions.ToArray(), "EmployeeId", "Size");
         }
     }
 }

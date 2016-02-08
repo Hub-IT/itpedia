@@ -30,7 +30,7 @@ namespace ITPedia.Models
         {
             var customers = GetCustomers();
 
-            return new SelectList(customers.ToArray(), "Code", "Size");
+            return new SelectList(customers.ToArray(), "EmployeeId", "Size");
         }
     }
 }

@@ -31,36 +31,36 @@
 {
     <div class="row">
         <div class="form-group col-sm-6">
-            <label class="control-label" for="industryCode">
+            <label class="control-label" for="industryEmployeeId">
                 <i class="fa fa-industry"></i> Industry
             </label>
-            @Html.DropDownList("industryCode", ViewBag.IndustrySelectList as SelectList,
-                "Select an industry", new {@id = "industryCode", @class = "form-control"})
+            @Html.DropDownList("industryEmployeeId", ViewBag.IndustrySelectList as SelectList,
+                "Select an industry", new {@id = "industryCustomerId", @class = "form-control"})
         </div>
         <div class="form-group col-sm-6" id="EmployeesDiv">
             <label class="control-label" for="employeeCode">
                 <i class="fa fa-users"></i> Employees
             </label>
-            <select id="employeeCode" name="employeeCode" class="form-control" disabled="disabled">
+            <select id="employeeCode" name="employeeEmployeeId" class="form-control" disabled="disabled">
                 <option value="">Select number of employees.</option>
             </select>
         </div>
 
 
         <div class="form-group col-sm-6" id="CustomersDiv">
-            <label class="control-label" for="customerCode">
+            <label class="control-label" for="customerEmployeeId">
                 <i class="fa fa-shopping-cart"></i> Customers
             </label>
-            @Html.DropDownList("customerCode", ViewBag.CustomerList as SelectList,
-                "Select number of customers", new {@id = "customerCode", @code = "customerCode", @class = "form-control", disabled = "disabled"})
+            @Html.DropDownList("customerEmployeeId", ViewBag.CustomerList as SelectList,
+                "Select number of customers", new {@id = "customerCustomerId", @code = "customerEmployeeId", @class = "form-control", disabled = "disabled"})
         </div>
 
         <div class="form-group col-sm-6" id="TransactionsDiv">
             <label class="control-label">
                 <i class="fa fa-truck"></i> Transactions/month
             </label>
-            @Html.DropDownList("transactionCode", ViewBag.TransactionPmList as SelectList,
-                "Select number of Transactions per Month", new {@id = "transactionCode", @code = "transactionCode", @class = "form-control", disabled = "disabled"})
+            @Html.DropDownList("transactionEmployeeId", ViewBag.TransactionPmList as SelectList,
+                "Select number of Transactions per Month", new {@id = "transactionEmployeeId", @code = "transactionEmployeeId", @class = "form-control", disabled = "disabled"})
         </div>
 
         <div class="form-group">
