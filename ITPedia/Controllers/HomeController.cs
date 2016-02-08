@@ -84,14 +84,8 @@ namespace ITPedia.Controllers
         public ActionResult Results(string industryCode, string employeeCode, string customerCode,
             string transactionCode)
         {
-//             TODO: replace below code with seperate functions (isValid) for each of the parameters defined in their respective models
-//            if (!int.TryParse(employees, out employeeCode))
-//            {
-//                ViewBag.YouSelected = "You must select a Company Type and Number of employees";
-//
-//                return View();
-//            }
-//
+//             TODO: Validate Parameters
+
             var solutionCode = Solution.GetSolutionCode(employeeCode, industryCode, transactionCode);
 
             var solutions = Proposal.GetBySolutionCode(solutionCode);
