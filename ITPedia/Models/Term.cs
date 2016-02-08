@@ -320,7 +320,7 @@ namespace DB.Models
                     {
                        ""
                     },
-                    Source = ""
+                    Source = "https://www.itu.int/ITU-T/studygroups/com17/languages/X.683-0207.pdf"
                 },
                 new Term
                 {
@@ -330,7 +330,7 @@ namespace DB.Models
                     {
                        ""
                     },
-                    Source = ""
+                    Source = "http://rua.ua.es/dspace/bitstream/10045/1650/4/The_use_of_information_technology_in_training.pdf"
                 },
                 new Term
                 {
@@ -338,9 +338,9 @@ namespace DB.Models
                     Name = "Hostig Fees",
                     Content = new[]
                     {
-                       ""
+                       "<p>Hosting (also known as Web site hosting, Web hosting, and Webhosting) is the business of housing, serving, and maintaining files for one or more Web sites. More important than the computer space that is provided for Web site files is the fast connection to the Internet. Most hosting services offer connections on T-carrier system lines. Typically, an individual business hosting its own site would require a similar connection and it would be expensive. Using a hosting service lets many companies share the cost of a fast Internet connection for serving files.</p>"
                     },
-                    Source = ""
+                    Source = "http://searchsoa.techtarget.com/definition/hosting"
                 },
                 new Term
                 {
