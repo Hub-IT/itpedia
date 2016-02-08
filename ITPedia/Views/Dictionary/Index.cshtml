@@ -5,18 +5,21 @@
 }
 
 <div class="container">
-    <div id="dic">
-        <div class="row">
-            <h3 class="text-center">Select an item to view explanatory information </h3>
-            <div class="text-center">
+    <div class="page-header">
+        <h1>
+            Dictionary
+            <small>
+                Select an item to view explanatory information
                 <a href="@Url.Action("Rss")" class="btn btn-default btn-xs">
                     <i class="fa fa-rss-square"></i> RSS
                 </a>
-            </div>
-        </div>
+            </small>
+        </h1>
+    </div>
 
-        <br/>
+    <br/>
 
+    <div class="row">
         <div class="list-group">
             @foreach (Term term in ViewBag.Terms)
             {
