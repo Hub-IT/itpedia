@@ -1,15 +1,29 @@
-using System.Collections.Generic;
+using System.Data.Entity.Migrations;
+using System.Linq;
 using ItPedia.Models;
 
 namespace ItPedia.Migrations
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
-
-    internal sealed class Configuration : DbMigrationsConfiguration<ItPedia.Models.ItPediaDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<ItPediaDbContext>
     {
+        // Industry Categories
+        private const string ExportBusiness = "Export Business";
+        private const string HomeBusiness = "Home Business";
+        private const string Telecommunication = "Telecommunication";
+        private const string Banking = "Banking";
+        private const string Retail = "Retail";
+        private const string Automobile = "Automobile";
+        private const string Advertising = "Advertising";
+        private const string Insurance = "Insurance";
+        private const string Oil = "Oil";
+        private const string Pharmaceutical = "Pharmaceutical";
+        private const string WaterSupply = "Water Supply";
+        private const string Police = "Police";
+        private const string TvBroadcasting = "TV Broadcasting";
+        private const string StockExchange = "Stock Exchange";
+        private const string Energy = "Energy";
+        private const string Transportation = "Transportation";
+
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
@@ -19,11 +33,87 @@ namespace ItPedia.Migrations
 
         protected override void Seed(ItPediaDbContext context)
         {
-            SeedIndustryCriteriaTable(context);
-
             SeedTermsTable(context);
 
+            SeedIndustryCriteriaTable(context);
+
+            SeedEmployeeCriteriaTable(context);
+
+            SeedCustomerCriteriaTable(context);
+
+            SeedTransactionsCriteraTable(context);
+
             SeedSolutionCategoriesTable(context);
+        }
+
+        private static void SeedTransactionsCriteraTable(ItPediaDbContext context)
+        {
+            context.TransactionCriterias.AddOrUpdate(transactionCriteria => transactionCriteria.TransactionCriteriaId,
+            new TransactionCriteria {TransactionCriteriaId = 1, PerMonth = "Up to 100"},
+            new TransactionCriteria {TransactionCriteriaId = 2, PerMonth = "More than 100"});
+        }
+
+        private static void SeedCustomerCriteriaTable(ItPediaDbContext context)
+        {
+            context.CustomerCriterias.AddOrUpdate(customerCriteria => customerCriteria.CustomerCriteriaId,
+                new CustomerCriteria {CustomerCriteriaId = 1, Size = "Up to 500"},
+                new CustomerCriteria {CustomerCriteriaId = 2, Size = "More than 500"});
+        }
+
+        private static void SeedEmployeeCriteriaTable(ItPediaDbContext context)
+        {
+            var homeBusinessIndustry = context.IndustryCriterias.Local.First(industry => industry.Name == HomeBusiness);
+            var exportBusinessIndustry = context.IndustryCriterias.Local.First(industry => industry.Name == ExportBusiness);
+            var telecommunicationIndustry =
+                context.IndustryCriterias.Local.First(industry => industry.Name == Telecommunication);
+            var bankingIndustry = context.IndustryCriterias.Local.First(industry => industry.Name == Banking);
+            var retailIndustry = context.IndustryCriterias.Local.First(industry => industry.Name == Retail);
+            var automobileIndustry = context.IndustryCriterias.Local.First(industry => industry.Name == Automobile);
+            var advertisingIndustry = context.IndustryCriterias.Local.First(industry => industry.Name == Advertising);
+            var insuranceIndustry = context.IndustryCriterias.Local.First(industry => industry.Name == Insurance);
+            var oilIndustry = context.IndustryCriterias.Local.First(industry => industry.Name == Oil);
+            var pharmaceuticalIndustry = context.IndustryCriterias.Local.First(industry => industry.Name == Pharmaceutical);
+            var waterSupplyIndustry = context.IndustryCriterias.Local.First(industry => industry.Name == WaterSupply);
+            var policeIndustry = context.IndustryCriterias.Local.First(industry => industry.Name == Police);
+            var tvBroadcastingIndustry = context.IndustryCriterias.Local.First(industry => industry.Name == TvBroadcasting);
+            var stockExchangeIndustry = context.IndustryCriterias.Local.First(industry => industry.Name == StockExchange);
+            var energyIndustry = context.IndustryCriterias.Local.First(industry => industry.Name == Energy);
+            var transportationIndustry = context.IndustryCriterias.Local.First(industry => industry.Name == Transportation);
+
+            context.EmployeeCriterias.AddOrUpdate(employeeCriteria => employeeCriteria.EmployeeCriteriaId,
+                GetEmployeeCriteria(1, "Up to 10", homeBusinessIndustry),
+                GetEmployeeCriteria(2, "11 - 50", exportBusinessIndustry),
+                GetEmployeeCriteria(3, "51- 200", telecommunicationIndustry),
+                GetEmployeeCriteria(4, "51- 200", bankingIndustry),
+                GetEmployeeCriteria(5, "Up to 10", retailIndustry),
+                GetEmployeeCriteria(6, "11 - 50", retailIndustry),
+                GetEmployeeCriteria(7, "Up to 10", automobileIndustry),
+                GetEmployeeCriteria(8, "10 - 50", automobileIndustry),
+                GetEmployeeCriteria(9, "51 - 200", automobileIndustry),
+                GetEmployeeCriteria(10, "11 - 50", advertisingIndustry),
+                GetEmployeeCriteria(11, "51 - 200", insuranceIndustry),
+                GetEmployeeCriteria(12, "51 - 200", oilIndustry),
+                GetEmployeeCriteria(13, "11 - 50", pharmaceuticalIndustry),
+                GetEmployeeCriteria(14, "51 - 200", pharmaceuticalIndustry),
+                GetEmployeeCriteria(15, "11 - 50", waterSupplyIndustry),
+                GetEmployeeCriteria(16, "51 - 200", waterSupplyIndustry),
+                GetEmployeeCriteria(17, "Not Necessary", policeIndustry),
+                GetEmployeeCriteria(18, "51 - 200", tvBroadcastingIndustry),
+                GetEmployeeCriteria(19, "Not Necessary", stockExchangeIndustry),
+                GetEmployeeCriteria(20, "Not Necessary", energyIndustry),
+                GetEmployeeCriteria(21, "Not Necessary", transportationIndustry));
+        }
+
+        private static EmployeeCriteria GetEmployeeCriteria(int employeeCriteriaId, string size,
+            IndustryCriteria industryCriteria)
+        {
+            return new EmployeeCriteria
+            {
+                EmployeeCriteriaId = employeeCriteriaId,
+                Size = size,
+                IndustryCriteria = industryCriteria,
+                IndustryCriteriaId = industryCriteria.IndustryCriteriaId
+            };
         }
 
         private static void SeedSolutionCategoriesTable(ItPediaDbContext context)
@@ -41,21 +131,22 @@ namespace ItPedia.Migrations
         private static void SeedIndustryCriteriaTable(ItPediaDbContext context)
         {
             context.IndustryCriterias.AddOrUpdate(industryCriteria => industryCriteria.IndustryCriteriaId,
-                new IndustryCriteria {IndustryCriteriaId = 1, Name = "Home Business"},
-                new IndustryCriteria {IndustryCriteriaId = 2, Name = "Export Business"},
-                new IndustryCriteria {IndustryCriteriaId = 3, Name = "Telecom"},
-                new IndustryCriteria {IndustryCriteriaId = 4, Name = "Banking"},
-                new IndustryCriteria {IndustryCriteriaId = 5, Name = "Retail"},
-                new IndustryCriteria {IndustryCriteriaId = 6, Name = "Automobile"},
-                new IndustryCriteria {IndustryCriteriaId = 7, Name = "Advertising"},
-                new IndustryCriteria {IndustryCriteriaId = 8, Name = "Insurance"},
-                new IndustryCriteria {IndustryCriteriaId = 9, Name = "Oil"},
-                new IndustryCriteria {IndustryCriteriaId = 10, Name = "Pharmaceutical"},
-                new IndustryCriteria {IndustryCriteriaId = 10, Name = "Police"},
-                new IndustryCriteria {IndustryCriteriaId = 10, Name = "TV Broadcasting"},
-                new IndustryCriteria {IndustryCriteriaId = 10, Name = "Stock Exchange"},
-                new IndustryCriteria {IndustryCriteriaId = 10, Name = "Energy"},
-                new IndustryCriteria {IndustryCriteriaId = 10, Name = "Transportation"}
+                new IndustryCriteria {IndustryCriteriaId = 1, Name = HomeBusiness},
+                new IndustryCriteria {IndustryCriteriaId = 2, Name = ExportBusiness},
+                new IndustryCriteria {IndustryCriteriaId = 3, Name = Telecommunication},
+                new IndustryCriteria {IndustryCriteriaId = 4, Name = Banking},
+                new IndustryCriteria {IndustryCriteriaId = 5, Name = Retail},
+                new IndustryCriteria {IndustryCriteriaId = 6, Name = Automobile},
+                new IndustryCriteria {IndustryCriteriaId = 7, Name = Advertising},
+                new IndustryCriteria {IndustryCriteriaId = 8, Name = Insurance},
+                new IndustryCriteria {IndustryCriteriaId = 9, Name = Oil},
+                new IndustryCriteria {IndustryCriteriaId = 10, Name = Pharmaceutical},
+                new IndustryCriteria {IndustryCriteriaId = 11, Name = Police},
+                new IndustryCriteria {IndustryCriteriaId = 12, Name = TvBroadcasting},
+                new IndustryCriteria {IndustryCriteriaId = 13, Name = StockExchange},
+                new IndustryCriteria {IndustryCriteriaId = 14, Name = Energy},
+                new IndustryCriteria {IndustryCriteriaId = 15, Name = Transportation},
+                new IndustryCriteria {IndustryCriteriaId = 16, Name = WaterSupply}
                 );
         }
 
@@ -125,7 +216,7 @@ namespace ItPedia.Migrations
                     Name = "Internal Control",
                     Source = "http://searchcompliance.techtarget.com/definition/internal-control",
                     Content =
-                        "<p>An internal control is a business practice, policy or procedure that is established within an organization to create value or minimize risk.</p><p>A subset of internal controls, IT controls, are designed to ensure that the information technology (IT) within  an organization operates as intended, that data is reliable, and that the organization is in compliance with all applicable laws and regulations.</p>",
+                        "<p>An internal control is a business practice, policy or procedure that is established within an organization to create value or minimize risk.</p><p>A subset of internal controls, IT controls, are designed to ensure that the information technology (IT) within  an organization operates as intended, that data is reliable, and that the organization is in compliance with all applicable laws and regulations.</p>"
                 },
                 new Term
                 {
@@ -133,7 +224,7 @@ namespace ItPedia.Migrations
                     Name = "Microserver",
                     Source = "http://internetofthingsagenda.techtarget.com/definition/microserver",
                     Content =
-                        "<p>Microservers are less expensive and have less processing power than traditional enterprise-class rack servers. They can easily be grouped into clusters and are well-suited for tasks that do not require require multiple CPUs. They are often used by small-to medium-sized businesses that operate with minimal IT staff but they can also be useful in data centers for small or temporary jobs.</p>",
+                        "<p>Microservers are less expensive and have less processing power than traditional enterprise-class rack servers. They can easily be grouped into clusters and are well-suited for tasks that do not require require multiple CPUs. They are often used by small-to medium-sized businesses that operate with minimal IT staff but they can also be useful in data centers for small or temporary jobs.</p>"
                 },
                 new Term
                 {
@@ -141,7 +232,7 @@ namespace ItPedia.Migrations
                     Name = "Backup",
                     Source = "http://searchstorage.techtarget.com/definition/backup",
                     Content =
-                        "<p>Backup is the activity of copying files or databases so that they will be preserved in case of equipment failure or other catastrophe. Backup is usually a routine part of the operation of large businesses with mainframes as well as the administrators of smaller business computers. For personal computer users, backup is also necessary but often neglected. The retrieval of files you backed up is called restoring them.</p>",
+                        "<p>Backup is the activity of copying files or databases so that they will be preserved in case of equipment failure or other catastrophe. Backup is usually a routine part of the operation of large businesses with mainframes as well as the administrators of smaller business computers. For personal computer users, backup is also necessary but often neglected. The retrieval of files you backed up is called restoring them.</p>"
                 },
                 new Term
                 {
@@ -149,7 +240,7 @@ namespace ItPedia.Migrations
                     Name = "Computer",
                     Source = "http://searchwindowsserver.techtarget.com/definition/computer",
                     Content =
-                        "<p>A computer is a device that accepts information (in the form of digitalized data) and manipulates it for some result based on a program or sequence of instructions on how the data is to be processed. Complex computers also include the means for storing data (including the program, which is also a form of data) for some necessary duration. A program may be invariable and built into the computer (and called logic circuitry as it is on microprocessors) or different programs may be provided to the computer (loaded into its storage and then started by an administrator or user). Today's computers have both kinds of programming.</p>",
+                        "<p>A computer is a device that accepts information (in the form of digitalized data) and manipulates it for some result based on a program or sequence of instructions on how the data is to be processed. Complex computers also include the means for storing data (including the program, which is also a form of data) for some necessary duration. A program may be invariable and built into the computer (and called logic circuitry as it is on microprocessors) or different programs may be provided to the computer (loaded into its storage and then started by an administrator or user). Today's computers have both kinds of programming.</p>"
                 },
                 new Term
                 {
@@ -157,7 +248,7 @@ namespace ItPedia.Migrations
                     Name = "Print Server",
                     Source = "http://searchwindowsserver.techtarget.com/definition/computer",
                     Content =
-                        "<p>A print server is a software application, network device or computer that manages print requests and makes printer queue status information available to end users and network administrators. Print servers are used in both large enterprise and small or home office ( SOHO ) networks.</p><p>In a large organization, a single dedicated computer serving as a print server might manage hundreds of printers. In a small office, a print server is often a specialized plug-in board or small network device about the size of a hub that performs the same function as a dedicated print server, but frees up valuable disk space on the office's limited number of computers.</p>",
+                        "<p>A print server is a software application, network device or computer that manages print requests and makes printer queue status information available to end users and network administrators. Print servers are used in both large enterprise and small or home office ( SOHO ) networks.</p><p>In a large organization, a single dedicated computer serving as a print server might manage hundreds of printers. In a small office, a print server is often a specialized plug-in board or small network device about the size of a hub that performs the same function as a dedicated print server, but frees up valuable disk space on the office's limited number of computers.</p>"
                 },
                 new Term
                 {
@@ -221,7 +312,7 @@ namespace ItPedia.Migrations
                     Name = "Firewall",
                     Source = "http://searchsecurity.techtarget.com/definition/firewall",
                     Content =
-                        "<p>A firewall is a network security system, either hardware- or software-based, that controls incoming and outgoing network traffic based on a set of rules.</p><p>Acting as a barrier between a trusted network and other untrusted networks -- such as the Internet -- or less-trusted networks -- such as a retail merchant's network outside of a cardholder data environment -- a firewall controls access to the resources of a network through a positive control model. This means that the only traffic allowed onto the network defined in the firewall policy is; all other traffic is denied.</p>"
+                        "<p>A firewall is a network security system, either hardware- or software-based, that controls incoming and outgoing network traffic based on a set of rules.</p><p>Acting as a barrier between a trusted network and other untrusted networks -- such as the Internet -- or less-trusted networks -- such as a Retail merchant's network outside of a cardholder data environment -- a firewall controls access to the resources of a network through a positive control model. This means that the only traffic allowed onto the network defined in the firewall policy is; all other traffic is denied.</p>"
                 },
                 new Term
                 {
@@ -300,7 +391,7 @@ namespace ItPedia.Migrations
                     Name = "User training",
                     Source =
                         "http://rua.ua.es/dspace/bitstream/10045/1650/4/The_use_of_information_technology_in_training.pdf",
-                    Content = "",
+                    Content = ""
                 },
                 new Term
                 {

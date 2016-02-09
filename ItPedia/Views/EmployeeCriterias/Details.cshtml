@@ -1,0 +1,35 @@
+﻿@model ItPedia.Models.EmployeeCriteria
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EmployeeCriteria</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IndustryCriteria.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IndustryCriteria.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Size)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Size)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EmployeeCriteriaId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,27 @@
+﻿@model ItPedia.Models.TransactionCriteria
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TransactionCriteria</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PerMonth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PerMonth)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TransactionCriteriaId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

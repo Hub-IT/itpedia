@@ -169,12 +169,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CustomerCriteriasController.cs" />
     <Compile Include="Controllers\DictionaryController.cs" />
+    <Compile Include="Controllers\EmployeeCriteriasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IndustryCriteriasController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SolutionCategoriesController.cs" />
     <Compile Include="Controllers\TermsController.cs" />
+    <Compile Include="Controllers\TransactionCriteriasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -186,8 +189,21 @@
     <Compile Include="Migrations\201602090746350_2016_02_09_09_46.Designer.cs">
       <DependentUpon>201602090746350_2016_02_09_09_46.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201602090958542_2016_02_09_11_58.cs" />
+    <Compile Include="Migrations\201602090958542_2016_02_09_11_58.Designer.cs">
+      <DependentUpon>201602090958542_2016_02_09_11_58.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602091009042_2016_02_09_12_08.cs" />
+    <Compile Include="Migrations\201602091009042_2016_02_09_12_08.Designer.cs">
+      <DependentUpon>201602091009042_2016_02_09_12_08.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602091017582_2016_02_09_12_17.cs" />
+    <Compile Include="Migrations\201602091017582_2016_02_09_12_17.Designer.cs">
+      <DependentUpon>201602091017582_2016_02_09_12_17.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CustomerCriteria.cs" />
     <Compile Include="Models\SolutionCategory.cs" />
     <Compile Include="Models\EmployeeCriteria.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -196,7 +212,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Solution.cs" />
     <Compile Include="Models\Term.cs" />
-    <Compile Include="Models\TransactionPmCriteria.cs" />
+    <Compile Include="Models\TransactionCriteria.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Utilities\Utilites.cs" />
@@ -314,6 +330,21 @@
     <Content Include="Views\IndustryCriterias\Index.cshtml" />
     <Content Include="Views\Dictionary\Index.cshtml" />
     <Content Include="Views\Dictionary\Term.cshtml" />
+    <Content Include="Views\EmployeeCriterias\Create.cshtml" />
+    <Content Include="Views\EmployeeCriterias\Delete.cshtml" />
+    <Content Include="Views\EmployeeCriterias\Details.cshtml" />
+    <Content Include="Views\EmployeeCriterias\Edit.cshtml" />
+    <Content Include="Views\EmployeeCriterias\Index.cshtml" />
+    <Content Include="Views\CustomerCriterias\Create.cshtml" />
+    <Content Include="Views\CustomerCriterias\Delete.cshtml" />
+    <Content Include="Views\CustomerCriterias\Details.cshtml" />
+    <Content Include="Views\CustomerCriterias\Edit.cshtml" />
+    <Content Include="Views\CustomerCriterias\Index.cshtml" />
+    <Content Include="Views\TransactionCriterias\Create.cshtml" />
+    <Content Include="Views\TransactionCriterias\Delete.cshtml" />
+    <Content Include="Views\TransactionCriterias\Details.cshtml" />
+    <Content Include="Views\TransactionCriterias\Edit.cshtml" />
+    <Content Include="Views\TransactionCriterias\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -331,6 +362,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201602090746350_2016_02_09_09_46.resx">
       <DependentUpon>201602090746350_2016_02_09_09_46.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602090958542_2016_02_09_11_58.resx">
+      <DependentUpon>201602090958542_2016_02_09_11_58.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602091009042_2016_02_09_12_08.resx">
+      <DependentUpon>201602091009042_2016_02_09_12_08.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602091017582_2016_02_09_12_17.resx">
+      <DependentUpon>201602091017582_2016_02_09_12_17.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

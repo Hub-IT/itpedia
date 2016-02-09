@@ -13,7 +13,7 @@ namespace ItPedia.Controllers
             //
             //            ViewBag.CustomerList = CustomerCriteria.GetCustomerSelectList();
             //
-            //            ViewBag.TransactionPmList = TransactionPmCriteria.GetTransactionPmSelectList();
+            //            ViewBag.TransactionPmList = TransactionCriteria.GetTransactionPmSelectList();
 
             return View();
         }
@@ -121,7 +121,7 @@ namespace ItPedia.Controllers
             //
             //            if (HttpContext.Request.IsAjaxRequest())
             //                return Json(new SelectList(
-            //                    employees.ToArray(), "EmployeeCriteriaId", "Size"), JsonRequestBehavior.AllowGet);
+            //                    employees.ToArray(), "EmployeeCriteriaId", "PerMonth"), JsonRequestBehavior.AllowGet);
 
 
             return RedirectToAction("GetSolutions");
@@ -138,7 +138,7 @@ namespace ItPedia.Controllers
         public ActionResult TransactionList()
         {
             //            if (HttpContext.Request.IsAjaxRequest())
-            //                return Json(TransactionPmCriteria.GetTransactionPmSelectList(), JsonRequestBehavior.AllowGet);
+            //                return Json(TransactionCriteria.GetTransactionPmSelectList(), JsonRequestBehavior.AllowGet);
 
             return RedirectToAction("GetSolutions");
         }

@@ -96,7 +96,7 @@ namespace ItPedia.Models
 //
 //                // ,new Country{    // verify check for ' works
 //                //    EmployeeCriteriaId = "CD'",
-//                //    Size = "Côte D'ivoire"
+//                //    PerMonth = "Côte D'ivoire"
 //                //}
 //            }.AsQueryable();
 //        }

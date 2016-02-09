@@ -14,7 +14,7 @@ namespace ItPedia.Models
         public virtual EmployeeCriteria EmployeeCriteria { get; set; }
 
         public virtual string TransactionId { get; set; }
-        public virtual TransactionPmCriteria TransactionPmCriteria { get; set; }
+        public virtual TransactionCriteria TransactionCriteria { get; set; }
 
         public virtual int CategoryId { get; set; }
         public virtual SolutionCategory SolutionCategory { get; set; }
@@ -29,7 +29,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "HB",
 //                    EmployeeCriteriaId ="1",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100",
 //                    SolutionId = "1" 
 //                },
@@ -37,7 +37,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "HB",
 //                    EmployeeCriteriaId = "1",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100more",
 //                    SolutionId ="2" 
 //                },
@@ -45,7 +45,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "HB",
 //                    EmployeeCriteriaId ="1",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100",
 //                    SolutionId ="2" 
 //                },
@@ -53,7 +53,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "HB",
 //                    EmployeeCriteriaId ="1",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100more",
 //                    SolutionId ="3" 
 //                },
@@ -63,7 +63,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "EB",
 //                    EmployeeCriteriaId = "2",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100",
 //                    SolutionId ="4" 
 //                },
@@ -71,7 +71,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "EB",
 //                    EmployeeCriteriaId = "2",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100more",
 //                    SolutionId = "4"
 //                },
@@ -79,7 +79,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "EB",
 //                    EmployeeCriteriaId = "2",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100",
 //                    SolutionId = "5"
 //                },
@@ -87,7 +87,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "EB",
 //                    EmployeeCriteriaId = "2",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100more",
 //                    SolutionId = "5"
 //                },
@@ -97,7 +97,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "TE",
 //                    EmployeeCriteriaId = "3",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100",
 //                    SolutionId = "6"
 //                },
@@ -105,7 +105,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "TE",
 //                    EmployeeCriteriaId = "3",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100more",
 //                    SolutionId = "7"
 //                },
@@ -113,7 +113,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "TE",
 //                    EmployeeCriteriaId = "3",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100",
 //                    SolutionId = "8"
 //                },
@@ -121,7 +121,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "TE",
 //                    EmployeeCriteriaId = "3",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100more",
 //                    SolutionId = "9"
 //                },
@@ -131,7 +131,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "BA",
 //                    EmployeeCriteriaId = "4",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100",
 //                    SolutionId = "6"
 //                },
@@ -139,7 +139,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "BA",
 //                    EmployeeCriteriaId = "4",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100more",
 //                    SolutionId = "7"
 //                },
@@ -147,7 +147,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "BA",
 //                    EmployeeCriteriaId = "4",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100",
 //                    SolutionId = "8"
 //                },
@@ -155,7 +155,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "BA",
 //                    EmployeeCriteriaId = "4",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100more",
 //                    SolutionId = "9"
 //                },
@@ -165,7 +165,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "RE",
 //                    EmployeeCriteriaId = "5",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100",
 //                    SolutionId = "1"
 //                },
@@ -173,7 +173,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "RE",
 //                    EmployeeCriteriaId = "5",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100more",
 //                    SolutionId = "2"
 //                },
@@ -181,7 +181,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "RE",
 //                    EmployeeCriteriaId = "5",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100",
 //                    SolutionId = "2"
 //                },
@@ -189,7 +189,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "RE",
 //                    EmployeeCriteriaId = "5",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100more",
 //                    SolutionId = "3"
 //                },
@@ -200,7 +200,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "RE",
 //                    EmployeeCriteriaId = "6",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100",
 //                    SolutionId = "4"
 //                },
@@ -208,7 +208,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "RE",
 //                    EmployeeCriteriaId = "6",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100more",
 //                    SolutionId = "4"
 //                },
@@ -216,7 +216,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "RE",
 //                    EmployeeCriteriaId = "6",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100",
 //                    SolutionId = "5"
 //                },
@@ -224,7 +224,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "RE",
 //                    EmployeeCriteriaId = "6",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100more",
 //                    SolutionId = "5"
 //                },
@@ -234,7 +234,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "AU",
 //                    EmployeeCriteriaId = "7",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100",
 //                    SolutionId = "1"
 //                },
@@ -242,7 +242,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "AU",
 //                    EmployeeCriteriaId = "7",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100more",
 //                    SolutionId = "2"
 //                },
@@ -250,7 +250,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "AU",
 //                    EmployeeCriteriaId = "7",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100",
 //                    SolutionId = "2"
 //                },
@@ -258,7 +258,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "AU",
 //                    EmployeeCriteriaId = "7",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100more",
 //                    SolutionId = "3"
 //                },
@@ -269,7 +269,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "AU",
 //                    EmployeeCriteriaId = "8",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100",
 //                    SolutionId = "4"
 //                },
@@ -277,7 +277,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "AU",
 //                    EmployeeCriteriaId = "8",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100more",
 //                    SolutionId = "4"
 //                },
@@ -285,7 +285,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "AU",
 //                    EmployeeCriteriaId = "8",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100",
 //                    SolutionId = "5"
 //                },
@@ -293,7 +293,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "AU",
 //                    EmployeeCriteriaId = "8",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100more",
 //                    SolutionId = "5"
 //                },
@@ -303,7 +303,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "AU",
 //                    EmployeeCriteriaId = "9",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100",
 //                    SolutionId = "6"
 //                },
@@ -311,7 +311,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "AU",
 //                    EmployeeCriteriaId = "9",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100more",
 //                    SolutionId = "7"
 //                },
@@ -319,7 +319,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "AU",
 //                    EmployeeCriteriaId = "9",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100",
 //                    SolutionId = "8"
 //                },
@@ -327,7 +327,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "AU",
 //                    EmployeeCriteriaId = "9",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100more",
 //                    SolutionId = "9"
 //                },
@@ -338,7 +338,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "AD",
 //                    EmployeeCriteriaId = "10",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100",
 //                    SolutionId = "4"
 //                },
@@ -346,7 +346,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "AD",
 //                    EmployeeCriteriaId = "10",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100more",
 //                    SolutionId = "4"
 //                },
@@ -354,7 +354,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "AD",
 //                    EmployeeCriteriaId = "10",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100",
 //                    SolutionId = "5"
 //                },
@@ -362,7 +362,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "AD",
 //                    EmployeeCriteriaId = "10",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100more",
 //                    SolutionId = "5"
 //                },
@@ -372,7 +372,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "IN",
 //                    EmployeeCriteriaId = "11",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100",
 //                    SolutionId = "5"
 //                },
@@ -380,7 +380,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "IN",
 //                    EmployeeCriteriaId = "11",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100more",
 //                    SolutionId = "5"
 //                },
@@ -388,7 +388,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "IN",
 //                    EmployeeCriteriaId = "11",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100",
 //                    SolutionId = "6"
 //                },
@@ -396,7 +396,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "IN",
 //                    EmployeeCriteriaId = "11",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100more",
 //                    SolutionId = "6"
 //                },
@@ -406,7 +406,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "OI",
 //                    EmployeeCriteriaId = "12",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100",
 //                    SolutionId = "7"
 //                },
@@ -414,7 +414,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "OI",
 //                    EmployeeCriteriaId = "12",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100more",
 //                    SolutionId = "8"
 //                },
@@ -422,7 +422,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "OI",
 //                    EmployeeCriteriaId = "12",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100",
 //                    SolutionId = "9"
 //                },
@@ -430,7 +430,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "OI",
 //                    EmployeeCriteriaId = "12",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100more",
 //                    SolutionId = "10"
 //                },
@@ -440,7 +440,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "PH",
 //                    EmployeeCriteriaId = "13",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100",
 //                    SolutionId = "6"
 //                },
@@ -448,7 +448,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "PH",
 //                    EmployeeCriteriaId = "13",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100more",
 //                    SolutionId = "6"
 //                },
@@ -456,7 +456,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "PH",
 //                    EmployeeCriteriaId = "13",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100",
 //                    SolutionId = "7"
 //                },
@@ -464,7 +464,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "PH",
 //                    EmployeeCriteriaId = "13",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100more",
 //                    SolutionId = "8"
 //                },
@@ -474,7 +474,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "PH",
 //                    EmployeeCriteriaId = "15",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100",
 //                    SolutionId = "8"
 //                },
@@ -482,7 +482,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "PH",
 //                    EmployeeCriteriaId = "15",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100more",
 //                    SolutionId = "9"
 //                },
@@ -490,7 +490,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "PH",
 //                    EmployeeCriteriaId = "15",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100",
 //                    SolutionId = "9"
 //                },
@@ -498,7 +498,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "PH",
 //                    EmployeeCriteriaId = "15",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100more",
 //                    SolutionId = "10"
 //                },
@@ -509,7 +509,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "WA",
 //                    EmployeeCriteriaId = "15",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100",
 //                    SolutionId = "4"
 //                },
@@ -517,7 +517,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "WA",
 //                    EmployeeCriteriaId = "15",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100more",
 //                    SolutionId = "4"
 //                },
@@ -525,7 +525,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "WA",
 //                    EmployeeCriteriaId = "15",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100",
 //                    SolutionId = "5"
 //                },
@@ -533,7 +533,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "WA",
 //                    EmployeeCriteriaId = "15",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100more",
 //                    SolutionId = "5"
 //                },
@@ -543,7 +543,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "WA",
 //                    EmployeeCriteriaId = "16",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100",
 //                    SolutionId = "6"
 //                },
@@ -551,7 +551,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "WA",
 //                    EmployeeCriteriaId = "16",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100more",
 //                    SolutionId = "7"
 //                },
@@ -559,7 +559,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "WA",
 //                    EmployeeCriteriaId = "16",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100",
 //                    SolutionId = "8"
 //                },
@@ -567,7 +567,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "WA",
 //                    EmployeeCriteriaId = "16",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100more",
 //                    SolutionId = "9"
 //                },
@@ -577,7 +577,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "PO",
 //                    EmployeeCriteriaId = "17",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100",
 //                    SolutionId = "10"
 //                },
@@ -585,7 +585,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "PO",
 //                    EmployeeCriteriaId = "17",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100more",
 //                    SolutionId = "10"
 //                },
@@ -593,7 +593,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "PO",
 //                    EmployeeCriteriaId = "17",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100",
 //                    SolutionId = "10"
 //                },
@@ -601,7 +601,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "PO",
 //                    EmployeeCriteriaId = "17",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100more",
 //                    SolutionId = "10"
 //                },
@@ -612,7 +612,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "TV",
 //                    EmployeeCriteriaId = "18",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100",
 //                    SolutionId = "4"
 //                },
@@ -620,7 +620,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "TV",
 //                    EmployeeCriteriaId = "18",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100more",
 //                    SolutionId = "5"
 //                },
@@ -628,7 +628,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "TV",
 //                    EmployeeCriteriaId = "18",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100",
 //                    SolutionId = "6"
 //                },
@@ -636,7 +636,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "TV",
 //                    EmployeeCriteriaId = "18",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100more",
 //                    SolutionId = "7"
 //                },
@@ -646,7 +646,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "ST",
 //                    EmployeeCriteriaId = "19",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100",
 //                    SolutionId = "4"
 //                },
@@ -654,7 +654,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "ST",
 //                    EmployeeCriteriaId = "19",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100more",
 //                    SolutionId = "5"
 //                },
@@ -662,7 +662,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "ST",
 //                    EmployeeCriteriaId = "19",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100",
 //                    SolutionId = "6"
 //                },
@@ -670,7 +670,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "ST",
 //                    EmployeeCriteriaId = "19",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100more",
 //                    SolutionId = "7"
 //                },
@@ -680,7 +680,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "EN",
 //                    EmployeeCriteriaId = "20",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100",
 //                    SolutionId = "6"
 //                },
@@ -688,7 +688,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "EN",
 //                    EmployeeCriteriaId = "20",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100more",
 //                    SolutionId = "6"
 //                },
@@ -696,7 +696,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "EN",
 //                    EmployeeCriteriaId = "20",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100",
 //                    SolutionId = "7"
 //                },
@@ -704,7 +704,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "EN",
 //                    EmployeeCriteriaId = "20",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100more",
 //                    SolutionId = "8"
 //                },
@@ -714,7 +714,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "TR",
 //                    EmployeeCriteriaId = "21",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100",
 //                    SolutionId = "6"
 //                },
@@ -722,7 +722,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "TR",
 //                    EmployeeCriteriaId = "21",
-//                    Size = "500",
+//                    PerMonth = "500",
 //                    TransactionId = "100more",
 //                    SolutionId = "7"
 //                },
@@ -730,7 +730,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "TR",
 //                    EmployeeCriteriaId = "21",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100",
 //                    SolutionId = "8"
 //                },
@@ -738,7 +738,7 @@ namespace ItPedia.Models
 //                {
 //                    IndustryId = "TR",
 //                    EmployeeCriteriaId = "21",
-//                    Size = "500more",
+//                    PerMonth = "500more",
 //                    TransactionId = "100more",
 //                    SolutionId = "8"
 //                }
