@@ -44,7 +44,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+    <Reference Include="Antlr3.Runtime">
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
       <Private>True</Private>
     </Reference>
@@ -53,7 +53,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+    <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
@@ -171,10 +171,20 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DictionaryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IndustryCriteriasController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SolutionCategoriesController.cs" />
+    <Compile Include="Controllers\TermsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602090652185_2016_02_09_08_51.cs" />
+    <Compile Include="Migrations\201602090652185_2016_02_09_08_51.Designer.cs">
+      <DependentUpon>201602090652185_2016_02_09_08_51.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602090746350_2016_02_09_09_46.cs" />
+    <Compile Include="Migrations\201602090746350_2016_02_09_09_46.Designer.cs">
+      <DependentUpon>201602090746350_2016_02_09_09_46.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -184,7 +194,6 @@
     <Compile Include="Models\IndustryCriteria.cs" />
     <Compile Include="Models\ItPediaDbContext.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\MetaData.cs" />
     <Compile Include="Models\Solution.cs" />
     <Compile Include="Models\Term.cs" />
     <Compile Include="Models\TransactionPmCriteria.cs" />
@@ -293,14 +302,36 @@
     <Content Include="Views\SolutionCategories\Details.cshtml" />
     <Content Include="Views\SolutionCategories\Edit.cshtml" />
     <Content Include="Views\SolutionCategories\Index.cshtml" />
+    <Content Include="Views\Terms\Create.cshtml" />
+    <Content Include="Views\Terms\Delete.cshtml" />
+    <Content Include="Views\Terms\Details.cshtml" />
+    <Content Include="Views\Terms\Edit.cshtml" />
+    <Content Include="Views\Terms\Index.cshtml" />
+    <Content Include="Views\IndustryCriterias\Create.cshtml" />
+    <Content Include="Views\IndustryCriterias\Delete.cshtml" />
+    <Content Include="Views\IndustryCriterias\Details.cshtml" />
+    <Content Include="Views\IndustryCriterias\Edit.cshtml" />
+    <Content Include="Views\IndustryCriterias\Index.cshtml" />
+    <Content Include="Views\Dictionary\Index.cshtml" />
+    <Content Include="Views\Dictionary\Term.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-2.2.0.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201602090652185_2016_02_09_08_51.resx">
+      <DependentUpon>201602090652185_2016_02_09_08_51.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602090746350_2016_02_09_09_46.resx">
+      <DependentUpon>201602090746350_2016_02_09_09_46.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -6,7 +6,10 @@ namespace ItPedia.Models
     public class EmployeeCriteria
     {
         public virtual int EmployeeCriteriaId { get; set; }
-        public virtual List<MetaData> MetaData { get; set; }
+        public virtual string Size { get; set; }
+       
+        public virtual IndustryCriteria IndustryCriteria { get; set; }
+        public virtual int IndustryCriteriaId { get; set; }
 
 //        public static IQueryable<EmployeeCriteria> GetEmployees()
 //        {

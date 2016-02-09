@@ -6,8 +6,8 @@ namespace ItPedia.Models
 {
     public class TransactionPmCriteria
     {
-        public virtual string TransactionPmCriteriaId { get; set; }
-        public virtual List<MetaData> MetaData { get; set; }
+        public virtual int TransactionPmCriteriaId { get; set; }
+        public virtual string Size { get; set; }
 
 //        public static IQueryable<TransactionPmCriteria> GetTransactionsPm()
 //        {

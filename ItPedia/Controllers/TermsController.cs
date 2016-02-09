@@ -10,108 +10,108 @@ using ItPedia.Models;
 
 namespace ItPedia.Controllers
 {
-    public class SolutionCategoriesController : Controller
+    public class TermsController : Controller
     {
-        private ItPediaDbContext _dbContext = new ItPediaDbContext();
+        private ItPediaDbContext db = new ItPediaDbContext();
 
-        // GET: SolutionCategories
+        // GET: Terms
         public ActionResult Index()
         {
-            return View(_dbContext.SolutionCategories.ToList());
+            return View(db.Terms.ToList());
         }
 
-        // GET: SolutionCategories/Details/5
+        // GET: Terms/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SolutionCategory solutionCategory = _dbContext.SolutionCategories.Find(id);
-            if (solutionCategory == null)
+            Term term = db.Terms.Find(id);
+            if (term == null)
             {
                 return HttpNotFound();
             }
-            return View(solutionCategory);
+            return View(term);
         }
 
-        // GET: SolutionCategories/Create
+        // GET: Terms/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: SolutionCategories/Create
+        // POST: Terms/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SolutionCategoryId,Name")] SolutionCategory solutionCategory)
+        public ActionResult Create([Bind(Include = "TermId,Name,Source,Content")] Term term)
         {
             if (ModelState.IsValid)
             {
-                _dbContext.SolutionCategories.Add(solutionCategory);
-                _dbContext.SaveChanges();
+                db.Terms.Add(term);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(solutionCategory);
+            return View(term);
         }
 
-        // GET: SolutionCategories/Edit/5
+        // GET: Terms/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SolutionCategory solutionCategory = _dbContext.SolutionCategories.Find(id);
-            if (solutionCategory == null)
+            Term term = db.Terms.Find(id);
+            if (term == null)
             {
                 return HttpNotFound();
             }
-            return View(solutionCategory);
+            return View(term);
         }
 
-        // POST: SolutionCategories/Edit/5
+        // POST: Terms/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SolutionCategoryId,Name")] SolutionCategory solutionCategory)
+        public ActionResult Edit([Bind(Include = "TermId,Name,Source,Content")] Term term)
         {
             if (ModelState.IsValid)
             {
-                _dbContext.Entry(solutionCategory).State = EntityState.Modified;
-                _dbContext.SaveChanges();
+                db.Entry(term).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(solutionCategory);
+            return View(term);
         }
 
-        // GET: SolutionCategories/Delete/5
+        // GET: Terms/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SolutionCategory solutionCategory = _dbContext.SolutionCategories.Find(id);
-            if (solutionCategory == null)
+            Term term = db.Terms.Find(id);
+            if (term == null)
             {
                 return HttpNotFound();
             }
-            return View(solutionCategory);
+            return View(term);
         }
 
-        // POST: SolutionCategories/Delete/5
+        // POST: Terms/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            SolutionCategory solutionCategory = _dbContext.SolutionCategories.Find(id);
-            _dbContext.SolutionCategories.Remove(solutionCategory);
-            _dbContext.SaveChanges();
+            Term term = db.Terms.Find(id);
+            db.Terms.Remove(term);
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
 
@@ -119,7 +119,7 @@ namespace ItPedia.Controllers
         {
             if (disposing)
             {
-                _dbContext.Dispose();
+                db.Dispose();
             }
             base.Dispose(disposing);
         }

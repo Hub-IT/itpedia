@@ -6,8 +6,8 @@ namespace ItPedia.Models
 {
     public class IndustryCriteria
     {
-        public virtual string IndustryCriteriaId { get; set; }
-        public virtual List<MetaData> MetaData { get; set; }
+        public virtual int IndustryCriteriaId { get; set; }
+        public virtual string Name { get; set; }
 
 //        public static IQueryable<IndustryCriteria> GetAll()
 //        {

@@ -10,108 +10,108 @@ using ItPedia.Models;
 
 namespace ItPedia.Controllers
 {
-    public class SolutionCategoriesController : Controller
+    public class IndustryCriteriasController : Controller
     {
-        private ItPediaDbContext _dbContext = new ItPediaDbContext();
+        private ItPediaDbContext db = new ItPediaDbContext();
 
-        // GET: SolutionCategories
+        // GET: IndustryCriterias
         public ActionResult Index()
         {
-            return View(_dbContext.SolutionCategories.ToList());
+            return View(db.IndustryCriterias.ToList());
         }
 
-        // GET: SolutionCategories/Details/5
+        // GET: IndustryCriterias/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SolutionCategory solutionCategory = _dbContext.SolutionCategories.Find(id);
-            if (solutionCategory == null)
+            IndustryCriteria industryCriteria = db.IndustryCriterias.Find(id);
+            if (industryCriteria == null)
             {
                 return HttpNotFound();
             }
-            return View(solutionCategory);
+            return View(industryCriteria);
         }
 
-        // GET: SolutionCategories/Create
+        // GET: IndustryCriterias/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: SolutionCategories/Create
+        // POST: IndustryCriterias/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SolutionCategoryId,Name")] SolutionCategory solutionCategory)
+        public ActionResult Create([Bind(Include = "IndustryCriteriaId,Name")] IndustryCriteria industryCriteria)
         {
             if (ModelState.IsValid)
             {
-                _dbContext.SolutionCategories.Add(solutionCategory);
-                _dbContext.SaveChanges();
+                db.IndustryCriterias.Add(industryCriteria);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(solutionCategory);
+            return View(industryCriteria);
         }
 
-        // GET: SolutionCategories/Edit/5
+        // GET: IndustryCriterias/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SolutionCategory solutionCategory = _dbContext.SolutionCategories.Find(id);
-            if (solutionCategory == null)
+            IndustryCriteria industryCriteria = db.IndustryCriterias.Find(id);
+            if (industryCriteria == null)
             {
                 return HttpNotFound();
             }
-            return View(solutionCategory);
+            return View(industryCriteria);
         }
 
-        // POST: SolutionCategories/Edit/5
+        // POST: IndustryCriterias/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SolutionCategoryId,Name")] SolutionCategory solutionCategory)
+        public ActionResult Edit([Bind(Include = "IndustryCriteriaId,Name")] IndustryCriteria industryCriteria)
         {
             if (ModelState.IsValid)
             {
-                _dbContext.Entry(solutionCategory).State = EntityState.Modified;
-                _dbContext.SaveChanges();
+                db.Entry(industryCriteria).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(solutionCategory);
+            return View(industryCriteria);
         }
 
-        // GET: SolutionCategories/Delete/5
+        // GET: IndustryCriterias/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SolutionCategory solutionCategory = _dbContext.SolutionCategories.Find(id);
-            if (solutionCategory == null)
+            IndustryCriteria industryCriteria = db.IndustryCriterias.Find(id);
+            if (industryCriteria == null)
             {
                 return HttpNotFound();
             }
-            return View(solutionCategory);
+            return View(industryCriteria);
         }
 
-        // POST: SolutionCategories/Delete/5
+        // POST: IndustryCriterias/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            SolutionCategory solutionCategory = _dbContext.SolutionCategories.Find(id);
-            _dbContext.SolutionCategories.Remove(solutionCategory);
-            _dbContext.SaveChanges();
+            IndustryCriteria industryCriteria = db.IndustryCriterias.Find(id);
+            db.IndustryCriterias.Remove(industryCriteria);
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
 
@@ -119,7 +119,7 @@ namespace ItPedia.Controllers
         {
             if (disposing)
             {
-                _dbContext.Dispose();
+                db.Dispose();
             }
             base.Dispose(disposing);
         }

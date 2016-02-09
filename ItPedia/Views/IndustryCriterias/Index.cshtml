@@ -1,7 +1,7 @@
-﻿@model IEnumerable<ItPedia.Models.SolutionCategory>
+﻿@model IEnumerable<ItPedia.Models.IndustryCriteria>
 
 @{
-    ViewBag.Title = "Solution SolutionCategories";
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -24,9 +24,9 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.SolutionCategoryId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.SolutionCategoryId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.SolutionCategoryId })
+            @Html.ActionLink("Edit", "Edit", new { id=item.IndustryCriteriaId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IndustryCriteriaId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IndustryCriteriaId })
         </td>
     </tr>
 }

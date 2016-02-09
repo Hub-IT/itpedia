@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web.Mvc;
 using System.Xml;
 using ItPedia.Models;
@@ -10,30 +11,24 @@ namespace ItPedia.Controllers
 {
     public class DictionaryController : Controller
     {
+        private ItPediaDbContext db = new ItPediaDbContext();
+
         // GET: dictionary
         public ActionResult Index()
         {
-//            var terms = Models.Term.Get();
-//
-//            return View(terms);
-            return View();
+            return View(db.Terms.ToList());
         }
 
-        // GET: dictionary/Term/{id}
-        public ActionResult Term(string id)
+        // GET: Dictionary/Term/{id}
+        public ActionResult Term(int? id)
         {
-//            Term term;
-//
-//            if (id == null || (term = Models.Term.GetByName(id)) == null)
-//            {
-//                return RedirectToAction("Index", "Dictionary");
-//            }
-//
-//            ViewBag.Term = term;
-//
-//            ViewBag.Title = term.Name;
-//
-            return View();
+            if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            var term= db.Terms.Find(id);
+
+            if (term == null) return HttpNotFound();
+
+            return View(term);
         }
 
         public ActionResult Rss()
