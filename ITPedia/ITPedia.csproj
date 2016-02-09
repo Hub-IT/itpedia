@@ -172,12 +172,22 @@
     <Compile Include="Controllers\DictionaryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SolutionCategoriesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\SolutionCategory.cs" />
+    <Compile Include="Models\EmployeeCriteria.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\IndustryCriteria.cs" />
+    <Compile Include="Models\ItPediaDbContext.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MetaData.cs" />
+    <Compile Include="Models\Solution.cs" />
+    <Compile Include="Models\Term.cs" />
+    <Compile Include="Models\TransactionPmCriteria.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Utilities\Utilites.cs" />
@@ -188,6 +198,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\Img\applications.png" />
     <Content Include="Content\Img\DEREE Logo fixed.png" />
     <Content Include="Content\Img\deree_logo.png" />
@@ -203,6 +215,7 @@
     <Content Include="Content\Img\software.png" />
     <Content Include="Content\Img\storage.png" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -214,6 +227,11 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\app\customer-select-listener.js" />
     <Content Include="Scripts\app\employee-select-listener.js" />
@@ -270,6 +288,11 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_ItPediaLogoText.cshtml" />
+    <Content Include="Views\SolutionCategories\Create.cshtml" />
+    <Content Include="Views\SolutionCategories\Delete.cshtml" />
+    <Content Include="Views\SolutionCategories\Details.cshtml" />
+    <Content Include="Views\SolutionCategories\Edit.cshtml" />
+    <Content Include="Views\SolutionCategories\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

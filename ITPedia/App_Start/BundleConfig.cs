@@ -25,6 +25,7 @@ namespace ItPedia
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap-cerulean.min.css",
+                      "~/Content/font-awesome.min.css",
                       "~/Content/Site.css"));
         }
     }

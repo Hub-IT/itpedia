@@ -20,23 +20,34 @@
     </div>
 }
 
-@*@using (Html.BeginForm("Results", "Home", FormMethod.Post, new*@
-@*{*@
-@*    @id = "CompanyEmployeeCriteriaCriteriaFormTermId",*@
-@*    data_employeeListAction = @Url.Action("EmployeeList"),*@
-@*    data_customerListAction = @Url.Action("CustomerList"),*@
-@*    data_transactionListAction = @Url.Action("TransactionList"),*@
-@*    @class = ""*@
-@*}))*@
-@*{*@
-@*    <div class="row">*@
-@*        <div class="form-group col-sm-6">*@
-@*            <label class="control-label" for="industryEmployeeCriteriaCriteriaTermId">*@
-@*                <i class="fa fa-industry"></i> IndustryCriteria*@
-@*            </label>*@
-@*            @Html.DropDownList("industryEmployeeCriteriaCriteriaTermId", ViewBag.IndustrySelectList as SelectList,*@
-@*                "Select an industry", new { @id = "industryCustomerCriteriaTermId", @class = "form-control" })*@
-@*        </div>*@
+<div class="btn-group pull-right">
+    <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fa fa-cog"></i>
+    </button>
+    <ul class="dropdown-menu">
+        <li>
+            @Html.ActionLink("Solution Categories", "Index", "SolutionCategories")
+        </li>
+    </ul>
+</div>
+
+@using (Html.BeginForm("GetSolutions", "Home", FormMethod.Post, new
+{
+//    @id = "CompanyEmployeeCriteriaCriteriaFormTermId",
+//    data_employeeListAction = @Url.Action("EmployeeList"),
+//    data_customerListAction = @Url.Action("CustomerList"),
+//    data_transactionListAction = @Url.Action("TransactionList"),
+//    @class = ""
+}))
+{
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <label class="control-label" for="industryEmployeeCriteriaCriteriaTermId">
+                <i class="fa fa-industry"></i> Industry 
+            </label>
+@*            @Html.DropDownList("industry", ViewBag.IndustrySelectList as SelectList,*@
+@*                "Select an industry", new { @id = "industry", @class = "form-control" })*@
+        </div>
 @*        <div class="form-group col-sm-6" id="EmployeesDiv">*@
 @*            <label class="control-label" for="employeeCode">*@
 @*                <i class="fa fa-users"></i> EmployeeCriteriaCriterias*@
@@ -68,8 +79,8 @@
 @*                <button type="submit" id="SubmitBtn" class="btn btn-primary btn-default" disabled>Submit</button>*@
 @*            </div>*@
 @*        </div>*@
-@*    </div>*@
-@*}*@
+    </div>
+}
 
 @section scripts {
     <script src="@Url.Content("~/Scripts/app/industry-select-listener.js")"></script>

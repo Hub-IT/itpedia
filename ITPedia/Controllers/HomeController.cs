@@ -80,7 +80,7 @@ namespace ItPedia.Controllers
         }
 
         [HttpPost]
-        public ActionResult Results(string industryCode, string employeeCode, string customerCode,
+        public ActionResult GetSolutions(string industryCode, string employeeCode, string customerCode,
             string transactionCode)
         {
             //             TODO: Validate Parameters
@@ -111,7 +111,7 @@ namespace ItPedia.Controllers
             //            if (HttpContext.Request.IsAjaxRequest())
             //                return Json(IndustryCriteria.GetIndustrySelectList(), JsonRequestBehavior.AllowGet);
 
-            return RedirectToAction("Results");
+            return RedirectToAction("GetSolutions");
         }
 
 
@@ -124,7 +124,7 @@ namespace ItPedia.Controllers
             //                    employees.ToArray(), "EmployeeCriteriaId", "Size"), JsonRequestBehavior.AllowGet);
 
 
-            return RedirectToAction("Results");
+            return RedirectToAction("GetSolutions");
         }
 
         public ActionResult CustomerList()
@@ -132,7 +132,7 @@ namespace ItPedia.Controllers
             //            if (HttpContext.Request.IsAjaxRequest())
             //                return Json(CustomerCriteria.GetCustomerSelectList(), JsonRequestBehavior.AllowGet);
 
-            return RedirectToAction("Results");
+            return RedirectToAction("GetSolutions");
         }
 
         public ActionResult TransactionList()
@@ -140,7 +140,7 @@ namespace ItPedia.Controllers
             //            if (HttpContext.Request.IsAjaxRequest())
             //                return Json(TransactionPmCriteria.GetTransactionPmSelectList(), JsonRequestBehavior.AllowGet);
 
-            return RedirectToAction("Results");
+            return RedirectToAction("GetSolutions");
         }
     }
 }
