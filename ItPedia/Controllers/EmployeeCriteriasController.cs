@@ -17,8 +17,7 @@ namespace ItPedia.Controllers
         // GET: EmployeeCriterias
         public ActionResult Index()
         {
-            var employeeCriterias = db.EmployeeCriterias.Include(e => e.IndustryCriteria);
-            return View(employeeCriterias.ToList());
+            return View(db.EmployeeCriterias.ToList());
         }
 
         // GET: EmployeeCriterias/Details/5
@@ -39,7 +38,6 @@ namespace ItPedia.Controllers
         // GET: EmployeeCriterias/Create
         public ActionResult Create()
         {
-            ViewBag.IndustryCriteriaId = new SelectList(db.IndustryCriterias, "IndustryCriteriaId", "Name");
             return View();
         }
 
@@ -48,7 +46,7 @@ namespace ItPedia.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EmployeeCriteriaId,PerMonth,IndustryCriteriaId")] EmployeeCriteria employeeCriteria)
+        public ActionResult Create([Bind(Include = "EmployeeCriteriaId,Size")] EmployeeCriteria employeeCriteria)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +55,6 @@ namespace ItPedia.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.IndustryCriteriaId = new SelectList(db.IndustryCriterias, "IndustryCriteriaId", "Name", employeeCriteria.IndustryCriteriaId);
             return View(employeeCriteria);
         }
 
@@ -73,7 +70,6 @@ namespace ItPedia.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.IndustryCriteriaId = new SelectList(db.IndustryCriterias, "IndustryCriteriaId", "Name", employeeCriteria.IndustryCriteriaId);
             return View(employeeCriteria);
         }
 
@@ -82,7 +78,7 @@ namespace ItPedia.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EmployeeCriteriaId,PerMonth,IndustryCriteriaId")] EmployeeCriteria employeeCriteria)
+        public ActionResult Edit([Bind(Include = "EmployeeCriteriaId,Size")] EmployeeCriteria employeeCriteria)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +86,6 @@ namespace ItPedia.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.IndustryCriteriaId = new SelectList(db.IndustryCriterias, "IndustryCriteriaId", "Name", employeeCriteria.IndustryCriteriaId);
             return View(employeeCriteria);
         }
 

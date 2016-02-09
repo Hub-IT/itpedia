@@ -14,7 +14,6 @@ $(function() {
         var url = $("#FormId").data("get-transaction-criterias-by-customer-criteeria-id-url") + "/" + $(this).val();
 
         $.getJSON(url, function(data) {
-
             var items = "<option>Select Transaction Per Month</option>";
 
             $.each(data, function(i, transaction) {

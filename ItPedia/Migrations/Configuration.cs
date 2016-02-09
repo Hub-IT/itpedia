@@ -50,11 +50,11 @@ namespace ItPedia.Migrations
 
             SeedCustomerCriteriaTable(context);
 
-            SeedEmployeeCriteriaTable(context);
-
-            SeedIndustryCriteriaTable(context);
-
-            SeedSolutionCategoriesTable(context);
+//            SeedEmployeeCriteriaTable(context);
+//
+//            SeedIndustryCriteriaTable(context);
+//
+//            SeedSolutionCategoriesTable(context);
         }
 
         private static void SeedTransactionsCriteraTable(ItPediaDbContext context)
@@ -62,15 +62,17 @@ namespace ItPedia.Migrations
             context.TransactionCriterias.AddOrUpdate(transactionCriteria => transactionCriteria.TransactionCriteriaId,
                 new TransactionCriteria {TransactionCriteriaId = 1, PerMonth = TransactionsPerMonthUpTo100},
                 new TransactionCriteria {TransactionCriteriaId = 2, PerMonth = TransactionsPerMonthMoreThan100});
+
+            context.SaveChanges();
         }
 
         private static void SeedCustomerCriteriaTable(ItPediaDbContext context)
         {
             var upTo100Transaction =
-                context.TransactionCriterias.Local.First(
+                context.TransactionCriterias.First(
                     transaction => transaction.PerMonth == TransactionsPerMonthUpTo100);
             var moreThan100Transaction =
-                context.TransactionCriterias.Local.First(
+                context.TransactionCriterias.First(
                     transaction => transaction.PerMonth == TransactionsPerMonthMoreThan100);
 
             var transactions = new List<TransactionCriteria> {upTo100Transaction, moreThan100Transaction};
@@ -78,11 +80,13 @@ namespace ItPedia.Migrations
             context.CustomerCriterias.AddOrUpdate(customerCriteria => customerCriteria.CustomerCriteriaId,
                 new CustomerCriteria {CustomerCriteriaId = 1, Size = "Up to 500", Transactions = transactions},
                 new CustomerCriteria {CustomerCriteriaId = 2, Size = "More than 500", Transactions = transactions});
+
+            context.SaveChanges();
         }
 
         private static void SeedEmployeeCriteriaTable(ItPediaDbContext context)
         {
-            var customeerCriterias = context.CustomerCriterias.Local.ToList();
+            var customeerCriterias = context.CustomerCriterias.ToList();
             context.EmployeeCriterias.AddOrUpdate(employeeCriteria => employeeCriteria.EmployeeCriteriaId,
                 GetEmployeeCriteria(1, EmployeesSizeUpTo10, customeerCriterias),
                 GetEmployeeCriteria(2, EmployeesSize11To50, customeerCriterias),
@@ -118,75 +122,75 @@ namespace ItPedia.Migrations
         {
             var homeBusinessEmployeeCriterias = new List<EmployeeCriteria>
             {
-                context.EmployeeCriterias.Local.First(employeeCriteria => employeeCriteria.Size == EmployeesSizeUpTo10)
+                context.EmployeeCriterias.First(employeeCriteria => employeeCriteria.Size == EmployeesSizeUpTo10)
             };
             var exportBusinessEmployeeCriterias = new List<EmployeeCriteria>
             {
-                context.EmployeeCriterias.Local.First(employeeCriteria => employeeCriteria.Size == EmployeesSize11To50)
+                context.EmployeeCriterias.First(employeeCriteria => employeeCriteria.Size == EmployeesSize11To50)
             };
             var telecommunicationEmployeeCriterias = new List<EmployeeCriteria>
             {
-                context.EmployeeCriterias.Local.First(employeeCriteria => employeeCriteria.Size == EmployeesSize51To200)
+                context.EmployeeCriterias.First(employeeCriteria => employeeCriteria.Size == EmployeesSize51To200)
             };
             var bankingEmployeeCriterias = new List<EmployeeCriteria>
             {
-                context.EmployeeCriterias.Local.First(employeeCriteria => employeeCriteria.Size == EmployeesSize51To200)
+                context.EmployeeCriterias.First(employeeCriteria => employeeCriteria.Size == EmployeesSize51To200)
             };
             var retailEmployeeCriterias = new List<EmployeeCriteria>
             {
-                context.EmployeeCriterias.Local.First(employeeCriteria => employeeCriteria.Size == EmployeesSizeUpTo10),
-                context.EmployeeCriterias.Local.First(employeeCriteria => employeeCriteria.Size == EmployeesSize11To50)
+                context.EmployeeCriterias.First(employeeCriteria => employeeCriteria.Size == EmployeesSizeUpTo10),
+                context.EmployeeCriterias.First(employeeCriteria => employeeCriteria.Size == EmployeesSize11To50)
             };
             var automobileEmployeeCriterias = new List<EmployeeCriteria>
             {
-                context.EmployeeCriterias.Local.First(employeeCriteria => employeeCriteria.Size == EmployeesSizeUpTo10),
-                context.EmployeeCriterias.Local.First(employeeCriteria => employeeCriteria.Size == EmployeesSize11To50),
-                context.EmployeeCriterias.Local.First(employeeCriteria => employeeCriteria.Size == EmployeesSize51To200)
+                context.EmployeeCriterias.First(employeeCriteria => employeeCriteria.Size == EmployeesSizeUpTo10),
+                context.EmployeeCriterias.First(employeeCriteria => employeeCriteria.Size == EmployeesSize11To50),
+                context.EmployeeCriterias.First(employeeCriteria => employeeCriteria.Size == EmployeesSize51To200)
             };
             var advertisingEmployeeCriterias = new List<EmployeeCriteria>
             {
-                context.EmployeeCriterias.Local.First(employeeCriteria => employeeCriteria.Size == EmployeesSize11To50)
+                context.EmployeeCriterias.First(employeeCriteria => employeeCriteria.Size == EmployeesSize11To50)
             };
             var insuranceEmployeeCriterias = new List<EmployeeCriteria>
             {
-                context.EmployeeCriterias.Local.First(employeeCriteria => employeeCriteria.Size == EmployeesSize51To200)
+                context.EmployeeCriterias.First(employeeCriteria => employeeCriteria.Size == EmployeesSize51To200)
             };
             var oilEmployeeCriterias = new List<EmployeeCriteria>
             {
-                context.EmployeeCriterias.Local.First(employeeCriteria => employeeCriteria.Size == EmployeesSize51To200)
+                context.EmployeeCriterias.First(employeeCriteria => employeeCriteria.Size == EmployeesSize51To200)
             };
             var pharmaceuticalIndustryEmployeeCriterias = new List<EmployeeCriteria>
             {
-                context.EmployeeCriterias.Local.First(employeeCriteria => employeeCriteria.Size == EmployeesSize11To50),
-                context.EmployeeCriterias.Local.First(employeeCriteria => employeeCriteria.Size == EmployeesSize51To200)
+                context.EmployeeCriterias.First(employeeCriteria => employeeCriteria.Size == EmployeesSize11To50),
+                context.EmployeeCriterias.First(employeeCriteria => employeeCriteria.Size == EmployeesSize51To200)
             };
             var waterSupplyIndustryEmployeeCriterias = new List<EmployeeCriteria>
             {
-                context.EmployeeCriterias.Local.First(employeeCriteria => employeeCriteria.Size == EmployeesSize11To50),
-                context.EmployeeCriterias.Local.First(employeeCriteria => employeeCriteria.Size == EmployeesSize51To200)
+                context.EmployeeCriterias.First(employeeCriteria => employeeCriteria.Size == EmployeesSize11To50),
+                context.EmployeeCriterias.First(employeeCriteria => employeeCriteria.Size == EmployeesSize51To200)
             };
             var policeEmployeeCriterias = new List<EmployeeCriteria>
             {
-                context.EmployeeCriterias.Local.First(
+                context.EmployeeCriterias.First(
                     employeeCriteria => employeeCriteria.Size == EmployeesSizeNotNecessary),
             };
             var tvBroadcastingCriterias = new List<EmployeeCriteria>
             {
-                context.EmployeeCriterias.Local.First(employeeCriteria => employeeCriteria.Size == EmployeesSize51To200),
+                context.EmployeeCriterias.First(employeeCriteria => employeeCriteria.Size == EmployeesSize51To200),
             };
             var stockExchangeCriterias = new List<EmployeeCriteria>
             {
-                context.EmployeeCriterias.Local.First(
+                context.EmployeeCriterias.First(
                     employeeCriteria => employeeCriteria.Size == EmployeesSizeNotNecessary),
             };
             var energyCriterias = new List<EmployeeCriteria>
             {
-                context.EmployeeCriterias.Local.First(
+                context.EmployeeCriterias.First(
                     employeeCriteria => employeeCriteria.Size == EmployeesSizeNotNecessary),
             };
             var transportationCriterias = new List<EmployeeCriteria>
             {
-                context.EmployeeCriterias.Local.First(
+                context.EmployeeCriterias.First(
                     employeeCriteria => employeeCriteria.Size == EmployeesSizeNotNecessary),
             };
 
@@ -489,6 +493,8 @@ namespace ItPedia.Migrations
                         "<p>Maintenance Management Information System (MMIS) is a mechanized claims processing and information retrieval system for Medicaid  that's required by the federal government. All states are required to operate an MMIS to support Medicaid business functions and maintain information in such areas as provider enrollment; client eligibility, including third party liability; benefit package maintenance; managed care enrollment; claims processing; and prior authorization. A fiscal agent who is a private contractor to the state, normally selected through a competitive procurement process, may operate the state's MMIS.</p>"
                 }
                 );
+
+            context.SaveChanges();
         }
     }
 }

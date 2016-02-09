@@ -14,7 +14,9 @@ $(function() {
         $("#transactionCriterias").prop("disabled", true);
         $("#customerCriterias").prop("disabled", true);
 
-        var url = $("#FormId").data("getEmployeeCriteriasByIndustryCriteriaIdUrl") + "/" + $(this).val();
+        var url = $("#FormId").data("get-customer-criterias-by-employee-criteria-id-url") + "/" + $(this).val();
+
+        console.log(url);
 
         $.getJSON(url, function(data) {
 

@@ -83,16 +83,18 @@
             <label class="control-label" for="customerCriterias">
                 <i class="fa fa-shopping-cart"></i> Customer Criterias
             </label>
-            @Html.DropDownList("customerCriterias", Model.CustomerCriterias, "Select number of customers",
-                new {@id = "customerCriterias", @class = "form-control", disabled = "disabled"})
+            <select id="customerCriterias" name="customerCriterias" class="form-control" disabled="disabled">
+                <option value="">Select number of employees</option>
+            </select>
         </div>
 
         <div class="form-group col-sm-6" id="TransactionsDiv">
             <label class="control-label">
                 <i class="fa fa-truck"></i> Transactions/Month
             </label>
-            @Html.DropDownList("transactionCriterias", Model.TransactionCriterias,
-                "Select number of Transactions per Month", new {@id = "transactionCriterias", @class = "form-control", disabled = "disabled"})
+            <select id="transactionCriterias" name="transactionCriterias" class="form-control" disabled="disabled">
+                <option value="">Select transactions per month</option>
+            </select>
         </div>
 
         <div class="form-group">

@@ -110,32 +110,36 @@ namespace ItPedia.Controllers
         }
 
 
-
         public ActionResult GetEmployeesByIndustryId(int? id)
         {
-//            if ( ! HttpContext.Request.IsAjaxRequest() || id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            if ( ! HttpContext.Request.IsAjaxRequest() || id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-            var employees = db.EmployeeCriterias.Where(employee => employee.IndustryCriteriaId == id);
+            var industryEmployeesCriteria = db.IndustryCriterias.Find(id).EmployeeCriterias;
 
             return Json(new SelectList(
-                employees.ToArray(), "EmployeeCriteriaId", "Size"), JsonRequestBehavior.AllowGet);
+                industryEmployeesCriteria.ToArray(), "EmployeeCriteriaId", "Size"), JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult GetCustomerCriteriasByEmployeeCriteriaId(int? id)
+        public int GetCustomerCriteriasByEmployeeCriteriaId(int? id)
+//        public ActionResult GetCustomerCriteriasByEmployeeCriteriaId(int? id)
         {
 //            if ( ! HttpContext.Request.IsAjaxRequest() || id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-            var customers = db.CustomerCriterias.Where(customeer => customeer.CustomerCriteriaId == id);
+            var customers = db.EmployeeCriterias.Find(id).CustomerCriterias;
 
-            return Json(new SelectList(
-                customers.ToArray(), "CustomerCriteriaId", "Size"), JsonRequestBehavior.AllowGet);
+            return customers.Count;
+
+//            if (customers == null) return HttpNotFound();
+
+//            return Json(new SelectList(
+//                customers.ToArray(), "CustomerCriteriaId", "Size"), JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult GetTransactionCriteriasByCustomerCriteriaId(int? id)
         {
-//            if ( ! HttpContext.Request.IsAjaxRequest() || id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            if ( ! HttpContext.Request.IsAjaxRequest() || id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-            var transactions = db.TransactionCriterias.Where(transaction => transaction.TransactionCriteriaId == id);
+            var transactions = db.CustomerCriterias.Find(id).Transactions;
 
             return Json(new SelectList(
                 transactions.ToArray(), "TransactionCriteriaId", "PerMonth"), JsonRequestBehavior.AllowGet);

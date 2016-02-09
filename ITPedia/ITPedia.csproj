@@ -201,6 +201,10 @@
     <Compile Include="Migrations\201602091017582_2016_02_09_12_17.Designer.cs">
       <DependentUpon>201602091017582_2016_02_09_12_17.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201602091513416_2016_02_09_17_13.cs" />
+    <Compile Include="Migrations\201602091513416_2016_02_09_17_13.Designer.cs">
+      <DependentUpon>201602091513416_2016_02_09_17_13.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CustomerCriteria.cs" />
@@ -331,11 +335,6 @@
     <Content Include="Views\IndustryCriterias\Index.cshtml" />
     <Content Include="Views\Dictionary\Index.cshtml" />
     <Content Include="Views\Dictionary\Term.cshtml" />
-    <Content Include="Views\EmployeeCriterias\Create.cshtml" />
-    <Content Include="Views\EmployeeCriterias\Delete.cshtml" />
-    <Content Include="Views\EmployeeCriterias\Details.cshtml" />
-    <Content Include="Views\EmployeeCriterias\Edit.cshtml" />
-    <Content Include="Views\EmployeeCriterias\Index.cshtml" />
     <Content Include="Views\CustomerCriterias\Create.cshtml" />
     <Content Include="Views\CustomerCriterias\Delete.cshtml" />
     <Content Include="Views\CustomerCriterias\Details.cshtml" />
@@ -346,6 +345,11 @@
     <Content Include="Views\TransactionCriterias\Details.cshtml" />
     <Content Include="Views\TransactionCriterias\Edit.cshtml" />
     <Content Include="Views\TransactionCriterias\Index.cshtml" />
+    <Content Include="Views\EmployeeCriterias\Create.cshtml" />
+    <Content Include="Views\EmployeeCriterias\Delete.cshtml" />
+    <Content Include="Views\EmployeeCriterias\Details.cshtml" />
+    <Content Include="Views\EmployeeCriterias\Edit.cshtml" />
+    <Content Include="Views\EmployeeCriterias\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -372,6 +376,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201602091017582_2016_02_09_12_17.resx">
       <DependentUpon>201602091017582_2016_02_09_12_17.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602091513416_2016_02_09_17_13.resx">
+      <DependentUpon>201602091513416_2016_02_09_17_13.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
