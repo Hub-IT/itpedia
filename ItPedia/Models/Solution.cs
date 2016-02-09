@@ -745,11 +745,11 @@ namespace ItPedia.Models
 //            }.AsQueryable();
 //        }
 //
-//        public static string GetSolutionCode(string employeeCode, string industryCode, string transactionCode)
+//        public static string GetSolutionCode(string employees-size, string industryCode, string transactionCode)
 //        {
 //            return GetSolutions().First(
 //                solution =>
-//                    employeeCode == solution.EmployeeCriteriaId &&
+//                    employees-size == solution.EmployeeCriteriaId &&
 //                    industryCode == solution.IndustryId &&
 //                    transactionCode == solution.TransactionId
 //                ).SolutionId;

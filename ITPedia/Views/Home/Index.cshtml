@@ -1,4 +1,5 @@
-﻿@{
+﻿@model ItPedia.Models.Views.HomeIndexModelView.IndexViewModel
+@{
     ViewBag.Title = "Home";
 }
 
@@ -12,7 +13,7 @@
             This website is a joint initiative of students at DEREE Computer Information Systems academic department and BYTE Computer SA.
         </p>
         <p>
-            It serves as decision support tool for new entrepreneurs and business firms, aiming to produce the most suitable Information Technology configuration for different types of companies according to the industry, number of employees, number of customers, and number of transactions per month.
+            It serves as decision support tool for new entrepreneurs and business firms, aiming to produce the most suitable Information Technology configuration for different types of companies according to the industry, number of employees-sizes, number of customers, and number of transactions per month.
         </p>
         <p>
             <b>Please choose from the options below to view the recommended solution set.</b>
@@ -20,80 +21,85 @@
     </div>
 }
 
-<div class="btn-group pull-right">
-    <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class="fa fa-cog"></i>
-    </button>
-    <ul class="dropdown-menu">
-        <li>
-            @Html.ActionLink("Terms", "Index", "Terms")
-        </li>
-        <li>
-            @Html.ActionLink("Industry Criterias", "Index", "IndustryCriterias")
-        </li>
-        <li>
-            @Html.ActionLink("Employees Criteria", "Index", "EmployeeCriterias")
-        </li>
-        <li>
-            @Html.ActionLink("Customers Criteria", "Index", "CustomerCriterias")
-        </li>
-        <li>
-            @Html.ActionLink("Transaction Criteria", "Index", "TransactionCriterias")
-        </li>
-        <li>
-            @Html.ActionLink("Solution Categories", "Index", "SolutionCategories")
-        </li>
-    </ul>
+
+<div class="row">
+    <div class="btn-group pull-right">
+        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-cog"></i>
+        </button>
+        <ul class="dropdown-menu">
+            <li>
+                @Html.ActionLink("Terms", "Index", "Terms")
+            </li>
+            <li>
+                @Html.ActionLink("Industry Criterias", "Index", "IndustryCriterias")
+            </li>
+            <li>
+                @Html.ActionLink("Employees Criteria", "Index", "EmployeeCriterias")
+            </li>
+            <li>
+                @Html.ActionLink("Customers Criteria", "Index", "CustomerCriterias")
+            </li>
+            <li>
+                @Html.ActionLink("Transaction Criteria", "Index", "TransactionCriterias")
+            </li>
+            <li>
+                @Html.ActionLink("Solution Categories", "Index", "SolutionCategories")
+            </li>
+        </ul>
+    </div>
 </div>
 
 @using (Html.BeginForm("GetSolutions", "Home", FormMethod.Post, new
 {
-//    @id = "CompanyEmployeeCriteriaCriteriaFormTermSolutionCategoryId",
-//    data_employeeListAction = @Url.Action("EmployeeList"),
-//    data_customerListAction = @Url.Action("CustomerList"),
-//    data_transactionListAction = @Url.Action("TransactionList"),
-//    @class = ""
+    @id = "FormId",
+    data_get_employee_criterias_by_industry_criteria_id_url = @Url.Action("GetEmployeesByIndustryId"),
+    data_get_customer_criterias_by_employee_criteria_id_url = @Url.Action("GetCustomerCriteriasByEmployeeCriteriaId"),
+    data_get_transaction_criterias_by_customer_criteeria_id_url = @Url.Action("GetTransactionCriteriasByCustomerCriteriaId"),
+    @class = ""
 }))
 {
     <div class="row">
+
         <div class="form-group col-sm-6">
-            <label class="control-label" for="industryEmployeeCriteriaCriteriaTermSolutionCategoryId">
-                <i class="fa fa-industry"></i> Industry 
+            <label class="control-label" for="industryCriterias">
+                <i class="fa fa-industry"></i> Industry
             </label>
-@*            @Html.DropDownList("industry", ViewBag.IndustrySelectList as SelectList,*@
-@*                "Select an industry", new { @id = "industry", @class = "form-control" })*@
+            @Html.DropDownList("industryCriterias", Model.IndustryCriterias, "Select an industry",
+                new {@id = "industryCriterias", @class = "form-control"})
         </div>
-@*        <div class="form-group col-sm-6" id="EmployeesDiv">*@
-@*            <label class="control-label" for="employeeCode">*@
-@*                <i class="fa fa-users"></i> EmployeeCriteriaCriterias*@
-@*            </label>*@
-@*            <select id="employeeCode" name="employeeEmployeeCriteriaCriteriaTermSolutionCategoryId" class="form-control" disabled="disabled">*@
-@*                <option value="">Select number of employees.</option>*@
-@*            </select>*@
-@*        </div>*@
-@**@
-@**@
-@*        <div class="form-group col-sm-6" id="CustomersDiv">*@
-@*            <label class="control-label" for="customerEmployeeCriteriaCriteriaTermSolutionCategoryId">*@
-@*                <i class="fa fa-shopping-cart"></i> CustomerCriterias*@
-@*            </label>*@
-@*            @Html.DropDownList("customerEmployeeCriteriaCriteriaTermSolutionCategoryId", ViewBag.CustomerList as SelectList,*@
-@*                "Select number of customers", new { @id = "customerCustomerCriteriaTermSolutionCategoryId", @code = "customerEmployeeCriteriaCriteriaTermSolutionCategoryId", @class = "form-control", disabled = "disabled" })*@
-@*        </div>*@
-@**@
-@*        <div class="form-group col-sm-6" id="TransactionsDiv">*@
-@*            <label class="control-label">*@
-@*                <i class="fa fa-truck"></i> Transactions/month*@
-@*            </label>*@
-@*            @Html.DropDownList("transactionEmployeeCriteriaCriteriaTermSolutionCategoryId", ViewBag.TransactionPmList as SelectList,*@
-@*                "Select number of Transactions per Month", new { @id = "transactionEmployeeCriteriaCriteriaTermSolutionCategoryId", @code = "transactionEmployeeCriteriaCriteriaTermSolutionCategoryId", @class = "form-control", disabled = "disabled" })*@
-@*        </div>*@
-@**@
-@*        <div class="form-group">*@
-@*            <div class="text-center">*@
-@*                <button type="submit" id="SubmitBtn" class="btn btn-primary btn-default" disabled>Submit</button>*@
-@*            </div>*@
-@*        </div>*@
+
+        <div class="form-group col-sm-6" id="employeeCriteriasDiv">
+            <label class="control-label" for="employeeCriterias">
+                <i class="fa fa-users"></i> Employees Size
+            </label>
+            <select id="employeeCriterias" name="employeeCriterias" class="form-control" disabled="disabled">
+                <option value="">Select number of employees</option>
+            </select>
+        </div>
+
+
+        <div class="form-group col-sm-6" id="customerCriteriasDiv">
+            <label class="control-label" for="customerCriterias">
+                <i class="fa fa-shopping-cart"></i> Customer Criterias
+            </label>
+            @Html.DropDownList("customerCriterias", Model.CustomerCriterias, "Select number of customers",
+                new {@id = "customerCriterias", @class = "form-control", disabled = "disabled"})
+        </div>
+
+        <div class="form-group col-sm-6" id="TransactionsDiv">
+            <label class="control-label">
+                <i class="fa fa-truck"></i> Transactions/Month
+            </label>
+            @Html.DropDownList("transactionCriterias", Model.TransactionCriterias,
+                "Select number of Transactions per Month", new {@id = "transactionCriterias", @class = "form-control", disabled = "disabled"})
+        </div>
+
+        <div class="form-group">
+            <div class="text-center">
+                <button type="submit" id="SubmitBtn" class="btn btn-primary btn-default" disabled>Submit</button>
+            </div>
+        </div>
     </div>
 }
 

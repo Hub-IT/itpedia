@@ -247,7 +247,7 @@ namespace ItPedia.Models
 //                    Name = "HRIS",
 //                    Content = new[]
 //                    {
-//                        "<p>A human resource information system (HRIS) is an information system or managed service that provides a single, centralized view of the data that a human resource management (HRM) or human capital management (HCM) group requires for completing human resource (HR) processes. Such processes include recruiting, applicant-tracking, payroll, time and attendance, performance appraisals, benefits administration, employee self-service and perhaps even accounting functions.</p>"
+//                        "<p>A human resource information system (HRIS) is an information system or managed service that provides a single, centralized view of the data that a human resource management (HRM) or human capital management (HCM) group requires for completing human resource (HR) processes. Such processes include recruiting, applicant-tracking, payroll, time and attendance, performance appraisals, benefits administration, employees-size self-service and perhaps even accounting functions.</p>"
 //                    },
 //                    Source = "http://searchfinancialapplications.techtarget.com/definition/HRIS"
 //                },

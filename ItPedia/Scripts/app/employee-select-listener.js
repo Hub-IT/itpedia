@@ -9,12 +9,12 @@
  */
 $(function() {
 
-    $("#employeeCode").change(function() {
+    $("#employeeCriterias").change(function() {
 
-        $("#transactionCode").prop("disabled", true);
-        $("#customerCode").prop("disabled", true);
+        $("#transactionCriterias").prop("disabled", true);
+        $("#customerCriterias").prop("disabled", true);
 
-        var url = $("#CompanyEmployeeFormId").data("customerlistaction") + "/employeeCode" + $(this).val();
+        var url = $("#FormId").data("getEmployeeCriteriasByIndustryCriteriaIdUrl") + "/" + $(this).val();
 
         $.getJSON(url, function(data) {
 
@@ -24,8 +24,8 @@ $(function() {
                 items += "<option value='" + customer.Value + "'>" + customer.Text + "</option>";
             });
 
-            $("#customerCode").html(items);
-            $("#customerCode").prop("disabled", false);
+            $("#customerCriterias").html(items);
+            $("#customerCriterias").prop("disabled", false);
         });
     });
 });

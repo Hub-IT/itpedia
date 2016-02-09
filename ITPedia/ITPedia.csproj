@@ -213,6 +213,7 @@
     <Compile Include="Models\Solution.cs" />
     <Compile Include="Models\Term.cs" />
     <Compile Include="Models\TransactionCriteria.cs" />
+    <Compile Include="Models\Views\HomeIndexModelView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Utilities\Utilites.cs" />

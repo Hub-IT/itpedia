@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using ItPedia.Models;
@@ -24,6 +25,16 @@ namespace ItPedia.Migrations
         private const string Energy = "Energy";
         private const string Transportation = "Transportation";
 
+        // Transaction Criterias
+        private const string TransactionsPerMonthUpTo100 = "Up to 100";
+        private const string TransactionsPerMonthMoreThan100 = "More than 100";
+
+        // Employees Sizes
+        private const string EmployeesSizeUpTo10 = "Up to 10";
+        private const string EmployeesSize11To50 = "11 - 50";
+        private const string EmployeesSize51To200 = "51- 200";
+        private const string EmployeesSizeNotNecessary = "Not Necessary";
+
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
@@ -35,13 +46,13 @@ namespace ItPedia.Migrations
         {
             SeedTermsTable(context);
 
-            SeedIndustryCriteriaTable(context);
-
-            SeedEmployeeCriteriaTable(context);
+            SeedTransactionsCriteraTable(context);
 
             SeedCustomerCriteriaTable(context);
 
-            SeedTransactionsCriteraTable(context);
+            SeedEmployeeCriteriaTable(context);
+
+            SeedIndustryCriteriaTable(context);
 
             SeedSolutionCategoriesTable(context);
         }
@@ -49,70 +60,45 @@ namespace ItPedia.Migrations
         private static void SeedTransactionsCriteraTable(ItPediaDbContext context)
         {
             context.TransactionCriterias.AddOrUpdate(transactionCriteria => transactionCriteria.TransactionCriteriaId,
-            new TransactionCriteria {TransactionCriteriaId = 1, PerMonth = "Up to 100"},
-            new TransactionCriteria {TransactionCriteriaId = 2, PerMonth = "More than 100"});
+                new TransactionCriteria {TransactionCriteriaId = 1, PerMonth = TransactionsPerMonthUpTo100},
+                new TransactionCriteria {TransactionCriteriaId = 2, PerMonth = TransactionsPerMonthMoreThan100});
         }
 
         private static void SeedCustomerCriteriaTable(ItPediaDbContext context)
         {
+            var upTo100Transaction =
+                context.TransactionCriterias.Local.First(
+                    transaction => transaction.PerMonth == TransactionsPerMonthUpTo100);
+            var moreThan100Transaction =
+                context.TransactionCriterias.Local.First(
+                    transaction => transaction.PerMonth == TransactionsPerMonthMoreThan100);
+
+            var transactions = new List<TransactionCriteria> {upTo100Transaction, moreThan100Transaction};
+
             context.CustomerCriterias.AddOrUpdate(customerCriteria => customerCriteria.CustomerCriteriaId,
-                new CustomerCriteria {CustomerCriteriaId = 1, Size = "Up to 500"},
-                new CustomerCriteria {CustomerCriteriaId = 2, Size = "More than 500"});
+                new CustomerCriteria {CustomerCriteriaId = 1, Size = "Up to 500", Transactions = transactions},
+                new CustomerCriteria {CustomerCriteriaId = 2, Size = "More than 500", Transactions = transactions});
         }
 
         private static void SeedEmployeeCriteriaTable(ItPediaDbContext context)
         {
-            var homeBusinessIndustry = context.IndustryCriterias.Local.First(industry => industry.Name == HomeBusiness);
-            var exportBusinessIndustry = context.IndustryCriterias.Local.First(industry => industry.Name == ExportBusiness);
-            var telecommunicationIndustry =
-                context.IndustryCriterias.Local.First(industry => industry.Name == Telecommunication);
-            var bankingIndustry = context.IndustryCriterias.Local.First(industry => industry.Name == Banking);
-            var retailIndustry = context.IndustryCriterias.Local.First(industry => industry.Name == Retail);
-            var automobileIndustry = context.IndustryCriterias.Local.First(industry => industry.Name == Automobile);
-            var advertisingIndustry = context.IndustryCriterias.Local.First(industry => industry.Name == Advertising);
-            var insuranceIndustry = context.IndustryCriterias.Local.First(industry => industry.Name == Insurance);
-            var oilIndustry = context.IndustryCriterias.Local.First(industry => industry.Name == Oil);
-            var pharmaceuticalIndustry = context.IndustryCriterias.Local.First(industry => industry.Name == Pharmaceutical);
-            var waterSupplyIndustry = context.IndustryCriterias.Local.First(industry => industry.Name == WaterSupply);
-            var policeIndustry = context.IndustryCriterias.Local.First(industry => industry.Name == Police);
-            var tvBroadcastingIndustry = context.IndustryCriterias.Local.First(industry => industry.Name == TvBroadcasting);
-            var stockExchangeIndustry = context.IndustryCriterias.Local.First(industry => industry.Name == StockExchange);
-            var energyIndustry = context.IndustryCriterias.Local.First(industry => industry.Name == Energy);
-            var transportationIndustry = context.IndustryCriterias.Local.First(industry => industry.Name == Transportation);
-
+            var customeerCriterias = context.CustomerCriterias.Local.ToList();
             context.EmployeeCriterias.AddOrUpdate(employeeCriteria => employeeCriteria.EmployeeCriteriaId,
-                GetEmployeeCriteria(1, "Up to 10", homeBusinessIndustry),
-                GetEmployeeCriteria(2, "11 - 50", exportBusinessIndustry),
-                GetEmployeeCriteria(3, "51- 200", telecommunicationIndustry),
-                GetEmployeeCriteria(4, "51- 200", bankingIndustry),
-                GetEmployeeCriteria(5, "Up to 10", retailIndustry),
-                GetEmployeeCriteria(6, "11 - 50", retailIndustry),
-                GetEmployeeCriteria(7, "Up to 10", automobileIndustry),
-                GetEmployeeCriteria(8, "10 - 50", automobileIndustry),
-                GetEmployeeCriteria(9, "51 - 200", automobileIndustry),
-                GetEmployeeCriteria(10, "11 - 50", advertisingIndustry),
-                GetEmployeeCriteria(11, "51 - 200", insuranceIndustry),
-                GetEmployeeCriteria(12, "51 - 200", oilIndustry),
-                GetEmployeeCriteria(13, "11 - 50", pharmaceuticalIndustry),
-                GetEmployeeCriteria(14, "51 - 200", pharmaceuticalIndustry),
-                GetEmployeeCriteria(15, "11 - 50", waterSupplyIndustry),
-                GetEmployeeCriteria(16, "51 - 200", waterSupplyIndustry),
-                GetEmployeeCriteria(17, "Not Necessary", policeIndustry),
-                GetEmployeeCriteria(18, "51 - 200", tvBroadcastingIndustry),
-                GetEmployeeCriteria(19, "Not Necessary", stockExchangeIndustry),
-                GetEmployeeCriteria(20, "Not Necessary", energyIndustry),
-                GetEmployeeCriteria(21, "Not Necessary", transportationIndustry));
+                GetEmployeeCriteria(1, EmployeesSizeUpTo10, customeerCriterias),
+                GetEmployeeCriteria(2, EmployeesSize11To50, customeerCriterias),
+                GetEmployeeCriteria(3, EmployeesSize51To200, customeerCriterias),
+                GetEmployeeCriteria(4, EmployeesSizeNotNecessary, customeerCriterias)
+                );
         }
 
         private static EmployeeCriteria GetEmployeeCriteria(int employeeCriteriaId, string size,
-            IndustryCriteria industryCriteria)
+            List<CustomerCriteria> customerCriterias)
         {
             return new EmployeeCriteria
             {
                 EmployeeCriteriaId = employeeCriteriaId,
+                CustomerCriterias = customerCriterias,
                 Size = size,
-                IndustryCriteria = industryCriteria,
-                IndustryCriteriaId = industryCriteria.IndustryCriteriaId
             };
         }
 
@@ -130,24 +116,108 @@ namespace ItPedia.Migrations
 
         private static void SeedIndustryCriteriaTable(ItPediaDbContext context)
         {
+            var homeBusinessEmployeeCriterias = new List<EmployeeCriteria>
+            {
+                context.EmployeeCriterias.Local.First(employeeCriteria => employeeCriteria.Size == EmployeesSizeUpTo10)
+            };
+            var exportBusinessEmployeeCriterias = new List<EmployeeCriteria>
+            {
+                context.EmployeeCriterias.Local.First(employeeCriteria => employeeCriteria.Size == EmployeesSize11To50)
+            };
+            var telecommunicationEmployeeCriterias = new List<EmployeeCriteria>
+            {
+                context.EmployeeCriterias.Local.First(employeeCriteria => employeeCriteria.Size == EmployeesSize51To200)
+            };
+            var bankingEmployeeCriterias = new List<EmployeeCriteria>
+            {
+                context.EmployeeCriterias.Local.First(employeeCriteria => employeeCriteria.Size == EmployeesSize51To200)
+            };
+            var retailEmployeeCriterias = new List<EmployeeCriteria>
+            {
+                context.EmployeeCriterias.Local.First(employeeCriteria => employeeCriteria.Size == EmployeesSizeUpTo10),
+                context.EmployeeCriterias.Local.First(employeeCriteria => employeeCriteria.Size == EmployeesSize11To50)
+            };
+            var automobileEmployeeCriterias = new List<EmployeeCriteria>
+            {
+                context.EmployeeCriterias.Local.First(employeeCriteria => employeeCriteria.Size == EmployeesSizeUpTo10),
+                context.EmployeeCriterias.Local.First(employeeCriteria => employeeCriteria.Size == EmployeesSize11To50),
+                context.EmployeeCriterias.Local.First(employeeCriteria => employeeCriteria.Size == EmployeesSize51To200)
+            };
+            var advertisingEmployeeCriterias = new List<EmployeeCriteria>
+            {
+                context.EmployeeCriterias.Local.First(employeeCriteria => employeeCriteria.Size == EmployeesSize11To50)
+            };
+            var insuranceEmployeeCriterias = new List<EmployeeCriteria>
+            {
+                context.EmployeeCriterias.Local.First(employeeCriteria => employeeCriteria.Size == EmployeesSize51To200)
+            };
+            var oilEmployeeCriterias = new List<EmployeeCriteria>
+            {
+                context.EmployeeCriterias.Local.First(employeeCriteria => employeeCriteria.Size == EmployeesSize51To200)
+            };
+            var pharmaceuticalIndustryEmployeeCriterias = new List<EmployeeCriteria>
+            {
+                context.EmployeeCriterias.Local.First(employeeCriteria => employeeCriteria.Size == EmployeesSize11To50),
+                context.EmployeeCriterias.Local.First(employeeCriteria => employeeCriteria.Size == EmployeesSize51To200)
+            };
+            var waterSupplyIndustryEmployeeCriterias = new List<EmployeeCriteria>
+            {
+                context.EmployeeCriterias.Local.First(employeeCriteria => employeeCriteria.Size == EmployeesSize11To50),
+                context.EmployeeCriterias.Local.First(employeeCriteria => employeeCriteria.Size == EmployeesSize51To200)
+            };
+            var policeEmployeeCriterias = new List<EmployeeCriteria>
+            {
+                context.EmployeeCriterias.Local.First(
+                    employeeCriteria => employeeCriteria.Size == EmployeesSizeNotNecessary),
+            };
+            var tvBroadcastingCriterias = new List<EmployeeCriteria>
+            {
+                context.EmployeeCriterias.Local.First(employeeCriteria => employeeCriteria.Size == EmployeesSize51To200),
+            };
+            var stockExchangeCriterias = new List<EmployeeCriteria>
+            {
+                context.EmployeeCriterias.Local.First(
+                    employeeCriteria => employeeCriteria.Size == EmployeesSizeNotNecessary),
+            };
+            var energyCriterias = new List<EmployeeCriteria>
+            {
+                context.EmployeeCriterias.Local.First(
+                    employeeCriteria => employeeCriteria.Size == EmployeesSizeNotNecessary),
+            };
+            var transportationCriterias = new List<EmployeeCriteria>
+            {
+                context.EmployeeCriterias.Local.First(
+                    employeeCriteria => employeeCriteria.Size == EmployeesSizeNotNecessary),
+            };
+
             context.IndustryCriterias.AddOrUpdate(industryCriteria => industryCriteria.IndustryCriteriaId,
-                new IndustryCriteria {IndustryCriteriaId = 1, Name = HomeBusiness},
-                new IndustryCriteria {IndustryCriteriaId = 2, Name = ExportBusiness},
-                new IndustryCriteria {IndustryCriteriaId = 3, Name = Telecommunication},
-                new IndustryCriteria {IndustryCriteriaId = 4, Name = Banking},
-                new IndustryCriteria {IndustryCriteriaId = 5, Name = Retail},
-                new IndustryCriteria {IndustryCriteriaId = 6, Name = Automobile},
-                new IndustryCriteria {IndustryCriteriaId = 7, Name = Advertising},
-                new IndustryCriteria {IndustryCriteriaId = 8, Name = Insurance},
-                new IndustryCriteria {IndustryCriteriaId = 9, Name = Oil},
-                new IndustryCriteria {IndustryCriteriaId = 10, Name = Pharmaceutical},
-                new IndustryCriteria {IndustryCriteriaId = 11, Name = Police},
-                new IndustryCriteria {IndustryCriteriaId = 12, Name = TvBroadcasting},
-                new IndustryCriteria {IndustryCriteriaId = 13, Name = StockExchange},
-                new IndustryCriteria {IndustryCriteriaId = 14, Name = Energy},
-                new IndustryCriteria {IndustryCriteriaId = 15, Name = Transportation},
-                new IndustryCriteria {IndustryCriteriaId = 16, Name = WaterSupply}
-                );
+                GetIndustryCriteria(1, HomeBusiness, homeBusinessEmployeeCriterias),
+                GetIndustryCriteria(2, ExportBusiness, exportBusinessEmployeeCriterias),
+                GetIndustryCriteria(3, Telecommunication, telecommunicationEmployeeCriterias),
+                GetIndustryCriteria(4, Banking, bankingEmployeeCriterias),
+                GetIndustryCriteria(5, Retail, retailEmployeeCriterias),
+                GetIndustryCriteria(6, Automobile, automobileEmployeeCriterias),
+                GetIndustryCriteria(7, Advertising, advertisingEmployeeCriterias),
+                GetIndustryCriteria(8, Insurance, insuranceEmployeeCriterias),
+                GetIndustryCriteria(9, Oil, oilEmployeeCriterias),
+                GetIndustryCriteria(10, Pharmaceutical, pharmaceuticalIndustryEmployeeCriterias),
+                GetIndustryCriteria(11, Police, policeEmployeeCriterias),
+                GetIndustryCriteria(12, TvBroadcasting, tvBroadcastingCriterias),
+                GetIndustryCriteria(13, StockExchange, stockExchangeCriterias),
+                GetIndustryCriteria(14, Energy, energyCriterias),
+                GetIndustryCriteria(15, Transportation, transportationCriterias),
+                GetIndustryCriteria(16, WaterSupply, waterSupplyIndustryEmployeeCriterias));
+        }
+
+        private static IndustryCriteria GetIndustryCriteria(int industryCriteriaId, string name,
+            List<EmployeeCriteria> employeeCriterias)
+        {
+            return new IndustryCriteria
+            {
+                IndustryCriteriaId = 1,
+                Name = HomeBusiness,
+                EmployeeCriterias = employeeCriterias
+            };
         }
 
         private static void SeedTermsTable(ItPediaDbContext context)
@@ -328,7 +398,7 @@ namespace ItPedia.Migrations
                     Name = "HRIS",
                     Source = "http://searchfinancialapplications.techtarget.com/definition/HRIS",
                     Content =
-                        "<p>A human resource information system (HRIS) is an information system or managed service that provides a single, centralized view of the data that a human resource management (HRM) or human capital management (HCM) group requires for completing human resource (HR) processes. Such processes include recruiting, applicant-tracking, payroll, time and attendance, performance appraisals, benefits administration, employee self-service and perhaps even accounting functions.</p>"
+                        "<p>A human resource information system (HRIS) is an information system or managed service that provides a single, centralized view of the data that a human resource management (HRM) or human capital management (HCM) group requires for completing human resource (HR) processes. Such processes include recruiting, applicant-tracking, payroll, time and attendance, performance appraisals, benefits administration, employees-size self-service and perhaps even accounting functions.</p>"
                 },
                 new Term
                 {

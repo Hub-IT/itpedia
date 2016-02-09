@@ -9,9 +9,9 @@
  */
 $(function() {
 
-    $("#customerCode").change(function() {
+    $("#customerCriterias").change(function() {
 
-        var url = $("#CompanyEmployeeFormId").data("transactionlistaction") + "/" + $(this).val();
+        var url = $("#FormId").data("get-transaction-criterias-by-customer-criteeria-id-url") + "/" + $(this).val();
 
         $.getJSON(url, function(data) {
 
@@ -21,8 +21,8 @@ $(function() {
                 items += "<option value='" + transaction.Value + "'>" + transaction.Text + "</option>";
             });
 
-            $("#transactionCode").html(items);
-            $("#transactionCode").prop("disabled", false);
+            $("#transactionCriterias").html(items);
+            $("#transactionCriterias").prop("disabled", false);
         });
     });
 

@@ -9,26 +9,24 @@
  */
 $(function() {
 
-    $("#industryCode").change(function() {
+    $("#industryCriterias").change(function() {
 
-        $("#employeeCode").prop("disabled", false);
-        $("#customerCode").prop("disabled", true);
-        $("#transactionCode").prop("disabled", true);
+        $("#employeeCriterias").prop("disabled", false);
+        $("#customerCriterias").prop("disabled", true);
+        $("#transactionCriterias").prop("disabled", true);
         $("#Submit").prop("disabled", true);
 
-        var url = $("#CompanyEmployeeFormId").data("employeelistaction") + "/?industryCode=" + $("#industryCode").val();
+        var url = $("#FormId").data("get-employee-criterias-by-industry-criteria-id-url") + "/" + $(this).val();
 
         $.getJSON(url, function(data) {
-
             var items = "<option>Select employees</option>";
-
 
             $.each(data, function(i, employee) {
                 items += "<option value='" + employee.Value + "'>" + employee.Text + "</option>";
             });
 
-            $("#employeeCode").html(items);
-            $("#EmployeesDiv").prop("disabled", false);
+            $("#employeeCriterias").html(items);
+            $("#employeeCriteriasDiv").prop("disabled", false);
         });
     });
 });

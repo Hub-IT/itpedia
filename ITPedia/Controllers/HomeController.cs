@@ -1,21 +1,26 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web.Mvc;
 using ItPedia.Models;
+using ItPedia.Models.Views;
 
 namespace ItPedia.Controllers
 {
     public class HomeController : Controller
     {
+        private ItPediaDbContext db = new ItPediaDbContext();
+
         public ActionResult Index()
         {
-            //            ViewBag.IndustrySelectList = IndustryCriteria.GetIndustrySelectList();
-            //
-            //            ViewBag.CustomerList = CustomerCriteria.GetCustomerSelectList();
-            //
-            //            ViewBag.TransactionPmList = TransactionCriteria.GetTransactionPmSelectList();
+            var model = new HomeIndexModelView.IndexViewModel
+            {
+                IndustryCriterias = new SelectList(db.IndustryCriterias, "IndustryCriteriaId", "Name"),
+                CustomerCriterias = new SelectList(db.CustomerCriterias, "CustomerCriteriaId", "Size"),
+                TransactionCriterias = new SelectList(db.TransactionCriterias, "TransactionCriteriaId", "PerMonth")
+            };
 
-            return View();
+            return View(model);
         }
 
         public ActionResult About()
@@ -85,7 +90,7 @@ namespace ItPedia.Controllers
         {
             //             TODO: Validate Parameters
 
-            //            var solutionCode = Solution.GetSolutionCode(employeeCode, industryCode, transactionCode);
+            //            var solutionCode = Solution.GetSolutionCode(employees-size, industryCode, transactionCode);
             //
             //            var solutions = Proposal.GetBySolutionCode(solutionCode);
             //
@@ -102,45 +107,38 @@ namespace ItPedia.Controllers
 
             //            return View(model);
             return HttpNotFound();
-
         }
 
 
-        public ActionResult IndustriesList()
-        {
-            //            if (HttpContext.Request.IsAjaxRequest())
-            //                return Json(IndustryCriteria.GetIndustrySelectList(), JsonRequestBehavior.AllowGet);
 
-            return RedirectToAction("GetSolutions");
+        public ActionResult GetEmployeesByIndustryId(int? id)
+        {
+//            if ( ! HttpContext.Request.IsAjaxRequest() || id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            var employees = db.EmployeeCriterias.Where(employee => employee.IndustryCriteriaId == id);
+
+            return Json(new SelectList(
+                employees.ToArray(), "EmployeeCriteriaId", "Size"), JsonRequestBehavior.AllowGet);
         }
 
-
-        public ActionResult EmployeeList(string industryCode)
+        public ActionResult GetCustomerCriteriasByEmployeeCriteriaId(int? id)
         {
-            //            var employees = EmployeeCriteria.GetByIndustryCode(industryCode);
-            //
-            //            if (HttpContext.Request.IsAjaxRequest())
-            //                return Json(new SelectList(
-            //                    employees.ToArray(), "EmployeeCriteriaId", "PerMonth"), JsonRequestBehavior.AllowGet);
+//            if ( ! HttpContext.Request.IsAjaxRequest() || id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
+            var customers = db.CustomerCriterias.Where(customeer => customeer.CustomerCriteriaId == id);
 
-            return RedirectToAction("GetSolutions");
+            return Json(new SelectList(
+                customers.ToArray(), "CustomerCriteriaId", "Size"), JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult CustomerList()
+        public ActionResult GetTransactionCriteriasByCustomerCriteriaId(int? id)
         {
-            //            if (HttpContext.Request.IsAjaxRequest())
-            //                return Json(CustomerCriteria.GetCustomerSelectList(), JsonRequestBehavior.AllowGet);
+//            if ( ! HttpContext.Request.IsAjaxRequest() || id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-            return RedirectToAction("GetSolutions");
-        }
+            var transactions = db.TransactionCriterias.Where(transaction => transaction.TransactionCriteriaId == id);
 
-        public ActionResult TransactionList()
-        {
-            //            if (HttpContext.Request.IsAjaxRequest())
-            //                return Json(TransactionCriteria.GetTransactionPmSelectList(), JsonRequestBehavior.AllowGet);
-
-            return RedirectToAction("GetSolutions");
+            return Json(new SelectList(
+                transactions.ToArray(), "TransactionCriteriaId", "PerMonth"), JsonRequestBehavior.AllowGet);
         }
     }
 }
