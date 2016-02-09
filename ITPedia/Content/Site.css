@@ -60,27 +60,34 @@ body {
 #small-line {
     font-size: 0.7em;
     line-height: 1.2em;
-    padding-bottom: 30px;
+    padding-bottom: 15px;
     color: #333;
-}
-
-
-#dic h3 {
-    box-shadow: 2px 2px 5px 2px;
-        padding: 5px;
 }
 
 #itpedia-logo-text-div {
     background: lightblue;
-    width: 200px;
+    width: 210px;
     margin: 0 auto;
     border-radius: 0px;
     padding-left: 5px;
     margin-bottom: 30px;
     margin-top: -20px;
 }
-/* End Logo Text*/
+/* End Logo Text */
 
+/* Start Dictionary */
+#rss_dic:hover {
+    background-color: lightblue;
+}
+/* End Dictionary */
+
+/* Start Contact */
+#contact_jumbo h1 {
+    text-align: center;
+    font-size: 36px;
+}
+
+/* Start Media Queries */
 @media (max-width: 768px) {
     .copyright {
         float: left !important;
@@ -94,3 +101,4 @@ body {
 
     .footer { height: 200px }
 }
+/* End Media Queries */
