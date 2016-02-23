@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.ServiceModel.Syndication;
 using System.Web.Mvc;
-using System.Xml;
 using ITPedia.Models;
 using ITPedia.Utilities;
 

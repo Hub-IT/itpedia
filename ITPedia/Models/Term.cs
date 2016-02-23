@@ -14,7 +14,7 @@ namespace ITPedia.Models
 
         public static IQueryable<Term> Get()
         {
-            return Terms().AsQueryable();
+            return Terms().AsQueryable().OrderBy(x => x.Name);
         }
 
         public static Term GetByName(string name)
