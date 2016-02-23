@@ -11,9 +11,9 @@ namespace ITPedia.Controllers
         // GET: dictionary
         public ActionResult Index()
         {
-            var terms = Models.Term.Get();
+            ViewBag.terms = Models.Term.Get();
 
-            return View(terms);
+            return View();
         }
 
         // GET: dictionary/Term/{id}
