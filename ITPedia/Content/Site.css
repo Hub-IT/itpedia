@@ -81,6 +81,10 @@ body {
 }
 /* End Dictionary */
 
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    background-color: #a9a9a9;
+}
+
 /* Start Contact */
 #contact_jumbo h1 {
     text-align: center;
