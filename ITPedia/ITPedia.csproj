@@ -181,39 +181,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201602090652185_2016_02_09_08_51.cs" />
-    <Compile Include="Migrations\201602090652185_2016_02_09_08_51.Designer.cs">
-      <DependentUpon>201602090652185_2016_02_09_08_51.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602090746350_2016_02_09_09_46.cs" />
-    <Compile Include="Migrations\201602090746350_2016_02_09_09_46.Designer.cs">
-      <DependentUpon>201602090746350_2016_02_09_09_46.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602090958542_2016_02_09_11_58.cs" />
-    <Compile Include="Migrations\201602090958542_2016_02_09_11_58.Designer.cs">
-      <DependentUpon>201602090958542_2016_02_09_11_58.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602091009042_2016_02_09_12_08.cs" />
-    <Compile Include="Migrations\201602091009042_2016_02_09_12_08.Designer.cs">
-      <DependentUpon>201602091009042_2016_02_09_12_08.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602091017582_2016_02_09_12_17.cs" />
-    <Compile Include="Migrations\201602091017582_2016_02_09_12_17.Designer.cs">
-      <DependentUpon>201602091017582_2016_02_09_12_17.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602091513416_2016_02_09_17_13.cs" />
-    <Compile Include="Migrations\201602091513416_2016_02_09_17_13.Designer.cs">
-      <DependentUpon>201602091513416_2016_02_09_17_13.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Initializers\ItPediaDbInitializer.cs" />
+    <Compile Include="Models\Views\AccountViewModels.cs" />
     <Compile Include="Models\CustomerCriteria.cs" />
     <Compile Include="Models\SolutionCategory.cs" />
     <Compile Include="Models\EmployeeCriteria.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\IndustryCriteria.cs" />
-    <Compile Include="Models\ItPediaDbContext.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Contexts\ItPediaDbContext.cs" />
+    <Compile Include="Models\Views\ManageTransactionCriteriasViewModel.cs" />
+    <Compile Include="Models\Views\ManageViewModels.cs" />
     <Compile Include="Models\Solution.cs" />
     <Compile Include="Models\Term.cs" />
     <Compile Include="Models\TransactionCriteria.cs" />
@@ -340,16 +317,16 @@
     <Content Include="Views\CustomerCriterias\Details.cshtml" />
     <Content Include="Views\CustomerCriterias\Edit.cshtml" />
     <Content Include="Views\CustomerCriterias\Index.cshtml" />
-    <Content Include="Views\TransactionCriterias\Create.cshtml" />
-    <Content Include="Views\TransactionCriterias\Delete.cshtml" />
-    <Content Include="Views\TransactionCriterias\Details.cshtml" />
-    <Content Include="Views\TransactionCriterias\Edit.cshtml" />
-    <Content Include="Views\TransactionCriterias\Index.cshtml" />
     <Content Include="Views\EmployeeCriterias\Create.cshtml" />
     <Content Include="Views\EmployeeCriterias\Delete.cshtml" />
     <Content Include="Views\EmployeeCriterias\Details.cshtml" />
     <Content Include="Views\EmployeeCriterias\Edit.cshtml" />
     <Content Include="Views\EmployeeCriterias\Index.cshtml" />
+    <Content Include="Views\TransactionCriterias\Create.cshtml" />
+    <Content Include="Views\TransactionCriterias\Delete.cshtml" />
+    <Content Include="Views\TransactionCriterias\Details.cshtml" />
+    <Content Include="Views\TransactionCriterias\Edit.cshtml" />
+    <Content Include="Views\TransactionCriterias\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -360,26 +337,6 @@
     </Content>
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-2.2.0.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201602090652185_2016_02_09_08_51.resx">
-      <DependentUpon>201602090652185_2016_02_09_08_51.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602090746350_2016_02_09_09_46.resx">
-      <DependentUpon>201602090746350_2016_02_09_09_46.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602090958542_2016_02_09_11_58.resx">
-      <DependentUpon>201602090958542_2016_02_09_11_58.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602091009042_2016_02_09_12_08.resx">
-      <DependentUpon>201602091009042_2016_02_09_12_08.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602091017582_2016_02_09_12_17.resx">
-      <DependentUpon>201602091017582_2016_02_09_12_17.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602091513416_2016_02_09_17_13.resx">
-      <DependentUpon>201602091513416_2016_02_09_17_13.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

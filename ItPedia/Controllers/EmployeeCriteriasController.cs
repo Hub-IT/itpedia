@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ItPedia.Models;
+using ItPedia.Models.Contexts;
 
 namespace ItPedia.Controllers
 {

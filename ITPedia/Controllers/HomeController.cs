@@ -3,6 +3,7 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using ItPedia.Models;
+using ItPedia.Models.Contexts;
 using ItPedia.Models.Views;
 
 namespace ItPedia.Controllers

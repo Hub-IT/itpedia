@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
 
 namespace ItPedia.Models
 {
@@ -8,5 +6,7 @@ namespace ItPedia.Models
     {
         public virtual int TransactionCriteriaId { get; set; }
         public virtual string PerMonth { get; set; }
+
+        public virtual List<CustomerCriteria> CustomerCriterias { get; set; }
     }
 }

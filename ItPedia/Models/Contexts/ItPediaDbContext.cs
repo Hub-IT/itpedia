@@ -1,6 +1,6 @@
 ﻿using System.Data.Entity;
 
-namespace ItPedia.Models
+namespace ItPedia.Models.Contexts
 {
     public class ItPediaDbContext : DbContext
     {

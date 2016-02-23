@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -6,7 +7,10 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using ItPedia.Models;
+using ItPedia.Models.Contexts;
+using ItPedia.Models.Views;
 
 namespace ItPedia.Controllers
 {
@@ -46,7 +50,8 @@ namespace ItPedia.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TransactionCriteriaId,PerMonth")] TransactionCriteria transactionCriteria)
+        public ActionResult Create(
+            [Bind(Include = "TransactionCriteriaId,PerMonth")] TransactionCriteria transactionCriteria)
         {
             if (ModelState.IsValid)
             {
@@ -61,16 +66,24 @@ namespace ItPedia.Controllers
         // GET: TransactionCriterias/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            var transactionCriteria = db.TransactionCriterias.Find(id);
+
+            if (transactionCriteria == null) return HttpNotFound();
+
+            var model = new ManageTransactionCriteriasViewModel.Edit
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            TransactionCriteria transactionCriteria = db.TransactionCriterias.Find(id);
-            if (transactionCriteria == null)
-            {
-                return HttpNotFound();
-            }
-            return View(transactionCriteria);
+                TransactionCriteria = transactionCriteria,
+//                CustomerCriteriasListBox = new ListBox {DataSource = db.CustomerCriterias},
+                CustomerCriteriasListBox = db.CustomerCriterias.Select(customerCriteria =>
+                new SelectListItem(){
+        Text = customerCriteria.ToString()
+            },
+                SelectedCustomerCriteriasListBox = new ListBox {DataSource = transactionCriteria.CustomerCriterias}
+            };
+
+            return View(model);
         }
 
         // POST: TransactionCriterias/Edit/5
@@ -78,7 +91,8 @@ namespace ItPedia.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TransactionCriteriaId,PerMonth")] TransactionCriteria transactionCriteria)
+        public ActionResult Edit(
+            [Bind(Include = "TransactionCriteriaId,PerMonth")] TransactionCriteria transactionCriteria)
         {
             if (ModelState.IsValid)
             {
