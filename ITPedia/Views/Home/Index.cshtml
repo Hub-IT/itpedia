@@ -53,9 +53,9 @@
 @using (Html.BeginForm("GetSolutions", "Home", FormMethod.Post, new
 {
     @id = "FormId",
-    data_get_employee_criterias_by_industry_criteria_id_url = @Url.Action("GetEmployeesByIndustryId"),
-    data_get_customer_criterias_by_employee_criteria_id_url = @Url.Action("GetCustomerCriteriasByEmployeeCriteriaId"),
-    data_get_transaction_criterias_by_customer_criteeria_id_url = @Url.Action("GetTransactionCriteriasByCustomerCriteriaId"),
+    data_get_employee_criterias_by_industry_criteria_id_url = @Url.Action("GetEmployeeCriteriasByIndustryId"),
+    data_get_customer_criterias_by_employee_criteria_id_url = @Url.Action("GetCustomerCriterias"),
+    data_get_transaction_criterias_by_customer_criteeria_id_url = @Url.Action("GetTransactionCriterias"),
     @class = ""
 }))
 {
@@ -66,14 +66,14 @@
                 <i class="fa fa-industry"></i> Industry
             </label>
             @Html.DropDownList("industryCriterias", Model.IndustryCriterias, "Select an industry",
-                new {@id = "industryCriterias", @class = "form-control"})
+                new {@id = "industryCriterias", @class = "form-control select2", @style = "width: 100%"})
         </div>
 
         <div class="form-group col-sm-6" id="employeeCriteriasDiv">
             <label class="control-label" for="employeeCriterias">
                 <i class="fa fa-users"></i> Employees Size
             </label>
-            <select id="employeeCriterias" name="employeeCriterias" class="form-control" disabled="disabled">
+            <select id="employeeCriterias" name="employeeCriterias" class="form-control select2" disabled="disabled" style="width: 100%">
                 <option value="">Select number of employees</option>
             </select>
         </div>
@@ -83,7 +83,7 @@
             <label class="control-label" for="customerCriterias">
                 <i class="fa fa-shopping-cart"></i> Customer Criterias
             </label>
-            <select id="customerCriterias" name="customerCriterias" class="form-control" disabled="disabled">
+            <select id="customerCriterias" name="customerCriterias" class="form-control select2" disabled="disabled" style="width: 100%">
                 <option value="">Select number of employees</option>
             </select>
         </div>
@@ -92,7 +92,7 @@
             <label class="control-label">
                 <i class="fa fa-truck"></i> TransactionCriterias/Month
             </label>
-            <select id="transactionCriterias" name="transactionCriterias" class="form-control" disabled="disabled">
+            <select id="transactionCriterias" name="transactionCriterias" class="form-control select2" disabled="disabled" style="width: 100%">
                 <option value="">Select transactions per month</option>
             </select>
         </div>

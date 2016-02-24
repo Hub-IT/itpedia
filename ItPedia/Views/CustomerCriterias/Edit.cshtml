@@ -18,7 +18,7 @@
         @Html.HiddenFor(model => model.CustomerCriteria.CustomerCriteriaId)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CustomerCriteria.Size, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.CustomerCriteria.Size, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.CustomerCriteria.Size, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.CustomerCriteria.Size, "", new { @class = "text-danger" })
@@ -26,9 +26,16 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.AllTransactionCriterias, new {@class = "control-label col-md-2"})
+            @Html.LabelFor(model => model.AllIndustryCriterias, new {@class = "control-label col-md-2"})
             <div class="col-md-10">
-                @Html.ListBoxFor(m => m.SelectedTransactionCriterias, Model.AllTransactionCriterias, new {@class = "select2", @style = "width: 100%" })
+                @Html.ListBoxFor(m => m.SelectedIndustryCriterias, Model.AllIndustryCriterias, new {@class = "select2", @style = "width: 100%" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AllEmployeeCriterias, new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.ListBoxFor(m => m.SelectedEmployeeCriterias, Model.AllEmployeeCriterias, new {@class = "select2", @style = "width: 100%" })
             </div>
         </div>
 

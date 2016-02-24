@@ -1,4 +1,5 @@
-﻿@model List<ItPedia.Models.Term>
+﻿@using ItPedia.Models
+@model List<ItPedia.Models.Term>
 @{
     ViewBag.Title = "Dictionary";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -21,9 +22,26 @@
 
     <div class="row">
         <div class="list-group">
-            @foreach (var term in Model)
+            @{
+                var terms = Model;
+
+                var firstHalfTerms = terms.Take((terms.Count + 1) / 2).ToArray(); // first half has more items; we can work with it's index
+                var secondHalfTerms = terms.Skip((terms.Count + 1) / 2).ToArray();
+                var secondHalfTermsLength = secondHalfTerms.Length;
+            }
+
+            @for (var index = 0; index < firstHalfTerms.Length; index++)
             {
-                <a href="@Url.Action("Term", new {id = term.TermId})" class="list-group-item col-sm-6 col-xs-12">@term.Name</a>
+                var firstHalfTerm = firstHalfTerms[index];
+                <a href="@Url.Action("Term", new {id = firstHalfTerm.Name})" class="list-group-item col-sm-6 col-xs-12">@firstHalfTerm.Name</a>
+
+                if (index >= secondHalfTermsLength)
+                {
+                    continue;
+                }
+
+                var secondHalfTerm = secondHalfTerms[index];
+                <a href="@Url.Action("Term", new {id = secondHalfTerm.Name})" class="list-group-item col-sm-6 col-xs-12">@secondHalfTerm.Name</a>
             }
         </div>
 

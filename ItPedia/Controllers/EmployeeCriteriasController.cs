@@ -1,24 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using ItPedia.Models;
 using ItPedia.Models.Contexts;
+using ItPedia.Notifications;
+using ItPedia.ViewModels;
 
 namespace ItPedia.Controllers
 {
     public class EmployeeCriteriasController : Controller
     {
-        private ItPediaDbContext db = new ItPediaDbContext();
+        private readonly ItPediaDbContext _db = new ItPediaDbContext();
 
         // GET: EmployeeCriterias
         public ActionResult Index()
         {
-            return View(db.EmployeeCriterias.ToList());
+            return View(_db.EmployeeCriterias.ToList());
         }
 
         // GET: EmployeeCriterias/Details/5
@@ -28,7 +27,7 @@ namespace ItPedia.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            EmployeeCriteria employeeCriteria = db.EmployeeCriterias.Find(id);
+            var employeeCriteria = _db.EmployeeCriterias.Find(id);
             if (employeeCriteria == null)
             {
                 return HttpNotFound();
@@ -51,8 +50,8 @@ namespace ItPedia.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.EmployeeCriterias.Add(employeeCriteria);
-                db.SaveChanges();
+                _db.EmployeeCriterias.Add(employeeCriteria);
+                _db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
@@ -62,16 +61,24 @@ namespace ItPedia.Controllers
         // GET: EmployeeCriterias/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            var employeeCriteriasViewModel = new EmployeeCriteriasViewModel
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            EmployeeCriteria employeeCriteria = db.EmployeeCriterias.Find(id);
-            if (employeeCriteria == null)
+                EmployeeCriteria = _db.EmployeeCriterias.Find(id)
+            };
+
+            if (employeeCriteriasViewModel.EmployeeCriteria == null) return HttpNotFound();
+
+            var allIndustryCriterias = _db.IndustryCriterias.ToList();
+
+            employeeCriteriasViewModel.AllIndustryCriterias = allIndustryCriterias.Select(o => new SelectListItem
             {
-                return HttpNotFound();
-            }
-            return View(employeeCriteria);
+                Text = o.Name,
+                Value = o.IndustryCriteriaId.ToString()
+            });
+
+            return View(employeeCriteriasViewModel);
         }
 
         // POST: EmployeeCriterias/Edit/5
@@ -79,15 +86,45 @@ namespace ItPedia.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EmployeeCriteriaId,Size")] EmployeeCriteria employeeCriteria)
+        public ActionResult Edit(EmployeeCriteriasViewModel employeeCriteriasViewModel)
         {
-            if (ModelState.IsValid)
+            if (employeeCriteriasViewModel == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            if (!ModelState.IsValid)
             {
-                db.Entry(employeeCriteria).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                Flash.Error("Validation errors occured.");
+
+                RedirectToAction("Edit",
+                    new {id = employeeCriteriasViewModel.EmployeeCriteria.EmployeeCriteriaId});
             }
-            return View(employeeCriteria);
+
+            var employeeCriteriaToUpdate = _db.EmployeeCriterias.Include(i => i.IndustryCriterias).First(i =>
+                i.EmployeeCriteriaId == employeeCriteriasViewModel.EmployeeCriteria.EmployeeCriteriaId);
+
+            if (!TryUpdateModel(employeeCriteriaToUpdate, "EmployeeCriteria",
+                new[] {"Size", "IndustryCriteriaId"})) return RedirectToAction("Index");
+
+            var updatedIndustryCriterias = new HashSet<int>(employeeCriteriasViewModel.SelectedIndustryCriterias);
+
+            foreach (var industryCriteria in _db.IndustryCriterias)
+            {
+                if (!updatedIndustryCriterias.Contains(industryCriteria.IndustryCriteriaId))
+                {
+                    employeeCriteriaToUpdate.IndustryCriterias.Remove(industryCriteria);
+
+                    continue;
+                }
+
+                employeeCriteriaToUpdate.IndustryCriterias.Add((industryCriteria));
+            }
+
+            _db.Entry(employeeCriteriaToUpdate).State = EntityState.Modified;
+
+            _db.SaveChanges();
+
+            Flash.Success("Transaction criteria updated.");
+
+            return RedirectToAction("Edit", new {id = employeeCriteriaToUpdate.EmployeeCriteriaId});
         }
 
         // GET: EmployeeCriterias/Delete/5
@@ -97,7 +134,7 @@ namespace ItPedia.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            EmployeeCriteria employeeCriteria = db.EmployeeCriterias.Find(id);
+            var employeeCriteria = _db.EmployeeCriterias.Find(id);
             if (employeeCriteria == null)
             {
                 return HttpNotFound();
@@ -110,9 +147,9 @@ namespace ItPedia.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            EmployeeCriteria employeeCriteria = db.EmployeeCriterias.Find(id);
-            db.EmployeeCriterias.Remove(employeeCriteria);
-            db.SaveChanges();
+            var employeeCriteria = _db.EmployeeCriterias.Find(id);
+            _db.EmployeeCriterias.Remove(employeeCriteria);
+            _db.SaveChanges();
             return RedirectToAction("Index");
         }
 
@@ -120,7 +157,7 @@ namespace ItPedia.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                _db.Dispose();
             }
             base.Dispose(disposing);
         }

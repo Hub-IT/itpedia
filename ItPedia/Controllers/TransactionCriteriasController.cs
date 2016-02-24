@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using ItPedia.Models;
 using ItPedia.Models.Contexts;
-using ItPedia.Notifications;
 using ItPedia.ViewModels;
 
 namespace ItPedia.Controllers
@@ -64,16 +62,30 @@ namespace ItPedia.Controllers
         {
             if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-            var transactionCriteriasViewModel = new TransactionCriteriasViewModel
+            var transactionCriteriasViewModel = new TransactionCriteriaViewModel
             {
                 TransactionCriteria = db.TransactionCriterias.Find(id)
             };
 
             if (transactionCriteriasViewModel.TransactionCriteria == null) return HttpNotFound();
 
-            var allCustomerCriterias = db.CustomerCriterias.ToList();
+            var allIndustryCriterias = db.IndustryCriterias.ToList();
+            var allEmployeeCriterias = db.EmployeeCriterias.ToList();
+            var allCustomersCriterias = db.CustomerCriterias.ToList();
 
-            transactionCriteriasViewModel.AllCustomerCriterias = allCustomerCriterias.Select(o => new SelectListItem
+            transactionCriteriasViewModel.AllIndustryCriterias = allIndustryCriterias.Select(o => new SelectListItem
+            {
+                Text = o.Name,
+                Value = o.IndustryCriteriaId.ToString()
+            });
+
+            transactionCriteriasViewModel.AllEmployeeCriterias = allEmployeeCriterias.Select(o => new SelectListItem
+            {
+                Text = o.Size,
+                Value = o.EmployeeCriteriaId.ToString()
+            });
+
+            transactionCriteriasViewModel.AllCustomerCriterias = allCustomersCriterias.Select(o => new SelectListItem
             {
                 Text = o.Size,
                 Value = o.CustomerCriteriaId.ToString()
@@ -87,45 +99,16 @@ namespace ItPedia.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(TransactionCriteriasViewModel transactionCriteriasViewModel)
+        public ActionResult Edit(
+            [Bind(Include = "TransactionCriteriaId,PerMonth")] TransactionCriteria transactionCriteria)
         {
-            if (transactionCriteriasViewModel == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                Flash.Error("Validation errors occured.");
-
-                RedirectToAction("Edit",
-                    new {id = transactionCriteriasViewModel.TransactionCriteria.TransactionCriteriaId});
+                db.Entry(transactionCriteria).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
-
-            var transactionCriteriaToUpdate = db.TransactionCriterias.Include(i => i.CustomerCriterias).First(i =>
-                i.TransactionCriteriaId == transactionCriteriasViewModel.TransactionCriteria.TransactionCriteriaId);
-
-            if (!TryUpdateModel(transactionCriteriaToUpdate, "TransactionCriteria",
-                new[] {"PerMonth", "TransactionCriteriaId"})) return RedirectToAction("Index");
-
-            var updatedCustomerCriterias = new HashSet<int>(transactionCriteriasViewModel.SelectedCustomerCriterias);
-
-            foreach (var customerCriteria in db.CustomerCriterias)
-            {
-                if (!updatedCustomerCriterias.Contains(customerCriteria.CustomerCriteriaId))
-                {
-                    transactionCriteriaToUpdate.CustomerCriterias.Remove(customerCriteria);
-
-                    continue;
-                }
-
-                transactionCriteriaToUpdate.CustomerCriterias.Add((customerCriteria));
-            }
-
-            db.Entry(transactionCriteriaToUpdate).State = EntityState.Modified;
-
-            db.SaveChanges();
-
-            Flash.Success("Transaction criteria updated.");
-
-            return RedirectToAction("Edit", new {id = transactionCriteriaToUpdate.TransactionCriteriaId});
+            return View(transactionCriteria);
         }
 
         // GET: TransactionCriterias/Delete/5

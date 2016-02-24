@@ -2,24 +2,22 @@
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
-using ItPedia.Models;
 using ItPedia.Models.Contexts;
-using ItPedia.Notifications;
 using ItPedia.ViewModels;
 
 namespace ItPedia.Controllers
 {
     public class HomeController : Controller
     {
-        private ItPediaDbContext db = new ItPediaDbContext();
+        private readonly ItPediaDbContext _db = new ItPediaDbContext();
 
         public ActionResult Index()
         {
             var model = new HomeIndexModelView.IndexViewModel
             {
-                IndustryCriterias = new SelectList(db.IndustryCriterias, "IndustryCriteriaId", "Name"),
-                CustomerCriterias = new SelectList(db.CustomerCriterias, "CustomerCriteriaId", "Size"),
-                TransactionCriterias = new SelectList(db.TransactionCriterias, "TransactionCriteriaId", "PerMonth")
+                IndustryCriterias = new SelectList(_db.IndustryCriterias, "IndustryCriteriaId", "Name"),
+                CustomerCriterias = new SelectList(_db.CustomerCriterias, "CustomerCriteriaId", "Size"),
+                TransactionCriterias = new SelectList(_db.TransactionCriterias, "TransactionCriteriaId", "PerMonth")
             };
 
             return View(model);
@@ -112,39 +110,57 @@ namespace ItPedia.Controllers
         }
 
 
-        public ActionResult GetEmployeesByIndustryId(int? id)
+        public ActionResult GetEmployeeCriteriasByIndustryId(int? id)
         {
-            if ( ! HttpContext.Request.IsAjaxRequest() || id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            if (!HttpContext.Request.IsAjaxRequest() || id == null || null == _db.IndustryCriterias.Find(id))
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-            var industryEmployeesCriteria = db.IndustryCriterias.Find(id).EmployeeCriterias;
+            var results = from employeeCriteria in _db.EmployeeCriterias
+                from industryCriteria in employeeCriteria.IndustryCriterias
+                where (industryCriteria.IndustryCriteriaId == id)
+                select new {employeeCriteria.EmployeeCriteriaId, employeeCriteria.Size};
 
             return Json(new SelectList(
-                industryEmployeesCriteria.ToArray(), "EmployeeCriteriaId", "Size"), JsonRequestBehavior.AllowGet);
+                results.ToArray(), "EmployeeCriteriaId", "Size"), JsonRequestBehavior.AllowGet);
         }
 
-        public int GetCustomerCriteriasByEmployeeCriteriaId(int? id)
-//        public ActionResult GetCustomerCriteriasByEmployeeCriteriaId(int? id)
+        // GET: /Home/GetCustomerCriterias?industryId=&employeeId=1
+        public ActionResult GetCustomerCriterias(int industryId, int employeeId)
         {
-//            if ( ! HttpContext.Request.IsAjaxRequest() || id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            if (!HttpContext.Request.IsAjaxRequest() || _db.IndustryCriterias.Find(industryId) == null ||
+                _db.EmployeeCriterias.Find(employeeId) == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-            var customers = db.EmployeeCriterias.Find(id).CustomerCriterias;
-
-            return customers.Count;
-
-//            if (customers == null) return HttpNotFound();
-
-//            return Json(new SelectList(
-//                customers.ToArray(), "CustomerCriteriaId", "Size"), JsonRequestBehavior.AllowGet);
-        }
-
-        public ActionResult GetTransactionCriteriasByCustomerCriteriaId(int? id)
-        {
-            if ( ! HttpContext.Request.IsAjaxRequest() || id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-
-            var transactions = db.CustomerCriterias.Find(id).TransactionCriterias;
+            var results = from customerCriteria in _db.CustomerCriterias
+                from industryCriteria in customerCriteria.IndustryCriterias
+                from employeeCriteria in customerCriteria.EmployeeCriterias
+                where
+                    (industryCriteria.IndustryCriteriaId == industryId &&
+                     employeeCriteria.EmployeeCriteriaId == employeeId)
+                select new {customerCriteria.CustomerCriteriaId, customerCriteria.Size};
 
             return Json(new SelectList(
-                transactions.ToArray(), "TransactionCriteriaId", "PerMonth"), JsonRequestBehavior.AllowGet);
+                results.ToArray(), "CustomerCriteriaId", "Size"), JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult GetTransactionCriterias(int industryId, int employeeId, int customerId)
+        {
+//            if (!HttpContext.Request.IsAjaxRequest() || _db.IndustryCriterias.Find(industryId) == null ||
+//                _db.EmployeeCriterias.Find(employeeId) == null || _db.CustomerCriterias.Find(customerId) == null)
+//                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            var results = from transactionCriteria in _db.TransactionCriterias
+                from industryCriteria in transactionCriteria.IndustryCriterias
+                from employeeCriteria in transactionCriteria.EmployeeCriterias
+                from customerCriteria in transactionCriteria.CustomerCriteria
+                where
+                    (industryCriteria.IndustryCriteriaId == industryId &&
+                     employeeCriteria.EmployeeCriteriaId == employeeId &&
+                     customerCriteria.CustomerCriteriaId == customerId)
+                select new {transactionCriteria.TransactionCriteriaId, transactionCriteria.PerMonth};
+
+            return Json(new SelectList(
+                results.ToArray(), "TransactionCriteriaId", "PerMonth"), JsonRequestBehavior.AllowGet);
         }
     }
 }

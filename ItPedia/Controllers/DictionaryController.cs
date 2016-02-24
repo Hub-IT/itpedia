@@ -17,7 +17,7 @@ namespace ItPedia.Controllers
         // GET: dictionary
         public ActionResult Index()
         {
-            return View(db.Terms.ToList());
+            return View(db.Terms.OrderBy(x => x.Name).ToList());
         }
 
         // GET: Dictionary/Term/{id}

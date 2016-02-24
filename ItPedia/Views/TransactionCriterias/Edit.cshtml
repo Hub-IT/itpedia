@@ -1,4 +1,4 @@
-﻿@model ItPedia.ViewModels.TransactionCriteriasViewModel
+﻿@model ItPedia.ViewModels.TransactionCriteriaViewModel
 
 @{
     ViewBag.Title = "Edit";
@@ -11,18 +11,31 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-
+    
     <div class="form-horizontal">
         <h4>TransactionCriteria</h4>
-        <hr/>
-        @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.TransactionCriteria.TransactionCriteriaId)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.TransactionCriteria.PerMonth, new {@class = "control-label col-md-2"})
+            @Html.LabelFor(model => model.TransactionCriteria.PerMonth, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.TransactionCriteria.PerMonth, new {htmlAttributes = new {@class = "form-control"}})
-                @Html.ValidationMessageFor(model => model.TransactionCriteria.PerMonth, "", new {@class = "text-danger"})
+                @Html.EditorFor(model => model.TransactionCriteria.PerMonth, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TransactionCriteria.PerMonth, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.AllIndustryCriterias, new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.ListBoxFor(m => m.SelectedIndustryCriterias, Model.AllIndustryCriterias, new {@class = "select2", @style = "width: 100%" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AllEmployeeCriterias, new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.ListBoxFor(m => m.SelectedEmployeeCriterias, Model.AllEmployeeCriterias, new {@class = "select2", @style = "width: 100%" })
             </div>
         </div>
 
@@ -35,9 +48,11 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default"/>
+                <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
+
+
     </div>
 }
 

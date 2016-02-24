@@ -7,18 +7,32 @@ namespace ItPedia.ViewModels
 {
     public class CustomerCriteriasViewModel
     {
-        private List<int> _selectedTransactionCriterias;
         public CustomerCriteria CustomerCriteria { get; set; }
-        public IEnumerable<SelectListItem> AllTransactionCriterias { get; set; }
 
-        public List<int> SelectedTransactionCriterias
+        public IEnumerable<SelectListItem> AllIndustryCriterias { get; set; }
+        public IEnumerable<SelectListItem> AllEmployeeCriterias { get; set; }
+
+        private List<int> _selectedIndustryCriterias;
+        private List<int> _selectedEmployeeCriterias;
+
+        public List<int> SelectedIndustryCriterias
         {
             get
             {
-                return _selectedTransactionCriterias ??
-                       CustomerCriteria.TransactionCriterias.Select(m => m.TransactionCriteriaId).ToList();
+                return _selectedIndustryCriterias ??
+                       CustomerCriteria.IndustryCriterias.Select(m => m.IndustryCriteriaId).ToList();
             }
-            set { _selectedTransactionCriterias = value; }
+            set { _selectedIndustryCriterias = value; }
+        }
+
+        public List<int> SelectedEmployeeCriterias
+        {
+            get
+            {
+                return _selectedEmployeeCriterias ??
+                       CustomerCriteria.EmployeeCriterias.Select(m => m.EmployeeCriteriaId).ToList();
+            }
+            set { _selectedEmployeeCriterias = value; }
         }
     }
 }

@@ -63,7 +63,6 @@ namespace ItPedia.Controllers
         {
             if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-
             var customerCriteriasViewModel = new CustomerCriteriasViewModel
             {
                 CustomerCriteria = db.CustomerCriterias.Find(id)
@@ -71,12 +70,19 @@ namespace ItPedia.Controllers
 
             if (customerCriteriasViewModel.CustomerCriteria == null) return HttpNotFound();
 
-            var allTransactionCriterias = db.TransactionCriterias.ToList();
+            var allIndustryCriterias = db.IndustryCriterias.ToList();
+            var allEmployeeCriterias = db.EmployeeCriterias.ToList();
 
-            customerCriteriasViewModel.AllTransactionCriterias = allTransactionCriterias.Select(o => new SelectListItem
+            customerCriteriasViewModel.AllIndustryCriterias = allIndustryCriterias.Select(o => new SelectListItem
             {
-                Text = o.PerMonth,
-                Value = o.TransactionCriteriaId.ToString()
+                Text = o.Name,
+                Value = o.IndustryCriteriaId.ToString()
+            });
+
+            customerCriteriasViewModel.AllEmployeeCriterias = allEmployeeCriterias.Select(o => new SelectListItem
+            {
+                Text = o.Size,
+                Value = o.EmployeeCriteriaId.ToString()
             });
 
             return View(customerCriteriasViewModel);
@@ -96,27 +102,43 @@ namespace ItPedia.Controllers
                 Flash.Error("Validation errors occured.");
 
                 RedirectToAction("Edit",
-                    new {id = customerCriteriasViewModel.CustomerCriteria.TransactionCriterias});
+                    new {id = customerCriteriasViewModel.CustomerCriteria.CustomerCriteriaId});
             }
 
-            var customerCriteriaToUpdate = db.CustomerCriterias.Include(i => i.TransactionCriterias).First(i =>
-                i.CustomerCriteriaId == customerCriteriasViewModel.CustomerCriteria.CustomerCriteriaId);
+            var customerCriteriaToUpdate = db.CustomerCriterias
+                .Include(i => i.IndustryCriterias)
+                .Include(i => i.EmployeeCriterias)
+                .First(i => i.CustomerCriteriaId == customerCriteriasViewModel.CustomerCriteria.CustomerCriteriaId);
 
             if (!TryUpdateModel(customerCriteriaToUpdate, "CustomerCriteria",
-                new[] {"Size", "TransactionCriteriaId"})) return RedirectToAction("Index");
+                new[] {"Size", "EmployeeCriteriaId", "IndustryCriteriaId"})) return RedirectToAction("Index");
 
-            var updatedTransactionCriterias = new HashSet<int>(customerCriteriasViewModel.SelectedTransactionCriterias);
+            var updatedIndustryCriterias = new HashSet<int>(customerCriteriasViewModel.SelectedIndustryCriterias);
 
-            foreach (var transactionCriteria in db.TransactionCriterias)
+            foreach (var industryCriteria in db.IndustryCriterias)
             {
-                if (!updatedTransactionCriterias.Contains(transactionCriteria.TransactionCriteriaId))
+                if (!updatedIndustryCriterias.Contains(industryCriteria.IndustryCriteriaId))
                 {
-                    customerCriteriaToUpdate.TransactionCriterias.Remove(transactionCriteria);
+                    customerCriteriaToUpdate.IndustryCriterias.Remove(industryCriteria);
 
                     continue;
                 }
 
-                customerCriteriaToUpdate.TransactionCriterias.Add((transactionCriteria));
+                customerCriteriaToUpdate.IndustryCriterias.Add((industryCriteria));
+            }
+
+            var updatedEmployeeCriterias = new HashSet<int>(customerCriteriasViewModel.SelectedIndustryCriterias);
+
+            foreach (var employeeCriteria in db.EmployeeCriterias)
+            {
+                if (!updatedEmployeeCriterias.Contains(employeeCriteria.EmployeeCriteriaId))
+                {
+                    customerCriteriaToUpdate.EmployeeCriterias.Remove(employeeCriteria);
+
+                    continue;
+                }
+
+                customerCriteriaToUpdate.EmployeeCriterias.Add((employeeCriteria));
             }
 
             db.Entry(customerCriteriaToUpdate).State = EntityState.Modified;

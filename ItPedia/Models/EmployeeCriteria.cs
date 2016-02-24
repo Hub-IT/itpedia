@@ -1,14 +1,21 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 
 namespace ItPedia.Models
 {
     public class EmployeeCriteria
     {
-        public virtual int EmployeeCriteriaId { get; set; }
-        public virtual string Size { get; set; }
+        public EmployeeCriteria()
+        {
+            IndustryCriterias = new HashSet<IndustryCriteria>();
+            CustomerCriteria = new HashSet<CustomerCriteria>();
+            TransactionCriteria = new HashSet<TransactionCriteria>();
+        }
 
-        public virtual List<CustomerCriteria> CustomerCriterias { get; set; }
-//        public virtual List<IndustryCriteria> IndustryCriterias { get; set; }
+        public int EmployeeCriteriaId { get; set; }
+        public string Size { get; set; }
+
+        public virtual ICollection<IndustryCriteria> IndustryCriterias { get; set; }
+        public virtual ICollection<CustomerCriteria> CustomerCriteria { get; set; }
+        public virtual ICollection<TransactionCriteria> TransactionCriteria { get; set; }
     }
 }

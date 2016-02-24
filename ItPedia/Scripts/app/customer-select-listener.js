@@ -11,7 +11,8 @@ $(function() {
 
     $("#customerCriterias").change(function() {
 
-        var url = $("#FormId").data("get-transaction-criterias-by-customer-criteeria-id-url") + "/" + $(this).val();
+        var url = $("#FormId").data("get-transaction-criterias-by-customer-criteeria-id-url") + "?industryId=" + $("#industryCriterias").val() +
+            "&employeeId=" + $("#employeeCriterias").val() +"&customerId=" +$(this).val();
 
         $.getJSON(url, function(data) {
             var items = "<option>Select Transaction Per Month</option>";
