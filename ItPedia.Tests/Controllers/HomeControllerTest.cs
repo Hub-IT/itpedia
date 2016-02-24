@@ -35,7 +35,7 @@ namespace ItPedia.Tests.Controllers
             ViewResult result = controller.About() as ViewResult;
 
             // Assert
-            Assert.AreEqual("Your application description page.", result.ViewBag.Message);
+            Assert.AreEqual("The main objective of this website is to foster and develop a cooperative relationship between the academia and the Information & Communications Technology (ICT) industry in Greece.", result.ViewBag.ObjectiveIntro);
         }
 
         [TestMethod]
