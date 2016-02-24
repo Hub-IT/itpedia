@@ -5,10 +5,11 @@ using ItPedia.Models.Contexts;
 
 namespace ItPedia.Models.Initializers
 {
-    public class ItPediaDbInitializer : DropCreateDatabaseAlways<ItPediaDbContext>
+    public class ItPediaDbInitializer : CreateDatabaseIfNotExists<ItPediaDbContext>
     {
         protected override void Seed(ItPediaDbContext context)
         {
+
             var homeBusiness = new IndustryCriteria {Name = "Home Business"};
             var exportBusiness = new IndustryCriteria {Name = "Export Business"};
             var telecommunication = new IndustryCriteria {Name = "Telecommunications"};
