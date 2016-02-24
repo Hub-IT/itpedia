@@ -194,7 +194,7 @@ namespace ItPedia.Models.Initializers
                     employeeCriteria51To200,
                     employeeCriteriaNotNecessary
                 },
-                CustomerCriteria = new List<CustomerCriteria> {customerCriteriaUpTo500, customerCriteriaMore500}
+                CustomerCriterias = new List<CustomerCriteria> {customerCriteriaUpTo500, customerCriteriaMore500}
             };
             var transactionCriteriaMoreThan100 = new TransactionCriteria
             {
@@ -225,7 +225,7 @@ namespace ItPedia.Models.Initializers
                     employeeCriteria51To200,
                     employeeCriteriaNotNecessary
                 },
-                CustomerCriteria = new List<CustomerCriteria> {customerCriteriaUpTo500, customerCriteriaMore500}
+                CustomerCriterias = new List<CustomerCriteria> {customerCriteriaUpTo500, customerCriteriaMore500}
                 
             };
             var transactionCriterias = new List<TransactionCriteria>
@@ -364,7 +364,7 @@ namespace ItPedia.Models.Initializers
                  Name = "CRM",
                  Source = "http://searchcrm.techtarget.com/definition/CRM",
                  Content =
-                     "<p>CustomerCriteria relationship management (CRM) is a term that refers to practices, strategies and technologies that companies use to manage and analyze customer interactions and data throughout the customer lifecycle, with the goal of improving business relationships with customers, assisting in customer retention and driving sales growth. CRM systems are designed to compile information on customers across different channels -- or points of contact between the customer and the company -- which could include the company's website, telephone, live chat, direct mail, marketing materials and social media. CRM systems can also give customer-facing staff detailed information on customers' personal information, purchase history, buying preferences and concerns.</p>"
+                     "<p>CustomerCriterias relationship management (CRM) is a term that refers to practices, strategies and technologies that companies use to manage and analyze customer interactions and data throughout the customer lifecycle, with the goal of improving business relationships with customers, assisting in customer retention and driving sales growth. CRM systems are designed to compile information on customers across different channels -- or points of contact between the customer and the company -- which could include the company's website, telephone, live chat, direct mail, marketing materials and social media. CRM systems can also give customer-facing staff detailed information on customers' personal information, purchase history, buying preferences and concerns.</p>"
              },
              new Term
              {

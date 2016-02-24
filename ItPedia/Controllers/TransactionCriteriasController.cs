@@ -1,9 +1,11 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using ItPedia.Models;
 using ItPedia.Models.Contexts;
+using ItPedia.Notifications;
 using ItPedia.ViewModels;
 
 namespace ItPedia.Controllers
@@ -100,15 +102,80 @@ namespace ItPedia.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(
-            [Bind(Include = "TransactionCriteriaId,PerMonth")] TransactionCriteria transactionCriteria)
+            TransactionCriteriaViewModel transactionCriteriaViewModel)
         {
-            if (ModelState.IsValid)
+            if (transactionCriteriaViewModel == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            if (!ModelState.IsValid)
             {
-                db.Entry(transactionCriteria).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                Flash.Error("Validation errors occured.");
+
+                RedirectToAction("Edit",
+                    new {id = transactionCriteriaViewModel.TransactionCriteria.TransactionCriteriaId});
             }
-            return View(transactionCriteria);
+
+            var transactionCriteriaToUpdate = db.TransactionCriterias
+                .Include(i => i.IndustryCriterias)
+                .Include(i => i.EmployeeCriterias)
+                .Include(i => i.CustomerCriterias)
+                .First(
+                    i =>
+                        i.TransactionCriteriaId ==
+                        transactionCriteriaViewModel.TransactionCriteria.TransactionCriteriaId);
+
+            if (!TryUpdateModel(transactionCriteriaToUpdate, "TransactionCriteria",
+                new[] {"PerMonth", "IndustryCriteriaId", "EmployeeCriteriaId", "CustomerCriteriaId"}))
+                return RedirectToAction("Index");
+
+            var updatedIndustryCriterias = new HashSet<int>(transactionCriteriaViewModel.SelectedIndustryCriterias);
+
+            foreach (var industryCriteria in db.IndustryCriterias)
+            {
+                if (!updatedIndustryCriterias.Contains(industryCriteria.IndustryCriteriaId))
+                {
+                    transactionCriteriaToUpdate.IndustryCriterias.Remove(industryCriteria);
+
+                    continue;
+                }
+
+                transactionCriteriaToUpdate.IndustryCriterias.Add((industryCriteria));
+            }
+
+            var updatedEmployeeCriterias = new HashSet<int>(transactionCriteriaViewModel.SelectedEmployeeCriterias);
+
+            foreach (var employeeCriteria in db.EmployeeCriterias)
+            {
+                if (!updatedEmployeeCriterias.Contains(employeeCriteria.EmployeeCriteriaId))
+                {
+                    transactionCriteriaToUpdate.EmployeeCriterias.Remove(employeeCriteria);
+
+                    continue;
+                }
+
+                transactionCriteriaToUpdate.EmployeeCriterias.Add((employeeCriteria));
+            }
+
+            var updatedCustomerCriterias= new HashSet<int>(transactionCriteriaViewModel.SelectedCustomerCriterias);
+
+            foreach (var customerCriteria in db.CustomerCriterias)
+            {
+                if (!updatedCustomerCriterias.Contains(customerCriteria.CustomerCriteriaId))
+                {
+                    transactionCriteriaToUpdate.CustomerCriterias.Remove(customerCriteria);
+
+                    continue;
+                }
+
+                transactionCriteriaToUpdate.CustomerCriterias.Add((customerCriteria));
+            }
+
+            db.Entry(transactionCriteriaToUpdate).State = EntityState.Modified;
+
+            db.SaveChanges();
+
+            Flash.Success("Transaction criteria updated.");
+
+            return RedirectToAction("Edit", new {id = transactionCriteriaToUpdate.TransactionCriteriaId});
         }
 
         // GET: TransactionCriterias/Delete/5

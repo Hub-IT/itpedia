@@ -110,7 +110,7 @@ namespace ItPedia.Controllers
                 .Include(i => i.EmployeeCriterias)
                 .First(i => i.CustomerCriteriaId == customerCriteriasViewModel.CustomerCriteria.CustomerCriteriaId);
 
-            if (!TryUpdateModel(customerCriteriaToUpdate, "CustomerCriteria",
+            if (!TryUpdateModel(customerCriteriaToUpdate, "CustomerCriterias",
                 new[] {"Size", "EmployeeCriteriaId", "IndustryCriteriaId"})) return RedirectToAction("Index");
 
             var updatedIndustryCriterias = new HashSet<int>(customerCriteriasViewModel.SelectedIndustryCriterias);

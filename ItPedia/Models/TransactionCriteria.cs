@@ -8,7 +8,7 @@ namespace ItPedia.Models
         {
             IndustryCriterias = new HashSet<IndustryCriteria>();
             EmployeeCriterias = new HashSet<EmployeeCriteria>();
-            CustomerCriteria = new HashSet<CustomerCriteria>();
+            CustomerCriterias = new HashSet<CustomerCriteria>();
         }
 
         public int TransactionCriteriaId { get; set; }
@@ -16,6 +16,6 @@ namespace ItPedia.Models
 
         public virtual ICollection<IndustryCriteria> IndustryCriterias { get; set; }
         public virtual ICollection<EmployeeCriteria> EmployeeCriterias { get; set; }
-        public virtual ICollection<CustomerCriteria> CustomerCriteria { get; set; }
+        public virtual ICollection<CustomerCriteria> CustomerCriterias { get; set; }
     }
 }

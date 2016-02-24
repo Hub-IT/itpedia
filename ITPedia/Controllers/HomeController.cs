@@ -152,7 +152,7 @@ namespace ItPedia.Controllers
             var results = from transactionCriteria in _db.TransactionCriterias
                 from industryCriteria in transactionCriteria.IndustryCriterias
                 from employeeCriteria in transactionCriteria.EmployeeCriterias
-                from customerCriteria in transactionCriteria.CustomerCriteria
+                from customerCriteria in transactionCriteria.CustomerCriterias
                 where
                     (industryCriteria.IndustryCriteriaId == industryId &&
                      employeeCriteria.EmployeeCriteriaId == employeeId &&

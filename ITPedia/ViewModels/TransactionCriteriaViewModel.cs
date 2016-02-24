@@ -42,7 +42,7 @@ namespace ItPedia.ViewModels
             get
             {
                 return _selectedCustomerCriterias ??
-                       TransactionCriteria.CustomerCriteria.Select(m => m.CustomerCriteriaId).ToList();
+                       TransactionCriteria.CustomerCriterias.Select(m => m.CustomerCriteriaId).ToList();
             }
             set { _selectedCustomerCriterias = value; }
         }
