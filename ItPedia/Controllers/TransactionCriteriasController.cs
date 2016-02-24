@@ -5,6 +5,7 @@ using System.Net;
 using System.Web.Mvc;
 using ItPedia.Models;
 using ItPedia.Models.Contexts;
+using ItPedia.Notifications;
 using ItPedia.ViewModels;
 
 namespace ItPedia.Controllers
@@ -70,6 +71,7 @@ namespace ItPedia.Controllers
 
             if (transactionCriteriasViewModel.TransactionCriteria == null) return HttpNotFound();
 
+
             var allCustomerCriterias = db.CustomerCriterias.ToList();
 
             transactionCriteriasViewModel.AllCustomerCriterias = allCustomerCriterias.Select(o => new SelectListItem
@@ -94,7 +96,7 @@ namespace ItPedia.Controllers
 
             if (!ModelState.IsValid)
             {
-                // TODO: flash error message 
+                Flash.Error("Validation errors occured.");
 
                 RedirectToAction("Edit",
                     new {id = transactionCriteriasViewModel.TransactionCriteria.TransactionCriteriaId});
@@ -129,7 +131,7 @@ namespace ItPedia.Controllers
 
             db.SaveChanges();
 
-            // TODO: flash success message
+            Flash.Success("Transaction criteria updated.");
 
             return RedirectToAction("Edit", new {id = transactionCriteriaToUpdate.TransactionCriteriaId});
         }

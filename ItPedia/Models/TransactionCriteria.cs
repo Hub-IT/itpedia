@@ -2,10 +2,15 @@
 
 namespace ItPedia.Models
 {
-    public class TransactionCriteria
+    public partial class TransactionCriteria
     {
-        public virtual int TransactionCriteriaId { get; set; }
-        public virtual string PerMonth { get; set; }
+        public TransactionCriteria()
+        {
+            this.CustomerCriterias = new HashSet<CustomerCriteria>();
+        }
+
+        public int TransactionCriteriaId { get; set; }
+        public string PerMonth { get; set; }
 
         public virtual ICollection<CustomerCriteria> CustomerCriterias { get; set; }
     }
