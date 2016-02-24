@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using ItPedia.Models;
-using ItPedia.Models.Contexts;
 
 namespace ItPedia.ViewModels
 {
     public class TransactionCriteriasViewModel
     {
+        private List<int> _selectedCustomerCriterias;
         public TransactionCriteria TransactionCriteria { get; set; }
         public IEnumerable<SelectListItem> AllCustomerCriterias { get; set; }
-
-        private List<int> _selectedCustomerCriterias;
 
         public List<int> SelectedCustomerCriterias
         {

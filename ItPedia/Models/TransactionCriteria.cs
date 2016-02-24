@@ -2,11 +2,11 @@
 
 namespace ItPedia.Models
 {
-    public partial class TransactionCriteria
+    public class TransactionCriteria
     {
         public TransactionCriteria()
         {
-            this.CustomerCriterias = new HashSet<CustomerCriteria>();
+            CustomerCriterias = new HashSet<CustomerCriteria>();
         }
 
         public int TransactionCriteriaId { get; set; }

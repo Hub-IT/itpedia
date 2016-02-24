@@ -1,19 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using ItPedia.Models;
 using ItPedia.Models.Contexts;
+using ItPedia.Notifications;
+using ItPedia.ViewModels;
 
 namespace ItPedia.Controllers
 {
     public class CustomerCriteriasController : Controller
     {
-        private ItPediaDbContext db = new ItPediaDbContext();
+        private readonly ItPediaDbContext db = new ItPediaDbContext();
 
         // GET: CustomerCriterias
         public ActionResult Index()
@@ -28,7 +27,7 @@ namespace ItPedia.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CustomerCriteria customerCriteria = db.CustomerCriterias.Find(id);
+            var customerCriteria = db.CustomerCriterias.Find(id);
             if (customerCriteria == null)
             {
                 return HttpNotFound();
@@ -62,16 +61,25 @@ namespace ItPedia.Controllers
         // GET: CustomerCriterias/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+
+            var customerCriteriasViewModel = new CustomerCriteriasViewModel
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            CustomerCriteria customerCriteria = db.CustomerCriterias.Find(id);
-            if (customerCriteria == null)
+                CustomerCriteria = db.CustomerCriterias.Find(id)
+            };
+
+            if (customerCriteriasViewModel.CustomerCriteria == null) return HttpNotFound();
+
+            var allTransactionCriterias = db.TransactionCriterias.ToList();
+
+            customerCriteriasViewModel.AllTransactionCriterias = allTransactionCriterias.Select(o => new SelectListItem
             {
-                return HttpNotFound();
-            }
-            return View(customerCriteria);
+                Text = o.PerMonth,
+                Value = o.TransactionCriteriaId.ToString()
+            });
+
+            return View(customerCriteriasViewModel);
         }
 
         // POST: CustomerCriterias/Edit/5
@@ -79,15 +87,45 @@ namespace ItPedia.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CustomerCriteriaId,Size")] CustomerCriteria customerCriteria)
+        public ActionResult Edit(CustomerCriteriasViewModel customerCriteriasViewModel)
         {
-            if (ModelState.IsValid)
+            if (customerCriteriasViewModel == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            if (!ModelState.IsValid)
             {
-                db.Entry(customerCriteria).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                Flash.Error("Validation errors occured.");
+
+                RedirectToAction("Edit",
+                    new {id = customerCriteriasViewModel.CustomerCriteria.TransactionCriterias});
             }
-            return View(customerCriteria);
+
+            var customerCriteriaToUpdate = db.CustomerCriterias.Include(i => i.TransactionCriterias).First(i =>
+                i.CustomerCriteriaId == customerCriteriasViewModel.CustomerCriteria.CustomerCriteriaId);
+
+            if (!TryUpdateModel(customerCriteriaToUpdate, "CustomerCriteria",
+                new[] {"Size", "TransactionCriteriaId"})) return RedirectToAction("Index");
+
+            var updatedTransactionCriterias = new HashSet<int>(customerCriteriasViewModel.SelectedTransactionCriterias);
+
+            foreach (var transactionCriteria in db.TransactionCriterias)
+            {
+                if (!updatedTransactionCriterias.Contains(transactionCriteria.TransactionCriteriaId))
+                {
+                    customerCriteriaToUpdate.TransactionCriterias.Remove(transactionCriteria);
+
+                    continue;
+                }
+
+                customerCriteriaToUpdate.TransactionCriterias.Add((transactionCriteria));
+            }
+
+            db.Entry(customerCriteriaToUpdate).State = EntityState.Modified;
+
+            db.SaveChanges();
+
+            Flash.Success("Customer criteria updated.");
+
+            return RedirectToAction("Edit", new {id = customerCriteriaToUpdate.CustomerCriteriaId});
         }
 
         // GET: CustomerCriterias/Delete/5
@@ -97,7 +135,7 @@ namespace ItPedia.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CustomerCriteria customerCriteria = db.CustomerCriterias.Find(id);
+            var customerCriteria = db.CustomerCriterias.Find(id);
             if (customerCriteria == null)
             {
                 return HttpNotFound();
@@ -110,7 +148,7 @@ namespace ItPedia.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            CustomerCriteria customerCriteria = db.CustomerCriterias.Find(id);
+            var customerCriteria = db.CustomerCriterias.Find(id);
             db.CustomerCriterias.Remove(customerCriteria);
             db.SaveChanges();
             return RedirectToAction("Index");

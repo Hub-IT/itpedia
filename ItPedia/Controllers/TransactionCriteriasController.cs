@@ -71,7 +71,6 @@ namespace ItPedia.Controllers
 
             if (transactionCriteriasViewModel.TransactionCriteria == null) return HttpNotFound();
 
-
             var allCustomerCriterias = db.CustomerCriterias.ToList();
 
             transactionCriteriasViewModel.AllCustomerCriterias = allCustomerCriterias.Select(o => new SelectListItem
@@ -88,9 +87,7 @@ namespace ItPedia.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(
-//            [Bind(Include = "TransactionCriteriaId,PerMonth,SelectedCustomerCriterias")] TransactionCriteriasViewModel transactionCriteriasViewModel)
-            TransactionCriteriasViewModel transactionCriteriasViewModel)
+        public ActionResult Edit(TransactionCriteriasViewModel transactionCriteriasViewModel)
         {
             if (transactionCriteriasViewModel == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
@@ -108,11 +105,6 @@ namespace ItPedia.Controllers
             if (!TryUpdateModel(transactionCriteriaToUpdate, "TransactionCriteria",
                 new[] {"PerMonth", "TransactionCriteriaId"})) return RedirectToAction("Index");
 
-            var newCustomerCriterias =
-                db.CustomerCriterias.Where(
-                    m => transactionCriteriasViewModel.SelectedCustomerCriterias.Contains(m.CustomerCriteriaId))
-                    .ToList();
-
             var updatedCustomerCriterias = new HashSet<int>(transactionCriteriasViewModel.SelectedCustomerCriterias);
 
             foreach (var customerCriteria in db.CustomerCriterias)
@@ -127,7 +119,7 @@ namespace ItPedia.Controllers
                 transactionCriteriaToUpdate.CustomerCriterias.Add((customerCriteria));
             }
 
-            db.Entry(transactionCriteriaToUpdate).State = System.Data.Entity.EntityState.Modified;
+            db.Entry(transactionCriteriaToUpdate).State = EntityState.Modified;
 
             db.SaveChanges();
 

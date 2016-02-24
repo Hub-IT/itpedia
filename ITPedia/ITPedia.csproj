@@ -190,6 +190,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\IndustryCriteria.cs" />
     <Compile Include="Models\Contexts\ItPediaDbContext.cs" />
+    <Compile Include="ViewModels\CustomerCriteriasViewModel.cs" />
     <Compile Include="ViewModels\TransactionCriteriasViewModel.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="Models\Solution.cs" />
