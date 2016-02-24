@@ -60,6 +60,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -183,6 +184,7 @@
     </Compile>
     <Compile Include="Models\Initializers\ItPediaDbInitializer.cs" />
     <Compile Include="Notifications\Flash.cs" />
+    <Compile Include="Utilities\RssResult.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="Models\CustomerCriteria.cs" />
     <Compile Include="Models\SolutionCategory.cs" />

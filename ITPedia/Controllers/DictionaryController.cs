@@ -1,23 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Net;
+using System.ServiceModel.Syndication;
 using System.Web.Mvc;
-using System.Xml;
-using ItPedia.Models;
 using ItPedia.Models.Contexts;
-using ItPedia.Utilities;
+using ITPedia.Utilities;
 
 namespace ItPedia.Controllers
 {
     public class DictionaryController : Controller
     {
-        private ItPediaDbContext db = new ItPediaDbContext();
+        private readonly ItPediaDbContext _db = new ItPediaDbContext();
 
         // GET: dictionary
         public ActionResult Index()
         {
-            return View(db.Terms.OrderBy(x => x.Name).ToList());
+            return View(_db.Terms.OrderBy(x => x.Name).ToList());
         }
 
         // GET: Dictionary/Term/{id}
@@ -25,7 +22,7 @@ namespace ItPedia.Controllers
         {
             if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-            var term= db.Terms.Find(id);
+            var term = _db.Terms.Find(id);
 
             if (term == null) return HttpNotFound();
 
@@ -34,12 +31,10 @@ namespace ItPedia.Controllers
 
         public ActionResult Rss()
         {
-//            var terms = Models.Term.GetSyndicationList();
+            var terms = Models.Term.GetSyndicationList();
 
-//            var feed = new SyndicationFeed("Terms", "ITPedia", Request.Url, terms);
-
-//            return new RssResult(feed);
-            return HttpNotFound();
+            var feed = new SyndicationFeed("Terms", "ITPedia", Request.Url, terms);
+            return new RssResult(feed);
         }
     }
 }

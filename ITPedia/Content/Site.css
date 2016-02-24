@@ -59,10 +59,9 @@ body {
 #small-line {
     font-size: 0.7em;
     line-height: 1.2em;
-    padding-bottom: 30px;
+    padding-bottom: 15px;
     color: #333;
 }
-
 
 #dic h3 {
     box-shadow: 2px 2px 5px 2px;
@@ -71,7 +70,7 @@ body {
 
 #itpedia-logo-text-div {
     background: lightblue;
-    width: 200px;
+    width: 210px;
     margin: 0 auto;
     border-radius: 0px;
     padding-left: 5px;
@@ -81,6 +80,23 @@ body {
 
 /* End Logo Text*/
 
+/* Start Dictionary */
+#rss_dic:hover {
+    background-color: lightblue;
+}
+/* End Dictionary */
+
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    background-color: #a9a9a9;
+}
+
+/* Start Contact */
+#contact_jumbo h1 {
+    text-align: center;
+    font-size: 36px;
+}
+
+/* Start Media Queries */
 @media (max-width: 768px) {
     .copyright {
         float: left !important;
@@ -94,8 +110,3 @@ body {
 
     .footer { height: 200px }
 }
-
-.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
-    background-color: #a9a9a9;
-}
- 

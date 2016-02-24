@@ -26,16 +26,16 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
+        <td class="col-md-2">
             @Html.DisplayFor(modelItem => item.Name)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Source)
-        </td>
-        <td>
+        <td class="col-md-6">
             @Html.DisplayFor(modelItem => item.Content)
         </td>
-        <td>
+        <td class="col-md-1">
+            <a href="@Html.DisplayFor(modelItem => item.Source)">@Html.DisplayFor(modelItem => item.Source)</a>
+        </td>
+        <td class="col-md-2">
             @Html.ActionLink("Edit", "Edit", new { id=item.TermId }) |
             @Html.ActionLink("Details", "Details", new { id=item.TermId }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.TermId })
