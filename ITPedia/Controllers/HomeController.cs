@@ -4,6 +4,7 @@ using System.Net;
 using System.Web.Mvc;
 using ItPedia.Models;
 using ItPedia.Models.Contexts;
+using ItPedia.Notifications;
 using ItPedia.ViewModels;
 
 namespace ItPedia.Controllers

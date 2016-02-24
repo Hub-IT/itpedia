@@ -182,6 +182,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Initializers\ItPediaDbInitializer.cs" />
+    <Compile Include="Notifications\Flash.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="Models\CustomerCriteria.cs" />
     <Compile Include="Models\SolutionCategory.cs" />

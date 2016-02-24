@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
@@ -86,15 +87,51 @@ namespace ItPedia.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(
-            [Bind(Include = "TransactionCriteriaId,PerMonth")] TransactionCriteria transactionCriteria)
+//            [Bind(Include = "TransactionCriteriaId,PerMonth,SelectedCustomerCriterias")] TransactionCriteriasViewModel transactionCriteriasViewModel)
+            TransactionCriteriasViewModel transactionCriteriasViewModel)
         {
-            if (ModelState.IsValid)
+            if (transactionCriteriasViewModel == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            if (!ModelState.IsValid)
             {
-                db.Entry(transactionCriteria).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                // TODO: flash error message 
+
+                RedirectToAction("Edit",
+                    new {id = transactionCriteriasViewModel.TransactionCriteria.TransactionCriteriaId});
             }
-            return View(transactionCriteria);
+
+            var transactionCriteriaToUpdate = db.TransactionCriterias.Include(i => i.CustomerCriterias).First(i =>
+                i.TransactionCriteriaId == transactionCriteriasViewModel.TransactionCriteria.TransactionCriteriaId);
+
+            if (!TryUpdateModel(transactionCriteriaToUpdate, "TransactionCriteria",
+                new[] {"PerMonth", "TransactionCriteriaId"})) return RedirectToAction("Index");
+
+            var newCustomerCriterias =
+                db.CustomerCriterias.Where(
+                    m => transactionCriteriasViewModel.SelectedCustomerCriterias.Contains(m.CustomerCriteriaId))
+                    .ToList();
+
+            var updatedCustomerCriterias = new HashSet<int>(transactionCriteriasViewModel.SelectedCustomerCriterias);
+
+            foreach (var customerCriteria in db.CustomerCriterias)
+            {
+                if (!updatedCustomerCriterias.Contains(customerCriteria.CustomerCriteriaId))
+                {
+                    transactionCriteriaToUpdate.CustomerCriterias.Remove(customerCriteria);
+
+                    continue;
+                }
+
+                transactionCriteriaToUpdate.CustomerCriterias.Add((customerCriteria));
+            }
+
+            db.Entry(transactionCriteriaToUpdate).State = System.Data.Entity.EntityState.Modified;
+
+            db.SaveChanges();
+
+            // TODO: flash success message
+
+            return RedirectToAction("Edit", new {id = transactionCriteriaToUpdate.TransactionCriteriaId});
         }
 
         // GET: TransactionCriterias/Delete/5
