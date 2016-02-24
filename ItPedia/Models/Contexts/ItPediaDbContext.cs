@@ -13,5 +13,7 @@ namespace ItPedia.Models.Contexts
 
         //        public DbSet<Proposal> Proposals { get; set; }
         //        public DbSet<Solution> Solutions { get; set; }
+
+
     }
 }
