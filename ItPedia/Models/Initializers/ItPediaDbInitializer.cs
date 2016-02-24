@@ -1,14 +1,28 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
+using System.Data.SqlClient;
+using System.Linq;
 using ItPedia.Models.Contexts;
 
 namespace ItPedia.Models.Initializers
 {
-    public class ItPediaDbInitializer : DropCreateDatabaseAlways<ItPediaDbContext>
+    public class ItPediaDbInitializer : DropCreateDatabaseIfModelChanges<ItPediaDbContext>
     {
         protected override void Seed(ItPediaDbContext context)
         {
+            var uriString = ConfigurationManager.AppSettings["SQLSERVER_URI"];
+            var uri = new Uri(uriString);
+            var connectionString = new SqlConnectionStringBuilder
+            {
+                DataSource = uri.Host,
+                InitialCatalog = uri.AbsolutePath.Trim('/'),
+                UserID = uri.UserInfo.Split(':').First(),
+                Password = uri.UserInfo.Split(':').Last(),
+            }.ConnectionString;
+
             var homeBusiness = new IndustryCriteria {Name = "Home Business"};
             var exportBusiness = new IndustryCriteria {Name = "Export Business"};
             var telecommunication = new IndustryCriteria {Name = "Telecommunications"};
