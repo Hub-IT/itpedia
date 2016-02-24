@@ -32,7 +32,7 @@
             @for (var index = 0; index < firstHalfTerms.Length; index++)
             {
                 var firstHalfTerm = firstHalfTerms[index];
-                <a href="@Url.Action("Term", new {id = firstHalfTerm.Name})" class="list-group-item col-sm-6 col-xs-12">@firstHalfTerm.Name</a>
+                <a href="@Url.Action("Term", new {id = firstHalfTerm.TermId})" class="list-group-item col-sm-6 col-xs-12">@firstHalfTerm.Name</a>
 
                 if (index >= secondHalfTermsLength)
                 {
@@ -40,7 +40,7 @@
                 }
 
                 var secondHalfTerm = secondHalfTerms[index];
-                <a href="@Url.Action("Term", new {id = secondHalfTerm.Name})" class="list-group-item col-sm-6 col-xs-12">@secondHalfTerm.Name</a>
+                <a href="@Url.Action("Term", new {id = secondHalfTerm.TermId})" class="list-group-item col-sm-6 col-xs-12">@secondHalfTerm.Name</a>
             }
         </div>
 
