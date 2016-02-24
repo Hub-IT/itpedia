@@ -1,22 +1,16 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using System.Web.UI.WebControls;
 using ItPedia.Models;
 using ItPedia.Models.Contexts;
-using ItPedia.Models.Views;
+using ItPedia.ViewModels;
 
 namespace ItPedia.Controllers
 {
     public class TransactionCriteriasController : Controller
     {
-        private ItPediaDbContext db = new ItPediaDbContext();
+        private readonly ItPediaDbContext db = new ItPediaDbContext();
 
         // GET: TransactionCriterias
         public ActionResult Index()
@@ -31,7 +25,7 @@ namespace ItPedia.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TransactionCriteria transactionCriteria = db.TransactionCriterias.Find(id);
+            var transactionCriteria = db.TransactionCriterias.Find(id);
             if (transactionCriteria == null)
             {
                 return HttpNotFound();
@@ -68,22 +62,22 @@ namespace ItPedia.Controllers
         {
             if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-            var transactionCriteria = db.TransactionCriterias.Find(id);
-
-            if (transactionCriteria == null) return HttpNotFound();
-
-            var model = new ManageTransactionCriteriasViewModel.Edit
+            var transactionCriteriasViewModel = new TransactionCriteriasViewModel
             {
-                TransactionCriteria = transactionCriteria,
-//                CustomerCriteriasListBox = new ListBox {DataSource = db.CustomerCriterias},
-                CustomerCriteriasListBox = db.CustomerCriterias.Select(customerCriteria =>
-                new SelectListItem(){
-        Text = customerCriteria.ToString()
-            },
-                SelectedCustomerCriteriasListBox = new ListBox {DataSource = transactionCriteria.CustomerCriterias}
+                TransactionCriteria = db.TransactionCriterias.Find(id)
             };
 
-            return View(model);
+            if (transactionCriteriasViewModel.TransactionCriteria == null) return HttpNotFound();
+
+            var allCustomerCriterias = db.CustomerCriterias.ToList();
+
+            transactionCriteriasViewModel.AllCustomerCriterias = allCustomerCriterias.Select(o => new SelectListItem
+            {
+                Text = o.Size,
+                Value = o.CustomerCriteriaId.ToString()
+            });
+
+            return View(transactionCriteriasViewModel);
         }
 
         // POST: TransactionCriterias/Edit/5
@@ -110,7 +104,7 @@ namespace ItPedia.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TransactionCriteria transactionCriteria = db.TransactionCriterias.Find(id);
+            var transactionCriteria = db.TransactionCriterias.Find(id);
             if (transactionCriteria == null)
             {
                 return HttpNotFound();
@@ -123,7 +117,7 @@ namespace ItPedia.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            TransactionCriteria transactionCriteria = db.TransactionCriterias.Find(id);
+            var transactionCriteria = db.TransactionCriterias.Find(id);
             db.TransactionCriterias.Remove(transactionCriteria);
             db.SaveChanges();
             return RedirectToAction("Index");

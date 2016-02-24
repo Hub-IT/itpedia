@@ -7,6 +7,6 @@ namespace ItPedia.Models
         public virtual int CustomerCriteriaId { get; set; }
         public virtual string Size { get; set; }
 
-        public virtual List<TransactionCriteria> Transactions { get; set; }
+        public virtual ICollection<TransactionCriteria> TransactionCriterias { get; set; }
     }
 }

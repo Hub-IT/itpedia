@@ -1,4 +1,4 @@
-﻿@using ItPedia.Utilities;
+﻿@using ItPedia.Utilities
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,52 +12,57 @@
 </head>
 <body>
 <div class="container">
-<div class="navbar navbar-default navbar-fixed-top" id="top-navbar">
-    <div class="container">
-        <div id="navbar-header" class="navbar-header">
-            <a href='@Url.Action("Index", "Home")' class="navbar-brand">
-                <img src='@Url.Content("~/Content/img/logo.png")' alt="Logo" id="logo"/>
-            </a>
-            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
-        <div class="navbar-collapse collapse" id="navbar-main">
-            <ul class="nav navbar-nav">
-                <li class='@Html.IsActive("Home", "Index")'>
-                    @Html.ActionLink("Home", "Index", "Home")
-                </li>
-                <li class='@Html.IsActive("Home", "About")'>
-                    @Html.ActionLink("About", "About", "Home")
-                </li>
-                <li class='@Html.IsActive("Dictionary", "Index")'>
-                    @Html.ActionLink("Dictionary", "Index", "Dictionary")
-                </li>
-            </ul>
+    <div class="navbar navbar-default navbar-fixed-top" id="top-navbar">
+        <div class="container">
+            <div id="navbar-header" class="navbar-header">
+                <a href='@Url.Action("Index", "Home")' class="navbar-brand">
+                    <img src='@Url.Content("~/Content/img/logo.png")' alt="Logo" id="logo"/>
+                </a>
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse" id="navbar-main">
+                <ul class="nav navbar-nav">
+                    <li class='@Html.IsActive("Home", "Index")'>
+                        @Html.ActionLink("Home", "Index", "Home")
+                    </li>
+                    <li class='@Html.IsActive("Home", "About")'>
+                        @Html.ActionLink("About", "About", "Home")
+                    </li>
+                    <li class='@Html.IsActive("Dictionary", "Index")'>
+                        @Html.ActionLink("Dictionary", "Index", "Dictionary")
+                    </li>
+                </ul>
 
-            <ul class="nav navbar-nav navbar-right">
-                <li class='@Html.IsActive("Home", "Contact")'>
-                    @Html.ActionLink("Contact", "Contact", "Home")
-                </li>
-            </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class='@Html.IsActive("Home", "Contact")'>
+                        @Html.ActionLink("Contact", "Contact", "Home")
+                    </li>
+                </ul>
 
+            </div>
         </div>
     </div>
-</div>
 
-<div class="container body-content" id="main-content">
-    @RenderSection("featured", false)
-    @RenderBody()
-    <hr/>
-</div>
-    
+    <div class="container body-content" id="main-content">
+        @RenderSection("featured", false)
+        @RenderBody()
+        <hr/>
+    </div>
+
 </div>
 @{ Html.RenderPartial("_Footer"); }
 
 @Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/bootstrap")
-@RenderSection("scripts", required: false)
+@RenderSection("scripts", false)
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".select2").select2();
+    });
+</script>
 </body>
 </html>

@@ -4,7 +4,7 @@ using System.Net;
 using System.Web.Mvc;
 using ItPedia.Models;
 using ItPedia.Models.Contexts;
-using ItPedia.Models.Views;
+using ItPedia.ViewModels;
 
 namespace ItPedia.Controllers
 {
@@ -140,7 +140,7 @@ namespace ItPedia.Controllers
         {
             if ( ! HttpContext.Request.IsAjaxRequest() || id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-            var transactions = db.CustomerCriterias.Find(id).Transactions;
+            var transactions = db.CustomerCriterias.Find(id).TransactionCriterias;
 
             return Json(new SelectList(
                 transactions.ToArray(), "TransactionCriteriaId", "PerMonth"), JsonRequestBehavior.AllowGet);

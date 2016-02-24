@@ -47,7 +47,7 @@ namespace ItPedia.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CustomerCriteriaId,PerMonth")] CustomerCriteria customerCriteria)
+        public ActionResult Create([Bind(Include = "CustomerCriteriaId,Size")] CustomerCriteria customerCriteria)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace ItPedia.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CustomerCriteriaId,PerMonth")] CustomerCriteria customerCriteria)
+        public ActionResult Edit([Bind(Include = "CustomerCriteriaId,Size")] CustomerCriteria customerCriteria)
         {
             if (ModelState.IsValid)
             {

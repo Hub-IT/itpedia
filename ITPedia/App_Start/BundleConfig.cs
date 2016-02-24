@@ -20,12 +20,15 @@ namespace ItPedia
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+                      "~/Scripts/bootstrap.min.js",
+                      "~/Scripts/respond.min.js",
+                      "~/Scripts/select2.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap-cerulean.min.css",
                       "~/Content/font-awesome.min.css",
+                      "~/Content/css/select2.min.css",
+                      "~/Content/select2-bootstrap.css",
                       "~/Content/Site.css"));
         }
     }

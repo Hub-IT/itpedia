@@ -21,10 +21,10 @@ namespace ItPedia.Models.Initializers
 
             var customerCriterias = new List<CustomerCriteria>
             {
-                new CustomerCriteria {Size = "Up to 10", Transactions = transactionCriterias},
-                new CustomerCriteria {Size = "11 - 50", Transactions = transactionCriterias},
-                new CustomerCriteria {Size = "50 - 200", Transactions = transactionCriterias},
-                new CustomerCriteria {Size = "Unnecessary", Transactions = transactionCriterias}
+                new CustomerCriteria {Size = "Up to 10", TransactionCriterias = transactionCriterias},
+                new CustomerCriteria {Size = "11 - 50", TransactionCriterias = transactionCriterias},
+                new CustomerCriteria {Size = "50 - 200", TransactionCriterias = transactionCriterias},
+                new CustomerCriteria {Size = "Unnecessary", TransactionCriterias = transactionCriterias}
             };
             customerCriterias.ForEach(customerCriteria => context.CustomerCriterias.Add(customerCriteria));
             context.SaveChanges();
