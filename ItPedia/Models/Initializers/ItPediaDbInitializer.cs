@@ -1,6 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
+using System.Data.SqlClient;
+using System.Linq;
 using ItPedia.Models.Contexts;
 
 namespace ItPedia.Models.Initializers
@@ -9,7 +13,6 @@ namespace ItPedia.Models.Initializers
     {
         protected override void Seed(ItPediaDbContext context)
         {
-
             var homeBusiness = new IndustryCriteria {Name = "Home Business"};
             var exportBusiness = new IndustryCriteria {Name = "Export Business"};
             var telecommunication = new IndustryCriteria {Name = "Telecommunications"};
