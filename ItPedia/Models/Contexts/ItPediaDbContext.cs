@@ -1,4 +1,6 @@
 ﻿using System.Data.Entity;
+using ItPedia.Migrations;
+using Microsoft.Ajax.Utilities;
 
 namespace ItPedia.Models.Contexts
 {
@@ -16,5 +18,12 @@ namespace ItPedia.Models.Contexts
         public DbSet<EmployeeCriteria> EmployeeCriterias { get; set; }
         public DbSet<CustomerCriteria> CustomerCriterias { get; set; }
         public DbSet<TransactionCriteria> TransactionCriterias { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ItPediaDbContext, Configuration>());
+        }
     }
+
+
 }
