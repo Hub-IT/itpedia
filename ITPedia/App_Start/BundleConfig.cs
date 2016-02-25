@@ -24,12 +24,14 @@ namespace ItPedia
                       "~/Scripts/respond.min.js",
                       "~/Scripts/select2.min.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
+            bundles.Add(new StyleBundle("~/Content/App.css").Include(
                       "~/Content/bootstrap-cerulean.min.css",
                       "~/Content/font-awesome.min.css",
                       "~/Content/css/select2.min.css",
                       "~/Content/select2-bootstrap.css",
                       "~/Content/Site.css"));
+
+            BundleTable.EnableOptimizations = false;
         }
     }
 }
