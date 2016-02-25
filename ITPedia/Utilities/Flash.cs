@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web;
 
-namespace ItPedia.Notifications
+namespace ItPedia.Utilities
 {
     public class Flash
     {

@@ -4,7 +4,6 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using ItPedia.Models.Contexts;
-using ItPedia.Models.Initializers;
 
 namespace ItPedia
 {
@@ -17,7 +16,7 @@ namespace ItPedia
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            Database.SetInitializer(new ItPediaDbInitializer());
+//            Database.SetInitializer(new ItPediaDbInitializer());
         }
     }
 }
