@@ -3,12 +3,9 @@ using ItPedia.Models;
 
 namespace ItPedia.Migrations
 {
-    using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<ItPedia.Models.Contexts.ItPediaDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Models.Contexts.ItPediaDbContext>
     {
         public Configuration()
         {
@@ -16,24 +13,24 @@ namespace ItPedia.Migrations
             AutomaticMigrationDataLossAllowed = true;
         }
 
-        protected override void Seed(ItPedia.Models.Contexts.ItPediaDbContext context)
+        protected override void Seed(Models.Contexts.ItPediaDbContext context)
         {
-            var homeBusiness = new IndustryCriteria {Name = "Home Business"};
-            var exportBusiness = new IndustryCriteria {Name = "Export Business"};
-            var telecommunication = new IndustryCriteria {Name = "Telecommunications"};
-            var banking = new IndustryCriteria {Name = "Banking"};
-            var retail = new IndustryCriteria {Name = "Retail"};
-            var automobile = new IndustryCriteria {Name = "Automobile"};
-            var advertising = new IndustryCriteria {Name = "Advertising"};
-            var insurance = new IndustryCriteria {Name = "Insurance"};
-            var oil = new IndustryCriteria {Name = "Oil"};
-            var pharmaceutical = new IndustryCriteria {Name = "Pharmaceutical"};
-            var waterSupply = new IndustryCriteria {Name = "Water Supply"};
-            var police = new IndustryCriteria {Name = "Police"};
-            var tvBroadcasting = new IndustryCriteria {Name = "TV Broadcasting"};
-            var stockExchange = new IndustryCriteria {Name = "Stock Exchange"};
-            var energy = new IndustryCriteria {Name = "Energy"};
-            var transportation = new IndustryCriteria {Name = "Transportation"};
+            var homeBusiness = new IndustryCriteria { Name = "Home Business" };
+            var exportBusiness = new IndustryCriteria { Name = "Export Business" };
+            var telecommunication = new IndustryCriteria { Name = "Telecommunications" };
+            var banking = new IndustryCriteria { Name = "Banking" };
+            var retail = new IndustryCriteria { Name = "Retail" };
+            var automobile = new IndustryCriteria { Name = "Automobile" };
+            var advertising = new IndustryCriteria { Name = "Advertising" };
+            var insurance = new IndustryCriteria { Name = "Insurance" };
+            var oil = new IndustryCriteria { Name = "Oil" };
+            var pharmaceutical = new IndustryCriteria { Name = "Pharmaceutical" };
+            var waterSupply = new IndustryCriteria { Name = "Water Supply" };
+            var police = new IndustryCriteria { Name = "Police" };
+            var tvBroadcasting = new IndustryCriteria { Name = "TV Broadcasting" };
+            var stockExchange = new IndustryCriteria { Name = "Stock Exchange" };
+            var energy = new IndustryCriteria { Name = "Energy" };
+            var transportation = new IndustryCriteria { Name = "Transportation" };
 
             var industryCriterias = new List<IndustryCriteria>
             {
@@ -55,14 +52,14 @@ namespace ItPedia.Migrations
                 transportation
             };
 
-            industryCriterias.ForEach(industryCriteria => context.IndustryCriterias
-                .AddOrUpdate(industryCriteria));
+
+            context.IndustryCriterias.AddOrUpdate(p => p.Name, industryCriterias.ToArray());
             context.SaveChanges();
 
             var employeeCriteriaUpTo10 = new EmployeeCriteria
             {
                 Size = "Up to 10",
-                IndustryCriterias = new List<IndustryCriteria> {homeBusiness, retail, automobile}
+                IndustryCriterias = new List<IndustryCriteria> { homeBusiness, retail, automobile }
             };
             var employeeCriteria11To50 = new EmployeeCriteria
             {
@@ -97,7 +94,7 @@ namespace ItPedia.Migrations
             var employeeCriteriaNotNecessary = new EmployeeCriteria
             {
                 Size = "Not necessary",
-                IndustryCriterias = new List<IndustryCriteria> {police, stockExchange, energy, transportation}
+                IndustryCriterias = new List<IndustryCriteria> { police, stockExchange, energy, transportation }
             };
             var employeeCriterias = new List<EmployeeCriteria>
             {
@@ -107,7 +104,7 @@ namespace ItPedia.Migrations
                 employeeCriteriaNotNecessary
             };
 
-            employeeCriterias.ForEach(employeeCriteria => context.EmployeeCriterias.Add(employeeCriteria));
+            context.EmployeeCriterias.AddOrUpdate(p => p.Size, employeeCriterias.ToArray());
             context.SaveChanges();
 
             var customerCriteriaUpTo500 = new CustomerCriteria
@@ -170,9 +167,9 @@ namespace ItPedia.Migrations
                     employeeCriteriaNotNecessary
                 }
             };
-            var customerCriterias = new List<CustomerCriteria> {customerCriteriaMore500, customerCriteriaUpTo500};
+            var customerCriterias = new List<CustomerCriteria> { customerCriteriaMore500, customerCriteriaUpTo500 };
 
-            customerCriterias.ForEach(customerCriteria => context.CustomerCriterias.Add(customerCriteria));
+            context.CustomerCriterias.AddOrUpdate(p => p.Size, customerCriterias.ToArray());
             context.SaveChanges();
 
             var transactionCriteriaUpTo10 = new TransactionCriteria
@@ -204,7 +201,7 @@ namespace ItPedia.Migrations
                     employeeCriteria51To200,
                     employeeCriteriaNotNecessary
                 },
-                CustomerCriterias = new List<CustomerCriteria> {customerCriteriaUpTo500, customerCriteriaMore500}
+                CustomerCriterias = new List<CustomerCriteria> { customerCriteriaUpTo500, customerCriteriaMore500 }
             };
             var transactionCriteriaMoreThan100 = new TransactionCriteria
             {
@@ -235,17 +232,18 @@ namespace ItPedia.Migrations
                     employeeCriteria51To200,
                     employeeCriteriaNotNecessary
                 },
-                CustomerCriterias = new List<CustomerCriteria> {customerCriteriaUpTo500, customerCriteriaMore500}
+                CustomerCriterias = new List<CustomerCriteria> { customerCriteriaUpTo500, customerCriteriaMore500 }
             };
             var transactionCriterias = new List<TransactionCriteria>
             {
                 transactionCriteriaUpTo10,
                 transactionCriteriaMoreThan100
             };
-            transactionCriterias.ForEach(transactionCriteria => context.TransactionCriterias.Add(transactionCriteria));
+            context.TransactionCriterias.AddOrUpdate(p => p.PerMonth, transactionCriterias.ToArray());
+            context.CustomerCriterias.AddOrUpdate(p => p.Size, customerCriterias.ToArray());
             context.SaveChanges();
 
-            context.Terms.AddOrUpdate(term => term.TermId,
+            context.Terms.AddOrUpdate(term => term.Name,
                 new Term
                 {
                     TermId = 1,

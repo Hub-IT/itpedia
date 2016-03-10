@@ -16,6 +16,7 @@ A Web Application. Updated to ASP.NET MVC5.
  - Press 'Restore' button. If you are not able to find this button [execute](https://docs.nuget.org/consume/reinstalling-packages) the below command on the package manager console: `Update-Package –reinstall`
 2. Build solution. `Ctrl + Shift + B`
 3. Right click on project located in the solution explorer -> View -> View  in Browser (your  favorite browser)
+- If you encounter errors like with the database server, e.g. " A network-related or instance-specific error occurred while establishing a connection to SQL Server.", then you probably need to install a [sql server](https://www.microsoft.com/en/server-cloud/products/sql-server-editions/sql-server-express.aspx)
 
 
 ## Contributors
