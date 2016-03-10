@@ -201,10 +201,6 @@
       <DependentUpon>201602251506552_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Samples\ShoppingCartViewModel\ProductModel.cs" />
-    <Compile Include="Samples\ShoppingCartViewModel\ShoppingCartController.cs" />
-    <Compile Include="Samples\ShoppingCartViewModel\ShoppingCartViewModel.cs" />
-    <Compile Include="Samples\SpecifyingViews\SampleController.cs" />
     <Compile Include="Utilities\Flash.cs" />
     <Compile Include="Utilities\RssResult.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
@@ -406,12 +402,6 @@
     <Content Include="Views\IndustryCriterias\Edit.cshtml" />
     <Content Include="Views\IndustryCriterias\Index.cshtml" />
     <Content Include="Scripts\jquery-2.2.1.min.map" />
-    <Content Include="Views\Sample\PartialViewDemo.cshtml" />
-    <Content Include="Views\Sample\NotIndex.cshtml" />
-    <Content Include="Views\Sample\Message.cshtml" />
-    <Content Include="Views\Sample\Index.cshtml" />
-    <Content Include="Views\Example\Index.cshtml" />
-    <Content Include="Views\ShoppingCart\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
