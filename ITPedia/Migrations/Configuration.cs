@@ -1,11 +1,11 @@
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using ItPedia.Models;
+using ItPedia.Models.Contexts;
 
 namespace ItPedia.Migrations
 {
-    using System.Data.Entity.Migrations;
-
-    internal sealed class Configuration : DbMigrationsConfiguration<Models.Contexts.ItPediaDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<ItPediaDbContext>
     {
         public Configuration()
         {
@@ -13,24 +13,24 @@ namespace ItPedia.Migrations
             AutomaticMigrationDataLossAllowed = true;
         }
 
-        protected override void Seed(Models.Contexts.ItPediaDbContext context)
+        protected override void Seed(ItPediaDbContext context)
         {
-            var homeBusiness = new IndustryCriteria { Name = "Home Business" };
-            var exportBusiness = new IndustryCriteria { Name = "Export Business" };
-            var telecommunication = new IndustryCriteria { Name = "Telecommunications" };
-            var banking = new IndustryCriteria { Name = "Banking" };
-            var retail = new IndustryCriteria { Name = "Retail" };
-            var automobile = new IndustryCriteria { Name = "Automobile" };
-            var advertising = new IndustryCriteria { Name = "Advertising" };
-            var insurance = new IndustryCriteria { Name = "Insurance" };
-            var oil = new IndustryCriteria { Name = "Oil" };
-            var pharmaceutical = new IndustryCriteria { Name = "Pharmaceutical" };
-            var waterSupply = new IndustryCriteria { Name = "Water Supply" };
-            var police = new IndustryCriteria { Name = "Police" };
-            var tvBroadcasting = new IndustryCriteria { Name = "TV Broadcasting" };
-            var stockExchange = new IndustryCriteria { Name = "Stock Exchange" };
-            var energy = new IndustryCriteria { Name = "Energy" };
-            var transportation = new IndustryCriteria { Name = "Transportation" };
+            var homeBusiness = new IndustryCriteria {Name = "Home Business"};
+            var exportBusiness = new IndustryCriteria {Name = "Export Business"};
+            var telecommunication = new IndustryCriteria {Name = "Telecommunications"};
+            var banking = new IndustryCriteria {Name = "Banking"};
+            var retail = new IndustryCriteria {Name = "Retail"};
+            var automobile = new IndustryCriteria {Name = "Automobile"};
+            var advertising = new IndustryCriteria {Name = "Advertising"};
+            var insurance = new IndustryCriteria {Name = "Insurance"};
+            var oil = new IndustryCriteria {Name = "Oil"};
+            var pharmaceutical = new IndustryCriteria {Name = "Pharmaceutical"};
+            var waterSupply = new IndustryCriteria {Name = "Water Supply"};
+            var police = new IndustryCriteria {Name = "Police"};
+            var tvBroadcasting = new IndustryCriteria {Name = "TV Broadcasting"};
+            var stockExchange = new IndustryCriteria {Name = "Stock Exchange"};
+            var energy = new IndustryCriteria {Name = "Energy"};
+            var transportation = new IndustryCriteria {Name = "Transportation"};
 
             var industryCriterias = new List<IndustryCriteria>
             {
@@ -59,7 +59,7 @@ namespace ItPedia.Migrations
             var employeeCriteriaUpTo10 = new EmployeeCriteria
             {
                 Size = "Up to 10",
-                IndustryCriterias = new List<IndustryCriteria> { homeBusiness, retail, automobile }
+                IndustryCriterias = new List<IndustryCriteria> {homeBusiness, retail, automobile}
             };
             var employeeCriteria11To50 = new EmployeeCriteria
             {
@@ -94,7 +94,7 @@ namespace ItPedia.Migrations
             var employeeCriteriaNotNecessary = new EmployeeCriteria
             {
                 Size = "Not necessary",
-                IndustryCriterias = new List<IndustryCriteria> { police, stockExchange, energy, transportation }
+                IndustryCriterias = new List<IndustryCriteria> {police, stockExchange, energy, transportation}
             };
             var employeeCriterias = new List<EmployeeCriteria>
             {
@@ -167,12 +167,12 @@ namespace ItPedia.Migrations
                     employeeCriteriaNotNecessary
                 }
             };
-            var customerCriterias = new List<CustomerCriteria> { customerCriteriaMore500, customerCriteriaUpTo500 };
+            var customerCriterias = new List<CustomerCriteria> {customerCriteriaMore500, customerCriteriaUpTo500};
 
             context.CustomerCriterias.AddOrUpdate(p => p.Size, customerCriterias.ToArray());
             context.SaveChanges();
 
-            var transactionCriteriaUpTo10 = new TransactionCriteria
+            var transactionCriteriaUpTo100 = new TransactionCriteria
             {
                 PerMonth = "Up to 100",
                 IndustryCriterias = new List<IndustryCriteria>
@@ -201,7 +201,7 @@ namespace ItPedia.Migrations
                     employeeCriteria51To200,
                     employeeCriteriaNotNecessary
                 },
-                CustomerCriterias = new List<CustomerCriteria> { customerCriteriaUpTo500, customerCriteriaMore500 }
+                CustomerCriterias = new List<CustomerCriteria> {customerCriteriaUpTo500, customerCriteriaMore500}
             };
             var transactionCriteriaMoreThan100 = new TransactionCriteria
             {
@@ -232,11 +232,11 @@ namespace ItPedia.Migrations
                     employeeCriteria51To200,
                     employeeCriteriaNotNecessary
                 },
-                CustomerCriterias = new List<CustomerCriteria> { customerCriteriaUpTo500, customerCriteriaMore500 }
+                CustomerCriterias = new List<CustomerCriteria> {customerCriteriaUpTo500, customerCriteriaMore500}
             };
             var transactionCriterias = new List<TransactionCriteria>
             {
-                transactionCriteriaUpTo10,
+                transactionCriteriaUpTo100,
                 transactionCriteriaMoreThan100
             };
             context.TransactionCriterias.AddOrUpdate(p => p.PerMonth, transactionCriterias.ToArray());
@@ -246,7 +246,6 @@ namespace ItPedia.Migrations
             context.Terms.AddOrUpdate(term => term.Name,
                 new Term
                 {
-                    TermId = 1,
                     Name = "Server",
                     Source = "http://whatis.techtarget.com/definition/server",
                     Content =
@@ -254,7 +253,6 @@ namespace ItPedia.Migrations
                 },
                 new Term
                 {
-                    TermId = 2,
                     Name = "Desktop",
                     Source = "http://searchwindowsserver.techtarget.com/definition/desktop",
                     Content =
@@ -262,7 +260,6 @@ namespace ItPedia.Migrations
                 },
                 new Term
                 {
-                    TermId = 3,
                     Name = "Printer",
                     Source = "http://whatis.techtarget.com/definition/printer",
                     Content =
@@ -270,7 +267,6 @@ namespace ItPedia.Migrations
                 },
                 new Term
                 {
-                    TermId = 4,
                     Name = "UPS",
                     Source = "http://searchdatacenter.techtarget.com/definition/uninterruptible-power-supply",
                     Content =
@@ -278,7 +274,6 @@ namespace ItPedia.Migrations
                 },
                 new Term
                 {
-                    TermId = 5,
                     Name = "Operating System",
                     Source = "http://whatis.techtarget.com/definition/operating-system-OS",
                     Content =
@@ -286,7 +281,6 @@ namespace ItPedia.Migrations
                 },
                 new Term
                 {
-                    TermId = 6,
                     Name = "MS Office 2013",
                     Source =
                         "http://searchenterprisedesktop.techtarget.com/definition/Microsoft-Office-2013-MS-Office-2013",
@@ -295,7 +289,6 @@ namespace ItPedia.Migrations
                 },
                 new Term
                 {
-                    TermId = 7,
                     Name = "Switch",
                     Source = "http://searchtelecom.techtarget.com/definition/switch",
                     Content =
@@ -303,7 +296,6 @@ namespace ItPedia.Migrations
                 },
                 new Term
                 {
-                    TermId = 8,
                     Name = "Internal Control",
                     Source = "http://searchcompliance.techtarget.com/definition/internal-control",
                     Content =
@@ -311,7 +303,6 @@ namespace ItPedia.Migrations
                 },
                 new Term
                 {
-                    TermId = 9,
                     Name = "Microserver",
                     Source = "http://internetofthingsagenda.techtarget.com/definition/microserver",
                     Content =
@@ -319,7 +310,6 @@ namespace ItPedia.Migrations
                 },
                 new Term
                 {
-                    TermId = 10,
                     Name = "Backup",
                     Source = "http://searchstorage.techtarget.com/definition/backup",
                     Content =
@@ -327,7 +317,6 @@ namespace ItPedia.Migrations
                 },
                 new Term
                 {
-                    TermId = 11,
                     Name = "Computer",
                     Source = "http://searchwindowsserver.techtarget.com/definition/computer",
                     Content =
@@ -335,7 +324,6 @@ namespace ItPedia.Migrations
                 },
                 new Term
                 {
-                    TermId = 9,
                     Name = "Print Server",
                     Source = "http://searchwindowsserver.techtarget.com/definition/computer",
                     Content =
@@ -343,7 +331,6 @@ namespace ItPedia.Migrations
                 },
                 new Term
                 {
-                    TermId = 10,
                     Name = "Scanner",
                     Source = "http://whatis.techtarget.com/definition/scanner",
                     Content =
@@ -351,7 +338,6 @@ namespace ItPedia.Migrations
                 },
                 new Term
                 {
-                    TermId = 11,
                     Name = "Mail Server",
                     Source = "http://searchsoa.techtarget.com/definition/mail-server",
                     Content =
@@ -359,7 +345,6 @@ namespace ItPedia.Migrations
                 },
                 new Term
                 {
-                    TermId = 12,
                     Name = "ERP",
                     Source = "http://searchsap.techtarget.com/definition/ERP",
                     Content =
@@ -367,7 +352,6 @@ namespace ItPedia.Migrations
                 },
                 new Term
                 {
-                    TermId = 13,
                     Name = "CRM",
                     Source = "http://searchcrm.techtarget.com/definition/CRM",
                     Content =
@@ -375,7 +359,6 @@ namespace ItPedia.Migrations
                 },
                 new Term
                 {
-                    TermId = 14,
                     Name = "Microsoft Windows Server 2016",
                     Source = "http://searchwindowsserver.techtarget.com/definition/Microsoft-Windows-Server-2016",
                     Content =
@@ -383,7 +366,6 @@ namespace ItPedia.Migrations
                 },
                 new Term
                 {
-                    TermId = 15,
                     Name = "HPSS",
                     Source = "http://searchsoa.techtarget.com/definition/HPSS",
                     Content =
@@ -391,7 +373,6 @@ namespace ItPedia.Migrations
                 },
                 new Term
                 {
-                    TermId = 16,
                     Name = "Application",
                     Source = "http://searchsoa.techtarget.com/definition/HPSS",
                     Content =
@@ -399,7 +380,6 @@ namespace ItPedia.Migrations
                 },
                 new Term
                 {
-                    TermId = 16,
                     Name = "Firewall",
                     Source = "http://searchsecurity.techtarget.com/definition/firewall",
                     Content =
@@ -407,7 +387,6 @@ namespace ItPedia.Migrations
                 },
                 new Term
                 {
-                    TermId = 17,
                     Name = "Payroll Software",
                     Source = "http://searchfinancialapplications.techtarget.com/definition/payroll-software",
                     Content =
@@ -415,7 +394,6 @@ namespace ItPedia.Migrations
                 },
                 new Term
                 {
-                    TermId = 18,
                     Name = "HRIS",
                     Source = "http://searchfinancialapplications.techtarget.com/definition/HRIS",
                     Content =
@@ -423,7 +401,6 @@ namespace ItPedia.Migrations
                 },
                 new Term
                 {
-                    TermId = 19,
                     Name = "Tape Library",
                     Source = "http://searchstorage.techtarget.com/definition/tape-library",
                     Content =
@@ -431,7 +408,6 @@ namespace ItPedia.Migrations
                 },
                 new Term
                 {
-                    TermId = 20,
                     Name = "NMS",
                     Source = "http://whatis.techtarget.com/definition/network-management-system",
                     Content =
@@ -439,7 +415,6 @@ namespace ItPedia.Migrations
                 },
                 new Term
                 {
-                    TermId = 21,
                     Name = "SAN file system",
                     Source = "http://searchstorage.techtarget.com/definition/SAN-file-system",
                     Content =
@@ -447,7 +422,6 @@ namespace ItPedia.Migrations
                 },
                 new Term
                 {
-                    TermId = 22,
                     Name = "Router",
                     Source = "http://searchnetworking.techtarget.com/definition/router",
                     Content =
@@ -455,7 +429,6 @@ namespace ItPedia.Migrations
                 },
                 new Term
                 {
-                    TermId = 23,
                     Name = "Client-Server Network",
                     Source = "http://searchwindowsserver.techtarget.com/definition/client-server-network",
                     Content =
@@ -463,7 +436,6 @@ namespace ItPedia.Migrations
                 },
                 new Term
                 {
-                    TermId = 24,
                     Name = "Clean Install",
                     Source = "http://searchitchannel.techtarget.com/definition/clean-install",
                     Content =
@@ -471,14 +443,12 @@ namespace ItPedia.Migrations
                 },
                 new Term
                 {
-                    TermId = 24,
                     Name = "Parameterization",
                     Source = "https://www.itu.int/ITU-T/studygroups/com17/languages/X.683-0207.pdf",
                     Content = ""
                 },
                 new Term
                 {
-                    TermId = 25,
                     Name = "User training",
                     Source =
                         "http://rua.ua.es/dspace/bitstream/10045/1650/4/The_use_of_information_technology_in_training.pdf",
@@ -486,7 +456,6 @@ namespace ItPedia.Migrations
                 },
                 new Term
                 {
-                    TermId = 25,
                     Name = "Hostig Fees",
                     Source = "http://searchsoa.techtarget.com/definition/hosting",
                     Content =
@@ -494,7 +463,6 @@ namespace ItPedia.Migrations
                 },
                 new Term
                 {
-                    TermId = 25,
                     Name = "Software License",
                     Source = "http://searchcio.techtarget.com/definition/software-license",
                     Content =
@@ -502,12 +470,639 @@ namespace ItPedia.Migrations
                 },
                 new Term
                 {
-                    TermId = 25,
                     Name = "Maintenance",
                     Source =
                         "http://searchhealthit.techtarget.com/definition/Maintenance-Management-Information-System-MMIS",
                     Content =
                         "<p>Maintenance Management Information System (MMIS) is a mechanized claims processing and information retrieval system for Medicaid  that's required by the federal government. All states are required to operate an MMIS to support Medicaid business functions and maintain information in such areas as provider enrollment; client eligibility, including third party liability; benefit package maintenance; managed care enrollment; claims processing; and prior authorization. A fiscal agent who is a private contractor to the state, normally selected through a competitive procurement process, may operate the state's MMIS.</p>"
+                }
+                );
+
+//                homeBusiness,
+//                exportBusiness,
+//                telecommunication,
+//                banking,
+//                retail,
+//                automobile,
+//                advertising,
+//                insurance,
+//                oil,
+//                pharmaceutical,
+//                waterSupply,
+//                police,
+//                tvBroadcasting,
+//                stockExchange,
+//                energy,
+//                transportation
+
+            context.Solutions.AddOrUpdate(solution => solution.Name,
+                new Solution
+                {
+                    Name = "Solution 1",
+                    IndustryCriteria = homeBusiness,
+                    EmployeeCriteria = employeeCriteriaUpTo10,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 2",
+                    IndustryCriteria = homeBusiness,
+                    EmployeeCriteria = employeeCriteriaUpTo10,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 3",
+                    IndustryCriteria = homeBusiness,
+                    EmployeeCriteria = employeeCriteriaUpTo10,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 4",
+                    IndustryCriteria = homeBusiness,
+                    EmployeeCriteria = employeeCriteriaUpTo10,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 5",
+                    IndustryCriteria = exportBusiness,
+                    EmployeeCriteria = employeeCriteria11To50,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 6",
+                    IndustryCriteria = exportBusiness,
+                    EmployeeCriteria = employeeCriteria11To50,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 7",
+                    IndustryCriteria = exportBusiness,
+                    EmployeeCriteria = employeeCriteria11To50,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 8",
+                    IndustryCriteria = exportBusiness,
+                    EmployeeCriteria = employeeCriteria11To50,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 9",
+                    IndustryCriteria = telecommunication,
+                    EmployeeCriteria = employeeCriteria51To200,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 10",
+                    IndustryCriteria = telecommunication,
+                    EmployeeCriteria = employeeCriteria51To200,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 11",
+                    IndustryCriteria = telecommunication,
+                    EmployeeCriteria = employeeCriteria51To200,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 12",
+                    IndustryCriteria = telecommunication,
+                    EmployeeCriteria = employeeCriteria51To200,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 13",
+                    IndustryCriteria = banking,
+                    EmployeeCriteria = employeeCriteria51To200,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 14",
+                    IndustryCriteria = banking,
+                    EmployeeCriteria = employeeCriteria51To200,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 15",
+                    IndustryCriteria = banking,
+                    EmployeeCriteria = employeeCriteria51To200,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 16",
+                    IndustryCriteria = banking,
+                    EmployeeCriteria = employeeCriteria51To200,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 17",
+                    IndustryCriteria = retail,
+                    EmployeeCriteria = employeeCriteriaUpTo10,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 18",
+                    IndustryCriteria = retail,
+                    EmployeeCriteria = employeeCriteriaUpTo10,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 19",
+                    IndustryCriteria = retail,
+                    EmployeeCriteria = employeeCriteriaUpTo10,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 20",
+                    IndustryCriteria = retail,
+                    EmployeeCriteria = employeeCriteriaUpTo10,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 21",
+                    IndustryCriteria = retail,
+                    EmployeeCriteria = employeeCriteria11To50,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 22",
+                    IndustryCriteria = retail,
+                    EmployeeCriteria = employeeCriteria11To50,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 23",
+                    IndustryCriteria = retail,
+                    EmployeeCriteria = employeeCriteria11To50,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 24",
+                    IndustryCriteria = retail,
+                    EmployeeCriteria = employeeCriteria11To50,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 25",
+                    IndustryCriteria = automobile,
+                    EmployeeCriteria = employeeCriteriaUpTo10,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 26",
+                    IndustryCriteria = automobile,
+                    EmployeeCriteria = employeeCriteriaUpTo10,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 27",
+                    IndustryCriteria = automobile,
+                    EmployeeCriteria = employeeCriteriaUpTo10,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 28",
+                    IndustryCriteria = automobile,
+                    EmployeeCriteria = employeeCriteriaUpTo10,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 29",
+                    IndustryCriteria = automobile,
+                    EmployeeCriteria = employeeCriteria11To50,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 30",
+                    IndustryCriteria = automobile,
+                    EmployeeCriteria = employeeCriteria11To50,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 31",
+                    IndustryCriteria = automobile,
+                    EmployeeCriteria = employeeCriteria11To50,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 32",
+                    IndustryCriteria = automobile,
+                    EmployeeCriteria = employeeCriteria11To50,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 33",
+                    IndustryCriteria = automobile,
+                    EmployeeCriteria = employeeCriteria51To200,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 34",
+                    IndustryCriteria = automobile,
+                    EmployeeCriteria = employeeCriteria51To200,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 35",
+                    IndustryCriteria = automobile,
+                    EmployeeCriteria = employeeCriteria51To200,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 36",
+                    IndustryCriteria = automobile,
+                    EmployeeCriteria = employeeCriteria51To200,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 37",
+                    IndustryCriteria = advertising,
+                    EmployeeCriteria = employeeCriteria11To50,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 38",
+                    IndustryCriteria = advertising,
+                    EmployeeCriteria = employeeCriteria11To50,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 39",
+                    IndustryCriteria = advertising,
+                    EmployeeCriteria = employeeCriteria11To50,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 40",
+                    IndustryCriteria = advertising,
+                    EmployeeCriteria = employeeCriteria11To50,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 41",
+                    IndustryCriteria = insurance,
+                    EmployeeCriteria = employeeCriteria51To200,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 42",
+                    IndustryCriteria = insurance,
+                    EmployeeCriteria = employeeCriteria51To200,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 43",
+                    IndustryCriteria = insurance,
+                    EmployeeCriteria = employeeCriteria51To200,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 44",
+                    IndustryCriteria = insurance,
+                    EmployeeCriteria = employeeCriteria51To200,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 45",
+                    IndustryCriteria = oil,
+                    EmployeeCriteria = employeeCriteria51To200,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 46",
+                    IndustryCriteria = oil,
+                    EmployeeCriteria = employeeCriteria51To200,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 47",
+                    IndustryCriteria = oil,
+                    EmployeeCriteria = employeeCriteria51To200,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 48",
+                    IndustryCriteria = oil,
+                    EmployeeCriteria = employeeCriteria51To200,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 49",
+                    IndustryCriteria = oil,
+                    EmployeeCriteria = employeeCriteria51To200,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 50",
+                    IndustryCriteria = oil,
+                    EmployeeCriteria = employeeCriteria51To200,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 51",
+                    IndustryCriteria = oil,
+                    EmployeeCriteria = employeeCriteria51To200,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 52",
+                    IndustryCriteria = oil,
+                    EmployeeCriteria = employeeCriteria51To200,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 53",
+                    IndustryCriteria = pharmaceutical,
+                    EmployeeCriteria = employeeCriteria11To50,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 54",
+                    IndustryCriteria = pharmaceutical,
+                    EmployeeCriteria = employeeCriteria11To50,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 55",
+                    IndustryCriteria = pharmaceutical,
+                    EmployeeCriteria = employeeCriteria11To50,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 56",
+                    IndustryCriteria = pharmaceutical,
+                    EmployeeCriteria = employeeCriteria11To50,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 57",
+                    IndustryCriteria = pharmaceutical,
+                    EmployeeCriteria = employeeCriteria51To200,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 58",
+                    IndustryCriteria = pharmaceutical,
+                    EmployeeCriteria = employeeCriteria51To200,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 59",
+                    IndustryCriteria = pharmaceutical,
+                    EmployeeCriteria = employeeCriteria51To200,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 60",
+                    IndustryCriteria = pharmaceutical,
+                    EmployeeCriteria = employeeCriteria51To200,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 61",
+                    IndustryCriteria = waterSupply,
+                    EmployeeCriteria = employeeCriteria11To50,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 62",
+                    IndustryCriteria = waterSupply,
+                    EmployeeCriteria = employeeCriteria11To50,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 63",
+                    IndustryCriteria = waterSupply,
+                    EmployeeCriteria = employeeCriteria11To50,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 64",
+                    IndustryCriteria = waterSupply,
+                    EmployeeCriteria = employeeCriteria11To50,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 65",
+                    IndustryCriteria = waterSupply,
+                    EmployeeCriteria = employeeCriteria51To200,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 66",
+                    IndustryCriteria = waterSupply,
+                    EmployeeCriteria = employeeCriteria51To200,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 67",
+                    IndustryCriteria = waterSupply,
+                    EmployeeCriteria = employeeCriteria51To200,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 68",
+                    IndustryCriteria = waterSupply,
+                    EmployeeCriteria = employeeCriteria51To200,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 69",
+                    IndustryCriteria = police,
+                    EmployeeCriteria = employeeCriteriaNotNecessary,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 70",
+                    IndustryCriteria = police,
+                    EmployeeCriteria = employeeCriteriaNotNecessary,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 71",
+                    IndustryCriteria = police,
+                    EmployeeCriteria = employeeCriteriaNotNecessary,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 72",
+                    IndustryCriteria = police,
+                    EmployeeCriteria = employeeCriteriaNotNecessary,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 72",
+                    IndustryCriteria = tvBroadcasting,
+                    EmployeeCriteria = employeeCriteria51To200,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 73",
+                    IndustryCriteria = tvBroadcasting,
+                    EmployeeCriteria = employeeCriteria51To200,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 71",
+                    IndustryCriteria = police,
+                    EmployeeCriteria = employeeCriteriaNotNecessary,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 72",
+                    IndustryCriteria = police,
+                    EmployeeCriteria = employeeCriteriaNotNecessary,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
                 }
                 );
 

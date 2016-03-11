@@ -190,7 +190,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IndustryCriteriasController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\SolutionCategoriesController.cs" />
     <Compile Include="Controllers\TermsController.cs" />
     <Compile Include="Controllers\TransactionCriteriasController.cs" />
     <Compile Include="Global.asax.cs">
@@ -205,7 +204,6 @@
     <Compile Include="Utilities\RssResult.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="Models\CustomerCriteria.cs" />
-    <Compile Include="Models\SolutionCategory.cs" />
     <Compile Include="Models\EmployeeCriteria.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\IndustryCriteria.cs" />
