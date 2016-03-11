@@ -13,19 +13,19 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.CustomerCriteria.Size)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeCriteria.Size)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IndustryCriteria.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TransactionCriteria.PerMonth)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IndustryCriteriaId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EmployeeCriteriaId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CustomerCriteriaId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TransactionCriteriaId)
         </th>
         <th></th>
     </tr>
@@ -33,19 +33,19 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.CustomerCriteria.Size)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeCriteria.Size)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IndustryCriteria.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TransactionCriteria.PerMonth)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IndustryCriteriaId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmployeeCriteriaId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CustomerCriteriaId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TransactionCriteriaId)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.SolutionId }) |

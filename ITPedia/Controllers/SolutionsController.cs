@@ -18,11 +18,12 @@ namespace ItPedia.Controllers
         // GET: Solutions
         public ActionResult Index()
         {
-            return View(db.Solutions.ToList());
+            var solutions = db.Solutions.Include(s => s.CustomerCriteria).Include(s => s.EmployeeCriteria).Include(s => s.IndustryCriteria).Include(s => s.TransactionCriteria);
+            return View(solutions.ToList());
         }
 
         // GET: Solutions/Details/5
-        public ActionResult Details(string id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -39,6 +40,10 @@ namespace ItPedia.Controllers
         // GET: Solutions/Create
         public ActionResult Create()
         {
+            ViewBag.CustomerCriteriaId = new SelectList(db.CustomerCriterias, "CustomerCriteriaId", "Size");
+            ViewBag.EmployeeCriteriaId = new SelectList(db.EmployeeCriterias, "EmployeeCriteriaId", "Size");
+            ViewBag.IndustryCriteriaId = new SelectList(db.IndustryCriterias, "IndustryCriteriaId", "Name");
+            ViewBag.TransactionCriteriaId = new SelectList(db.TransactionCriterias, "TransactionCriteriaId", "PerMonth");
             return View();
         }
 
@@ -56,11 +61,15 @@ namespace ItPedia.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.CustomerCriteriaId = new SelectList(db.CustomerCriterias, "CustomerCriteriaId", "Size", solution.CustomerCriteriaId);
+            ViewBag.EmployeeCriteriaId = new SelectList(db.EmployeeCriterias, "EmployeeCriteriaId", "Size", solution.EmployeeCriteriaId);
+            ViewBag.IndustryCriteriaId = new SelectList(db.IndustryCriterias, "IndustryCriteriaId", "Name", solution.IndustryCriteriaId);
+            ViewBag.TransactionCriteriaId = new SelectList(db.TransactionCriterias, "TransactionCriteriaId", "PerMonth", solution.TransactionCriteriaId);
             return View(solution);
         }
 
         // GET: Solutions/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -71,6 +80,10 @@ namespace ItPedia.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.CustomerCriteriaId = new SelectList(db.CustomerCriterias, "CustomerCriteriaId", "Size", solution.CustomerCriteriaId);
+            ViewBag.EmployeeCriteriaId = new SelectList(db.EmployeeCriterias, "EmployeeCriteriaId", "Size", solution.EmployeeCriteriaId);
+            ViewBag.IndustryCriteriaId = new SelectList(db.IndustryCriterias, "IndustryCriteriaId", "Name", solution.IndustryCriteriaId);
+            ViewBag.TransactionCriteriaId = new SelectList(db.TransactionCriterias, "TransactionCriteriaId", "PerMonth", solution.TransactionCriteriaId);
             return View(solution);
         }
 
@@ -87,11 +100,15 @@ namespace ItPedia.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.CustomerCriteriaId = new SelectList(db.CustomerCriterias, "CustomerCriteriaId", "Size", solution.CustomerCriteriaId);
+            ViewBag.EmployeeCriteriaId = new SelectList(db.EmployeeCriterias, "EmployeeCriteriaId", "Size", solution.EmployeeCriteriaId);
+            ViewBag.IndustryCriteriaId = new SelectList(db.IndustryCriterias, "IndustryCriteriaId", "Name", solution.IndustryCriteriaId);
+            ViewBag.TransactionCriteriaId = new SelectList(db.TransactionCriterias, "TransactionCriteriaId", "PerMonth", solution.TransactionCriteriaId);
             return View(solution);
         }
 
         // GET: Solutions/Delete/5
-        public ActionResult Delete(string id)
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
@@ -108,7 +125,7 @@ namespace ItPedia.Controllers
         // POST: Solutions/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int id)
         {
             Solution solution = db.Solutions.Find(id);
             db.Solutions.Remove(solution);

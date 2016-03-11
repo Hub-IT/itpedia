@@ -483,708 +483,713 @@ namespace ItPedia.Migrations
             context.Solutions.AddOrUpdate(solution => solution.Name,
                 new Solution
                 {
+                    SolutionId = 1,
                     Name = "Solution 1",
                     IndustryCriteria = homeBusiness,
                     EmployeeCriteria = employeeCriteriaUpTo10,
                     CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 2",
-                    IndustryCriteria = homeBusiness,
-                    EmployeeCriteria = employeeCriteriaUpTo10,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 3",
-                    IndustryCriteria = homeBusiness,
-                    EmployeeCriteria = employeeCriteriaUpTo10,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 4",
-                    IndustryCriteria = homeBusiness,
-                    EmployeeCriteria = employeeCriteriaUpTo10,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 5",
-                    IndustryCriteria = exportBusiness,
-                    EmployeeCriteria = employeeCriteria11To50,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 6",
-                    IndustryCriteria = exportBusiness,
-                    EmployeeCriteria = employeeCriteria11To50,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 7",
-                    IndustryCriteria = exportBusiness,
-                    EmployeeCriteria = employeeCriteria11To50,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 8",
-                    IndustryCriteria = exportBusiness,
-                    EmployeeCriteria = employeeCriteria11To50,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 9",
-                    IndustryCriteria = telecommunication,
-                    EmployeeCriteria = employeeCriteria51To200,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 10",
-                    IndustryCriteria = telecommunication,
-                    EmployeeCriteria = employeeCriteria51To200,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 11",
-                    IndustryCriteria = telecommunication,
-                    EmployeeCriteria = employeeCriteria51To200,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 12",
-                    IndustryCriteria = telecommunication,
-                    EmployeeCriteria = employeeCriteria51To200,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 13",
-                    IndustryCriteria = banking,
-                    EmployeeCriteria = employeeCriteria51To200,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 14",
-                    IndustryCriteria = banking,
-                    EmployeeCriteria = employeeCriteria51To200,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 15",
-                    IndustryCriteria = banking,
-                    EmployeeCriteria = employeeCriteria51To200,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 16",
-                    IndustryCriteria = banking,
-                    EmployeeCriteria = employeeCriteria51To200,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 17",
-                    IndustryCriteria = retail,
-                    EmployeeCriteria = employeeCriteriaUpTo10,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 18",
-                    IndustryCriteria = retail,
-                    EmployeeCriteria = employeeCriteriaUpTo10,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 19",
-                    IndustryCriteria = retail,
-                    EmployeeCriteria = employeeCriteriaUpTo10,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 20",
-                    IndustryCriteria = retail,
-                    EmployeeCriteria = employeeCriteriaUpTo10,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 21",
-                    IndustryCriteria = retail,
-                    EmployeeCriteria = employeeCriteria11To50,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 22",
-                    IndustryCriteria = retail,
-                    EmployeeCriteria = employeeCriteria11To50,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 23",
-                    IndustryCriteria = retail,
-                    EmployeeCriteria = employeeCriteria11To50,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 24",
-                    IndustryCriteria = retail,
-                    EmployeeCriteria = employeeCriteria11To50,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 25",
-                    IndustryCriteria = automobile,
-                    EmployeeCriteria = employeeCriteriaUpTo10,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 26",
-                    IndustryCriteria = automobile,
-                    EmployeeCriteria = employeeCriteriaUpTo10,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 27",
-                    IndustryCriteria = automobile,
-                    EmployeeCriteria = employeeCriteriaUpTo10,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 28",
-                    IndustryCriteria = automobile,
-                    EmployeeCriteria = employeeCriteriaUpTo10,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 29",
-                    IndustryCriteria = automobile,
-                    EmployeeCriteria = employeeCriteria11To50,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 30",
-                    IndustryCriteria = automobile,
-                    EmployeeCriteria = employeeCriteria11To50,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 31",
-                    IndustryCriteria = automobile,
-                    EmployeeCriteria = employeeCriteria11To50,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 32",
-                    IndustryCriteria = automobile,
-                    EmployeeCriteria = employeeCriteria11To50,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 33",
-                    IndustryCriteria = automobile,
-                    EmployeeCriteria = employeeCriteria51To200,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 34",
-                    IndustryCriteria = automobile,
-                    EmployeeCriteria = employeeCriteria51To200,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 35",
-                    IndustryCriteria = automobile,
-                    EmployeeCriteria = employeeCriteria51To200,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 36",
-                    IndustryCriteria = automobile,
-                    EmployeeCriteria = employeeCriteria51To200,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 37",
-                    IndustryCriteria = advertising,
-                    EmployeeCriteria = employeeCriteria11To50,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 38",
-                    IndustryCriteria = advertising,
-                    EmployeeCriteria = employeeCriteria11To50,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 39",
-                    IndustryCriteria = advertising,
-                    EmployeeCriteria = employeeCriteria11To50,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 40",
-                    IndustryCriteria = advertising,
-                    EmployeeCriteria = employeeCriteria11To50,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 41",
-                    IndustryCriteria = insurance,
-                    EmployeeCriteria = employeeCriteria51To200,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 42",
-                    IndustryCriteria = insurance,
-                    EmployeeCriteria = employeeCriteria51To200,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 43",
-                    IndustryCriteria = insurance,
-                    EmployeeCriteria = employeeCriteria51To200,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 44",
-                    IndustryCriteria = insurance,
-                    EmployeeCriteria = employeeCriteria51To200,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 45",
-                    IndustryCriteria = oil,
-                    EmployeeCriteria = employeeCriteria51To200,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 46",
-                    IndustryCriteria = oil,
-                    EmployeeCriteria = employeeCriteria51To200,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 47",
-                    IndustryCriteria = oil,
-                    EmployeeCriteria = employeeCriteria51To200,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 48",
-                    IndustryCriteria = oil,
-                    EmployeeCriteria = employeeCriteria51To200,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 49",
-                    IndustryCriteria = oil,
-                    EmployeeCriteria = employeeCriteria51To200,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 50",
-                    IndustryCriteria = oil,
-                    EmployeeCriteria = employeeCriteria51To200,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 51",
-                    IndustryCriteria = oil,
-                    EmployeeCriteria = employeeCriteria51To200,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 52",
-                    IndustryCriteria = oil,
-                    EmployeeCriteria = employeeCriteria51To200,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 53",
-                    IndustryCriteria = pharmaceutical,
-                    EmployeeCriteria = employeeCriteria11To50,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 54",
-                    IndustryCriteria = pharmaceutical,
-                    EmployeeCriteria = employeeCriteria11To50,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 55",
-                    IndustryCriteria = pharmaceutical,
-                    EmployeeCriteria = employeeCriteria11To50,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 56",
-                    IndustryCriteria = pharmaceutical,
-                    EmployeeCriteria = employeeCriteria11To50,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 57",
-                    IndustryCriteria = pharmaceutical,
-                    EmployeeCriteria = employeeCriteria51To200,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 58",
-                    IndustryCriteria = pharmaceutical,
-                    EmployeeCriteria = employeeCriteria51To200,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 59",
-                    IndustryCriteria = pharmaceutical,
-                    EmployeeCriteria = employeeCriteria51To200,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 60",
-                    IndustryCriteria = pharmaceutical,
-                    EmployeeCriteria = employeeCriteria51To200,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 61",
-                    IndustryCriteria = waterSupply,
-                    EmployeeCriteria = employeeCriteria11To50,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 62",
-                    IndustryCriteria = waterSupply,
-                    EmployeeCriteria = employeeCriteria11To50,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 63",
-                    IndustryCriteria = waterSupply,
-                    EmployeeCriteria = employeeCriteria11To50,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 64",
-                    IndustryCriteria = waterSupply,
-                    EmployeeCriteria = employeeCriteria11To50,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 65",
-                    IndustryCriteria = waterSupply,
-                    EmployeeCriteria = employeeCriteria51To200,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 66",
-                    IndustryCriteria = waterSupply,
-                    EmployeeCriteria = employeeCriteria51To200,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 67",
-                    IndustryCriteria = waterSupply,
-                    EmployeeCriteria = employeeCriteria51To200,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 68",
-                    IndustryCriteria = waterSupply,
-                    EmployeeCriteria = employeeCriteria51To200,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 69",
-                    IndustryCriteria = police,
-                    EmployeeCriteria = employeeCriteriaNotNecessary,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 70",
-                    IndustryCriteria = police,
-                    EmployeeCriteria = employeeCriteriaNotNecessary,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 71",
-                    IndustryCriteria = police,
-                    EmployeeCriteria = employeeCriteriaNotNecessary,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 72",
-                    IndustryCriteria = police,
-                    EmployeeCriteria = employeeCriteriaNotNecessary,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 73",
-                    IndustryCriteria = tvBroadcasting,
-                    EmployeeCriteria = employeeCriteria51To200,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 74",
-                    IndustryCriteria = tvBroadcasting,
-                    EmployeeCriteria = employeeCriteria51To200,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 75",
-                    IndustryCriteria = tvBroadcasting,
-                    EmployeeCriteria = employeeCriteria51To200,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 76",
-                    IndustryCriteria = tvBroadcasting,
-                    EmployeeCriteria = employeeCriteria51To200,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 77",
-                    IndustryCriteria = stockExchange,
-                    EmployeeCriteria = employeeCriteriaNotNecessary,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 78",
-                    IndustryCriteria = stockExchange,
-                    EmployeeCriteria = employeeCriteriaNotNecessary,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 79",
-                    IndustryCriteria = stockExchange,
-                    EmployeeCriteria = employeeCriteriaNotNecessary,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 80",
-                    IndustryCriteria = stockExchange,
-                    EmployeeCriteria = employeeCriteriaNotNecessary,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 81",
-                    IndustryCriteria = energy,
-                    EmployeeCriteria = employeeCriteriaNotNecessary,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 82",
-                    IndustryCriteria = energy,
-                    EmployeeCriteria = employeeCriteriaNotNecessary,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 83",
-                    IndustryCriteria = energy,
-                    EmployeeCriteria = employeeCriteriaNotNecessary,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 84",
-                    IndustryCriteria = energy,
-                    EmployeeCriteria = employeeCriteriaNotNecessary,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 85",
-                    IndustryCriteria = transportation,
-                    EmployeeCriteria = employeeCriteriaNotNecessary,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 86",
-                    IndustryCriteria = transportation,
-                    EmployeeCriteria = employeeCriteriaNotNecessary,
-                    CustomerCriteria = customerCriteriaUpTo500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
-                },
-                new Solution
-                {
-                    Name = "Solution 87",
-                    IndustryCriteria = transportation,
-                    EmployeeCriteria = employeeCriteriaNotNecessary,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaUpTo100
-                },
-                new Solution
-                {
-                    Name = "Solution 88",
-                    IndustryCriteria = transportation,
-                    EmployeeCriteria = employeeCriteriaNotNecessary,
-                    CustomerCriteria = customerCriteriaMore500,
-                    TransactionCriteria = transactionCriteriaMoreThan100
+                    TransactionCriteria = transactionCriteriaUpTo100,
+                    IndustryCriteriaId = homeBusiness.IndustryCriteriaId,
+                    EmployeeCriteriaId = employeeCriteriaUpTo10.EmployeeCriteriaId,
+                    CustomerCriteriaId = customerCriteriaUpTo500.CustomerCriteriaId,
+                    TransactionCriteriaId = transactionCriteriaUpTo100.TransactionCriteriaId
                 }
+//                new Solution
+//                {
+//                    Name = "Solution 2",
+//                    IndustryCriteria = homeBusiness,
+//                    EmployeeCriteria = employeeCriteriaUpTo10,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 3",
+//                    IndustryCriteria = homeBusiness,
+//                    EmployeeCriteria = employeeCriteriaUpTo10,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 4",
+//                    IndustryCriteria = homeBusiness,
+//                    EmployeeCriteria = employeeCriteriaUpTo10,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 5",
+//                    IndustryCriteria = exportBusiness,
+//                    EmployeeCriteria = employeeCriteria11To50,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 6",
+//                    IndustryCriteria = exportBusiness,
+//                    EmployeeCriteria = employeeCriteria11To50,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 7",
+//                    IndustryCriteria = exportBusiness,
+//                    EmployeeCriteria = employeeCriteria11To50,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 8",
+//                    IndustryCriteria = exportBusiness,
+//                    EmployeeCriteria = employeeCriteria11To50,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 9",
+//                    IndustryCriteria = telecommunication,
+//                    EmployeeCriteria = employeeCriteria51To200,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 10",
+//                    IndustryCriteria = telecommunication,
+//                    EmployeeCriteria = employeeCriteria51To200,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 11",
+//                    IndustryCriteria = telecommunication,
+//                    EmployeeCriteria = employeeCriteria51To200,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 12",
+//                    IndustryCriteria = telecommunication,
+//                    EmployeeCriteria = employeeCriteria51To200,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 13",
+//                    IndustryCriteria = banking,
+//                    EmployeeCriteria = employeeCriteria51To200,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 14",
+//                    IndustryCriteria = banking,
+//                    EmployeeCriteria = employeeCriteria51To200,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 15",
+//                    IndustryCriteria = banking,
+//                    EmployeeCriteria = employeeCriteria51To200,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 16",
+//                    IndustryCriteria = banking,
+//                    EmployeeCriteria = employeeCriteria51To200,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 17",
+//                    IndustryCriteria = retail,
+//                    EmployeeCriteria = employeeCriteriaUpTo10,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 18",
+//                    IndustryCriteria = retail,
+//                    EmployeeCriteria = employeeCriteriaUpTo10,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 19",
+//                    IndustryCriteria = retail,
+//                    EmployeeCriteria = employeeCriteriaUpTo10,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 20",
+//                    IndustryCriteria = retail,
+//                    EmployeeCriteria = employeeCriteriaUpTo10,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 21",
+//                    IndustryCriteria = retail,
+//                    EmployeeCriteria = employeeCriteria11To50,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 22",
+//                    IndustryCriteria = retail,
+//                    EmployeeCriteria = employeeCriteria11To50,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 23",
+//                    IndustryCriteria = retail,
+//                    EmployeeCriteria = employeeCriteria11To50,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 24",
+//                    IndustryCriteria = retail,
+//                    EmployeeCriteria = employeeCriteria11To50,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 25",
+//                    IndustryCriteria = automobile,
+//                    EmployeeCriteria = employeeCriteriaUpTo10,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 26",
+//                    IndustryCriteria = automobile,
+//                    EmployeeCriteria = employeeCriteriaUpTo10,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 27",
+//                    IndustryCriteria = automobile,
+//                    EmployeeCriteria = employeeCriteriaUpTo10,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 28",
+//                    IndustryCriteria = automobile,
+//                    EmployeeCriteria = employeeCriteriaUpTo10,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 29",
+//                    IndustryCriteria = automobile,
+//                    EmployeeCriteria = employeeCriteria11To50,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 30",
+//                    IndustryCriteria = automobile,
+//                    EmployeeCriteria = employeeCriteria11To50,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 31",
+//                    IndustryCriteria = automobile,
+//                    EmployeeCriteria = employeeCriteria11To50,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 32",
+//                    IndustryCriteria = automobile,
+//                    EmployeeCriteria = employeeCriteria11To50,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 33",
+//                    IndustryCriteria = automobile,
+//                    EmployeeCriteria = employeeCriteria51To200,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 34",
+//                    IndustryCriteria = automobile,
+//                    EmployeeCriteria = employeeCriteria51To200,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 35",
+//                    IndustryCriteria = automobile,
+//                    EmployeeCriteria = employeeCriteria51To200,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 36",
+//                    IndustryCriteria = automobile,
+//                    EmployeeCriteria = employeeCriteria51To200,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 37",
+//                    IndustryCriteria = advertising,
+//                    EmployeeCriteria = employeeCriteria11To50,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 38",
+//                    IndustryCriteria = advertising,
+//                    EmployeeCriteria = employeeCriteria11To50,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 39",
+//                    IndustryCriteria = advertising,
+//                    EmployeeCriteria = employeeCriteria11To50,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 40",
+//                    IndustryCriteria = advertising,
+//                    EmployeeCriteria = employeeCriteria11To50,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 41",
+//                    IndustryCriteria = insurance,
+//                    EmployeeCriteria = employeeCriteria51To200,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 42",
+//                    IndustryCriteria = insurance,
+//                    EmployeeCriteria = employeeCriteria51To200,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 43",
+//                    IndustryCriteria = insurance,
+//                    EmployeeCriteria = employeeCriteria51To200,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 44",
+//                    IndustryCriteria = insurance,
+//                    EmployeeCriteria = employeeCriteria51To200,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 45",
+//                    IndustryCriteria = oil,
+//                    EmployeeCriteria = employeeCriteria51To200,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 46",
+//                    IndustryCriteria = oil,
+//                    EmployeeCriteria = employeeCriteria51To200,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 47",
+//                    IndustryCriteria = oil,
+//                    EmployeeCriteria = employeeCriteria51To200,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 48",
+//                    IndustryCriteria = oil,
+//                    EmployeeCriteria = employeeCriteria51To200,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 49",
+//                    IndustryCriteria = oil,
+//                    EmployeeCriteria = employeeCriteria51To200,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 50",
+//                    IndustryCriteria = oil,
+//                    EmployeeCriteria = employeeCriteria51To200,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 51",
+//                    IndustryCriteria = oil,
+//                    EmployeeCriteria = employeeCriteria51To200,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 52",
+//                    IndustryCriteria = oil,
+//                    EmployeeCriteria = employeeCriteria51To200,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 53",
+//                    IndustryCriteria = pharmaceutical,
+//                    EmployeeCriteria = employeeCriteria11To50,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 54",
+//                    IndustryCriteria = pharmaceutical,
+//                    EmployeeCriteria = employeeCriteria11To50,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 55",
+//                    IndustryCriteria = pharmaceutical,
+//                    EmployeeCriteria = employeeCriteria11To50,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 56",
+//                    IndustryCriteria = pharmaceutical,
+//                    EmployeeCriteria = employeeCriteria11To50,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 57",
+//                    IndustryCriteria = pharmaceutical,
+//                    EmployeeCriteria = employeeCriteria51To200,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 58",
+//                    IndustryCriteria = pharmaceutical,
+//                    EmployeeCriteria = employeeCriteria51To200,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 59",
+//                    IndustryCriteria = pharmaceutical,
+//                    EmployeeCriteria = employeeCriteria51To200,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 60",
+//                    IndustryCriteria = pharmaceutical,
+//                    EmployeeCriteria = employeeCriteria51To200,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 61",
+//                    IndustryCriteria = waterSupply,
+//                    EmployeeCriteria = employeeCriteria11To50,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 62",
+//                    IndustryCriteria = waterSupply,
+//                    EmployeeCriteria = employeeCriteria11To50,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 63",
+//                    IndustryCriteria = waterSupply,
+//                    EmployeeCriteria = employeeCriteria11To50,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 64",
+//                    IndustryCriteria = waterSupply,
+//                    EmployeeCriteria = employeeCriteria11To50,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 65",
+//                    IndustryCriteria = waterSupply,
+//                    EmployeeCriteria = employeeCriteria51To200,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 66",
+//                    IndustryCriteria = waterSupply,
+//                    EmployeeCriteria = employeeCriteria51To200,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 67",
+//                    IndustryCriteria = waterSupply,
+//                    EmployeeCriteria = employeeCriteria51To200,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 68",
+//                    IndustryCriteria = waterSupply,
+//                    EmployeeCriteria = employeeCriteria51To200,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 69",
+//                    IndustryCriteria = police,
+//                    EmployeeCriteria = employeeCriteriaNotNecessary,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 70",
+//                    IndustryCriteria = police,
+//                    EmployeeCriteria = employeeCriteriaNotNecessary,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 71",
+//                    IndustryCriteria = police,
+//                    EmployeeCriteria = employeeCriteriaNotNecessary,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 72",
+//                    IndustryCriteria = police,
+//                    EmployeeCriteria = employeeCriteriaNotNecessary,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 73",
+//                    IndustryCriteria = tvBroadcasting,
+//                    EmployeeCriteria = employeeCriteria51To200,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 74",
+//                    IndustryCriteria = tvBroadcasting,
+//                    EmployeeCriteria = employeeCriteria51To200,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 75",
+//                    IndustryCriteria = tvBroadcasting,
+//                    EmployeeCriteria = employeeCriteria51To200,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 76",
+//                    IndustryCriteria = tvBroadcasting,
+//                    EmployeeCriteria = employeeCriteria51To200,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 77",
+//                    IndustryCriteria = stockExchange,
+//                    EmployeeCriteria = employeeCriteriaNotNecessary,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 78",
+//                    IndustryCriteria = stockExchange,
+//                    EmployeeCriteria = employeeCriteriaNotNecessary,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 79",
+//                    IndustryCriteria = stockExchange,
+//                    EmployeeCriteria = employeeCriteriaNotNecessary,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 80",
+//                    IndustryCriteria = stockExchange,
+//                    EmployeeCriteria = employeeCriteriaNotNecessary,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 81",
+//                    IndustryCriteria = energy,
+//                    EmployeeCriteria = employeeCriteriaNotNecessary,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 82",
+//                    IndustryCriteria = energy,
+//                    EmployeeCriteria = employeeCriteriaNotNecessary,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 83",
+//                    IndustryCriteria = energy,
+//                    EmployeeCriteria = employeeCriteriaNotNecessary,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 84",
+//                    IndustryCriteria = energy,
+//                    EmployeeCriteria = employeeCriteriaNotNecessary,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 85",
+//                    IndustryCriteria = transportation,
+//                    EmployeeCriteria = employeeCriteriaNotNecessary,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 86",
+//                    IndustryCriteria = transportation,
+//                    EmployeeCriteria = employeeCriteriaNotNecessary,
+//                    CustomerCriteria = customerCriteriaUpTo500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 87",
+//                    IndustryCriteria = transportation,
+//                    EmployeeCriteria = employeeCriteriaNotNecessary,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaUpTo100
+//                },
+//                new Solution
+//                {
+//                    Name = "Solution 88",
+//                    IndustryCriteria = transportation,
+//                    EmployeeCriteria = employeeCriteriaNotNecessary,
+//                    CustomerCriteria = customerCriteriaMore500,
+//                    TransactionCriteria = transactionCriteriaMoreThan100
+//                }
                 );
 
             context.SaveChanges();
