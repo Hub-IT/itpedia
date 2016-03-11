@@ -190,6 +190,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IndustryCriteriasController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SolutionsController.cs" />
     <Compile Include="Controllers\TermsController.cs" />
     <Compile Include="Controllers\TransactionCriteriasController.cs" />
     <Compile Include="Global.asax.cs">
@@ -367,11 +368,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_ItPediaLogoText.cshtml" />
-    <Content Include="Views\SolutionCategories\Create.cshtml" />
-    <Content Include="Views\SolutionCategories\Delete.cshtml" />
-    <Content Include="Views\SolutionCategories\Details.cshtml" />
-    <Content Include="Views\SolutionCategories\Edit.cshtml" />
-    <Content Include="Views\SolutionCategories\Index.cshtml" />
     <Content Include="Views\Terms\Create.cshtml" />
     <Content Include="Views\Terms\Delete.cshtml" />
     <Content Include="Views\Terms\Details.cshtml" />
@@ -400,6 +396,11 @@
     <Content Include="Views\IndustryCriterias\Edit.cshtml" />
     <Content Include="Views\IndustryCriterias\Index.cshtml" />
     <Content Include="Scripts\jquery-2.2.1.min.map" />
+    <Content Include="Views\Solutions\Create.cshtml" />
+    <Content Include="Views\Solutions\Delete.cshtml" />
+    <Content Include="Views\Solutions\Details.cshtml" />
+    <Content Include="Views\Solutions\Edit.cshtml" />
+    <Content Include="Views\Solutions\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -478,22 +478,7 @@ namespace ItPedia.Migrations
                 }
                 );
 
-//                homeBusiness,
-//                exportBusiness,
-//                telecommunication,
-//                banking,
-//                retail,
-//                automobile,
-//                advertising,
-//                insurance,
-//                oil,
-//                pharmaceutical,
-//                waterSupply,
-//                police,
-//                tvBroadcasting,
-//                stockExchange,
-//                energy,
-//                transportation
+            context.SaveChanges();
 
             context.Solutions.AddOrUpdate(solution => solution.Name,
                 new Solution
@@ -1074,7 +1059,7 @@ namespace ItPedia.Migrations
                 },
                 new Solution
                 {
-                    Name = "Solution 72",
+                    Name = "Solution 73",
                     IndustryCriteria = tvBroadcasting,
                     EmployeeCriteria = employeeCriteria51To200,
                     CustomerCriteria = customerCriteriaUpTo500,
@@ -1082,7 +1067,7 @@ namespace ItPedia.Migrations
                 },
                 new Solution
                 {
-                    Name = "Solution 73",
+                    Name = "Solution 74",
                     IndustryCriteria = tvBroadcasting,
                     EmployeeCriteria = employeeCriteria51To200,
                     CustomerCriteria = customerCriteriaUpTo500,
@@ -1090,16 +1075,112 @@ namespace ItPedia.Migrations
                 },
                 new Solution
                 {
-                    Name = "Solution 71",
-                    IndustryCriteria = police,
+                    Name = "Solution 75",
+                    IndustryCriteria = tvBroadcasting,
+                    EmployeeCriteria = employeeCriteria51To200,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 76",
+                    IndustryCriteria = tvBroadcasting,
+                    EmployeeCriteria = employeeCriteria51To200,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 77",
+                    IndustryCriteria = stockExchange,
+                    EmployeeCriteria = employeeCriteriaNotNecessary,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 78",
+                    IndustryCriteria = stockExchange,
+                    EmployeeCriteria = employeeCriteriaNotNecessary,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 79",
+                    IndustryCriteria = stockExchange,
                     EmployeeCriteria = employeeCriteriaNotNecessary,
                     CustomerCriteria = customerCriteriaMore500,
                     TransactionCriteria = transactionCriteriaUpTo100
                 },
                 new Solution
                 {
-                    Name = "Solution 72",
-                    IndustryCriteria = police,
+                    Name = "Solution 80",
+                    IndustryCriteria = stockExchange,
+                    EmployeeCriteria = employeeCriteriaNotNecessary,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 81",
+                    IndustryCriteria = energy,
+                    EmployeeCriteria = employeeCriteriaNotNecessary,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 82",
+                    IndustryCriteria = energy,
+                    EmployeeCriteria = employeeCriteriaNotNecessary,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 83",
+                    IndustryCriteria = energy,
+                    EmployeeCriteria = employeeCriteriaNotNecessary,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 84",
+                    IndustryCriteria = energy,
+                    EmployeeCriteria = employeeCriteriaNotNecessary,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 85",
+                    IndustryCriteria = transportation,
+                    EmployeeCriteria = employeeCriteriaNotNecessary,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 86",
+                    IndustryCriteria = transportation,
+                    EmployeeCriteria = employeeCriteriaNotNecessary,
+                    CustomerCriteria = customerCriteriaUpTo500,
+                    TransactionCriteria = transactionCriteriaMoreThan100
+                },
+                new Solution
+                {
+                    Name = "Solution 87",
+                    IndustryCriteria = transportation,
+                    EmployeeCriteria = employeeCriteriaNotNecessary,
+                    CustomerCriteria = customerCriteriaMore500,
+                    TransactionCriteria = transactionCriteriaUpTo100
+                },
+                new Solution
+                {
+                    Name = "Solution 88",
+                    IndustryCriteria = transportation,
                     EmployeeCriteria = employeeCriteriaNotNecessary,
                     CustomerCriteria = customerCriteriaMore500,
                     TransactionCriteria = transactionCriteriaMoreThan100
