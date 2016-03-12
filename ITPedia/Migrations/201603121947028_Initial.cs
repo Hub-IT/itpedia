@@ -3,7 +3,7 @@ namespace ItPedia.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class Initial : DbMigration
     {
         public override void Up()
         {
@@ -44,37 +44,25 @@ namespace ItPedia.Migrations
                 .PrimaryKey(t => t.TransactionCriteriaId);
             
             CreateTable(
-                "dbo.SolutionCategories",
-                c => new
-                    {
-                        SolutionCategoryId = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                    })
-                .PrimaryKey(t => t.SolutionCategoryId);
-            
-            CreateTable(
                 "dbo.Solutions",
                 c => new
                     {
-                        SolutionId = c.String(nullable: false, maxLength: 128),
-                        IndustryId = c.String(),
-                        EmployeeId = c.String(),
-                        TransactionId = c.String(),
-                        CategoryId = c.Int(nullable: false),
-                        EmployeeCriteria_EmployeeCriteriaId = c.Int(),
-                        IndustryCriteria_IndustryCriteriaId = c.Int(),
-                        SolutionCategory_SolutionCategoryId = c.Int(),
-                        TransactionCriteria_TransactionCriteriaId = c.Int(),
+                        SolutionId = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        IndustryCriteriaId = c.Int(nullable: false),
+                        EmployeeCriteriaId = c.Int(nullable: false),
+                        CustomerCriteriaId = c.Int(nullable: false),
+                        TransactionCriteriaId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.SolutionId)
-                .ForeignKey("dbo.EmployeeCriterias", t => t.EmployeeCriteria_EmployeeCriteriaId)
-                .ForeignKey("dbo.IndustryCriterias", t => t.IndustryCriteria_IndustryCriteriaId)
-                .ForeignKey("dbo.SolutionCategories", t => t.SolutionCategory_SolutionCategoryId)
-                .ForeignKey("dbo.TransactionCriterias", t => t.TransactionCriteria_TransactionCriteriaId)
-                .Index(t => t.EmployeeCriteria_EmployeeCriteriaId)
-                .Index(t => t.IndustryCriteria_IndustryCriteriaId)
-                .Index(t => t.SolutionCategory_SolutionCategoryId)
-                .Index(t => t.TransactionCriteria_TransactionCriteriaId);
+                .ForeignKey("dbo.CustomerCriterias", t => t.CustomerCriteriaId, cascadeDelete: true)
+                .ForeignKey("dbo.EmployeeCriterias", t => t.EmployeeCriteriaId, cascadeDelete: true)
+                .ForeignKey("dbo.IndustryCriterias", t => t.IndustryCriteriaId, cascadeDelete: true)
+                .ForeignKey("dbo.TransactionCriterias", t => t.TransactionCriteriaId, cascadeDelete: true)
+                .Index(t => t.IndustryCriteriaId)
+                .Index(t => t.EmployeeCriteriaId)
+                .Index(t => t.CustomerCriteriaId)
+                .Index(t => t.TransactionCriteriaId);
             
             CreateTable(
                 "dbo.Terms",
@@ -169,10 +157,10 @@ namespace ItPedia.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.Solutions", "TransactionCriteria_TransactionCriteriaId", "dbo.TransactionCriterias");
-            DropForeignKey("dbo.Solutions", "SolutionCategory_SolutionCategoryId", "dbo.SolutionCategories");
-            DropForeignKey("dbo.Solutions", "IndustryCriteria_IndustryCriteriaId", "dbo.IndustryCriterias");
-            DropForeignKey("dbo.Solutions", "EmployeeCriteria_EmployeeCriteriaId", "dbo.EmployeeCriterias");
+            DropForeignKey("dbo.Solutions", "TransactionCriteriaId", "dbo.TransactionCriterias");
+            DropForeignKey("dbo.Solutions", "IndustryCriteriaId", "dbo.IndustryCriterias");
+            DropForeignKey("dbo.Solutions", "EmployeeCriteriaId", "dbo.EmployeeCriterias");
+            DropForeignKey("dbo.Solutions", "CustomerCriteriaId", "dbo.CustomerCriterias");
             DropForeignKey("dbo.TransactionCriteriaIndustryCriterias", "IndustryCriteria_IndustryCriteriaId", "dbo.IndustryCriterias");
             DropForeignKey("dbo.TransactionCriteriaIndustryCriterias", "TransactionCriteria_TransactionCriteriaId", "dbo.TransactionCriterias");
             DropForeignKey("dbo.TransactionCriteriaEmployeeCriterias", "EmployeeCriteria_EmployeeCriteriaId", "dbo.EmployeeCriterias");
@@ -197,10 +185,10 @@ namespace ItPedia.Migrations
             DropIndex("dbo.IndustryCriteriaCustomerCriterias", new[] { "IndustryCriteria_IndustryCriteriaId" });
             DropIndex("dbo.EmployeeCriteriaCustomerCriterias", new[] { "CustomerCriteria_CustomerCriteriaId" });
             DropIndex("dbo.EmployeeCriteriaCustomerCriterias", new[] { "EmployeeCriteria_EmployeeCriteriaId" });
-            DropIndex("dbo.Solutions", new[] { "TransactionCriteria_TransactionCriteriaId" });
-            DropIndex("dbo.Solutions", new[] { "SolutionCategory_SolutionCategoryId" });
-            DropIndex("dbo.Solutions", new[] { "IndustryCriteria_IndustryCriteriaId" });
-            DropIndex("dbo.Solutions", new[] { "EmployeeCriteria_EmployeeCriteriaId" });
+            DropIndex("dbo.Solutions", new[] { "TransactionCriteriaId" });
+            DropIndex("dbo.Solutions", new[] { "CustomerCriteriaId" });
+            DropIndex("dbo.Solutions", new[] { "EmployeeCriteriaId" });
+            DropIndex("dbo.Solutions", new[] { "IndustryCriteriaId" });
             DropTable("dbo.TransactionCriteriaIndustryCriterias");
             DropTable("dbo.TransactionCriteriaEmployeeCriterias");
             DropTable("dbo.TransactionCriteriaCustomerCriterias");
@@ -209,7 +197,6 @@ namespace ItPedia.Migrations
             DropTable("dbo.EmployeeCriteriaCustomerCriterias");
             DropTable("dbo.Terms");
             DropTable("dbo.Solutions");
-            DropTable("dbo.SolutionCategories");
             DropTable("dbo.TransactionCriterias");
             DropTable("dbo.IndustryCriterias");
             DropTable("dbo.EmployeeCriterias");

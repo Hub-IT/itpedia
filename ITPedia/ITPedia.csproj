@@ -196,9 +196,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201602251506552_InitialCreate.cs" />
-    <Compile Include="Migrations\201602251506552_InitialCreate.Designer.cs">
-      <DependentUpon>201602251506552_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201603121947028_Initial.cs" />
+    <Compile Include="Migrations\201603121947028_Initial.Designer.cs">
+      <DependentUpon>201603121947028_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Utilities\Flash.cs" />
@@ -409,8 +409,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201602251506552_InitialCreate.resx">
-      <DependentUpon>201602251506552_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201603121947028_Initial.resx">
+      <DependentUpon>201603121947028_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
