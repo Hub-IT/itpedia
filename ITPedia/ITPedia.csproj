@@ -201,6 +201,12 @@
       <DependentUpon>201603121947028_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\Seeds\CustomerCriteriaSeeder.cs" />
+    <Compile Include="Migrations\Seeds\EmployeeCriteriaSeeder.cs" />
+    <Compile Include="Migrations\Seeds\IndustryCriteriaSeeder.cs" />
+    <Compile Include="Migrations\Seeds\SolutionSeeder.cs" />
+    <Compile Include="Migrations\Seeds\TermSeeder.cs" />
+    <Compile Include="Migrations\Seeds\TransactionCriteriaSeeder.cs" />
     <Compile Include="Utilities\Flash.cs" />
     <Compile Include="Utilities\RssResult.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
