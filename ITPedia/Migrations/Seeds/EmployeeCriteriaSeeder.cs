@@ -11,6 +11,21 @@ namespace ItPedia.Migrations.Seeds
         public EmployeeCriteriaSeeder(ItPediaDbContext context)
         {
             var homeBusiness = context.IndustryCriterias.First(i => i.Name == "Home Business");
+            var exportBusiness = context.IndustryCriterias.First(i => i.Name == "Export Business");
+            var telecommunication = context.IndustryCriterias.First(i => i.Name == "Telecommunications");
+            var banking = context.IndustryCriterias.First(i => i.Name == "Banking");
+            var retail = context.IndustryCriterias.First(i => i.Name == "Retail");
+            var automobile = context.IndustryCriterias.First(i => i.Name == "Automobile");
+            var advertising = context.IndustryCriterias.First(i => i.Name == "Advertising");
+            var insurance = context.IndustryCriterias.First(i => i.Name == "Insurance");
+            var oil = context.IndustryCriterias.First(i => i.Name == "Oil");
+            var pharmaceutical = context.IndustryCriterias.First(i => i.Name == "Pharmaceutical");
+            var waterSupply = context.IndustryCriterias.First(i => i.Name == "Water Supply");
+            var police = context.IndustryCriterias.First(i => i.Name == "Police");
+            var tvBroadcasting = context.IndustryCriterias.First(i => i.Name == "TV Broadcasting");
+            var stockExchange = context.IndustryCriterias.First(i => i.Name == "Stock Exchange");
+            var energy = context.IndustryCriterias.First(i => i.Name == "Energy");
+            var transportation = context.IndustryCriterias.First(i => i.Name == "Transportation");
 
             var employeeCriteriaUpTo10 = new EmployeeCriteria
             {
@@ -24,7 +39,7 @@ namespace ItPedia.Migrations.Seeds
                     new List<IndustryCriteria>
                     {
                         exportBusiness,
-                        retail,
+                       retail,
                         automobile,
                         advertising,
                         pharmaceutical,

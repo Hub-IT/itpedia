@@ -9,7 +9,6 @@ namespace ItPedia.Migrations.Seeds
     {
         public IndustryCriteriaSeeder(ItPediaDbContext context)
         {
-            
             var homeBusiness = new IndustryCriteria {Name = "Home Business"};
             var exportBusiness = new IndustryCriteria {Name = "Export Business"};
             var telecommunication = new IndustryCriteria {Name = "Telecommunications"};

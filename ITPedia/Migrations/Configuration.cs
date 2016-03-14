@@ -19,7 +19,13 @@ namespace ItPedia.Migrations
         {
             new IndustryCriteriaSeeder(context);
 
+            new EmployeeCriteriaSeeder(context);
 
+            new CustomerCriteriaSeeder(context);
+
+            new TransactionCriteriaSeeder(context);
+
+            new TermSeeder(context);
         }
     }
 }
