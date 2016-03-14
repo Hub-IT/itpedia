@@ -107,7 +107,6 @@ namespace ItPedia.Migrations.Seeds
             context.TransactionCriterias.AddOrUpdate(p => p.PerMonth, transactionCriterias.ToArray());
 
             context.SaveChanges();
-
         }
     }
 }
