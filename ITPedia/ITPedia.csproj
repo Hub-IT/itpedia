@@ -204,6 +204,7 @@
     <Compile Include="Migrations\Seeds\CustomerCriteriaSeeder.cs" />
     <Compile Include="Migrations\Seeds\EmployeeCriteriaSeeder.cs" />
     <Compile Include="Migrations\Seeds\IndustryCriteriaSeeder.cs" />
+    <Compile Include="Migrations\Seeds\ProposalSeeder.cs" />
     <Compile Include="Migrations\Seeds\ProposalTermSeeder.cs" />
     <Compile Include="Migrations\Seeds\SolutionSeeder.cs" />
     <Compile Include="Migrations\Seeds\TermSeeder.cs" />

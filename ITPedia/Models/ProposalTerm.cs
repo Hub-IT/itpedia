@@ -4,7 +4,7 @@
     {
         public virtual int ProposalTermId { get; set; }
 
-        public virtual string Number { get; set; }
+        public virtual string Specification { get; set; }
 
         public virtual int TermId { get; set; }
         public virtual Term Term { get; set; }

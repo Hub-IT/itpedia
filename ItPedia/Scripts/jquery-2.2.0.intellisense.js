@@ -188,8 +188,8 @@ intellisense.annotate(jQuery, {
     ///   <summary>Search for a specified value within an array and return its index (or -1 if not found).</summary>
     ///   <param name="value" type="Anything">The value to search for.</param>
     ///   <param name="array" type="Array">An array through which to search.</param>
-    ///   <param name="fromIndex" type="Number">The index of the array at which to begin the search. The default is 0, which will search the whole array.</param>
-    ///   <returns type="Number" />
+    ///   <param name="fromIndex" type="Specification">The index of the array at which to begin the search. The default is 0, which will search the whole array.</param>
+    ///   <returns type="Specification" />
     /// </signature>
   },
   'isArray': function() {
@@ -282,7 +282,7 @@ intellisense.annotate(jQuery, {
   },
   'now': function() {
     /// <summary>Return a number representing the current time.</summary>
-    /// <returns type="Number" />
+    /// <returns type="Specification" />
   },
   'param': function() {
     /// <signature>
@@ -667,11 +667,11 @@ intellisense.annotate(jQuery.Event.prototype, {
   },
   'pageX': function() {
     /// <summary>The mouse position relative to the left edge of the document.</summary>
-    /// <returns type="Number" />
+    /// <returns type="Specification" />
   },
   'pageY': function() {
     /// <summary>The mouse position relative to the top edge of the document.</summary>
-    /// <returns type="Number" />
+    /// <returns type="Specification" />
   },
   'preventDefault': function() {
     /// <summary>If this method is called, the default action of the event will not be triggered.</summary>
@@ -696,7 +696,7 @@ intellisense.annotate(jQuery.Event.prototype, {
   },
   'timeStamp': function() {
     /// <summary>The difference in milliseconds between the time the browser created the event and January 1, 1970.</summary>
-    /// <returns type="Number" />
+    /// <returns type="Specification" />
   },
   'type': function() {
     /// <summary>Describes the nature of the event.</summary>
@@ -704,7 +704,7 @@ intellisense.annotate(jQuery.Event.prototype, {
   },
   'which': function() {
     /// <summary>For key or mouse events, this property indicates the specific key or button that was pressed.</summary>
-    /// <returns type="Number" />
+    /// <returns type="Specification" />
   },
 });
 
@@ -1146,7 +1146,7 @@ intellisense.annotate(jQuery.fn, {
   'delay': function() {
     /// <signature>
     ///   <summary>Set a timer to delay execution of subsequent items in the queue.</summary>
-    ///   <param name="duration" type="Number">An integer indicating the number of milliseconds to delay execution of the next item in the queue.</param>
+    ///   <param name="duration" type="Specification">An integer indicating the number of milliseconds to delay execution of the next item in the queue.</param>
     ///   <param name="queueName" type="String">A string containing the name of the queue. Defaults to fx, the standard effects queue.</param>
     ///   <returns type="jQuery" />
     /// </signature>
@@ -1237,11 +1237,11 @@ intellisense.annotate(jQuery.fn, {
   'eq': function() {
     /// <signature>
     ///   <summary>Select the element at index n within the matched set.</summary>
-    ///   <param name="index" type="Number">Zero-based index of the element to match.</param>
+    ///   <param name="index" type="Specification">Zero-based index of the element to match.</param>
     /// </signature>
     /// <signature>
     ///   <summary>Select the element at index n within the matched set.</summary>
-    ///   <param name="-index" type="Number">Zero-based index of the element to match, counting backwards from the last element.</param>
+    ///   <param name="-index" type="Specification">Zero-based index of the element to match, counting backwards from the last element.</param>
     /// </signature>
   },
   'error': function() {
@@ -1304,14 +1304,14 @@ intellisense.annotate(jQuery.fn, {
     /// <signature>
     ///   <summary>Adjust the opacity of the matched elements.</summary>
     ///   <param name="duration" type="">A string or number determining how long the animation will run.</param>
-    ///   <param name="opacity" type="Number">A number between 0 and 1 denoting the target opacity.</param>
+    ///   <param name="opacity" type="Specification">A number between 0 and 1 denoting the target opacity.</param>
     ///   <param name="complete" type="Function">A function to call once the animation is complete.</param>
     ///   <returns type="jQuery" />
     /// </signature>
     /// <signature>
     ///   <summary>Adjust the opacity of the matched elements.</summary>
     ///   <param name="duration" type="">A string or number determining how long the animation will run.</param>
-    ///   <param name="opacity" type="Number">A number between 0 and 1 denoting the target opacity.</param>
+    ///   <param name="opacity" type="Specification">A number between 0 and 1 denoting the target opacity.</param>
     ///   <param name="easing" type="String">A string indicating which easing function to use for the transition.</param>
     ///   <param name="complete" type="Function">A function to call once the animation is complete.</param>
     ///   <returns type="jQuery" />
@@ -1431,18 +1431,18 @@ intellisense.annotate(jQuery.fn, {
   'get': function() {
     /// <signature>
     ///   <summary>Retrieve one of the DOM elements matched by the jQuery object.</summary>
-    ///   <param name="index" type="Number">A zero-based integer indicating which element to retrieve.</param>
+    ///   <param name="index" type="Specification">A zero-based integer indicating which element to retrieve.</param>
     ///   <returns type="Element" />
     /// </signature>
   },
   'gt': function() {
     /// <signature>
     ///   <summary>Select all elements at an index greater than index within the matched set.</summary>
-    ///   <param name="index" type="Number">Zero-based index.</param>
+    ///   <param name="index" type="Specification">Zero-based index.</param>
     /// </signature>
     /// <signature>
     ///   <summary>Select all elements at an index greater than index within the matched set.</summary>
-    ///   <param name="-index" type="Number">Zero-based index, counting backwards from the last element.</param>
+    ///   <param name="-index" type="Specification">Zero-based index, counting backwards from the last element.</param>
     /// </signature>
   },
   'has': function() {
@@ -1535,12 +1535,12 @@ intellisense.annotate(jQuery.fn, {
     /// <signature>
     ///   <summary>Search for a given element from among the matched elements.</summary>
     ///   <param name="selector" type="String">A selector representing a jQuery collection in which to look for an element.</param>
-    ///   <returns type="Number" />
+    ///   <returns type="Specification" />
     /// </signature>
     /// <signature>
     ///   <summary>Search for a given element from among the matched elements.</summary>
     ///   <param name="element" type="">The DOM element or first element within the jQuery object to look for.</param>
-    ///   <returns type="Number" />
+    ///   <returns type="Specification" />
     /// </signature>
   },
   'init': function() {
@@ -1573,11 +1573,11 @@ intellisense.annotate(jQuery.fn, {
   },
   'innerHeight': function() {
     /// <summary>Get the current computed height for the first element in the set of matched elements, including padding but not border.</summary>
-    /// <returns type="Number" />
+    /// <returns type="Specification" />
   },
   'innerWidth': function() {
     /// <summary>Get the current computed width for the first element in the set of matched elements, including padding but not border.</summary>
-    /// <returns type="Number" />
+    /// <returns type="Specification" />
   },
   'input': function() {
     /// <summary>Selects all input, textarea, select and button elements.</summary>
@@ -1678,7 +1678,7 @@ intellisense.annotate(jQuery.fn, {
   },
   'length': function() {
     /// <summary>The number of elements in the jQuery object.</summary>
-    /// <returns type="Number" />
+    /// <returns type="Specification" />
   },
   'live': function() {
     /// <signature>
@@ -1716,11 +1716,11 @@ intellisense.annotate(jQuery.fn, {
   'lt': function() {
     /// <signature>
     ///   <summary>Select all elements at an index less than index within the matched set.</summary>
-    ///   <param name="index" type="Number">Zero-based index.</param>
+    ///   <param name="index" type="Specification">Zero-based index.</param>
     /// </signature>
     /// <signature>
     ///   <summary>Select all elements at an index less than index within the matched set.</summary>
-    ///   <param name="-index" type="Number">Zero-based index, counting backwards from the last element.</param>
+    ///   <param name="-index" type="Specification">Zero-based index, counting backwards from the last element.</param>
     /// </signature>
   },
   'map': function() {
@@ -2002,14 +2002,14 @@ intellisense.annotate(jQuery.fn, {
     /// <signature>
     ///   <summary>Get the current computed height for the first element in the set of matched elements, including padding, border, and optionally margin. Returns an integer (without "px") representation of the value or null if called on an empty set of elements.</summary>
     ///   <param name="includeMargin" type="Boolean">A Boolean indicating whether to include the element's margin in the calculation.</param>
-    ///   <returns type="Number" />
+    ///   <returns type="Specification" />
     /// </signature>
   },
   'outerWidth': function() {
     /// <signature>
     ///   <summary>Get the current computed width for the first element in the set of matched elements, including padding and border.</summary>
     ///   <param name="includeMargin" type="Boolean">A Boolean indicating whether to include the element's margin in the calculation.</param>
-    ///   <returns type="Number" />
+    ///   <returns type="Specification" />
     /// </signature>
   },
   'parent': function() {
@@ -2259,14 +2259,14 @@ intellisense.annotate(jQuery.fn, {
   'scrollLeft': function() {
     /// <signature>
     ///   <summary>Set the current horizontal position of the scroll bar for each of the set of matched elements.</summary>
-    ///   <param name="value" type="Number">An integer indicating the new position to set the scroll bar to.</param>
+    ///   <param name="value" type="Specification">An integer indicating the new position to set the scroll bar to.</param>
     ///   <returns type="jQuery" />
     /// </signature>
   },
   'scrollTop': function() {
     /// <signature>
     ///   <summary>Set the current vertical position of the scroll bar for each of the set of matched elements.</summary>
-    ///   <param name="value" type="Number">An integer indicating the new position to set the scroll bar to.</param>
+    ///   <param name="value" type="Specification">An integer indicating the new position to set the scroll bar to.</param>
     ///   <returns type="jQuery" />
     /// </signature>
   },
@@ -2327,13 +2327,13 @@ intellisense.annotate(jQuery.fn, {
   },
   'size': function() {
     /// <summary>Return the number of elements in the jQuery object.</summary>
-    /// <returns type="Number" />
+    /// <returns type="Specification" />
   },
   'slice': function() {
     /// <signature>
     ///   <summary>Reduce the set of matched elements to a subset specified by a range of indices.</summary>
-    ///   <param name="start" type="Number">An integer indicating the 0-based position at which the elements begin to be selected. If negative, it indicates an offset from the end of the set.</param>
-    ///   <param name="end" type="Number">An integer indicating the 0-based position at which the elements stop being selected. If negative, it indicates an offset from the end of the set. If omitted, the range continues until the end of the set.</param>
+    ///   <param name="start" type="Specification">An integer indicating the 0-based position at which the elements begin to be selected. If negative, it indicates an offset from the end of the set.</param>
+    ///   <param name="end" type="Specification">An integer indicating the 0-based position at which the elements stop being selected. If negative, it indicates an offset from the end of the set. If omitted, the range continues until the end of the set.</param>
     ///   <returns type="jQuery" />
     /// </signature>
   },

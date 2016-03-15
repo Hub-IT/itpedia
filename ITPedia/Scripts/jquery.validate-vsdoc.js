@@ -481,7 +481,7 @@ $.extend($.validator, {
 			/// a single element, only that element is counted. Most useful in combination with the
 			/// invalidHandler-option.
 			/// </summary>
-			/// <returns type="Number" />
+			/// <returns type="Specification" />
 
 			return this.objectLength(this.invalid);
 		},

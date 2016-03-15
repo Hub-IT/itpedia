@@ -18,14 +18,14 @@ namespace ItPedia.Migrations
         protected override void Seed(ItPediaDbContext context)
         {
             new IndustryCriteriaSeeder(context);
-
             new EmployeeCriteriaSeeder(context);
-
             new CustomerCriteriaSeeder(context);
-
             new TransactionCriteriaSeeder(context);
 
             new TermSeeder(context);
+            new ProposalTermSeeder(context);
+            new ProposalSeeder(context);
+            new SolutionSeeder(context);
         }
     }
 }
