@@ -1,4 +1,7 @@
-﻿using System.Data.Entity.Migrations;
+﻿using System.Collections.Generic;
+using System.Data.Entity.Migrations;
+using System.Linq;
+using ItPedia.Models;
 using ItPedia.Models.Contexts;
 
 namespace ItPedia.Migrations.Seeds
@@ -7,7 +10,7 @@ namespace ItPedia.Migrations.Seeds
     {
         public ProposalSeeder(ItPediaDbContext context)
         {
-//            context.ProposalTerms.AddOrUpdate(p => p.ProposalTermId, transactionCriterias.ToArray());
         }
+
     }
 }

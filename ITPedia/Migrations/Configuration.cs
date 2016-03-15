@@ -23,7 +23,7 @@ namespace ItPedia.Migrations
             new TransactionCriteriaSeeder(context);
 
             new TermSeeder(context);
-            new ProposalTermSeeder(context);
+            new CategorySeeder(context);
             new ProposalSeeder(context);
             new SolutionSeeder(context);
         }

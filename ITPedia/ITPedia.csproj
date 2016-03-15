@@ -205,10 +205,11 @@
     <Compile Include="Migrations\Seeds\EmployeeCriteriaSeeder.cs" />
     <Compile Include="Migrations\Seeds\IndustryCriteriaSeeder.cs" />
     <Compile Include="Migrations\Seeds\ProposalSeeder.cs" />
-    <Compile Include="Migrations\Seeds\ProposalTermSeeder.cs" />
+    <Compile Include="Migrations\Seeds\SolutionSeeder - Copy.cs" />
     <Compile Include="Migrations\Seeds\SolutionSeeder.cs" />
     <Compile Include="Migrations\Seeds\TermSeeder.cs" />
     <Compile Include="Migrations\Seeds\TransactionCriteriaSeeder.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Proposal.cs" />
     <Compile Include="Models\ProposalTerm.cs" />
     <Compile Include="Utilities\Flash.cs" />
