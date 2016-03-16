@@ -17,5 +17,6 @@ namespace ItPedia.Models
         public virtual TransactionCriteria TransactionCriteria { get; set; }
 
         public virtual List<Proposal> Proposals { get; set; }
+
     }
 }

@@ -1,477 +1,471 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
-  <Import Project="..\packages\Microsoft.Net.Compilers.1.1.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.1.1\build\Microsoft.Net.Compilers.props')" />
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>
-    </ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{7840918E-CF7D-497B-97AA-299F3D33EF91}</ProjectGuid>
-    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ItPedia</RootNamespace>
-    <AssemblyName>ItPedia</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
-    <IISExpressUseClassicPipelineMode />
-    <UseGlobalApplicationHostFile />
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
-      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.Facebook, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.Google, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.Twitter, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
-      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.ServiceModel" />
-    <Reference Include="System.Web.DynamicData" />
-    <Reference Include="System.Web.Entity" />
-    <Reference Include="System.Web.ApplicationServices" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Web.Abstractions" />
-    <Reference Include="System.Web.Routing" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Web.Services" />
-    <Reference Include="System.EnterpriseServices" />
-    <Reference Include="System.Net.Http">
-    </Reference>
-    <Reference Include="System.Net.Http.WebRequest">
-    </Reference>
-    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
-    <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\CategoriesController.cs" />
-    <Compile Include="Controllers\CustomerCriteriasController.cs" />
-    <Compile Include="Controllers\DictionaryController.cs" />
-    <Compile Include="Controllers\EmployeeCriteriasController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\IndustryCriteriasController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\SolutionsController.cs" />
-    <Compile Include="Controllers\TermsController.cs" />
-    <Compile Include="Controllers\TransactionCriteriasController.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201603121947028_Initial.cs" />
-    <Compile Include="Migrations\201603121947028_Initial.Designer.cs">
-      <DependentUpon>201603121947028_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Migrations\Seeds\ProposalSeeder.cs" />
-    <Compile Include="Migrations\Seeds\CustomerCriteriaSeeder.cs" />
-    <Compile Include="Migrations\Seeds\EmployeeCriteriaSeeder.cs" />
-    <Compile Include="Migrations\Seeds\IndustryCriteriaSeeder.cs" />
-    <Compile Include="Migrations\Seeds\CategorySeeder.cs" />
-    <Compile Include="Migrations\Seeds\SolutionSeeder.cs" />
-    <Compile Include="Migrations\Seeds\TermSeeder.cs" />
-    <Compile Include="Migrations\Seeds\TransactionCriteriaSeeder.cs" />
-    <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\Proposal.cs" />
-    <Compile Include="Utilities\Flash.cs" />
-    <Compile Include="Utilities\RssResult.cs" />
-    <Compile Include="ViewModels\AccountViewModels.cs" />
-    <Compile Include="Models\CustomerCriteria.cs" />
-    <Compile Include="Models\EmployeeCriteria.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\IndustryCriteria.cs" />
-    <Compile Include="Models\Contexts\ItPediaDbContext.cs" />
-    <Compile Include="ViewModels\CustomerCriteriasViewModel.cs" />
-    <Compile Include="ViewModels\EmployeeCriteriasViewModel.cs" />
-    <Compile Include="ViewModels\ManageViewModels.cs" />
-    <Compile Include="Models\Solution.cs" />
-    <Compile Include="Models\Term.cs" />
-    <Compile Include="Models\TransactionCriteria.cs" />
-    <Compile Include="ViewModels\HomeIndexModelView.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Startup.cs" />
-    <Compile Include="Utilities\Utilites.cs" />
-    <Compile Include="ViewModels\TransactionCriteriaViewModel.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\bootstrap-cerulean.min.css" />
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\css\select2.css" />
-    <Content Include="Content\css\select2.min.css" />
-    <Content Include="Content\font-awesome.css" />
-    <Content Include="Content\font-awesome.min.css" />
-    <Content Include="Content\Img\applications.png" />
-    <Content Include="Content\Img\DEREE Logo fixed.png" />
-    <Content Include="Content\Img\deree_logo.png" />
-    <Content Include="Content\Img\deree_logo_signature.jpg" />
-    <Content Include="Content\Img\ITSoc_Logo.jpg" />
-    <Content Include="Content\Img\it_society_logo.jpg" />
-    <Content Include="Content\Img\kattekrab-mainframe.png" />
-    <Content Include="Content\Img\logo.png" />
-    <Content Include="Content\Img\logo2.png" />
-    <Content Include="Content\Img\MIS_logo.png" />
-    <Content Include="Content\Img\MIS_logo_edited_4.gif" />
-    <Content Include="Content\Img\network.png" />
-    <Content Include="Content\Img\software.png" />
-    <Content Include="Content\Img\storage.png" />
-    <Content Include="Content\select2-bootstrap.css" />
-    <Content Include="favicon.ico" />
-    <Content Include="fonts\fontawesome-webfont.svg" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
-    <Content Include="fonts\FontAwesome.otf" />
-    <Content Include="fonts\fontawesome-webfont.woff2" />
-    <Content Include="fonts\fontawesome-webfont.woff" />
-    <Content Include="fonts\fontawesome-webfont.ttf" />
-    <Content Include="fonts\fontawesome-webfont.eot" />
-    <Content Include="packages.config" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
-    <None Include="Scripts\jquery-2.2.0.intellisense.js" />
-    <Content Include="Scripts\app\customer-select-listener.js" />
-    <Content Include="Scripts\app\employee-select-listener.js" />
-    <Content Include="Scripts\app\industry-select-listener.js" />
-    <Content Include="Scripts\app\transaction-select-listener.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\i18n\ar.js" />
-    <Content Include="Scripts\i18n\az.js" />
-    <Content Include="Scripts\i18n\bg.js" />
-    <Content Include="Scripts\i18n\ca.js" />
-    <Content Include="Scripts\i18n\cs.js" />
-    <Content Include="Scripts\i18n\da.js" />
-    <Content Include="Scripts\i18n\de.js" />
-    <Content Include="Scripts\i18n\en.js" />
-    <Content Include="Scripts\i18n\es.js" />
-    <Content Include="Scripts\i18n\et.js" />
-    <Content Include="Scripts\i18n\eu.js" />
-    <Content Include="Scripts\i18n\fa.js" />
-    <Content Include="Scripts\i18n\fi.js" />
-    <Content Include="Scripts\i18n\fr.js" />
-    <Content Include="Scripts\i18n\gl.js" />
-    <Content Include="Scripts\i18n\he.js" />
-    <Content Include="Scripts\i18n\hi.js" />
-    <Content Include="Scripts\i18n\hr.js" />
-    <Content Include="Scripts\i18n\hu.js" />
-    <Content Include="Scripts\i18n\id.js" />
-    <Content Include="Scripts\i18n\is.js" />
-    <Content Include="Scripts\i18n\it.js" />
-    <Content Include="Scripts\i18n\ja.js" />
-    <Content Include="Scripts\i18n\ko.js" />
-    <Content Include="Scripts\i18n\lt.js" />
-    <Content Include="Scripts\i18n\lv.js" />
-    <Content Include="Scripts\i18n\mk.js" />
-    <Content Include="Scripts\i18n\ms.js" />
-    <Content Include="Scripts\i18n\nb.js" />
-    <Content Include="Scripts\i18n\nl.js" />
-    <Content Include="Scripts\i18n\pl.js" />
-    <Content Include="Scripts\i18n\pt-BR.js" />
-    <Content Include="Scripts\i18n\pt.js" />
-    <Content Include="Scripts\i18n\ro.js" />
-    <Content Include="Scripts\i18n\ru.js" />
-    <Content Include="Scripts\i18n\sk.js" />
-    <Content Include="Scripts\i18n\sr-Cyrl.js" />
-    <Content Include="Scripts\i18n\sr.js" />
-    <Content Include="Scripts\i18n\sv.js" />
-    <Content Include="Scripts\i18n\th.js" />
-    <Content Include="Scripts\i18n\tr.js" />
-    <Content Include="Scripts\i18n\uk.js" />
-    <Content Include="Scripts\i18n\vi.js" />
-    <Content Include="Scripts\i18n\zh-CN.js" />
-    <Content Include="Scripts\i18n\zh-TW.js" />
-    <Content Include="Scripts\jquery-2.2.1.js" />
-    <Content Include="Scripts\jquery-2.2.1.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Scripts\respond.js" />
-    <Content Include="Scripts\respond.matchmedia.addListener.js" />
-    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
-    <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\select2.js" />
-    <Content Include="Scripts\select2.min.js" />
-    <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\ConfirmEmail.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\SendCode.cshtml" />
-    <Content Include="Views\Account\VerifyCode.cshtml" />
-    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="Views\Manage\ChangePassword.cshtml" />
-    <Content Include="Views\Manage\Index.cshtml" />
-    <Content Include="Views\Manage\ManageLogins.cshtml" />
-    <Content Include="Views\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
-    <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Shared\_Footer.cshtml" />
-    <Content Include="Views\Shared\_ItPediaLogoText.cshtml" />
-    <Content Include="Views\Terms\Create.cshtml" />
-    <Content Include="Views\Terms\Delete.cshtml" />
-    <Content Include="Views\Terms\Details.cshtml" />
-    <Content Include="Views\Terms\Edit.cshtml" />
-    <Content Include="Views\Terms\Index.cshtml" />
-    <Content Include="Views\Dictionary\Index.cshtml" />
-    <Content Include="Views\Dictionary\Term.cshtml" />
-    <Content Include="Views\EmployeeCriterias\Create.cshtml" />
-    <Content Include="Views\EmployeeCriterias\Delete.cshtml" />
-    <Content Include="Views\EmployeeCriterias\Details.cshtml" />
-    <Content Include="Views\EmployeeCriterias\Edit.cshtml" />
-    <Content Include="Views\EmployeeCriterias\Index.cshtml" />
-    <Content Include="Views\CustomerCriterias\Create.cshtml" />
-    <Content Include="Views\CustomerCriterias\Delete.cshtml" />
-    <Content Include="Views\CustomerCriterias\Details.cshtml" />
-    <Content Include="Views\CustomerCriterias\Edit.cshtml" />
-    <Content Include="Views\CustomerCriterias\Index.cshtml" />
-    <Content Include="Views\TransactionCriterias\Create.cshtml" />
-    <Content Include="Views\TransactionCriterias\Delete.cshtml" />
-    <Content Include="Views\TransactionCriterias\Details.cshtml" />
-    <Content Include="Views\TransactionCriterias\Edit.cshtml" />
-    <Content Include="Views\TransactionCriterias\Index.cshtml" />
-    <Content Include="Views\IndustryCriterias\Create.cshtml" />
-    <Content Include="Views\IndustryCriterias\Delete.cshtml" />
-    <Content Include="Views\IndustryCriterias\Details.cshtml" />
-    <Content Include="Views\IndustryCriterias\Edit.cshtml" />
-    <Content Include="Views\IndustryCriterias\Index.cshtml" />
-    <Content Include="Scripts\jquery-2.2.1.min.map" />
-    <Content Include="Views\Solutions\Create.cshtml" />
-    <Content Include="Views\Solutions\Delete.cshtml" />
-    <Content Include="Views\Solutions\Details.cshtml" />
-    <Content Include="Views\Solutions\Edit.cshtml" />
-    <Content Include="Views\Solutions\Index.cshtml" />
-    <Content Include="Views\Categories\Create.cshtml" />
-    <Content Include="Views\Categories\Delete.cshtml" />
-    <Content Include="Views\Categories\Details.cshtml" />
-    <Content Include="Views\Categories\Edit.cshtml" />
-    <Content Include="Views\Categories\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Project_Readme.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201603121947028_Initial.resx">
-      <DependentUpon>201603121947028_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <PropertyGroup>
-    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
-    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-  </PropertyGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
-  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
-    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
-  </Target>
-  <ProjectExtensions>
-    <VisualStudio>
-      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
-        <WebProjectProperties>
-          <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>56119</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:56119/</IISUrl>
-          <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
-          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
-        </WebProjectProperties>
-      </FlavorProperties>
-    </VisualStudio>
-  </ProjectExtensions>
-  <Target Name="CopyRoslynFiles" AfterTargets="AfterBuild" Condition="!$(Disable_CopyWebApplication) And '$(OutDir)' != '$(OutputPath)'">
-    <ItemGroup>
-      <RoslynFiles Include="$(CscToolPath)\*" />
-    </ItemGroup>
-    <MakeDir Directories="$(WebProjectOutputDir)\bin\roslyn" />
-    <Copy SourceFiles="@(RoslynFiles)" DestinationFolder="$(WebProjectOutputDir)\bin\roslyn" SkipUnchangedFiles="true" Retries="$(CopyRetryCount)" RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)" />
-  </Target>
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.1.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.1.1\build\Microsoft.Net.Compilers.props'))" />
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
-  </Target>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+﻿<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')"/>
+<Import Project="..\packages\Microsoft.Net.Compilers.1.1.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.1.1\build\Microsoft.Net.Compilers.props')"/>
+<Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')"/>
+<PropertyGroup>
+<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+<ProductVersion></ProductVersion>
+<SchemaVersion>2.0</SchemaVersion>
+<ProjectGuid>{7840918E-CF7D-497B-97AA-299F3D33EF91}</ProjectGuid>
+<ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+<OutputType>Library</OutputType>
+<AppDesignerFolder>Properties</AppDesignerFolder>
+<RootNamespace>ItPedia</RootNamespace>
+<AssemblyName>ItPedia</AssemblyName>
+<TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+<MvcBuildViews>false</MvcBuildViews>
+<UseIISExpress>true</UseIISExpress>
+<IISExpressSSLPort/>
+<IISExpressAnonymousAuthentication/>
+<IISExpressWindowsAuthentication/>
+<IISExpressUseClassicPipelineMode/>
+<UseGlobalApplicationHostFile/>
+<NuGetPackageImportStamp></NuGetPackageImportStamp>
+</PropertyGroup>
+<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+<DebugSymbols>true</DebugSymbols>
+<DebugType>full</DebugType>
+<Optimize>false</Optimize>
+<OutputPath>bin\</OutputPath>
+<DefineConstants>DEBUG;TRACE</DefineConstants>
+<ErrorReport>prompt</ErrorReport>
+<WarningLevel>4</WarningLevel>
+</PropertyGroup>
+<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+<DebugType>pdbonly</DebugType>
+<Optimize>true</Optimize>
+<OutputPath>bin\</OutputPath>
+<DefineConstants>TRACE</DefineConstants>
+<ErrorReport>prompt</ErrorReport>
+<WarningLevel>4</WarningLevel>
+</PropertyGroup>
+<ItemGroup>
+<Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+<HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+<Private>True</Private>
+</Reference>
+<Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+<HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+<Private>True</Private>
+</Reference>
+<Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+<HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+<Private>True</Private>
+</Reference>
+<Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+<HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+<Private>True</Private>
+</Reference>
+<Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+<HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+<Private>True</Private>
+</Reference>
+<Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+<HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+<Private>True</Private>
+</Reference>
+<Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+<HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+<Private>True</Private>
+</Reference>
+<Reference Include="Microsoft.CSharp"/>
+<Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+<HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+<Private>True</Private>
+</Reference>
+<Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+<HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+<Private>True</Private>
+</Reference>
+<Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+<HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+<Private>True</Private>
+</Reference>
+<Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+<HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+<Private>True</Private>
+</Reference>
+<Reference Include="Microsoft.Owin.Security.Facebook, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+<HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+<Private>True</Private>
+</Reference>
+<Reference Include="Microsoft.Owin.Security.Google, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+<HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+<Private>True</Private>
+</Reference>
+<Reference Include="Microsoft.Owin.Security.MicrosoftAccount, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+<HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+<Private>True</Private>
+</Reference>
+<Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+<HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+<Private>True</Private>
+</Reference>
+<Reference Include="Microsoft.Owin.Security.Twitter, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+<HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+<Private>True</Private>
+</Reference>
+<Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+<HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+<Private>True</Private>
+</Reference>
+<Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+<HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+<Private>True</Private>
+</Reference>
+<Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+<HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+<Private>True</Private>
+</Reference>
+<Reference Include="System"/>
+<Reference Include="System.Data"/>
+<Reference Include="System.Drawing"/>
+<Reference Include="System.ServiceModel"/>
+<Reference Include="System.Web.DynamicData"/>
+<Reference Include="System.Web.Entity"/>
+<Reference Include="System.Web.ApplicationServices"/>
+<Reference Include="System.ComponentModel.DataAnnotations"/>
+<Reference Include="System.Core"/>
+<Reference Include="System.Data.DataSetExtensions"/>
+<Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+<HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+<Private>True</Private>
+</Reference>
+<Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+<HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+<Private>True</Private>
+</Reference>
+<Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+<HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+<Private>True</Private>
+</Reference>
+<Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+<HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+<Private>True</Private>
+</Reference>
+<Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+<HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+<Private>True</Private>
+</Reference>
+<Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+<HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+<Private>True</Private>
+</Reference>
+<Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+<HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+<Private>True</Private>
+</Reference>
+<Reference Include="System.Xml.Linq"/>
+<Reference Include="System.Web"/>
+<Reference Include="System.Web.Extensions"/>
+<Reference Include="System.Web.Abstractions"/>
+<Reference Include="System.Web.Routing"/>
+<Reference Include="System.Xml"/>
+<Reference Include="System.Configuration"/>
+<Reference Include="System.Web.Services"/>
+<Reference Include="System.EnterpriseServices"/>
+<Reference Include="System.Net.Http"></Reference>
+<Reference Include="System.Net.Http.WebRequest"></Reference>
+<Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+<HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+<Private>True</Private>
+</Reference>
+</ItemGroup>
+<ItemGroup>
+<Compile Include="App_Start\BundleConfig.cs"/>
+<Compile Include="App_Start\FilterConfig.cs"/>
+<Compile Include="App_Start\IdentityConfig.cs"/>
+<Compile Include="App_Start\RouteConfig.cs"/>
+<Compile Include="App_Start\Startup.Auth.cs"/>
+<Compile Include="Controllers\AccountController.cs"/>
+<Compile Include="Controllers\CategoriesController.cs"/>
+<Compile Include="Controllers\CustomerCriteriasController.cs"/>
+<Compile Include="Controllers\DictionaryController.cs"/>
+<Compile Include="Controllers\EmployeeCriteriasController.cs"/>
+<Compile Include="Controllers\HomeController.cs"/>
+<Compile Include="Controllers\IndustryCriteriasController.cs"/>
+<Compile Include="Controllers\ManageController.cs"/>
+<Compile Include="Controllers\SolutionsController.cs"/>
+<Compile Include="Controllers\TermsController.cs"/>
+<Compile Include="Controllers\TransactionCriteriasController.cs"/>
+<Compile Include="Global.asax.cs">
+<DependentUpon>Global.asax</DependentUpon>
+</Compile>
+<Compile Include="Migrations\201603121947028_Initial.cs"/>
+<Compile Include="Migrations\201603121947028_Initial.Designer.cs">
+<DependentUpon>201603121947028_Initial.cs</DependentUpon>
+</Compile>
+<Compile Include="Migrations\Configuration.cs"/>
+<Compile Include="Migrations\Seeds\ProposalSeeder.cs"/>
+<Compile Include="Migrations\Seeds\CustomerCriteriaSeeder.cs"/>
+<Compile Include="Migrations\Seeds\EmployeeCriteriaSeeder.cs"/>
+<Compile Include="Migrations\Seeds\IndustryCriteriaSeeder.cs"/>
+<Compile Include="Migrations\Seeds\CategorySeeder.cs"/>
+<Compile Include="Migrations\Seeds\SolutionSeeder.cs"/>
+<Compile Include="Migrations\Seeds\TermSeeder.cs"/>
+<Compile Include="Migrations\Seeds\TransactionCriteriaSeeder.cs"/>
+<Compile Include="Models\Category.cs"/>
+<Compile Include="Models\Proposal.cs"/>
+<Compile Include="Utilities\Flash.cs"/>
+<Compile Include="Utilities\RssResult.cs"/>
+<Compile Include="ViewModels\AccountViewModels.cs"/>
+<Compile Include="Models\CustomerCriteria.cs"/>
+<Compile Include="Models\EmployeeCriteria.cs"/>
+<Compile Include="Models\IdentityModels.cs"/>
+<Compile Include="Models\IndustryCriteria.cs"/>
+<Compile Include="Models\Contexts\ItPediaDbContext.cs"/>
+<Compile Include="ViewModels\CustomerCriteriasViewModel.cs"/>
+<Compile Include="ViewModels\EmployeeCriteriasViewModel.cs"/>
+<Compile Include="ViewModels\ManageViewModels.cs"/>
+<Compile Include="Models\Solution.cs"/>
+<Compile Include="Models\Term.cs"/>
+<Compile Include="Models\TransactionCriteria.cs"/>
+<Compile Include="ViewModels\HomeIndexModelView.cs"/>
+<Compile Include="Properties\AssemblyInfo.cs"/>
+<Compile Include="Startup.cs"/>
+<Compile Include="Utilities\Utilites.cs"/>
+<Compile Include="ViewModels\TransactionCriteriaViewModel.cs"/>
+</ItemGroup>
+<ItemGroup>
+<Content Include="Content\bootstrap-cerulean.min.css"/>
+<Content Include="Content\bootstrap-theme.css"/>
+<Content Include="Content\bootstrap-theme.min.css"/>
+<Content Include="Content\bootstrap.css"/>
+<Content Include="Content\bootstrap.min.css"/>
+<Content Include="Content\css\select2.css"/>
+<Content Include="Content\css\select2.min.css"/>
+<Content Include="Content\font-awesome.css"/>
+<Content Include="Content\font-awesome.min.css"/>
+<Content Include="Content\Img\applications.png"/>
+<Content Include="Content\Img\DEREE Logo fixed.png"/>
+<Content Include="Content\Img\deree_logo.png"/>
+<Content Include="Content\Img\deree_logo_signature.jpg"/>
+<Content Include="Content\Img\ITSoc_Logo.jpg"/>
+<Content Include="Content\Img\it_society_logo.jpg"/>
+<Content Include="Content\Img\kattekrab-mainframe.png"/>
+<Content Include="Content\Img\logo.png"/>
+<Content Include="Content\Img\logo2.png"/>
+<Content Include="Content\Img\MIS_logo.png"/>
+<Content Include="Content\Img\MIS_logo_edited_4.gif"/>
+<Content Include="Content\Img\network.png"/>
+<Content Include="Content\Img\software.png"/>
+<Content Include="Content\Img\storage.png"/>
+<Content Include="Content\select2-bootstrap.css"/>
+<Content Include="favicon.ico"/>
+<Content Include="fonts\fontawesome-webfont.svg"/>
+<Content Include="fonts\glyphicons-halflings-regular.svg"/>
+<Content Include="Global.asax"/>
+<Content Include="Content\Site.css"/>
+<Content Include="fonts\FontAwesome.otf"/>
+<Content Include="fonts\fontawesome-webfont.woff2"/>
+<Content Include="fonts\fontawesome-webfont.woff"/>
+<Content Include="fonts\fontawesome-webfont.ttf"/>
+<Content Include="fonts\fontawesome-webfont.eot"/>
+<Content Include="packages.config"/>
+<Content Include="fonts\glyphicons-halflings-regular.woff2"/>
+<Content Include="fonts\glyphicons-halflings-regular.woff"/>
+<Content Include="fonts\glyphicons-halflings-regular.ttf"/>
+<Content Include="fonts\glyphicons-halflings-regular.eot"/>
+<Content Include="Content\bootstrap.min.css.map"/>
+<Content Include="Content\bootstrap.css.map"/>
+<Content Include="Content\bootstrap-theme.min.css.map"/>
+<Content Include="Content\bootstrap-theme.css.map"/>
+<None Include="Scripts\jquery-2.2.0.intellisense.js"/>
+<Content Include="Scripts\app\customer-select-listener.js"/>
+<Content Include="Scripts\app\employee-select-listener.js"/>
+<Content Include="Scripts\app\industry-select-listener.js"/>
+<Content Include="Scripts\app\transaction-select-listener.js"/>
+<Content Include="Scripts\bootstrap.js"/>
+<Content Include="Scripts\bootstrap.min.js"/>
+<Content Include="Scripts\i18n\ar.js"/>
+<Content Include="Scripts\i18n\az.js"/>
+<Content Include="Scripts\i18n\bg.js"/>
+<Content Include="Scripts\i18n\ca.js"/>
+<Content Include="Scripts\i18n\cs.js"/>
+<Content Include="Scripts\i18n\da.js"/>
+<Content Include="Scripts\i18n\de.js"/>
+<Content Include="Scripts\i18n\en.js"/>
+<Content Include="Scripts\i18n\es.js"/>
+<Content Include="Scripts\i18n\et.js"/>
+<Content Include="Scripts\i18n\eu.js"/>
+<Content Include="Scripts\i18n\fa.js"/>
+<Content Include="Scripts\i18n\fi.js"/>
+<Content Include="Scripts\i18n\fr.js"/>
+<Content Include="Scripts\i18n\gl.js"/>
+<Content Include="Scripts\i18n\he.js"/>
+<Content Include="Scripts\i18n\hi.js"/>
+<Content Include="Scripts\i18n\hr.js"/>
+<Content Include="Scripts\i18n\hu.js"/>
+<Content Include="Scripts\i18n\id.js"/>
+<Content Include="Scripts\i18n\is.js"/>
+<Content Include="Scripts\i18n\it.js"/>
+<Content Include="Scripts\i18n\ja.js"/>
+<Content Include="Scripts\i18n\ko.js"/>
+<Content Include="Scripts\i18n\lt.js"/>
+<Content Include="Scripts\i18n\lv.js"/>
+<Content Include="Scripts\i18n\mk.js"/>
+<Content Include="Scripts\i18n\ms.js"/>
+<Content Include="Scripts\i18n\nb.js"/>
+<Content Include="Scripts\i18n\nl.js"/>
+<Content Include="Scripts\i18n\pl.js"/>
+<Content Include="Scripts\i18n\pt-BR.js"/>
+<Content Include="Scripts\i18n\pt.js"/>
+<Content Include="Scripts\i18n\ro.js"/>
+<Content Include="Scripts\i18n\ru.js"/>
+<Content Include="Scripts\i18n\sk.js"/>
+<Content Include="Scripts\i18n\sr-Cyrl.js"/>
+<Content Include="Scripts\i18n\sr.js"/>
+<Content Include="Scripts\i18n\sv.js"/>
+<Content Include="Scripts\i18n\th.js"/>
+<Content Include="Scripts\i18n\tr.js"/>
+<Content Include="Scripts\i18n\uk.js"/>
+<Content Include="Scripts\i18n\vi.js"/>
+<Content Include="Scripts\i18n\zh-CN.js"/>
+<Content Include="Scripts\i18n\zh-TW.js"/>
+<Content Include="Scripts\jquery-2.2.1.js"/>
+<Content Include="Scripts\jquery-2.2.1.min.js"/>
+<None Include="Scripts\jquery.validate-vsdoc.js"/>
+<Content Include="Scripts\jquery.validate.js"/>
+<Content Include="Scripts\jquery.validate.min.js"/>
+<Content Include="Scripts\jquery.validate.unobtrusive.js"/>
+<Content Include="Scripts\jquery.validate.unobtrusive.min.js"/>
+<Content Include="Scripts\modernizr-2.8.3.js"/>
+<Content Include="Scripts\respond.js"/>
+<Content Include="Scripts\respond.matchmedia.addListener.js"/>
+<Content Include="Scripts\respond.matchmedia.addListener.min.js"/>
+<Content Include="Scripts\respond.min.js"/>
+<Content Include="Scripts\select2.js"/>
+<Content Include="Scripts\select2.min.js"/>
+<Content Include="Scripts\_references.js"/>
+<Content Include="Web.config"/>
+<Content Include="Web.Debug.config">
+<DependentUpon>Web.config</DependentUpon>
+</Content>
+<Content Include="Web.Release.config">
+<DependentUpon>Web.config</DependentUpon>
+</Content>
+<Content Include="Views\Web.config"/>
+<Content Include="Views\_ViewStart.cshtml"/>
+<Content Include="Views\Shared\Error.cshtml"/>
+<Content Include="Views\Shared\_Layout.cshtml"/>
+<Content Include="Views\Home\About.cshtml"/>
+<Content Include="Views\Home\Contact.cshtml"/>
+<Content Include="Views\Home\Index.cshtml"/>
+<Content Include="Views\Account\_ExternalLoginsListPartial.cshtml"/>
+<Content Include="Views\Account\ConfirmEmail.cshtml"/>
+<Content Include="Views\Account\ExternalLoginConfirmation.cshtml"/>
+<Content Include="Views\Account\ExternalLoginFailure.cshtml"/>
+<Content Include="Views\Account\ForgotPassword.cshtml"/>
+<Content Include="Views\Account\ForgotPasswordConfirmation.cshtml"/>
+<Content Include="Views\Account\Login.cshtml"/>
+<Content Include="Views\Account\Register.cshtml"/>
+<Content Include="Views\Account\ResetPassword.cshtml"/>
+<Content Include="Views\Account\ResetPasswordConfirmation.cshtml"/>
+<Content Include="Views\Account\SendCode.cshtml"/>
+<Content Include="Views\Account\VerifyCode.cshtml"/>
+<Content Include="Views\Manage\AddPhoneNumber.cshtml"/>
+<Content Include="Views\Manage\ChangePassword.cshtml"/>
+<Content Include="Views\Manage\Index.cshtml"/>
+<Content Include="Views\Manage\ManageLogins.cshtml"/>
+<Content Include="Views\Manage\SetPassword.cshtml"/>
+<Content Include="Views\Manage\VerifyPhoneNumber.cshtml"/>
+<Content Include="Views\Shared\Lockout.cshtml"/>
+<Content Include="Views\Shared\_LoginPartial.cshtml"/>
+<Content Include="Views\Shared\_Footer.cshtml"/>
+<Content Include="Views\Shared\_ItPediaLogoText.cshtml"/>
+<Content Include="Views\Terms\Create.cshtml"/>
+<Content Include="Views\Terms\Delete.cshtml"/>
+<Content Include="Views\Terms\Details.cshtml"/>
+<Content Include="Views\Terms\Edit.cshtml"/>
+<Content Include="Views\Terms\Index.cshtml"/>
+<Content Include="Views\Dictionary\Index.cshtml"/>
+<Content Include="Views\Dictionary\Term.cshtml"/>
+<Content Include="Views\EmployeeCriterias\Create.cshtml"/>
+<Content Include="Views\EmployeeCriterias\Delete.cshtml"/>
+<Content Include="Views\EmployeeCriterias\Details.cshtml"/>
+<Content Include="Views\EmployeeCriterias\Edit.cshtml"/>
+<Content Include="Views\EmployeeCriterias\Index.cshtml"/>
+<Content Include="Views\CustomerCriterias\Create.cshtml"/>
+<Content Include="Views\CustomerCriterias\Delete.cshtml"/>
+<Content Include="Views\CustomerCriterias\Details.cshtml"/>
+<Content Include="Views\CustomerCriterias\Edit.cshtml"/>
+<Content Include="Views\CustomerCriterias\Index.cshtml"/>
+<Content Include="Views\TransactionCriterias\Create.cshtml"/>
+<Content Include="Views\TransactionCriterias\Delete.cshtml"/>
+<Content Include="Views\TransactionCriterias\Details.cshtml"/>
+<Content Include="Views\TransactionCriterias\Edit.cshtml"/>
+<Content Include="Views\TransactionCriterias\Index.cshtml"/>
+<Content Include="Views\IndustryCriterias\Create.cshtml"/>
+<Content Include="Views\IndustryCriterias\Delete.cshtml"/>
+<Content Include="Views\IndustryCriterias\Details.cshtml"/>
+<Content Include="Views\IndustryCriterias\Edit.cshtml"/>
+<Content Include="Views\IndustryCriterias\Index.cshtml"/>
+<Content Include="Scripts\jquery-2.2.1.min.map"/>
+<Content Include="Views\Solutions\Create.cshtml"/>
+<Content Include="Views\Solutions\Delete.cshtml"/>
+<Content Include="Views\Solutions\Details.cshtml"/>
+<Content Include="Views\Solutions\Edit.cshtml"/>
+<Content Include="Views\Solutions\Index.cshtml"/>
+<Content Include="Views\Categories\Create.cshtml"/>
+<Content Include="Views\Categories\Delete.cshtml"/>
+<Content Include="Views\Categories\Details.cshtml"/>
+<Content Include="Views\Categories\Edit.cshtml"/>
+<Content Include="Views\Categories\Index.cshtml"/>
+</ItemGroup>
+<ItemGroup>
+<Folder Include="App_Data\"/>
+</ItemGroup>
+<ItemGroup>
+<None Include="Project_Readme.html"/>
+</ItemGroup>
+<ItemGroup>
+<EmbeddedResource Include="Migrations\201603121947028_Initial.resx">
+<DependentUpon>201603121947028_Initial.cs</DependentUpon>
+</EmbeddedResource>
+</ItemGroup>
+<PropertyGroup>
+<VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+<VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+</PropertyGroup>
+<Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets"/>
+<Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''"/>
+<Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false"/>
+<Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+<AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)"/>
+</Target>
+<ProjectExtensions>
+<VisualStudio>
+<FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+<WebProjectProperties>
+<UseIIS>True</UseIIS>
+<AutoAssignPort>True</AutoAssignPort>
+<DevelopmentServerPort>56119</DevelopmentServerPort>
+<DevelopmentServerVPath>/</DevelopmentServerVPath>
+<IISUrl>http://localhost:56119/</IISUrl>
+<NTLMAuthentication>False</NTLMAuthentication>
+<UseCustomServer>False</UseCustomServer>
+<CustomServerUrl></CustomServerUrl>
+<SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+</WebProjectProperties>
+</FlavorProperties>
+</VisualStudio>
+</ProjectExtensions>
+<Target Name="CopyRoslynFiles" AfterTargets="AfterBuild" Condition="!$(Disable_CopyWebApplication) And '$(OutDir)' != '$(OutputPath)'">
+<ItemGroup>
+<RoslynFiles Include="$(CscToolPath)\*"/>
+</ItemGroup>
+<MakeDir Directories="$(WebProjectOutputDir)\bin\roslyn"/>
+<Copy SourceFiles="@(RoslynFiles)" DestinationFolder="$(WebProjectOutputDir)\bin\roslyn" SkipUnchangedFiles="true" Retries="$(CopyRetryCount)" RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)"/>
+</Target>
+<Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+<PropertyGroup>
+<ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+</PropertyGroup>
+<Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.1.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.1.1\build\Microsoft.Net.Compilers.props'))"/>
+<Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))"/>
+</Target>
+<!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>

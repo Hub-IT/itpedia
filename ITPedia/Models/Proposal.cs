@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace ItPedia.Models
+﻿namespace ItPedia.Models
 {
     public class Proposal
     {
@@ -15,5 +10,8 @@ namespace ItPedia.Models
         public virtual Category Category { get; set; }
         public virtual int SolutionId { get; set; }
         public virtual Solution Solution { get; set; }
+
+
+//        public virtual List<ProposalTerm> ProposalTerms { get; set; }
     }
 }

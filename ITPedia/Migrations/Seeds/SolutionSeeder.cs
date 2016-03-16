@@ -1,4 +1,3 @@
-﻿using System;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using ItPedia.Models;
@@ -750,7 +749,10 @@ namespace ItPedia.Migrations.Seeds
 
 
 
+
             context.SaveChanges();
+
+
         }
     }
 }

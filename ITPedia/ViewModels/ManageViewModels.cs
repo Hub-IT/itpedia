@@ -62,7 +62,7 @@ namespace ItPedia.ViewModels
     {
         [Required]
         [Phone]
-        [Display(Name = "Phone Number")]
+        [Display(Name = "Phone Specification")]
         public string Number { get; set; }
     }
 
@@ -74,7 +74,7 @@ namespace ItPedia.ViewModels
 
         [Required]
         [Phone]
-        [Display(Name = "Phone Number")]
+        [Display(Name = "Phone Specification")]
         public string PhoneNumber { get; set; }
     }
 
