@@ -14,8 +14,9 @@ namespace ItPedia.Models.Contexts
         public DbSet<EmployeeCriteria> EmployeeCriterias { get; set; }
         public DbSet<CustomerCriteria> CustomerCriterias { get; set; }
         public DbSet<TransactionCriteria> TransactionCriterias { get; set; }
-        public DbSet<Solution> Solutions { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Proposal> Proposals { get; set; }
+        public DbSet<Solution> Solutions { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
