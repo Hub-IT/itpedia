@@ -8,6 +8,27 @@ namespace ItPedia.Migrations.Seeds
     {
         public SolutionSeeder(ItPediaDbContext context)
         {
+            // hardwar proposal for solution 1
+            // softaware proposal for solution 1
+            // applicationn proposal for solution 1
+            // network proposal for solution 1
+            // storage proposal for solution 1
+
+//            new Solution
+//            {
+//                Name = "Solution 1",
+//                Proposals = 
+//            };
+
+
+
+
+
+
+
+
+
+
 //            context.Solutions.AddOrUpdate(solution => solution.Name,
 //                new Solution
 //                {

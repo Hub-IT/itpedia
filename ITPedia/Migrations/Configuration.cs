@@ -1,8 +1,5 @@
-using System.Collections.Generic;
 using System.Data.Entity.Migrations;
-using System.Linq;
 using ItPedia.Migrations.Seeds;
-using ItPedia.Models;
 using ItPedia.Models.Contexts;
 
 namespace ItPedia.Migrations
@@ -17,15 +14,17 @@ namespace ItPedia.Migrations
 
         protected override void Seed(ItPediaDbContext context)
         {
+            new TermSeeder(context);
+
             new IndustryCriteriaSeeder(context);
-
             new EmployeeCriteriaSeeder(context);
-
             new CustomerCriteriaSeeder(context);
-
             new TransactionCriteriaSeeder(context);
 
-            new TermSeeder(context);
+            new CategorySeeder(context);
+            new SolutionSeeder(context);
+
+
         }
     }
 }
