@@ -14,7 +14,6 @@ namespace ItPedia.Migrations.Seeds
             //     new Proposal { Name = "Proposal - Solution 1", CategoryId = hardwareCategory.CategoryId }
             //     );
 
-
             context.SaveChanges();
         }
 
