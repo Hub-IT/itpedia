@@ -14,6 +14,7 @@ namespace ItPedia.Migrations
 
         protected override void Seed(ItPediaDbContext context)
         {
+            new TermSeeder(context);
 
             new IndustryCriteriaSeeder(context);
             new EmployeeCriteriaSeeder(context);
@@ -21,9 +22,8 @@ namespace ItPedia.Migrations
             new TransactionCriteriaSeeder(context);
 
             new CategorySeeder(context);
-            new TermSeeder(context);
-
             new SolutionSeeder(context);
+            new ProposalSeeder(context);
         }
     }
 }

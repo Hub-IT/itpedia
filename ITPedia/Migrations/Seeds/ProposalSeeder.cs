@@ -10,28 +10,46 @@ namespace ItPedia.Migrations.Seeds
         public ProposalSeeder(ItPediaDbContext context)
         {
             var solution1 = context.Solutions.First(i => i.Name == "Solution 1");
-            var hardCategory = context.Categories.First(i => i.Name == "Hardware");
+
+            var hardwareCategory = context.Categories.First(i => i.Name == "Hardware");
+            var softwareCategory = context.Categories.First(i => i.Name == "Software");
+            var applicationsCategory = context.Categories.First(i => i.Name == "Applications");
+            var networkingCategory = context.Categories.First(i => i.Name == "Networking");
+            var storageCategory = context.Categories.First(i => i.Name == "Storage");
 
 
             context.Proposals.AddOrUpdate(solution => solution.Name,
                 new Proposal
                 {
                     Name = "Solution 1: Proposal 1",
-                    CategoryId = hardCategory.CategoryId,
+                    CategoryId = hardwareCategory.CategoryId,
                     SolutionId = solution1.SolutionId
                 },
                 new Proposal
                 {
                     Name = "Solution 1: Proposal 2",
-                    CategoryId = hardCategory.CategoryId,
+                    CategoryId = softwareCategory.CategoryId,
+                    SolutionId = solution1.SolutionId
+                },
+                new Proposal
+                {
+                    Name = "Solution 1: Proposal 3",
+                    CategoryId = applicationsCategory.CategoryId,
+                    SolutionId = solution1.SolutionId
+                },
+                new Proposal
+                {
+                    Name = "Solution 1: Proposal 4",
+                    CategoryId = networkingCategory.CategoryId,
+                    SolutionId = solution1.SolutionId
+                },
+                new Proposal
+                {
+                    Name = "Solution 1: Proposal 5",
+                    CategoryId = storageCategory.CategoryId,
                     SolutionId = solution1.SolutionId
                 }
                 );
-
-
-            // context.Proposals.AddOrUpdate(proposal => proposal.Name,
-            //     new Proposal { Name = "Proposal - Solution 1", CategoryId = hardwareCategory.CategoryId }
-            //     );
 
             context.SaveChanges();
         }

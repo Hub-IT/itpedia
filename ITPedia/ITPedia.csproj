@@ -191,6 +191,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IndustryCriteriasController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProposalsController.cs" />
+    <Compile Include="Controllers\ProposalTermsController.cs" />
     <Compile Include="Controllers\SolutionsController.cs" />
     <Compile Include="Controllers\TermsController.cs" />
     <Compile Include="Controllers\TransactionCriteriasController.cs" />
@@ -418,6 +420,16 @@
     <Content Include="Views\Categories\Details.cshtml" />
     <Content Include="Views\Categories\Edit.cshtml" />
     <Content Include="Views\Categories\Index.cshtml" />
+    <Content Include="Views\ProposalTerms\Create.cshtml" />
+    <Content Include="Views\ProposalTerms\Delete.cshtml" />
+    <Content Include="Views\ProposalTerms\Details.cshtml" />
+    <Content Include="Views\ProposalTerms\Edit.cshtml" />
+    <Content Include="Views\ProposalTerms\Index.cshtml" />
+    <Content Include="Views\Proposals\Create.cshtml" />
+    <Content Include="Views\Proposals\Delete.cshtml" />
+    <Content Include="Views\Proposals\Details.cshtml" />
+    <Content Include="Views\Proposals\Edit.cshtml" />
+    <Content Include="Views\Proposals\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

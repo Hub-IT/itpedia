@@ -1,0 +1,43 @@
+﻿@model ItPedia.Models.ProposalTerm
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ProposalTerm</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Proposal.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proposal.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Term.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Term.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Specification)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Specification)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProposalTermId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -19,17 +19,11 @@ namespace ItPedia.Models
 
             var terms = db.Terms;
 
-            var syndicationItems = new List<SyndicationItem>();
-
-            foreach (var term in terms)
-            {
-                syndicationItems.Add(
-                    new SyndicationItem(
-                        term.Name,
-                        string.Join(" ", term.Content),
-                        new Uri(term.Source))
-                    );
-            }
+            var syndicationItems =
+                terms.Select(
+                    term => new SyndicationItem(term.Name,
+                        string.Join(" ", term.Content), new Uri(term.Source)))
+                    .ToList();
 
             return syndicationItems.ToList();
         }

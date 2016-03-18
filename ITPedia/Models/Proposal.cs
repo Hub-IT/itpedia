@@ -13,7 +13,6 @@ namespace ItPedia.Models
         public virtual int SolutionId { get; set; }
         public virtual Solution Solution { get; set; }
 
-
         public virtual List<ProposalTerm> ProposalTerms { get; set; }
     }
 }
