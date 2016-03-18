@@ -1,4 +1,6 @@
-﻿namespace ItPedia.Models
+﻿using System.Collections.Generic;
+
+namespace ItPedia.Models
 {
     public class Proposal
     {
@@ -12,6 +14,6 @@
         public virtual Solution Solution { get; set; }
 
 
-//        public virtual List<ProposalTerm> ProposalTerms { get; set; }
+        public virtual List<ProposalTerm> ProposalTerms { get; set; }
     }
 }
