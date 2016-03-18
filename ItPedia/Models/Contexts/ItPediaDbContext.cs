@@ -17,7 +17,7 @@ namespace ItPedia.Models.Contexts
         public DbSet<Category> Categories { get; set; }
         public DbSet<Proposal> Proposals { get; set; }
         public DbSet<Solution> Solutions { get; set; }
-//        public DbSet<ProposalTerm> ProposalTerms { get; set; }
+        public DbSet<ProposalTerm> ProposalTerms { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

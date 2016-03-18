@@ -8,14 +8,12 @@ namespace ItPedia.Migrations.Seeds
     {
         public CategorySeeder(ItPediaDbContext context)
         {
-
             context.Categories.AddOrUpdate(category => category.Name,
-                new Category { Name = "Hardware", },
-                new Category { Name = "Software", },
-                new Category { Name = "Applications", },
-                new Category { Name = "Networking", },
-                new Category { Name = "Storage", }
-                );
+                new Category {Name = "Hardware",},
+                new Category {Name = "Software",},
+                new Category {Name = "Applications",},
+                new Category {Name = "Networking",},
+                new Category {Name = "Storage",});
 
             context.SaveChanges();
         }
