@@ -16,8 +16,6 @@ $(function() {
 
         var url = $("#FormId").data("get-customer-criterias-by-employee-criteria-id-url") + "?employeeId=" + $(this).val() + "&industryId=" + $("#industryCriterias").val();
 
-        console.log(url);
-
         $.getJSON(url, function(data) {
 
             var items = "<option>Select customers</option>";

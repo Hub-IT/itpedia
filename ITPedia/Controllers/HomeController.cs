@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.CodeDom.Compiler;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
@@ -85,28 +86,24 @@ namespace ItPedia.Controllers
         }
 
         [HttpPost]
-        public ActionResult GetSolutions(string industryCode, string employeeCode, string customerCode,
-            string transactionCode)
+        public ActionResult GetSolutions(int industryId, int employeeId, int customerId,
+            int transactionId)
         {
-            //             TODO: Validate Parameters
+//            if (!HttpContext.Request.IsAjaxRequest() )
+//                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-            //            var solutionCode = Solution.GetSolutionCode(employees-size, industryCode, transactionCode);
-            //
-            //            var solutions = Proposal.GetBySolutionCode(solutionCode);
-            //
-            //            var model = new HomeResultsViewModel
-            //            {
-            //                HardwareSolutions = solutions.HardwareSolutions,
-            //                SoftwareSolutions = solutions.SoftwareSolutions,
-            //                AppSolutions = solutions.AppSolutions,
-            //                NetSolutions = solutions.NetSolutions,
-            //                StorageSolutions = solutions.StorageSolutions,
-            //                FixedCosts = solutions.FixedCosts,
-            //                RecurringCosts = solutions.RecurringCosts
-            //            };
+            var solution = _db.Solutions
+                .Where(s => s.IndustryCriteriaId == industryId)
+                .Where(s => s.EmployeeCriteriaId == employeeId)
+                .Where(s => s.CustomerCriteriaId == customerId)
+                .First(s => s.TransactionCriteriaId == transactionId);
 
-            //            return View(model);
-            return HttpNotFound();
+            if (solution == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View("Results");
         }
 
 
@@ -145,9 +142,9 @@ namespace ItPedia.Controllers
 
         public ActionResult GetTransactionCriterias(int industryId, int employeeId, int customerId)
         {
-//            if (!HttpContext.Request.IsAjaxRequest() || _db.IndustryCriterias.Find(industryId) == null ||
-//                _db.EmployeeCriterias.Find(employeeId) == null || _db.CustomerCriterias.Find(customerId) == null)
-//                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            if (!HttpContext.Request.IsAjaxRequest() || _db.IndustryCriterias.Find(industryId) == null ||
+                _db.EmployeeCriterias.Find(employeeId) == null || _db.CustomerCriterias.Find(customerId) == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
             var results = from transactionCriteria in _db.TransactionCriterias
                 from industryCriteria in transactionCriteria.IndustryCriterias

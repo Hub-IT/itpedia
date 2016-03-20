@@ -1,5 +1,5 @@
 ﻿$(function() {
-    $("#transactionCode").change(function() {
-        $("#SubmitBtn").prop("disabled", false);
+    $("#transactionCriterias").change(function() {
+        $("#submit-btn").prop("disabled", false);
     });
 });

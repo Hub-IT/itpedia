@@ -431,6 +431,7 @@
     <Content Include="Views\Proposals\Details.cshtml" />
     <Content Include="Views\Proposals\Edit.cshtml" />
     <Content Include="Views\Proposals\Index.cshtml" />
+    <Content Include="Views\Home\Results.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
