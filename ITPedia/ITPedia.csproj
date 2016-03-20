@@ -204,6 +204,7 @@
       <DependentUpon>201603121947028_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\Seeds\ProposalTermSeeder.cs" />
     <Compile Include="Migrations\Seeds\ProposalSeeder.cs" />
     <Compile Include="Migrations\Seeds\CustomerCriteriaSeeder.cs" />
     <Compile Include="Migrations\Seeds\EmployeeCriteriaSeeder.cs" />

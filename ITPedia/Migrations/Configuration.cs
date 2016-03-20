@@ -24,6 +24,7 @@ namespace ItPedia.Migrations
             new CategorySeeder(context);
             new SolutionSeeder(context);
             new ProposalSeeder(context);
+            new ProposalTermSeeder(context);
         }
     }
 }

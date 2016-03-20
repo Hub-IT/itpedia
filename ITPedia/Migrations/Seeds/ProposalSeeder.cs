@@ -21,31 +21,31 @@ namespace ItPedia.Migrations.Seeds
             context.Proposals.AddOrUpdate(solution => solution.Name,
                 new Proposal
                 {
-                    Name = "Solution 1: Proposal 1",
+                    Name = "Solution 1: Hardware Proposals",
                     CategoryId = hardwareCategory.CategoryId,
                     SolutionId = solution1.SolutionId
                 },
                 new Proposal
                 {
-                    Name = "Solution 1: Proposal 2",
+                    Name = "Solution 1: Software Proposals",
                     CategoryId = softwareCategory.CategoryId,
                     SolutionId = solution1.SolutionId
                 },
                 new Proposal
                 {
-                    Name = "Solution 1: Proposal 3",
+                    Name = "Solution 1: Application Proposals",
                     CategoryId = applicationsCategory.CategoryId,
                     SolutionId = solution1.SolutionId
                 },
                 new Proposal
                 {
-                    Name = "Solution 1: Proposal 4",
+                    Name = "Solution 1: Network Proposals",
                     CategoryId = networkingCategory.CategoryId,
                     SolutionId = solution1.SolutionId
                 },
                 new Proposal
                 {
-                    Name = "Solution 1: Proposal 5",
+                    Name = "Solution 1: Storage Proposals",
                     CategoryId = storageCategory.CategoryId,
                     SolutionId = solution1.SolutionId
                 }
