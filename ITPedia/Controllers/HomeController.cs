@@ -1,10 +1,14 @@
-﻿using System.CodeDom.Compiler;
+﻿using System.Web.Script.Serialization;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
+using ItPedia.Models;
 using ItPedia.Models.Contexts;
 using ItPedia.ViewModels;
+using static System.Int32;
 
 namespace ItPedia.Controllers
 {
@@ -86,24 +90,30 @@ namespace ItPedia.Controllers
         }
 
         [HttpPost]
-        public ActionResult GetSolutions(int industryId, int employeeId, int customerId,
-            int transactionId)
+        public IQueryable<Solution> GetSolutions(FormCollection collection)
         {
-//            if (!HttpContext.Request.IsAjaxRequest() )
-//                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+//
+//            var termsList = new List<string>();
+//
+//            foreach (string key in collection.Keys)
+//            {
+//                termsList.Add(key);
+//            }
+//
+//            return termsList[1];
 
+            // todo: validate given id exists on db.
             var solution = _db.Solutions
-                .Where(s => s.IndustryCriteriaId == industryId)
-                .Where(s => s.EmployeeCriteriaId == employeeId)
-                .Where(s => s.CustomerCriteriaId == customerId)
-                .First(s => s.TransactionCriteriaId == transactionId);
+                .Where(s => s.IndustryCriteriaId == Parse(Request["industryCriterias"]))
+                .Where(s => s.EmployeeCriteriaId == Parse(Request["employeeCriteriaId"]))
+                .Where(s => s.CustomerCriteriaId == Parse(Request["customerCriteriaId"]))
+                .Where(s => s.TransactionCriteriaId == Parse(Request["transactionCriteriaId"]));
 
-            if (solution == null)
-            {
-                return HttpNotFound();
-            }
+            ViewBag.solution = solution;
 
-            return View("Results");
+            return solution;
+            
+            //            return View("Results");
         }
 
 
@@ -113,9 +123,9 @@ namespace ItPedia.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
             var results = from employeeCriteria in _db.EmployeeCriterias
-                from industryCriteria in employeeCriteria.IndustryCriterias
-                where (industryCriteria.IndustryCriteriaId == id)
-                select new {employeeCriteria.EmployeeCriteriaId, employeeCriteria.Size};
+                          from industryCriteria in employeeCriteria.IndustryCriterias
+                          where (industryCriteria.IndustryCriteriaId == id)
+                          select new { employeeCriteria.EmployeeCriteriaId, employeeCriteria.Size };
 
             return Json(new SelectList(
                 results.ToArray(), "EmployeeCriteriaId", "Size"), JsonRequestBehavior.AllowGet);
@@ -129,12 +139,12 @@ namespace ItPedia.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
             var results = from customerCriteria in _db.CustomerCriterias
-                from industryCriteria in customerCriteria.IndustryCriterias
-                from employeeCriteria in customerCriteria.EmployeeCriterias
-                where
-                    (industryCriteria.IndustryCriteriaId == industryId &&
-                     employeeCriteria.EmployeeCriteriaId == employeeId)
-                select new {customerCriteria.CustomerCriteriaId, customerCriteria.Size};
+                          from industryCriteria in customerCriteria.IndustryCriterias
+                          from employeeCriteria in customerCriteria.EmployeeCriterias
+                          where
+                              (industryCriteria.IndustryCriteriaId == industryId &&
+                               employeeCriteria.EmployeeCriteriaId == employeeId)
+                          select new { customerCriteria.CustomerCriteriaId, customerCriteria.Size };
 
             return Json(new SelectList(
                 results.ToArray(), "CustomerCriteriaId", "Size"), JsonRequestBehavior.AllowGet);
@@ -147,14 +157,14 @@ namespace ItPedia.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
             var results = from transactionCriteria in _db.TransactionCriterias
-                from industryCriteria in transactionCriteria.IndustryCriterias
-                from employeeCriteria in transactionCriteria.EmployeeCriterias
-                from customerCriteria in transactionCriteria.CustomerCriterias
-                where
-                    (industryCriteria.IndustryCriteriaId == industryId &&
-                     employeeCriteria.EmployeeCriteriaId == employeeId &&
-                     customerCriteria.CustomerCriteriaId == customerId)
-                select new {transactionCriteria.TransactionCriteriaId, transactionCriteria.PerMonth};
+                          from industryCriteria in transactionCriteria.IndustryCriterias
+                          from employeeCriteria in transactionCriteria.EmployeeCriterias
+                          from customerCriteria in transactionCriteria.CustomerCriterias
+                          where
+                              (industryCriteria.IndustryCriteriaId == industryId &&
+                               employeeCriteria.EmployeeCriteriaId == employeeId &&
+                               customerCriteria.CustomerCriteriaId == customerId)
+                          select new { transactionCriteria.TransactionCriteriaId, transactionCriteria.PerMonth };
 
             return Json(new SelectList(
                 results.ToArray(), "TransactionCriteriaId", "PerMonth"), JsonRequestBehavior.AllowGet);
