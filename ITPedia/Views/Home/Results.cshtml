@@ -1,16 +1,11 @@
-﻿@{
-    var solution = ViewBag.solution;
-}
-@using ItPedia.Models
+﻿@using ItPedia.Models
 @{
-    ViewBag.Title = "Solution - Proposals";
-}
-
+    ViewBag.Title = "Solution - Proposals"; } 
 <h2>@ViewBag.YouSelected2</h2>
 
 <h2>@ViewBag.Title</h2>
 
-@foreach (Proposal proposal in solution.Proposals)
+@foreach (Proposal proposal in Model.Proposals)
 {
     <div class="row">
         <div class="list-group col-md-4 col-sm-6 col-xs-12">
