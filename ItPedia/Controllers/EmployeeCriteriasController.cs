@@ -14,20 +14,20 @@ namespace ItPedia.Controllers
     {
         private readonly ItPediaDbContext _db = new ItPediaDbContext();
 
-        // GET: EmployeeCriterias
+        // GET: EmployeeCriteria
         public ActionResult Index()
         {
-            return View(_db.EmployeeCriterias.ToList());
+            return View(_db.EmployeeCriteria.ToList());
         }
 
-        // GET: EmployeeCriterias/Details/5
+        // GET: EmployeeCriteria/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var employeeCriteria = _db.EmployeeCriterias.Find(id);
+            var employeeCriteria = _db.EmployeeCriteria.Find(id);
             if (employeeCriteria == null)
             {
                 return HttpNotFound();
@@ -35,53 +35,53 @@ namespace ItPedia.Controllers
             return View(employeeCriteria);
         }
 
-        // GET: EmployeeCriterias/Create
+        // GET: EmployeeCriteria/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: EmployeeCriterias/Create
+        // POST: EmployeeCriteria/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EmployeeCriteriaId,Size")] EmployeeCriteria employeeCriteria)
+        public ActionResult Create([Bind(Include = "EmployeeCriterionId,Size")] EmployeeCriterion employeeCriterion)
         {
             if (ModelState.IsValid)
             {
-                _db.EmployeeCriterias.Add(employeeCriteria);
+                _db.EmployeeCriteria.Add(employeeCriterion);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(employeeCriteria);
+            return View(employeeCriterion);
         }
 
-        // GET: EmployeeCriterias/Edit/5
+        // GET: EmployeeCriteria/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
             var employeeCriteriasViewModel = new EmployeeCriteriasViewModel
             {
-                EmployeeCriteria = _db.EmployeeCriterias.Find(id)
+                EmployeeCriterion = _db.EmployeeCriteria.Find(id)
             };
 
-            if (employeeCriteriasViewModel.EmployeeCriteria == null) return HttpNotFound();
+            if (employeeCriteriasViewModel.EmployeeCriterion == null) return HttpNotFound();
 
-            var allIndustryCriterias = _db.IndustryCriterias.ToList();
+            var allIndustryCriterias = _db.IndustryCriteria.ToList();
 
             employeeCriteriasViewModel.AllIndustryCriterias = allIndustryCriterias.Select(o => new SelectListItem
             {
                 Text = o.Name,
-                Value = o.IndustryCriteriaId.ToString()
+                Value = o.IndustryCriterionId.ToString()
             });
 
             return View(employeeCriteriasViewModel);
         }
 
-        // POST: EmployeeCriterias/Edit/5
+        // POST: EmployeeCriteria/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -95,27 +95,27 @@ namespace ItPedia.Controllers
                 Flash.Error("Validation errors occured.");
 
                 RedirectToAction("Edit",
-                    new {id = employeeCriteriasViewModel.EmployeeCriteria.EmployeeCriteriaId});
+                    new {id = employeeCriteriasViewModel.EmployeeCriterion.EmployeeCriterionId});
             }
 
-            var employeeCriteriaToUpdate = _db.EmployeeCriterias.Include(i => i.IndustryCriterias).First(i =>
-                i.EmployeeCriteriaId == employeeCriteriasViewModel.EmployeeCriteria.EmployeeCriteriaId);
+            var employeeCriteriaToUpdate = _db.EmployeeCriteria.Include(i => i.IndustryCriteria).First(i =>
+                i.EmployeeCriterionId == employeeCriteriasViewModel.EmployeeCriterion.EmployeeCriterionId);
 
             if (!TryUpdateModel(employeeCriteriaToUpdate, "EmployeeCriteria",
-                new[] {"Size", "IndustryCriteriaId"})) return RedirectToAction("Index");
+                new[] {"Size", "IndustryCriterionId"})) return RedirectToAction("Index");
 
             var updatedIndustryCriterias = new HashSet<int>(employeeCriteriasViewModel.SelectedIndustryCriterias);
 
-            foreach (var industryCriteria in _db.IndustryCriterias)
+            foreach (var industryCriteria in _db.IndustryCriteria)
             {
-                if (!updatedIndustryCriterias.Contains(industryCriteria.IndustryCriteriaId))
+                if (!updatedIndustryCriterias.Contains(industryCriteria.IndustryCriterionId))
                 {
-                    employeeCriteriaToUpdate.IndustryCriterias.Remove(industryCriteria);
+                    employeeCriteriaToUpdate.IndustryCriteria.Remove(industryCriteria);
 
                     continue;
                 }
 
-                employeeCriteriaToUpdate.IndustryCriterias.Add((industryCriteria));
+                employeeCriteriaToUpdate.IndustryCriteria.Add((industryCriteria));
             }
 
             _db.Entry(employeeCriteriaToUpdate).State = EntityState.Modified;
@@ -124,17 +124,17 @@ namespace ItPedia.Controllers
 
             Flash.Success("Transaction criteria updated.");
 
-            return RedirectToAction("Edit", new {id = employeeCriteriaToUpdate.EmployeeCriteriaId});
+            return RedirectToAction("Edit", new {id = employeeCriteriaToUpdate.EmployeeCriterionId});
         }
 
-        // GET: EmployeeCriterias/Delete/5
+        // GET: EmployeeCriteria/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var employeeCriteria = _db.EmployeeCriterias.Find(id);
+            var employeeCriteria = _db.EmployeeCriteria.Find(id);
             if (employeeCriteria == null)
             {
                 return HttpNotFound();
@@ -142,13 +142,13 @@ namespace ItPedia.Controllers
             return View(employeeCriteria);
         }
 
-        // POST: EmployeeCriterias/Delete/5
+        // POST: EmployeeCriteria/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            var employeeCriteria = _db.EmployeeCriterias.Find(id);
-            _db.EmployeeCriterias.Remove(employeeCriteria);
+            var employeeCriteria = _db.EmployeeCriteria.Find(id);
+            _db.EmployeeCriteria.Remove(employeeCriteria);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -12,16 +12,16 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>CustomerCriterias</h4>
+        <h4>CustomerCriterions</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.CustomerCriteria.CustomerCriteriaId)
+        @Html.HiddenFor(model => model.CustomerCriterion.CustomerCriterionId)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CustomerCriteria.Size, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.CustomerCriterion.Size, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CustomerCriteria.Size, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CustomerCriteria.Size, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.CustomerCriterion.Size, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CustomerCriterion.Size, "", new { @class = "text-danger" })
             </div>
         </div>
 

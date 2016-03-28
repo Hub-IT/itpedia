@@ -9,7 +9,7 @@
  */
 $(function() {
 
-    $("#customerCriterias").change(function() {
+    $("#CustomerCriterion").change(function() {
 
         var url = $("#FormId").data("get-transaction-criterias-by-customer-criteeria-id-url") + "?industryId=" + $("#industryCriterias").val() +
             "&employeeId=" + $("#employeeCriterias").val() +"&customerId=" +$(this).val();
@@ -21,8 +21,8 @@ $(function() {
                 items += "<option value='" + transaction.Value + "'>" + transaction.Text + "</option>";
             });
 
-            $("#transactionCriterias").html(items);
-            $("#transactionCriterias").prop("disabled", false);
+            $("#TransactionCriterion").html(items);
+            $("#TransactionCriterion").prop("disabled", false);
         });
     });
 

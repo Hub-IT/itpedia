@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ItPedia.Models.IndustryCriteria>
+﻿@model IEnumerable<ItPedia.Models.IndustryCriterion>
 
 @{
     ViewBag.Title = "Index";
@@ -24,9 +24,9 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IndustryCriteriaId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IndustryCriteriaId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IndustryCriteriaId })
+            @Html.ActionLink("Edit", "Edit", new { id=item.IndustryCriterionId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IndustryCriterionId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IndustryCriterionId })
         </td>
     </tr>
 }

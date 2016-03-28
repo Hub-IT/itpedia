@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ItPedia.Models.TransactionCriteria>
+﻿@model IEnumerable<ItPedia.Models.TransactionCriterion>
 
 @{
     ViewBag.Title = "Index";
@@ -24,9 +24,9 @@
             @Html.DisplayFor(modelItem => item.PerMonth)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TransactionCriteriaId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TransactionCriteriaId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TransactionCriteriaId })
+            @Html.ActionLink("Edit", "Edit", new { id=item.TransactionCriterionId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TransactionCriterionId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TransactionCriterionId })
         </td>
     </tr>
 }

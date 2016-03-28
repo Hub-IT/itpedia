@@ -7,14 +7,14 @@ namespace ItPedia.Models
         public int SolutionId { get; set; }
         public virtual string Name { get; set; }
 
-        public virtual int IndustryCriteriaId { get; set; }
-        public virtual IndustryCriteria IndustryCriteria { get; set; }
-        public virtual int EmployeeCriteriaId { get; set; }
-        public virtual EmployeeCriteria EmployeeCriteria { get; set; }
-        public virtual int CustomerCriteriaId { get; set; }
-        public virtual CustomerCriteria CustomerCriteria { get; set; }
-        public virtual int TransactionCriteriaId { get; set; }
-        public virtual TransactionCriteria TransactionCriteria { get; set; }
+        public virtual int IndustryCriterionId { get; set; }
+        public virtual IndustryCriterion IndustryCriterion { get; set; }
+        public virtual int EmployeeCriterionId { get; set; }
+        public virtual EmployeeCriterion EmployeeCriterion { get; set; }
+        public virtual int CustomerCriterionId { get; set; }
+        public virtual CustomerCriterion CustomerCriterion { get; set; }
+        public virtual int TransactionCriterionId { get; set; }
+        public virtual TransactionCriterion TransactionCriterion { get; set; }
 
         public virtual List<Proposal> Proposals { get; set; }
 

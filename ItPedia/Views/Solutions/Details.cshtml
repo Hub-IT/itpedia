@@ -1,0 +1,59 @@
+﻿@model ItPedia.Models.Solution
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Solution</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerCriterion.Size)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerCriterion.Size)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeCriterion.Size)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeCriterion.Size)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IndustryCriterion.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IndustryCriterion.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TransactionCriterion.PerMonth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TransactionCriterion.PerMonth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SolutionId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

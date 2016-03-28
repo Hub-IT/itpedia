@@ -1,4 +1,4 @@
-﻿@model ItPedia.Models.IndustryCriteria
+﻿@model ItPedia.Models.IndustryCriterion
 
 @{
     ViewBag.Title = "Edit";
@@ -13,10 +13,10 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>IndustryCriteria</h4>
+        <h4>IndustryCriterion</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.IndustryCriteriaId)
+        @Html.HiddenFor(model => model.IndustryCriterionId)
 
         <div class="form-group">
             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })

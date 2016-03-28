@@ -13,16 +13,16 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>TransactionCriteria</h4>
+        <h4>TransactionCriterion</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.TransactionCriteria.TransactionCriteriaId)
+        @Html.HiddenFor(model => model.TransactionCriterion.TransactionCriterionId)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.TransactionCriteria.PerMonth, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.TransactionCriterion.PerMonth, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.TransactionCriteria.PerMonth, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TransactionCriteria.PerMonth, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.TransactionCriterion.PerMonth, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TransactionCriterion.PerMonth, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">

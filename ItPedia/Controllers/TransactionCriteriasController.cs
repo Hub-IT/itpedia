@@ -14,20 +14,20 @@ namespace ItPedia.Controllers
     {
         private readonly ItPediaDbContext db = new ItPediaDbContext();
 
-        // GET: TransactionCriterias
+        // GET: TransactionCriterion
         public ActionResult Index()
         {
-            return View(db.TransactionCriterias.ToList());
+            return View(db.TransactionCriteria.ToList());
         }
 
-        // GET: TransactionCriterias/Details/5
+        // GET: TransactionCriterion/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var transactionCriteria = db.TransactionCriterias.Find(id);
+            var transactionCriteria = db.TransactionCriteria.Find(id);
             if (transactionCriteria == null)
             {
                 return HttpNotFound();
@@ -35,68 +35,68 @@ namespace ItPedia.Controllers
             return View(transactionCriteria);
         }
 
-        // GET: TransactionCriterias/Create
+        // GET: TransactionCriterion/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: TransactionCriterias/Create
+        // POST: TransactionCriterion/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(
-            [Bind(Include = "TransactionCriteriaId,PerMonth")] TransactionCriteria transactionCriteria)
+            [Bind(Include = "TransactionCriterionId,PerMonth")] TransactionCriterion transactionCriterion)
         {
             if (ModelState.IsValid)
             {
-                db.TransactionCriterias.Add(transactionCriteria);
+                db.TransactionCriteria.Add(transactionCriterion);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(transactionCriteria);
+            return View(transactionCriterion);
         }
 
-        // GET: TransactionCriterias/Edit/5
+        // GET: TransactionCriterion/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
             var transactionCriteriasViewModel = new TransactionCriteriaViewModel
             {
-                TransactionCriteria = db.TransactionCriterias.Find(id)
+                TransactionCriterion = db.TransactionCriteria.Find(id)
             };
 
-            if (transactionCriteriasViewModel.TransactionCriteria == null) return HttpNotFound();
+            if (transactionCriteriasViewModel.TransactionCriterion == null) return HttpNotFound();
 
-            var allIndustryCriterias = db.IndustryCriterias.ToList();
-            var allEmployeeCriterias = db.EmployeeCriterias.ToList();
+            var allIndustryCriterias = db.IndustryCriteria.ToList();
+            var allEmployeeCriterias = db.EmployeeCriteria.ToList();
             var allCustomersCriterias = db.CustomerCriterias.ToList();
 
             transactionCriteriasViewModel.AllIndustryCriterias = allIndustryCriterias.Select(o => new SelectListItem
             {
                 Text = o.Name,
-                Value = o.IndustryCriteriaId.ToString()
+                Value = o.IndustryCriterionId.ToString()
             });
 
             transactionCriteriasViewModel.AllEmployeeCriterias = allEmployeeCriterias.Select(o => new SelectListItem
             {
                 Text = o.Size,
-                Value = o.EmployeeCriteriaId.ToString()
+                Value = o.EmployeeCriterionId.ToString()
             });
 
             transactionCriteriasViewModel.AllCustomerCriterias = allCustomersCriterias.Select(o => new SelectListItem
             {
                 Text = o.Size,
-                Value = o.CustomerCriteriaId.ToString()
+                Value = o.CustomerCriterionId.ToString()
             });
 
             return View(transactionCriteriasViewModel);
         }
 
-        // POST: TransactionCriterias/Edit/5
+        // POST: TransactionCriterion/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -111,62 +111,62 @@ namespace ItPedia.Controllers
                 Flash.Error("Validation errors occured.");
 
                 RedirectToAction("Edit",
-                    new {id = transactionCriteriaViewModel.TransactionCriteria.TransactionCriteriaId});
+                    new {id = transactionCriteriaViewModel.TransactionCriterion.TransactionCriterionId});
             }
 
-            var transactionCriteriaToUpdate = db.TransactionCriterias
-                .Include(i => i.IndustryCriterias)
-                .Include(i => i.EmployeeCriterias)
-                .Include(i => i.CustomerCriterias)
+            var transactionCriteriaToUpdate = db.TransactionCriteria
+                .Include(i => i.IndustryCriteria)
+                .Include(i => i.EmployeeCriteria)
+                .Include(i => i.CustomerCriteria)
                 .First(
                     i =>
-                        i.TransactionCriteriaId ==
-                        transactionCriteriaViewModel.TransactionCriteria.TransactionCriteriaId);
+                        i.TransactionCriterionId ==
+                        transactionCriteriaViewModel.TransactionCriterion.TransactionCriterionId);
 
-            if (!TryUpdateModel(transactionCriteriaToUpdate, "TransactionCriteria",
-                new[] {"PerMonth", "IndustryCriteriaId", "EmployeeCriteriaId", "CustomerCriteriaId"}))
+            if (!TryUpdateModel(transactionCriteriaToUpdate, "TransactionCriterion",
+                new[] {"PerMonth", "IndustryCriterionId", "EmployeeCriterionId", "CustomerCriterionId"}))
                 return RedirectToAction("Index");
 
             var updatedIndustryCriterias = new HashSet<int>(transactionCriteriaViewModel.SelectedIndustryCriterias);
 
-            foreach (var industryCriteria in db.IndustryCriterias)
+            foreach (var industryCriteria in db.IndustryCriteria)
             {
-                if (!updatedIndustryCriterias.Contains(industryCriteria.IndustryCriteriaId))
+                if (!updatedIndustryCriterias.Contains(industryCriteria.IndustryCriterionId))
                 {
-                    transactionCriteriaToUpdate.IndustryCriterias.Remove(industryCriteria);
+                    transactionCriteriaToUpdate.IndustryCriteria.Remove(industryCriteria);
 
                     continue;
                 }
 
-                transactionCriteriaToUpdate.IndustryCriterias.Add((industryCriteria));
+                transactionCriteriaToUpdate.IndustryCriteria.Add((industryCriteria));
             }
 
             var updatedEmployeeCriterias = new HashSet<int>(transactionCriteriaViewModel.SelectedEmployeeCriterias);
 
-            foreach (var employeeCriteria in db.EmployeeCriterias)
+            foreach (var employeeCriteria in db.EmployeeCriteria)
             {
-                if (!updatedEmployeeCriterias.Contains(employeeCriteria.EmployeeCriteriaId))
+                if (!updatedEmployeeCriterias.Contains(employeeCriteria.EmployeeCriterionId))
                 {
-                    transactionCriteriaToUpdate.EmployeeCriterias.Remove(employeeCriteria);
+                    transactionCriteriaToUpdate.EmployeeCriteria.Remove(employeeCriteria);
 
                     continue;
                 }
 
-                transactionCriteriaToUpdate.EmployeeCriterias.Add((employeeCriteria));
+                transactionCriteriaToUpdate.EmployeeCriteria.Add((employeeCriteria));
             }
 
             var updatedCustomerCriterias= new HashSet<int>(transactionCriteriaViewModel.SelectedCustomerCriterias);
 
             foreach (var customerCriteria in db.CustomerCriterias)
             {
-                if (!updatedCustomerCriterias.Contains(customerCriteria.CustomerCriteriaId))
+                if (!updatedCustomerCriterias.Contains(customerCriteria.CustomerCriterionId))
                 {
-                    transactionCriteriaToUpdate.CustomerCriterias.Remove(customerCriteria);
+                    transactionCriteriaToUpdate.CustomerCriteria.Remove(customerCriteria);
 
                     continue;
                 }
 
-                transactionCriteriaToUpdate.CustomerCriterias.Add((customerCriteria));
+                transactionCriteriaToUpdate.CustomerCriteria.Add((customerCriteria));
             }
 
             db.Entry(transactionCriteriaToUpdate).State = EntityState.Modified;
@@ -175,17 +175,17 @@ namespace ItPedia.Controllers
 
             Flash.Success("Transaction criteria updated.");
 
-            return RedirectToAction("Edit", new {id = transactionCriteriaToUpdate.TransactionCriteriaId});
+            return RedirectToAction("Edit", new {id = transactionCriteriaToUpdate.TransactionCriterionId});
         }
 
-        // GET: TransactionCriterias/Delete/5
+        // GET: TransactionCriterion/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var transactionCriteria = db.TransactionCriterias.Find(id);
+            var transactionCriteria = db.TransactionCriteria.Find(id);
             if (transactionCriteria == null)
             {
                 return HttpNotFound();
@@ -193,13 +193,13 @@ namespace ItPedia.Controllers
             return View(transactionCriteria);
         }
 
-        // POST: TransactionCriterias/Delete/5
+        // POST: TransactionCriterion/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            var transactionCriteria = db.TransactionCriterias.Find(id);
-            db.TransactionCriterias.Remove(transactionCriteria);
+            var transactionCriteria = db.TransactionCriteria.Find(id);
+            db.TransactionCriteria.Remove(transactionCriteria);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

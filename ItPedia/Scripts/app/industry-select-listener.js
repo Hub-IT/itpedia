@@ -9,11 +9,11 @@
  */
 $(function() {
 
-    $("#industryCriterias").change(function() {
+    $("#IndustryCriterion").change(function() {
 
-        $("#employeeCriterias").prop("disabled", false);
-        $("#customerCriterias").prop("disabled", true);
-        $("#transactionCriterias").prop("disabled", true);
+        $("#EmployeeCriteria").prop("disabled", false);
+        $("#CustomerCriterion").prop("disabled", true);
+        $("#TransactionCriterion").prop("disabled", true);
         $("#Submit").prop("disabled", true);
 
         var url = $("#FormId").data("get-employee-criterias-by-industry-criteria-id-url") + "/" + $(this).val();
@@ -25,7 +25,7 @@ $(function() {
                 items += "<option value='" + employee.Value + "'>" + employee.Text + "</option>";
             });
 
-            $("#employeeCriterias").html(items);
+            $("#EmployeeCriteria").html(items);
             $("#employeeCriteriasDiv").prop("disabled", false);
         });
     });

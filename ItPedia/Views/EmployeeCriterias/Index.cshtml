@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ItPedia.Models.EmployeeCriteria>
+﻿@model IEnumerable<ItPedia.Models.EmployeeCriterion>
 
 @{
     ViewBag.Title = "Index";
@@ -24,9 +24,9 @@
             @Html.DisplayFor(modelItem => item.Size)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeCriteriaId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EmployeeCriteriaId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeCriteriaId })
+            @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeCriterionId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EmployeeCriterionId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeCriterionId })
         </td>
     </tr>
 }
