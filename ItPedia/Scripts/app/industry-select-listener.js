@@ -1,5 +1,4 @@
 ﻿/**
- * @author Unkown
  * @editor Rizart Dokollari <r.dokollari@gmail.com>
  * @since 9/1/2015
  * 
@@ -8,15 +7,16 @@
  * 
  */
 $(function() {
+    $("#industry-criterion").change(function() {
 
-    $("#IndustryCriterion").change(function() {
+        $("#employee-criterion").prop("disabled", false);
+        $("#customer-criterion").prop("disabled", true);
+        $("#transaction-criterion").prop("disabled", true);
+        $("#sumbit-btn").prop("disabled", true);
 
-        $("#EmployeeCriteria").prop("disabled", false);
-        $("#CustomerCriterion").prop("disabled", true);
-        $("#TransactionCriterion").prop("disabled", true);
-        $("#Submit").prop("disabled", true);
+        var url = $("#criteria-form").data("get-employee-criterias-by-industry-criteria-id-url") + "/" + $(this).val();
 
-        var url = $("#FormId").data("get-employee-criterias-by-industry-criteria-id-url") + "/" + $(this).val();
+        console.log(url);
 
         $.getJSON(url, function(data) {
             var items = "<option>Select employees</option>";

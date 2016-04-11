@@ -21,7 +21,7 @@ namespace ItPedia.Models.Contexts
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-//            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ItPediaDbContext, Configuration>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ItPediaDbContext, Configuration>());
         }
     }
 }

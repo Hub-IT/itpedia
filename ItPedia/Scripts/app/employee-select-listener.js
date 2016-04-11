@@ -1,5 +1,4 @@
 ﻿/**
- * @author Unkown
  * @author Rizart Dokollari <r.dokollari@gmail.com>
  * @since 9/1/2015
  * 
@@ -9,12 +8,12 @@
  */
 $(function() {
 
-    $("#EmployeeCriteria").change(function() {
+    $("#employee-criterion").change(function() {
 
-        $("#TransactionCriterion").prop("disabled", true);
-        $("#CustomerCriterion").prop("disabled", true);
+        $("#transaction-criterion").prop("disabled", true);
+        $("#customer-criterion").prop("disabled", true);
 
-        var url = $("#FormId").data("get-customer-criterias-by-employee-criteria-id-url") + "?employeeId=" + $(this).val() + "&industryId=" + $("#industryCriterias").val();
+        var url = $("#criteria-form").data("get-customer-criterias-by-employee-criteria-id-url") + "?employeeId=" + $(this).val() + "&industryId=" + $("#industryCriterias").val();
 
         $.getJSON(url, function(data) {
 
@@ -24,8 +23,8 @@ $(function() {
                 items += "<option value='" + customer.Value + "'>" + customer.Text + "</option>";
             });
 
-            $("#CustomerCriterion").html(items);
-            $("#CustomerCriterion").prop("disabled", false);
+            $("#customer-criterion").html(items);
+            $("#customer-criterion").prop("disabled", false);
         });
     });
 });

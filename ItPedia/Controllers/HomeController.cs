@@ -105,10 +105,10 @@ namespace ItPedia.Controllers
             var customerCriteriaId = Parse(Request["CustomerCriterion"]);
             var transactionCriteriaId = Parse(Request["TransactionCriterion"]);
 
-            Debug.WriteLine(Request["IndustryCriterion"]);
-            Debug.WriteLine(Request["EmployeeCriteria"]);
-            Debug.WriteLine(Request["CustomerCriterion"]);
-            Debug.WriteLine(Request["TransactionCriterion"]);
+//            Debug.WriteLine(Request["IndustryCriterion"]);
+//            Debug.WriteLine(Request["EmployeeCriteria"]);
+//            Debug.WriteLine(Request["CustomerCriterion"]);
+//            Debug.WriteLine(Request["TransactionCriterion"]);
 
             if (null == _db.EmployeeCriteria.Find(industryCriteriaId) ||
                 null == _db.EmployeeCriteria.Find(employeeCriteriaId) ||
@@ -139,6 +139,7 @@ namespace ItPedia.Controllers
                 from industryCriteria in employeeCriteria.IndustryCriteria
                 where (industryCriteria.IndustryCriterionId == id)
                 select new {EmployeeCriteriaId = employeeCriteria.EmployeeCriterionId, employeeCriteria.Size};
+
 
             return Json(new SelectList(
                 results.ToArray(), "employeeCriterias", "Size"), JsonRequestBehavior.AllowGet);

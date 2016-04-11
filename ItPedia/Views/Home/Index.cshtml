@@ -38,10 +38,10 @@
                 @Html.ActionLink("Employees Criteria", "Index", "EmployeeCriterias")
             </li>
             <li>
-                @Html.ActionLink("Customers Criteria", "Index", "CustomerCriterias")
+                @Html.ActionLink("Customers Criteria", "Index", "customer-criterions")
             </li>
             <li>
-                @Html.ActionLink("Transaction Criteria", "Index", "TransactionCriterias")
+                @Html.ActionLink("Transaction Criteria", "Index", "transaction-criterions")
             </li>
             <li>
                 @Html.ActionLink("Solutions", "Index", "Solutions")
@@ -61,7 +61,7 @@
 
 @using (Html.BeginForm("GetSolutions", "Home", FormMethod.Post, new
 {
-    @id = "FormId",
+    @id = "criteria-form",
     data_get_employee_criterias_by_industry_criteria_id_url = @Url.Action("GetEmployeeCriteriasByIndustryId"),
     data_get_customer_criterias_by_employee_criteria_id_url = @Url.Action("GetCustomerCriterias"),
     data_get_transaction_criterias_by_customer_criteeria_id_url = @Url.Action("GetTransactionCriterias"),
@@ -71,28 +71,28 @@
     <div class="row">
 
         <div class="form-group col-sm-6">
-            <label class="control-label" for="IndustryCriterion">
+            <label class="control-label" for="industry-criterion">
                 <i class="fa fa-industry"></i> Industry
             </label>
             @Html.DropDownList("IndustryCriterion", Model.IndustryCriterias, "Select an industry",
-                new {@id = "industryCriteria", @class = "form-control select2", @style = "width: 100%"})
+                new {@id = "industry-criterion", @class = "form-control select2", @style = "width: 100%"})
         </div>
 
         <div class="form-group col-sm-6" id="employeeCriteriasDiv">
-            <label class="control-label" for="employeeCriteria">
+            <label class="control-label" for="employee-criterion">
                 <i class="fa fa-users"></i> Employees Size
             </label>
-            <select id="employeeCriteria" name="EmployeeCriteria" class="form-control select2" disabled="disabled" style="width: 100%">
+            <select id="employee-criterion" name="EmployeeCriteria" class="form-control select2" disabled="disabled" style="width: 100%">
                 <option value="">Select number of employees</option>
             </select>
         </div>
 
 
-        <div class="form-group col-sm-6" id="customerCriteriasDiv">
-            <label class="control-label" for="customerCriteria">
+        <div class="form-group col-sm-6" id="customer-criterionsDiv">
+            <label class="control-label" for="customer-criterion">
                 <i class="fa fa-shopping-cart"></i> Customer Criterias
             </label>
-            <select id="customerCriteria" name="CustomerCriterion" class="form-control select2" disabled="disabled" style="width: 100%">
+            <select id="customer-criterion" name="CustomerCriterion" class="form-control select2" disabled="disabled" style="width: 100%">
                 <option value="">Select number of employees</option>
             </select>
         </div>
@@ -101,7 +101,7 @@
             <label class="control-label">
                 <i class="fa fa-truck"></i> TransactionCriterion/Month
             </label>
-            <select id="transactionCriteria" name="TransactionCriterion" class="form-control select2" disabled="disabled" style="width: 100%">
+            <select id="transaction-criterion" name="TransactionCriterion" class="form-control select2" disabled="disabled" style="width: 100%">
                 <option value="">Select transactions per month</option>
             </select>
         </div>

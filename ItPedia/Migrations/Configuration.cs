@@ -1,3 +1,5 @@
+using ItPedia.Migrations.Seeds;
+
 namespace ItPedia.Migrations
 {
     using System;
@@ -9,23 +11,23 @@ namespace ItPedia.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(ItPedia.Models.Contexts.ItPediaDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            new TermSeeder(context);
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            new IndustryCriteriaSeeder(context);
+            new EmployeeCriteriaSeeder(context);
+            new CustomerCriteriaSeeder(context);
+            new TransactionCriteriaSeeder(context);
+
+            new CategorySeeder(context);
+            new SolutionSeeder(context);
+            new ProposalSeeder(context);
+            new ProposalTermSeeder(context);
         }
     }
 }
